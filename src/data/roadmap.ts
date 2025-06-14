@@ -6,11 +6,108 @@ export const roadmapData = {
       title: "General Development Skills",
       direction: "right", // Indicates it branches to the right
       children: [
-        { id: "git", title: "GIT - Version Control (VSTS, GitHub, GitLab)", type: "must-know" },
-        { id: "http", title: "HTTP/HTTPS protocol + TLS/SSL", type: "must-know" },
-        { id: "search", title: "Learn to search for solutions using Google + ChatGPT/Claude/Github Copilot", type: "must-know" },
-        { id: "data-structures", title: "Data Structures and Algorithms", type: "must-know" },
-      ]
+        {
+          id: "git",
+          title: "GIT - Version Control (VSTS, GitHub, GitLab)",
+          type: "must-know",
+          description: `
+            <h2>🔧 GIT Nedir?</h2>
+            <p>
+              <strong>Git</strong>, geliştiricilerin yazılım projelerinde kaynak kodunun sürümlerini takip edebilmesini sağlayan dağıtık bir versiyon kontrol sistemidir.
+            </p>
+            <h3>📂 Kullanım Alanları</h3>
+            <ul>
+              <li>Proje geçmişini kayıt altına alma</li>
+              <li>Takım çalışması ve iş birliği</li>
+              <li>Farklı ortamlarda (GitHub, GitLab, VSTS) senkronizasyon</li>
+            </ul>
+            <h3>🧪 Temel Komutlar</h3>
+            <pre><code>git init
+      git add .
+      git commit -m "İlk kayıt"
+      git push origin main</code></pre>
+            <p>
+              Detaylı bilgi için <a href="https://git-scm.com/doc" target="_blank">resmi Git dökümantasyonu</a>'na göz at.
+            </p>
+          `
+        },
+        {
+          id: "http",
+          title: "HTTP/HTTPS protocol + TLS/SSL",
+          type: "must-know",
+          description: `
+            <h2>🌐 HTTP & HTTPS Nedir?</h2>
+            <p>
+              <strong>HTTP</strong> (HyperText Transfer Protocol), istemci ve sunucu arasında veri alışverişi için kullanılan bir protokoldür.
+              <strong>HTTPS</strong> ise bu iletişimi <strong>TLS/SSL</strong> ile güvence altına alır.
+            </p>
+            <h3>🔒 TLS/SSL</h3>
+            <ul>
+              <li><strong>TLS</strong>: Transport Layer Security</li>
+              <li><strong>SSL</strong>: Secure Sockets Layer (artık yerini TLS aldı)</li>
+              <li>HTTPS, TLS/SSL kullanarak veri şifreler</li>
+            </ul>
+            <h3>📌 Yaygın Kullanım</h3>
+            <ul>
+              <li>Web sitelerinde güvenli oturum</li>
+              <li>API çağrılarında veri gizliliği</li>
+            </ul>
+            <p>
+              Daha fazlası için <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview" target="_blank">MDN HTTP Rehberi</a>'ne göz at.
+            </p>
+          `
+        },
+        {
+          id: "search",
+          title: "Learn to search for solutions using Google + ChatGPT/Claude/Github Copilot",
+          type: "must-know",
+          description: `
+            <h2>🔍 Nasıl Daha İyi Araştırma Yapılır?</h2>
+            <p>
+              Modern geliştiriciler için doğru kaynağa hızlı ulaşmak kritik bir beceridir. Etkili arama motoru kullanımı ve yapay zeka destekli araçlar (ChatGPT, Claude, Copilot) bu süreci hızlandırır.
+            </p>
+            <h3>💡 Arama Taktikleri</h3>
+            <ul>
+              <li><code>site:stackoverflow.com</code> gibi filtrelemelerle arama daralt</li>
+              <li>Kod hatasını <strong>net mesajla</strong> ara</li>
+              <li>Dokümantasyonları <strong>okumayı öğren</strong></li>
+            </ul>
+            <h3>🧠 Yapay Zeka Destekli Yardımcılar</h3>
+            <ul>
+              <li><strong>ChatGPT</strong>: Konsept anlatımı, örnek kod, çözüm önerisi</li>
+              <li><strong>Copilot</strong>: Kod yazarken öneri sunar (IDE içinde)</li>
+              <li><strong>Claude</strong>: Uzun içerikler üzerinde çalışma için uygundur</li>
+            </ul>
+          `
+        },
+        {
+          id: "data-structures",
+          title: "Data Structures and Algorithms",
+          type: "must-know",
+          description: `
+            <h2>📚 Veri Yapıları ve Algoritmalar</h2>
+            <p>
+              Bilgisayar bilimlerinin temel taşlarından biridir. Etkili kod yazımı, bellek yönetimi ve algoritmik düşünce için gereklidir.
+            </p>
+            <h3>🧱 Temel Veri Yapıları</h3>
+            <ul>
+              <li><strong>Array</strong> (dizi)</li>
+              <li><strong>Linked List</strong> (bağlı liste)</li>
+              <li><strong>Stack / Queue</strong> (yığın / kuyruk)</li>
+              <li><strong>HashMap / Set</strong></li>
+              <li><strong>Tree / Graph</strong></li>
+            </ul>
+            <h3>⚙️ Algoritma Konuları</h3>
+            <ul>
+              <li>Sıralama (Bubble, Merge, Quick Sort)</li>
+              <li>Arama (Binary Search)</li>
+              <li>Graf algoritmaları (DFS, BFS)</li>
+            </ul>
+            <p>
+              Pratik için: <a href="https://leetcode.com/" target="_blank">LeetCode</a>, <a href="https://visualgo.net/en" target="_blank">VisuAlgo</a>
+            </p>
+          `
+        }]
     },
     {
       id: "csharp",
@@ -23,7 +120,7 @@ export const roadmapData = {
         { id: "stylecop", title: "StyleCop rules", type: "must-know" },
       ]
     },
-   
+
     {
       id: "sql-fundamentals",
       title: "SQL Fundamentals",
@@ -32,7 +129,43 @@ export const roadmapData = {
         { id: "fundamentals", title: "Fundamentals about database design and SQL Syntax", type: "must-know" },
         { id: "stored-procedure", title: "Stored Procedures", type: "must-know" },
         { id: "constraints", title: "Constraints", type: "must-know" },
-        { id: "triggers", title: "Triggers", type: "good-to-know" },
+        {
+          id: "triggers", title: "Triggers", type: "good-to-know",
+          description: `
+          <section style="font-family: 'Segoe UI', sans-serif;">
+            <h2 style="font-size: 1.5rem; font-weight: bold; color: #0369a1;">🔁 SQL Trigger Nedir?</h2>
+            <p style="margin: 0.5rem 0;">
+              <strong>Trigger</strong> (tetikleyici), bir SQL tablosuna <code>INSERT</code>, <code>UPDATE</code> veya <code>DELETE</code> işlemleri uygulandığında otomatik olarak çalışan yapıdır.
+            </p>
+
+            <h3 style="font-size: 1.2rem; margin-top: 1rem;">📌 Ne Zaman Kullanılır?</h3>
+            <ul style="margin-left: 1rem; list-style: disc;">
+              <li>Veri değişikliklerini loglamak</li>
+              <li>İş kurallarını otomatik yürütmek</li>
+              <li>Veri tutarlılığını korumak</li>
+            </ul>
+
+            <h3 style="font-size: 1.2rem; margin-top: 1rem;">🧪 Örnek Trigger</h3>
+            <pre style="background-color: #0f172a; color: white; padding: 1rem; border-radius: 0.5rem; overflow-x: auto;">
+        <code>CREATE TRIGGER trg_LogInsert
+        AFTER INSERT ON Orders
+        FOR EACH ROW
+        BEGIN
+          INSERT INTO AuditLog (OrderId, Action, LogDate)
+          VALUES (NEW.OrderId, 'INSERT', CURRENT_TIMESTAMP);
+        END;</code></pre>
+
+            <h3 style="font-size: 1.2rem; margin-top: 1rem;">💡 İpuçları</h3>
+            <ul style="margin-left: 1rem; list-style: disc;">
+              <li><code>NEW</code>: Yeni veri satırını temsil eder (INSERT/UPDATE).</li>
+              <li><code>OLD</code>: Eski veri satırını temsil eder (DELETE/UPDATE).</li>
+              <li><code>AFTER</code> ve <code>BEFORE</code>: Tetikleyici zamanlaması belirler.</li>
+            </ul>
+
+       
+          </section>
+            `
+        },
       ]
     },
     {
@@ -51,7 +184,7 @@ export const roadmapData = {
         { id: "razor-components", title: "Razor Components", type: "optional" },
       ]
     },
-   
+
     {
       id: "solid",
       title: "SOLID",
@@ -244,16 +377,16 @@ export const roadmapData = {
           children: [
             { id: "griffiy", title: "Griffiy", type: "good-to-know" },
             { id: "odata", title: "OData", type: "optional" },
-            { 
-              id: "repr", 
-              title: "REPR Pattern", 
+            {
+              id: "repr",
+              title: "REPR Pattern",
               type: "optional",
               children: [
                 { id: "minimal-apis", title: "Minimal APIs", type: "must-know" },
                 { id: "ardalis-endpoints", title: "Ardalis.Endpoints", type: "optional" },
                 { id: "fastendpoints", title: "FastEndpoints", type: "optional" },
               ]
-             },
+            },
           ]
         },
         {
@@ -339,16 +472,16 @@ export const roadmapData = {
           id: "orchestration",
           title: "Orchestration",
           children: [
-            { 
-              id: "kubernetes", 
-              title: "Kubernetes", 
+            {
+              id: "kubernetes",
+              title: "Kubernetes",
               type: "must-know",
               children: [
                 { id: "kubect1", title: "Kubect1", type: "good-to-know" },
                 { id: "rancher", title: "Rancher", type: "optional" },
                 { id: "k8s", title: "K9s", type: "must-know" },
               ]
-             },
+            },
           ]
         },
         {
@@ -538,7 +671,7 @@ export const roadmapData = {
               id: "on-premises-tracing",
               title: "On-Premises",
               children: [
-                { 
+                {
                   id: "opentelemetry",
                   title: "OpenTelemetry (OTel)",
                   type: "good-to-know",
@@ -550,7 +683,7 @@ export const roadmapData = {
                 { id: "sentry-io-onprem-trace", title: "Sentry.io", type: "optional" },
               ]
             },
-          
+
             {
               id: "cloud-tracing",
               title: "Cloud",
@@ -559,7 +692,7 @@ export const roadmapData = {
                 { id: "sentry-io-trace", title: "Sentry.io", type: "optional" },
               ]
             },
-          
+
           ]
         },
         {
@@ -582,7 +715,7 @@ export const roadmapData = {
                 { id: "datadog-alert", title: "Datadog", type: "optional" },
               ]
             },
-           
+
           ]
         },
       ]
@@ -605,17 +738,17 @@ export const roadmapData = {
           id: "frameworks-client",
           title: "Frameworks",
           children: [
-            { 
+            {
               id: "blazor",
               title: "Blazor",
-               type: "must-know",
-               children: [
+              type: "must-know",
+              children: [
                 { id: "blazor-wasm", title: "Blazor WASM", type: "good-to-know" },
                 { id: "blazor-server-side", title: "Blazor Server-Side", type: "must-know" },
                 { id: "blazor-hybrid", title: "Blazor Hybrid", type: "optional" },
               ]
-              },
-           
+            },
+
             { id: "net-maui", title: ".NET MAUI", type: "optional" },
           ]
         },

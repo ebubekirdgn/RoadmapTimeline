@@ -14,7 +14,7 @@ export default function Modal({
   children: ReactNode;
 }) {
   if (!isOpen) return null;
-
+ console.log(children)
   return (
     <div className="fixed inset-0 bg-black bg-opacity-40 z-50 flex items-center justify-center">
       <div className="bg-white rounded-xl shadow-lg p-6 w-full max-w-xl relative">

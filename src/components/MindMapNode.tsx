@@ -8,6 +8,7 @@ type Node = {
   title: string;
   type?: string;
   link?: string;
+  description?: string;
   children?: Node[];
 };
 
@@ -41,7 +42,10 @@ export default function MindMapNode({ node }: { node: Node }) {
       <Modal isOpen={open} onClose={() => setOpen(false)} title={node.title}>
         <p><strong>ID:</strong> {node.id}</p>
         <p><strong>Tür:</strong> {node.type}</p>
-        <p>Bu konu hakkında detaylı açıklamaları buraya yazabilirsin.</p>
+        <p><div
+  className="prose max-w-none text-sm text-gray-800"
+  dangerouslySetInnerHTML={{ __html: node.description || "" }}
+/></p>
         {node.link && (
           <p>
             <a
