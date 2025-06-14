@@ -3236,30 +3236,390 @@ await context.SaveAsync(user);
         {
           id: "memory-cache",
           title: "Memory Cache",
-          description: ``,
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:2rem; border-radius:1rem; border:2px solid #facc15; box-shadow:0 6px 20px rgba(234, 179, 8, 0.15)">
+  <h2 style="color:#92400e;">🧠 In-Memory Caching with IMemoryCache</h2>
+  <p>
+    <strong>IMemoryCache</strong> is a built-in service in ASP.NET Core that enables you to temporarily store data in memory to avoid repeated processing or expensive data fetching (e.g. database queries, API calls). It's ideal for small-to-medium-sized data with fast lookup needs.
+  </p>
+
+  <h3 style="color:#b45309;">⚡ Why Use Memory Cache?</h3>
+  <ul>
+    <li>Ultra-fast in-memory storage</li>
+    <li>Reduces expensive I/O operations</li>
+    <li>Improves response times for frequently accessed data</li>
+    <li>Thread-safe and simple to use</li>
+  </ul>
+
+  <h3 style="color:#a16207;">💻 Basic Usage</h3>
+  <pre style="background:#fef9c3; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+public class ProductService
+{
+    private readonly IMemoryCache _cache;
+    private readonly ILogger<ProductService> _logger;
+
+    public ProductService(IMemoryCache cache, ILogger<ProductService> logger)
+    {
+        _cache = cache;
+        _logger = logger;
+    }
+
+    public Product GetProduct(int id)
+    {
+        return _cache.GetOrCreate($"product_{id}", entry =>
+        {
+            entry.AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(5);
+            entry.SlidingExpiration = TimeSpan.FromMinutes(2);
+            _logger.LogInformation("⏳ Fetching from database...");
+            return FetchProductFromDatabase(id);
+        });
+    }
+}
+  </pre>
+
+  <h3 style="color:#92400e;">🔑 Expiration Options</h3>
+  <ul>
+    <li><strong>Absolute Expiration:</strong> Fixed time to live</li>
+    <li><strong>Sliding Expiration:</strong> Resets timeout on access</li>
+    <li><strong>Size Limit:</strong> Total cache size constraint (with <code>Size</code>)</li>
+    <li><strong>Priority:</strong> Can evict less important items first (<code>CacheItemPriority</code>)</li>
+  </ul>
+
+  <h3 style="color:#a16207;">🧪 Tip: Check If Key Exists</h3>
+  <pre style="background:#fef9c3; padding:0.75rem; border-radius:0.75rem; font-family:monospace;">
+if (_cache.TryGetValue("user_1", out User cachedUser))
+{
+    return cachedUser;
+}
+  </pre>
+
+  <h3 style="color:#b45309;">✅ Best Practices</h3>
+  <ul>
+    <li>💡 Cache only <strong>frequently accessed</strong> or <strong>expensive</strong> resources</li>
+    <li>🧹 Use <strong>appropriate expiration policies</strong> (absolute + sliding)</li>
+`,
           type: "must-know"
         },
-        {
+        { 
           id: "distributed-cache",
           title: "Distributed Cache",
-          description: ``,
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#eff6ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+  <h2 style="color:#1d4ed8;">🌍 Distributed Caching in ASP.NET Core</h2>
+  <p>
+    <strong>Distributed Cache</strong> is a central, out-of-process cache mechanism that can be shared across multiple app instances or servers. It’s ideal for scalable, cloud-based, or load-balanced applications.
+  </p>
+
+  <h3 style="color:#2563eb;">💡 Why Use Distributed Cache?</h3>
+  <ul>
+    <li>🔄 Shared across multiple servers (stateless applications)</li>
+    <li>🚀 Scales horizontally (good for microservices or cloud apps)</li>
+    <li>✅ Keeps cached data available after app restarts</li>
+    <li>🔐 Better persistence and support for advanced features (e.g., eviction, TTL)</li>
+  </ul>
+
+  <h3 style="color:#1e40af;">🔧 Common Implementations</h3>
+  <ul>
+    <li><strong>Redis</strong> – most widely used, fast and feature-rich</li>
+    <li><strong>SQL Server Distributed Cache</strong> – persistent, but slower</li>
+    <li><strong>NCache, Memcached, Couchbase</strong> – alternative enterprise solutions</li>
+  </ul>
+
+  <h3 style="color:#1d4ed8;">💻 Example with Redis</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+// Program.cs
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = "localhost:6379";
+    options.InstanceName = "MyApp_";
+});
+
+// Usage in service or controller
+public class ProductService
+{
+    private readonly IDistributedCache _cache;
+
+    public ProductService(IDistributedCache cache)
+    {
+        _cache = cache;
+    }
+
+    public async Task<string> GetProductAsync(int id)
+    {
+        var key = $"product_{id}";
+        var cached = await _cache.GetStringAsync(key);
+        if (cached != null) return cached;
+
+        var product = await FetchFromDatabase(id);
+        await _cache.SetStringAsync(key, product, new DistributedCacheEntryOptions
+        {
+            AbsoluteExpirationRelativeToNow = TimeSpan.FromMinutes(10)
+        });
+        return product;
+    }
+}
+  </pre>
+
+  <h3 style="color:#1e3a8a;">⚠️ Serialization Tip</h3>
+  <p>
+    When caching complex objects, use <code>System.Text.Json</code> or <code>Newtonsoft.Json</code> to serialize/deserialize to/from string or byte arrays.
+  </p>
+
+  <h3 style="color:#1e40af;">✅ Best Practices</h3>
+  <ul>
+    <li>🔐 Use <strong>unique keys</strong> and clear naming conventions</li>
+    <li>📦 Prefer <strong>Redis</strong> for high-performance scenarios</li>
+    <li>🧼 Set appropriate <strong>expiration policies</strong> (absolute/sliding)</li>
+    <li>🧪 Validate data before cache set (avoid caching nulls or errors)</li>
+    <li>🔁 Invalidate/refresh cache when data changes (e.g., after DB write)</li>
+    <li>🏷️ Use namespaces/prefixes to group related cache keys</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://learn.microsoft.com/en-us/aspnet/core/performance/caching/distributed" target="_blank" style="color:#3b82f6;">MS Docs: Distributed Cache in ASP.NET Core</a></li>
+    <li><a href="https://stackexchange.github.io/StackExchange.Redis/" target="_blank" style="color:#3b82f6;">StackExchange.Redis GitHub</a></li>
+  </ul>
+</div>
+`,
           children: [
             {
               id: "redis",
               title: "Redis",
-              description: ``,
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:2rem; border-radius:1rem; border:2px solid #0284c7; box-shadow:0 6px 20px rgba(2, 132, 199, 0.3)">
+  <h2 style="color:#0369a1; margin-bottom:1rem;">⚡ Redis - Advanced In-Memory Data Structure Store</h2>
+  <p>
+    Redis (REmote DIctionary Server) is an open-source, in-memory data store that supports various complex data structures such as strings, hashes, lists, sets, sorted sets, bitmaps, hyperloglogs, streams, and geospatial indexes.
+    It excels in scenarios requiring extremely fast data access, caching, real-time analytics, messaging, and pub/sub systems.
+  </p>
+
+  <h3 style="color:#0284c7; margin-top:1.5rem;">🌟 Core Features</h3>
+  <ul>
+    <li><strong>In-memory storage:</strong> Ultra-low latency for reads/writes by storing all data in RAM.</li>
+    <li><strong>Rich data types:</strong> Beyond simple key-value pairs, supports hashes, lists, sets, sorted sets, streams, bitmaps, and more.</li>
+    <li><strong>Persistence:</strong> Supports RDB snapshots and Append-Only Files (AOF) for data durability.</li>
+    <li><strong>Replication & High Availability:</strong> Master-slave replication, Redis Sentinel for failover, and Redis Cluster for sharding.</li>
+    <li><strong>Atomic operations:</strong> Supports transactions and Lua scripting for complex logic.</li>
+    <li><strong>Pub/Sub Messaging:</strong> Real-time event broadcasting between applications.</li>
+  </ul>
+
+  <h3 style="color:#0369a1; margin-top:1.5rem;">📋 Common Use Cases</h3>
+  <ul>
+    <li><strong>Cache Layer:</strong> Reduce database load by caching frequent queries or session data.</li>
+    <li><strong>Session Store:</strong> Store user session state for web apps with quick retrieval.</li>
+    <li><strong>Real-time Analytics:</strong> Increment counters, leaderboards, or time-series data.</li>
+    <li><strong>Message Queues:</strong> Implement queues or task management with lists and streams.</li>
+    <li><strong>Geospatial Applications:</strong> Location-based queries using geospatial indexes.</li>
+  </ul>
+
+  <h3 style="color:#0284c7; margin-top:1.5rem;">💻 Basic Commands & Examples</h3>
+  <pre style="background:#bae6fd; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family: monospace;">
+# Set and get simple key-value
+SET user:1000 "Alice"
+GET user:1000
+
+# Hash to store user profile
+HSET user:1000 name "Alice" age 30 email "alice@example.com"
+HGETALL user:1000
+
+# List for task queue
+LPUSH tasks "task1"
+LPUSH tasks "task2"
+RPOP tasks
+
+# Sorted set for leaderboard
+ZADD leaderboard 100 "player1"
+ZADD leaderboard 200 "player2"
+ZRANGE leaderboard 0 -1 WITHSCORES
+
+# Publish/Subscribe
+PUBLISH notifications "New user registered"
+SUBSCRIBE notifications
+  </pre>
+
+  <h3 style="color:#0369a1; margin-top:1.5rem;">⚠️ Important Considerations</h3>
+  <ul>
+    <li><strong>Memory Management:</strong> Since Redis stores data in RAM, monitor usage carefully to avoid running out of memory.</li>
+    <li><strong>Eviction Policies:</strong> Configure policies like LRU (Least Recently Used) to evict keys when memory limits are reached.</li>
+    <li><strong>Persistence:</strong> Understand trade-offs between performance and durability when choosing between RDB snapshots and AOF logs.</li>
+    <li><strong>Scaling:</strong> Use Redis Cluster to shard data across multiple nodes for horizontal scaling.</li>
+    <li><strong>Security:</strong> Enable AUTH, use firewalls, and avoid exposing Redis directly to the internet.</li>
+  </ul>
+
+  <h3 style="color:#0284c7; margin-top:1.5rem;">💡 Best Practices</h3>
+  <ul>
+    <li>Use meaningful and consistent key naming conventions (e.g., <code>user:1000:profile</code>).</li>
+    <li>Keep data structures small and focused to maximize performance.</li>
+    <li>Use Lua scripts to perform atomic, multi-step operations efficiently.</li>
+    <li>Regularly monitor latency, throughput, and memory usage with tools like Redis INFO and Redis Monitor.</li>
+    <li>Use Redis Sentinel for automated failover and high availability setups.</li>
+    <li>Backup data frequently and test recovery plans to prevent data loss.</li>
+  </ul>
+
+  <h3 style="color:#0369a1; margin-top:1.5rem;">🔗 Additional Resources</h3>
+  <ul>
+    <li><a href="https://redis.io/docs/" target="_blank" style="color:#0284c7; text-decoration:none;">Official Redis Documentation</a></li>
+    <li><a href="https://redis.io/topics/cluster-tutorial" target="_blank" style="color:#0284c7; text-decoration:none;">Redis Cluster Tutorial</a></li>
+    <li><a href="https://redis.io/topics/transactions" target="_blank" style="color:#0284c7; text-decoration:none;">Redis Transactions & Lua Scripting</a></li>
+  </ul>
+</div>
+`,
               type: "must-know",
               children: [
                 {
                   id: "stackexchange-redis",
                   title: "StackExchange.Redis",
-                  description: ``,
+                  description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0284c7; box-shadow:0 6px 20px rgba(2,132,199,0.2)">
+  <h2 style="color:#0369a1;">🔴 StackExchange.Redis in ASP.NET Core</h2>
+  <p>
+    <strong>StackExchange.Redis</strong> is a high-performance, full-featured Redis client library for .NET applications. It's widely used to connect ASP.NET Core apps to Redis for caching, messaging, session storage, and more.
+  </p>
+
+  <h3 style="color:#0284c7;">⚡ Key Features</h3>
+  <ul>
+    <li>✅ Robust and scalable Redis client</li>
+    <li>🔄 Supports synchronous and asynchronous operations</li>
+    <li>🔐 Connection pooling and multiplexing</li>
+    <li>📦 Supports all Redis data types (Strings, Hashes, Lists, Sets, Sorted Sets)</li>
+    <li>⚙️ Easy integration with ASP.NET Core DI and configuration</li>
+  </ul>
+
+  <h3 style="color:#0369a1;">🚀 Quick Setup</h3>
+  <pre style="background:#bae6fd; padding:1rem; border-radius:0.75rem; font-family:monospace; overflow-x:auto;">
+// 1. Install NuGet package:
+// dotnet add package StackExchange.Redis
+
+// 2. Configure in Program.cs
+var redis = ConnectionMultiplexer.Connect("localhost:6379");
+builder.Services.AddSingleton<IConnectionMultiplexer>(redis);
+
+// 3. Use in a service
+public class CacheService
+{
+    private readonly IDatabase _db;
+
+    public CacheService(IConnectionMultiplexer redis)
+    {
+        _db = redis.GetDatabase();
+    }
+
+    public async Task SetValueAsync(string key, string value)
+    {
+        await _db.StringSetAsync(key, value);
+    }
+
+    public async Task<string?> GetValueAsync(string key)
+    {
+        return await _db.StringGetAsync(key);
+    }
+}
+  </pre>
+
+  <h3 style="color:#0284c7;">📚 Common Usage Patterns</h3>
+  <ul>
+    <li><strong>String caching:</strong> Simple key-value pairs</li>
+    <li><strong>Hash sets:</strong> Store objects as hashes for partial updates</li>
+    <li><strong>Pub/Sub:</strong> Messaging between services</li>
+    <li><strong>Transactions and Lua scripting:</strong> Atomic multi-operations</li>
+  </ul>
+
+  <h3 style="color:#0369a1;">⚠️ Tips & Best Practices</h3>
+  <ul>
+    <li>🧩 Reuse <code>ConnectionMultiplexer</code> instances instead of creating per request</li>
+    <li>🔄 Prefer async methods to avoid thread blocking</li>
+    <li>🔑 Use meaningful, unique cache keys with namespaces/prefixes</li>
+    <li>🧪 Handle connection failures gracefully with retry policies</li>
+    <li>🔐 Secure Redis with authentication and TLS especially in production</li>
+  </ul>
+
+  <h3 style="color:#0284c7;">🔗 Learn More</h3>
+  <ul>
+    <li><a href="https://stackexchange.github.io/StackExchange.Redis/" target="_blank" style="color:#0284c7;">Official StackExchange.Redis Documentation</a></li>
+    <li><a href="https://learn.microsoft.com/en-us/aspnet/core/performance/caching/distributed#redis-distributed-cache" target="_blank" style="color:#0284c7;">MS Docs: Redis Distributed Cache</a></li>
+  </ul>
+</div>
+`,
                   type: "must-know"
                 },
                 {
                   id: "easycaching",
                   title: "EasyCaching",
-                  description: ``,
+                  description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef6e4; padding:2rem; border-radius:1rem; border:2px solid #f59e0b; box-shadow:0 6px 20px rgba(245,158,11,0.2)">
+  <h2 style="color:#b45309;">⚡ EasyCaching for .NET</h2>
+  <p>
+    <strong>EasyCaching</strong> is a lightweight, extensible caching library for .NET that supports multiple caching providers with a unified API. It simplifies working with in-memory, distributed caches like Redis, Memcached, and more.
+  </p>
+
+  <h3 style="color:#d97706;">🔑 Key Features</h3>
+  <ul>
+    <li>✅ Supports multiple cache providers (Memory, Redis, Memcached, SQLite, In-Memory)</li>
+    <li>🔄 Unified, easy-to-use API for all caching operations</li>
+    <li>⚙️ Supports cache expiration, sliding expiration, and cache eviction policies</li>
+    <li>🧩 Supports caching serialization/deserialization automatically</li>
+    <li>💡 Supports caching layer abstraction for flexible app design</li>
+  </ul>
+
+  <h3 style="color:#b45309;">🚀 Quick Setup in ASP.NET Core</h3>
+  <pre style="background:#fef3c7; padding:1rem; border-radius:0.75rem; font-family:monospace; overflow-x:auto;">
+// 1. Install NuGet package:
+// dotnet add package EasyCaching.Core
+// dotnet add package EasyCaching.InMemory
+// (Or EasyCaching.Redis, etc.)
+
+// 2. Configure in Program.cs
+builder.Services.AddEasyCaching(options =>
+{
+    // Use In-Memory cache
+    options.UseInMemory("default");
+});
+
+// 3. Inject and use in your service/controller
+public class ProductService
+{
+    private readonly IEasyCachingProvider _cache;
+
+    public ProductService(IEasyCachingProviderFactory factory)
+    {
+        _cache = factory.GetCachingProvider("default");
+    }
+
+    public async Task<string> GetProductAsync(int id)
+    {
+        var cacheKey = $"product_{id}";
+        var cached = await _cache.GetAsync<string>(cacheKey);
+
+        if (cached.HasValue)
+            return cached.Value;
+
+        var product = await FetchFromDatabase(id);
+
+        await _cache.SetAsync(cacheKey, product, TimeSpan.FromMinutes(10));
+        return product;
+    }
+}
+  </pre>
+
+  <h3 style="color:#d97706;">🎯 Why Choose EasyCaching?</h3>
+  <ul>
+    <li>🔄 Switch cache providers without changing your code</li>
+    <li>🛠️ Simplifies cache management with consistent API</li>
+    <li>💾 Automatic serialization of complex types</li>
+    <li>📦 Supports distributed and in-memory caching transparently</li>
+  </ul>
+
+  <h3 style="color:#b45309;">✅ Best Practices</h3>
+  <ul>
+    <li>🔑 Use clear, unique cache keys and consistent naming</li>
+    <li>🧹 Set appropriate expiration policies to avoid stale data</li>
+    <li>🔄 Handle cache misses gracefully by fallback to source</li>
+    <li>🧪 Test caching behavior to ensure expected performance</li>
+  </ul>
+
+  <h3 style="color:#d97706;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://github.com/dotnetcore/EasyCaching" target="_blank" style="color:#b45309;">EasyCaching GitHub Repository</a></li>
+    <li><a href="https://docs.microsoft.com/en-us/aspnet/core/performance/caching/" target="_blank" style="color:#b45309;">MS Docs: Caching in ASP.NET Core</a></li>
+  </ul>
+</div>
+`,
                   type: "good-to-know"
                 }
               ]
@@ -3267,6 +3627,78 @@ await context.SaveAsync(user);
             {
               id: "memcached",
               title: "Memcached",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef2f2; padding:2rem; border-radius:1rem; border:2px solid #dc2626; box-shadow:0 6px 20px rgba(220,38,38,0.2)">
+  <h2 style="color:#b91c1c;">🔥 Memcached in ASP.NET Core</h2>
+  <p>
+    <strong>Memcached</strong> is a high-performance, distributed memory caching system designed to speed up dynamic web applications by alleviating database load.
+  </p>
+
+  <h3 style="color:#ef4444;">⚡ Key Features</h3>
+  <ul>
+    <li>✅ Simple key-value in-memory cache</li>
+    <li>🔄 Distributed caching for scalability</li>
+    <li>⚡ Extremely fast reads and writes</li>
+    <li>🧩 Supports large cache sizes with efficient memory usage</li>
+    <li>🔒 No built-in persistence (cache is volatile)</li>
+  </ul>
+
+  <h3 style="color:#b91c1c;">🚀 Setup & Integration</h3>
+  <pre style="background:#fee2e2; padding:1rem; border-radius:0.75rem; font-family:monospace; overflow-x:auto;">
+// 1. Install NuGet package:
+// dotnet add package EnyimMemcachedCore
+
+// 2. Configure in Program.cs
+builder.Services.AddEnyimMemcached(options =>
+{
+    options.AddServer("localhost", 11211);
+});
+
+// 3. Inject and use IMemcachedClient
+public class CacheService
+{
+    private readonly IMemcachedClient _memcachedClient;
+
+    public CacheService(IMemcachedClient memcachedClient)
+    {
+        _memcachedClient = memcachedClient;
+    }
+
+    public async Task SetCacheAsync(string key, string value)
+    {
+        await _memcachedClient.SetAsync(key, value, TimeSpan.FromMinutes(10));
+    }
+
+    public async Task<string?> GetCacheAsync(string key)
+    {
+        return await _memcachedClient.GetValueAsync<string>(key);
+    }
+}
+  </pre>
+
+  <h3 style="color:#ef4444;">📚 Common Usage Patterns</h3>
+  <ul>
+    <li><strong>Session storage</strong> to reduce DB hits</li>
+    <li><strong>API response caching</strong> to improve performance</li>
+    <li><strong>Expensive computation caching</strong></li>
+  </ul>
+
+  <h3 style="color:#b91c1c;">⚠️ Best Practices</h3>
+  <ul>
+    <li>🔑 Use meaningful and unique cache keys</li>
+    <li>🕒 Set appropriate expiration to avoid stale data</li>
+    <li>⚠️ Be aware that data is volatile and lost on restart</li>
+    <li>💡 Use fallback strategies for cache misses</li>
+    <li>🔒 Secure access to Memcached servers especially in production</li>
+  </ul>
+
+  <h3 style="color:#ef4444;">🔗 Learn More</h3>
+  <ul>
+    <li><a href="https://memcached.org/" target="_blank" style="color:#b91c1c;">Official Memcached Site</a></li>
+    <li><a href="https://github.com/enyim/EnyimMemcached" target="_blank" style="color:#b91c1c;">EnyimMemcached GitHub</a></li>
+    <li><a href="https://docs.microsoft.com/en-us/aspnet/core/performance/caching/distributed#distributed-memory-cache-using-memcached" target="_blank" style="color:#b91c1c;">MS Docs: Distributed Cache with Memcached</a></li>
+  </ul>
+</div>
+`,
               type: "optional"
             }
           ]
@@ -3274,20 +3706,287 @@ await context.SaveAsync(user);
         {
           id: "application-level-caching",
           title: "Application-Level",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:2rem; border-radius:1rem; border:2px solid #0284c7; box-shadow:0 6px 20px rgba(2,132,199,0.2)">
+  <h2 style="color:#0369a1;">⚡ Application-Level Caching in ASP.NET Core</h2>
+  <p>
+    <strong>Application-Level Caching</strong> stores data within the application process, typically using in-memory cache. It is the fastest caching layer, ideal for caching data that can be shared across requests and users on the same server instance.
+  </p>
+
+  <h3 style="color:#0284c7;">🔑 Key Characteristics</h3>
+  <ul>
+    <li>🧠 Stored in server’s memory (e.g., <code>IMemoryCache</code>)</li>
+    <li>⚡ Very fast access time</li>
+    <li>📉 Not shared between multiple servers (no distributed support)</li>
+    <li>❗ Data lost if application restarts or recycles</li>
+  </ul>
+
+  <h3 style="color:#0369a1;">🚀 How to Use in ASP.NET Core</h3>
+  <pre style="background:#bae6fd; padding:1rem; border-radius:0.75rem; font-family:monospace; overflow-x:auto;">
+// 1. Register MemoryCache in Program.cs (usually done by default)
+builder.Services.AddMemoryCache();
+
+// 2. Inject IMemoryCache
+public class WeatherService
+{
+    private readonly IMemoryCache _cache;
+
+    public WeatherService(IMemoryCache cache)
+    {
+        _cache = cache;
+    }
+
+    public WeatherForecast GetForecast(int day)
+    {
+        string cacheKey = $"weather_forecast_{day}";
+
+        if (!_cache.TryGetValue(cacheKey, out WeatherForecast forecast))
+        {
+            // Simulate data fetching
+            forecast = FetchForecastFromApi(day);
+
+            // Cache for 30 minutes with sliding expiration
+            var cacheOptions = new MemoryCacheEntryOptions()
+                .SetSlidingExpiration(TimeSpan.FromMinutes(30));
+
+            _cache.Set(cacheKey, forecast, cacheOptions);
+        }
+
+        return forecast;
+    }
+
+    private WeatherForecast FetchForecastFromApi(int day)
+    {
+        // Simulate API call
+        return new WeatherForecast
+        {
+            Day = day,
+            TemperatureC = 25 + day,
+            Summary = "Sunny"
+        };
+    }
+}
+  </pre>
+
+  <h3 style="color:#0284c7;">🎯 Best Practices</h3>
+  <ul>
+    <li>🔑 Use meaningful and unique cache keys</li>
+    <li>🕒 Set appropriate expiration to avoid stale or memory-heavy caches</li>
+    <li>💾 Cache only data safe to keep in-memory and share across requests</li>
+    <li>🔄 Handle cache misses gracefully by fallback to the source</li>
+    <li>⚠️ Remember cache is per server instance; not suitable for load-balanced scenarios without distributed cache</li>
+  </ul>
+
+  <h3 style="color:#0369a1;">📚 When to Use Application-Level Caching?</h3>
+  <ul>
+    <li>⚡ Fast, repeated access to non-sensitive data</li>
+    <li>🖥️ Single server applications or development/testing</li>
+    <li>🧪 Caching data that changes infrequently within app lifecycle</li>
+  </ul>
+
+  <h3 style="color:#0284c7;">📖 Learn More</h3>
+  <ul>
+    <li><a href="https://docs.microsoft.com/en-us/aspnet/core/performance/caching/memory" target="_blank" style="color:#0369a1;">Microsoft Docs: In-Memory Caching</a></li>
+    <li><a href="https://docs.microsoft.com/en-us/aspnet/core/performance/caching/" target="_blank" style="color:#0369a1;">ASP.NET Core Caching Overview</a></li>
+  </ul>
+</div>
+`,
           children: [
             {
               id: "response-caching",
               title: "Response Caching",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+  <h2 style="color:#2563eb;">🚀 Response Caching in ASP.NET Core</h2>
+  <p>
+    <strong>Response Caching</strong> improves performance by caching HTTP responses and serving them for subsequent identical requests, reducing server processing and latency.
+  </p>
+
+  <h3 style="color:#3b82f6;">🔑 Key Concepts</h3>
+  <ul>
+    <li>📦 Caches full HTTP responses (headers + body)</li>
+    <li>⏳ Responses cached based on <code>Cache-Control</code> headers and other criteria</li>
+    <li>⚡ Works best for GET requests with idempotent responses</li>
+    <li>🚫 Does not cache POST, PUT, DELETE by default</li>
+    <li>🌐 Can cache on server or client (proxy/CDN)</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">⚙️ How to Enable Response Caching</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; font-family:monospace; overflow-x:auto;">
+// 1. Register middleware in Program.cs
+builder.Services.AddResponseCaching();
+
+app.UseResponseCaching();
+
+// 2. Apply ResponseCache attribute on controller/action
+[ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any, NoStore = false)]
+public IActionResult GetProducts()
+{
+    // Expensive operation here
+    return Ok(new { Product = "Laptop", Price = 1200 });
+}
+  </pre>
+
+  <h3 style="color:#3b82f6;">📋 ResponseCache Attribute Options</h3>
+  <ul>
+    <li><code>Duration</code>: Cache duration in seconds</li>
+    <li><code>Location</code>: <code>Any</code> (client or proxy), <code>Client</code>, or <code>None</code></li>
+    <li><code>NoStore</code>: If true, response is not stored</li>
+    <li><code>VaryByHeader</code>: Cache variation based on specified HTTP headers</li>
+    <li><code>VaryByQueryKeys</code>: Cache variation by query string keys (ASP.NET Core 7+)</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">🔧 Example Usage</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; font-family:monospace; overflow-x:auto;">
+[ResponseCache(Duration = 120, Location = ResponseCacheLocation.Client)]
+public IActionResult GetWeather()
+{
+    var weatherData = FetchWeatherData();
+    return Ok(weatherData);
+}
+  </pre>
+
+  <h3 style="color:#3b82f6;">⚠️ Best Practices</h3>
+  <ul>
+    <li>✔️ Cache only safe, idempotent GET responses</li>
+    <li>✔️ Use appropriate <code>Duration</code> to balance freshness and performance</li>
+    <li>✔️ Leverage <code>VaryByHeader</code> or <code>VaryByQueryKeys</code> for user-specific content</li>
+    <li>✔️ Be careful with sensitive data — avoid caching private or secure info</li>
+    <li>✔️ Use middleware ordering correctly: <code>UseResponseCaching()</code> must be before <code>UseEndpoints()</code></li>
+  </ul>
+
+  <h3 style="color:#2563eb;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://docs.microsoft.com/en-us/aspnet/core/performance/caching/response" target="_blank" style="color:#2563eb;">Microsoft Docs: Response Caching Middleware</a></li>
+    <li><a href="https://andrewlock.net/using-response-caching-in-asp-net-core-to-improve-performance/" target="_blank" style="color:#2563eb;">Andrew Lock: Using Response Caching in ASP.NET Core</a></li>
+  </ul>
+</div>
+`,
               type: "good-to-know",
               children: [
                 {
                   id: "builtin",
                   title: "Build in",
+                  description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef3c7; padding:2rem; border-radius:1rem; border:2px solid #fbbf24; box-shadow:0 6px 20px rgba(251,191,36,0.2)">
+  <h2 style="color:#b45309;">⚙️ Built-in Response Caching in ASP.NET Core</h2>
+  <p>
+    ASP.NET Core provides a <strong>built-in Response Caching Middleware</strong> that caches HTTP responses to improve app performance by reducing server load and latency.
+  </p>
+
+  <h3 style="color:#d97706;">🔍 How It Works</h3>
+  <ul>
+    <li>✔️ Caches full HTTP responses (headers + body) in memory</li>
+    <li>✔️ Uses standard HTTP <code>Cache-Control</code> headers to determine cacheability</li>
+    <li>✔️ Works only for GET and HEAD requests</li>
+    <li>✔️ Honors directives like <code>no-cache</code>, <code>private</code>, <code>no-store</code></li>
+    <li>✔️ Cache duration set via <code>ResponseCache</code> attribute or headers</li>
+  </ul>
+
+  <h3 style="color:#b45309;">🚀 How to Enable Built-in Response Caching</h3>
+  <pre style="background:#fef3c7; padding:1rem; border-radius:0.75rem; font-family:monospace; overflow-x:auto;">
+// 1. Register ResponseCaching middleware in Program.cs
+builder.Services.AddResponseCaching();
+
+app.UseResponseCaching();
+
+// 2. Use [ResponseCache] attribute on controller/actions
+[ResponseCache(Duration = 60, Location = ResponseCacheLocation.Any)]
+public IActionResult GetProducts()
+{
+    // Simulate data fetching
+    return Ok(new { Product = "Smartphone", Price = 799 });
+}
+  </pre>
+
+  <h3 style="color:#d97706;">⚙️ ResponseCache Attribute Parameters</h3>
+  <ul>
+    <li><code>Duration</code>: Cache duration in seconds</li>
+    <li><code>Location</code>: Where to cache (<code>Any</code>, <code>Client</code>, or <code>None</code>)</li>
+    <li><code>NoStore</code>: Prevent storing cache if <code>true</code></li>
+    <li><code>VaryByHeader</code>: Vary cache by specific headers</li>
+    <li><code>VaryByQueryKeys</code>: Vary cache by query string keys (ASP.NET Core 7+)</li>
+  </ul>
+
+  <h3 style="color:#b45309;">⚠️ Best Practices</h3>
+  <ul>
+    <li>✅ Cache only safe and idempotent GET/HEAD requests</li>
+    <li>✅ Avoid caching sensitive or user-specific data unless varied by header/query</li>
+    <li>✅ Use appropriate duration to balance freshness and performance</li>
+    <li>✅ Ensure middleware order: <code>UseResponseCaching()</code> must be before <code>UseRouting()</code> and <code>UseEndpoints()</code></li>
+  </ul>
+
+  <h3 style="color:#d97706;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://learn.microsoft.com/en-us/aspnet/core/performance/caching/response" target="_blank" style="color:#b45309;">Microsoft Docs: Response Caching Middleware</a></li>
+    <li><a href="https://andrewlock.net/using-response-caching-in-asp-net-core-to-improve-performance/" target="_blank" style="color:#b45309;">Andrew Lock: Using Response Caching in ASP.NET Core</a></li>
+  </ul>
+</div>
+`,
                   type: "must-know"
                 },
                 {
                   id: "marvin-cache-headers",
                   title: "Marvin.Cache.Headers",
+                  description: `<div style="font-family:sans-serif; line-height:1.6; background:#eef6f9; padding:2rem; border-radius:1rem; border:2px solid #0288d1; box-shadow:0 6px 20px rgba(2,136,209,0.2)">
+  <h2 style="color:#01579b;">⚡ Marvin.Cache.Headers in ASP.NET Core</h2>
+  <p>
+    <strong>Marvin.Cache.Headers</strong> is a powerful open-source NuGet package that extends ASP.NET Core's built-in response caching capabilities by providing advanced HTTP cache header management.
+  </p>
+
+  <h3 style="color:#0288d1;">🔑 Key Features</h3>
+  <ul>
+    <li>🛠 Fine-grained control over <code>Cache-Control</code>, <code>Expires</code>, and <code>Vary</code> headers</li>
+    <li>🔄 Supports validation and expiration caching</li>
+    <li>⚡ Easily configure caching policies per route, controller, or globally</li>
+    <li>🎯 Helps implement HTTP caching best practices without manual header coding</li>
+    <li>🧩 Supports cache revalidation using ETags and Last-Modified headers</li>
+  </ul>
+
+  <h3 style="color:#01579b;">🚀 Getting Started</h3>
+  <pre style="background:#e1f5fe; padding:1rem; border-radius:0.75rem; font-family:monospace; overflow-x:auto;">
+// 1. Install package via NuGet
+Install-Package Marvin.Cache.Headers
+
+// 2. Register in Program.cs
+builder.Services.AddHttpCacheHeaders(
+    expirationModelOptions =>
+    {
+        expirationModelOptions.MaxAge = 60; // seconds
+        expirationModelOptions.CacheLocation = Marvin.Cache.Headers.CacheLocation.Public;
+    },
+    validationModelOptions =>
+    {
+        validationModelOptions.MustRevalidate = true;
+    });
+
+// 3. Add middleware
+app.UseHttpCacheHeaders();
+  </pre>
+
+  <h3 style="color:#0288d1;">🔧 Example Usage</h3>
+  <pre style="background:#e1f5fe; padding:1rem; border-radius:0.75rem; font-family:monospace; overflow-x:auto;">
+[HttpGet]
+public IActionResult GetData()
+{
+    // Data retrieval logic here
+    return Ok(new { Message = "Hello from Marvin.Cache.Headers!" });
+}
+  </pre>
+
+  <h3 style="color:#01579b;">⚠️ Best Practices</h3>
+  <ul>
+    <li>✔️ Use <code>MaxAge</code> and <code>CacheLocation</code> wisely to optimize cacheability</li>
+    <li>✔️ Implement validation caching (ETag, Last-Modified) for efficient revalidation</li>
+    <li>✔️ Avoid caching sensitive data publicly; use <code>CacheLocation.Private</code> if needed</li>
+    <li>✔️ Combine with built-in response caching for robust caching strategy</li>
+    <li>✔️ Keep middleware order correct: <code>UseHttpCacheHeaders()</code> before <code>UseEndpoints()</code></li>
+  </ul>
+
+  <h3 style="color:#0288d1;">📚 Further Reading</h3>
+  <ul>
+    <li><a href="https://github.com/marvinpinto/aspnetcore-cache-headers" target="_blank" style="color:#01579b;">GitHub - Marvin.Cache.Headers</a></li>
+    <li><a href="https://andrewlock.net/using-marvin-cache-headers-in-asp-net-core-to-control-http-caching-headers/" target="_blank" style="color:#01579b;">Andrew Lock: Using Marvin.Cache.Headers</a></li>
+  </ul>
+</div>
+`,
                   type: "optional"
                 },
               ]
@@ -3295,11 +3994,121 @@ await context.SaveAsync(user);
             {
               id: "output-caching",
               title: "Output Caching",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f7fa; padding:2rem; border-radius:1rem; border:2px solid #00838f; box-shadow:0 6px 20px rgba(0,131,143,0.2)">
+  <h2 style="color:#006064;">⚡ ASP.NET Core Output Caching</h2>
+  <p>
+    <strong>Output Caching</strong> improves performance by caching the full response of HTTP requests, allowing faster subsequent responses without executing the controller logic again.
+  </p>
+
+  <h3 style="color:#00838f;">🔍 How Output Caching Works</h3>
+  <ul>
+    <li>✔ Caches the complete HTTP response (body + headers)</li>
+    <li>✔ Supports caching for GET and HEAD requests</li>
+    <li>✔ Honors cache duration, vary-by-header, vary-by-query parameters</li>
+    <li>✔ Reduces server load and latency by serving cached responses</li>
+  </ul>
+
+  <h3 style="color:#006064;">🚀 How to Enable Output Caching</h3>
+  <pre style="background:#b2ebf2; padding:1rem; border-radius:0.75rem; font-family:monospace; overflow-x:auto;">
+// 1. Register the output caching services in Program.cs
+builder.Services.AddOutputCache();
+
+// 2. Add Output Caching middleware
+app.UseOutputCache();
+
+// 3. Use the [OutputCache] attribute on controller/actions
+[OutputCache(Duration = 60, VaryByQueryKeys = new[] { "id" })]
+public IActionResult GetProduct(int id)
+{
+    // Simulate data fetching
+    return Ok(new { Id = id, Name = "Laptop", Price = 1200 });
+}
+  </pre>
+
+  <h3 style="color:#00838f;">⚙️ Key OutputCache Attribute Parameters</h3>
+  <ul>
+    <li><code>Duration</code>: Cache duration in seconds</li>
+    <li><code>VaryByQueryKeys</code>: Cache variation by query parameters</li>
+    <li><code>VaryByHeader</code>: Cache variation by HTTP headers</li>
+    <li><code>CacheKeyPrefix</code>: Custom prefix to cache keys</li>
+  </ul>
+
+  <h3 style="color:#006064;">⚠️ Best Practices</h3>
+  <ul>
+    <li>✅ Cache safe, idempotent requests (GET, HEAD) only</li>
+    <li>✅ Use <code>VaryByQueryKeys</code> and <code>VaryByHeader</code> to avoid serving wrong cached content</li>
+    <li>✅ Be cautious when caching personalized or sensitive content</li>
+    <li>✅ Ensure middleware order: <code>UseOutputCache()</code> before routing and endpoints</li>
+  </ul>
+
+  <h3 style="color:#00838f;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://learn.microsoft.com/en-us/aspnet/core/performance/caching/output" target="_blank" style="color:#006064;">Microsoft Docs: Output Caching Middleware</a></li>
+    <li><a href="https://andrewlock.net/introduction-to-output-caching-in-asp-net-core-7/" target="_blank" style="color:#006064;">Andrew Lock: Introduction to Output Caching</a></li>
+  </ul>
+</div>
+`,
               type: "good-to-know"
             },
             {
               id: "ef-2nd-level-cache",
               title: "Entity Framework 2nd Level Cache",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff8e1; padding:2rem; border-radius:1rem; border:2px solid #fbc02d; box-shadow:0 6px 20px rgba(251,192,45,0.2)">
+  <h2 style="color:#f57f17;">⚡ EF Core 2nd Level Cache</h2>
+  <p>
+    <strong>EF Core 2nd Level Cache</strong> is an extension that caches query results beyond the scope of a single <code>DbContext</code> instance, reducing database hits and improving app performance.
+  </p>
+
+  <h3 style="color:#fbc02d;">🔍 What is 2nd Level Cache?</h3>
+  <ul>
+    <li>1st Level Cache: Scoped to <code>DbContext</code> lifetime, automatically tracks entities</li>
+    <li>2nd Level Cache: Shared cache across multiple <code>DbContext</code> instances or requests</li>
+    <li>Helps prevent redundant queries for identical data in different contexts</li>
+  </ul>
+
+  <h3 style="color:#f57f17;">🚀 How to Use EF Core 2nd Level Cache</h3>
+  <pre style="background:#fffde7; padding:1rem; border-radius:0.75rem; font-family:monospace; overflow-x:auto;">
+// 1. Install NuGet package
+Install-Package EFCoreSecondLevelCacheInterceptor
+
+// 2. Register services in Program.cs
+builder.Services.AddEFCoreSecondLevelCache(options =>
+    options.UseMemoryCacheProvider()
+           .DisableLogging(true)
+           .CacheAllQueries(TimeSpan.FromMinutes(10))
+);
+
+// 3. Add interceptor to DbContext
+builder.Services.AddDbContext&lt;AppDbContext&gt;(options =>
+    options.UseSqlServer(connectionString)
+           .AddInterceptors(builder.Services.BuildServiceProvider().GetRequiredService&lt;SecondLevelCacheInterceptor&gt;())
+);
+  </pre>
+
+  <h3 style="color:#fbc02d;">🧩 Usage Example</h3>
+  <pre style="background:#fffde7; padding:1rem; border-radius:0.75rem; font-family:monospace; overflow-x:auto;">
+// Query with 2nd level cache enabled
+var products = await dbContext.Products
+                              .Cacheable()
+                              .ToListAsync();
+  </pre>
+
+  <h3 style="color:#f57f17;">⚠️ Best Practices</h3>
+  <ul>
+    <li>✔️ Use <code>Cacheable()</code> extension method only on read-heavy queries</li>
+    <li>✔️ Avoid caching queries with frequently changing data unless necessary</li>
+    <li>✔️ Use cache expiration or invalidation strategies to keep data fresh</li>
+    <li>✔️ Combine with distributed caching for scalable apps</li>
+    <li>✔️ Monitor cache hit/miss rates and tune accordingly</li>
+  </ul>
+
+  <h3 style="color:#fbc02d;">📚 Further Reading</h3>
+  <ul>
+    <li><a href="https://github.com/VahidN/EFCoreSecondLevelCacheInterceptor" target="_blank" style="color:#f57f17;">GitHub - EFCoreSecondLevelCacheInterceptor</a></li>
+    <li><a href="https://andrewlock.net/introducing-ef-core-second-level-cache-interceptor/" target="_blank" style="color:#f57f17;">Andrew Lock Blog: EF Core 2nd Level Cache</a></li>
+  </ul>
+</div>
+`,
               type: "optional"
             }
           ]
@@ -3311,8 +4120,144 @@ await context.SaveAsync(user);
       title: "Log Frameworks",
       direction: "left",
       children: [
-        { id: "serilog", title: "Serilog", type: "must-know" },
-        { id: "nlog", title: "NLog", type: "good-to-know" },
+        { id: "serilog", title: "Serilog", type: "must-know",
+          description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width:700px; margin:auto; padding:1.8rem; background:#f0f8ff; border-radius:12px; border:1.5px solid #3a86ff; box-shadow: 0 4px 15px rgba(58, 134, 255, 0.2); color:#0d1b2a;">
+  <h2 style="color:#3a86ff; margin-bottom:0.6rem;">📝 Serilog - Structured Logging for .NET</h2>
+  <p style="font-size:1rem; line-height:1.5; margin-bottom:1.2rem;">
+    Serilog is a modern, flexible logging framework that supports structured logging, enabling rich and queryable log data beyond simple text.
+  </p>
+
+  <h3 style="color:#1e3a8a; margin-bottom:0.4rem;">Key Features</h3>
+  <ul style="list-style-type: none; padding-left:0; margin-bottom:1.2rem; color:#264653;">
+    <li>• Structured logs with key-value pairs</li>
+    <li>• Multiple sinks (Console, File, Seq, Elasticsearch, etc.)</li>
+    <li>• High performance with async logging support</li>
+    <li>• Seamless ASP.NET Core integration</li>
+    <li>• Rich filtering and enrichment</li>
+  </ul>
+
+  <h3 style="color:#1e3a8a; margin-bottom:0.4rem;">Setup Example</h3>
+  <pre style="background:#e0ecff; padding:1rem; border-radius:8px; font-family: 'Courier New', Courier, monospace; font-size:0.9rem; overflow-x:auto; margin-bottom:1.2rem;">
+// Install packages
+Install-Package Serilog.AspNetCore
+Install-Package Serilog.Sinks.Console
+
+// Program.cs
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .CreateLogger();
+
+var builder = WebApplication.CreateBuilder(args);
+builder.Host.UseSerilog();
+
+var app = builder.Build();
+app.MapGet("/", () => "Hello Serilog!");
+app.Run();
+  </pre>
+
+  <h3 style="color:#1e3a8a; margin-bottom:0.4rem;">Usage in Controller</h3>
+  <pre style="background:#e0ecff; padding:1rem; border-radius:8px; font-family: 'Courier New', Courier, monospace; font-size:0.9rem; overflow-x:auto; margin-bottom:1.2rem;">
+public class HomeController : Controller
+{
+    private readonly ILogger&lt;HomeController&gt; _logger;
+
+    public HomeController(ILogger&lt;HomeController&gt; logger)
+    {
+        _logger = logger;
+    }
+
+    public IActionResult Index()
+    {
+        _logger.LogInformation("User accessed home at {Time}", DateTime.UtcNow);
+        return View();
+    }
+}
+  </pre>
+
+  <h3 style="color:#1e3a8a; margin-bottom:0.4rem;">Best Practices</h3>
+  <ul style="list-style-type: disc; padding-left: 20px; margin-bottom:0;">
+    <li>Avoid logging sensitive info</li>
+    <li>Use structured logging for better queryability</li>
+    <li>Choose sinks appropriate to environment</li>
+    <li>Use enrichers for context (e.g. <code>Enrich.FromLogContext()</code>)</li>
+    <li>Prefer async sinks to minimize performance impact</li>
+  </ul>
+</div>
+` },
+        { id: "nlog", title: "NLog", type: "good-to-know",
+          description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width:700px; margin:auto; padding:2rem; background:#fff8e1; border-radius:12px; border:1.5px solid #fbc02d; box-shadow: 0 4px 15px rgba(251, 192, 45, 0.3); color:#5d4037;">
+  <h2 style="color:#f9a825; margin-bottom:0.6rem;">📝 NLog - Flexible Logging for .NET</h2>
+  <p style="font-size:1rem; line-height:1.5; margin-bottom:1.2rem;">
+    <strong>NLog</strong> is a powerful and flexible logging framework for .NET applications. It supports various log targets (called “targets”) and advanced routing of log messages via rules.
+  </p>
+
+  <h3 style="color:#fbc02d; margin-bottom:0.4rem;">Key Features</h3>
+  <ul style="list-style-type: none; padding-left:0; margin-bottom:1.2rem; color:#6d4c41;">
+    <li>• Multiple output targets (File, Console, Database, Email, Event Log, etc.)</li>
+    <li>• Highly configurable via XML or fluent API</li>
+    <li>• Log filtering and routing with flexible rules</li>
+    <li>• Async and buffered logging for performance</li>
+    <li>• Supports structured logging with message templates</li>
+  </ul>
+
+  <h3 style="color:#fbc02d; margin-bottom:0.4rem;">Setup Example</h3>
+  <pre style="background:#fff3e0; padding:1rem; border-radius:8px; font-family: 'Courier New', Courier, monospace; font-size:0.9rem; overflow-x:auto; margin-bottom:1.2rem;">
+// Install NuGet package
+Install-Package NLog.Web.AspNetCore
+
+// nlog.config (XML configuration)
+&lt;nlog xmlns="http://www.nlog-project.org/schemas/NLog.xsd"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;targets&gt;
+    &lt;target xsi:type="File" name="file" fileName="logs/logfile.txt" layout="{longdate} | {level:uppercase=true} | {message} {exception}" /&gt;
+    &lt;target xsi:type="Console" name="console" layout="{longdate} | {level} | {message}" /&gt;
+  &lt;/targets&gt;
+
+  &lt;rules&gt;
+    &lt;logger name="*" minlevel="Info" writeTo="file,console" /&gt;
+  &lt;/rules&gt;
+&lt;/nlog&gt;
+
+// Program.cs
+var logger = NLog.LogManager.Setup()
+  .LoadConfigurationFromFile("nlog.config")
+  .GetCurrentClassLogger();
+
+logger.Info("Application started");
+  </pre>
+
+  <h3 style="color:#fbc02d; margin-bottom:0.4rem;">Example Usage in Code</h3>
+  <pre style="background:#fff3e0; padding:1rem; border-radius:8px; font-family: 'Courier New', Courier, monospace; font-size:0.9rem; overflow-x:auto; margin-bottom:1.2rem;">
+public class HomeController : Controller
+{
+    private static readonly NLog.Logger Logger = NLog.LogManager.GetCurrentClassLogger();
+
+    public IActionResult Index()
+    {
+        Logger.Info("User visited the Index page at {0}", DateTime.UtcNow);
+        return View();
+    }
+}
+  </pre>
+
+  <h3 style="color:#fbc02d; margin-bottom:0.4rem;">Best Practices</h3>
+  <ul style="list-style-type: disc; padding-left: 20px; margin-bottom:0;">
+    <li>✔️ Use async and buffered targets to reduce IO blocking</li>
+    <li>✔️ Separate log configuration from code using <code>nlog.config</code> or fluent config</li>
+    <li>✔️ Avoid logging sensitive information like passwords or personal data</li>
+    <li>✔️ Use meaningful log levels: Trace, Debug, Info, Warn, Error, Fatal</li>
+    <li>✔️ Use structured logging (message templates) for better query and analysis</li>
+    <li>✔️ Regularly archive or clean old log files to manage disk space</li>
+  </ul>
+
+  <h3 style="color:#fbc02d;">📚 Further Resources</h3>
+  <ul>
+    <li><a href="https://nlog-project.org/" target="_blank" style="color:#5d4037;">Official NLog Website</a></li>
+    <li><a href="https://github.com/NLog/NLog.Web" target="_blank" style="color:#5d4037;">NLog.Web GitHub Repo</a></li>
+    <li><a href="https://docs.nlog-project.org/en/latest/index.html" target="_blank" style="color:#5d4037;">NLog Documentation</a></li>
+  </ul>
+</div>
+`  },
       ]
     },
     {
@@ -3320,8 +4265,188 @@ await context.SaveAsync(user);
       title: "Real Time Communication",
       direction: "left",
       children: [
-        { id: "signalr-core", title: "SignalR Core", type: "must-know" },
-        { id: "web-sockets", title: "Web Sockets", type: "good-to-know" },
+        { id: "signalr-core", title: "SignalR Core", type: "must-know",
+          description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width:720px; margin:auto; padding:2rem; background:#e3f2fd; border-radius:14px; border:2px solid #2196f3; box-shadow: 0 5px 20px rgba(33, 150, 243, 0.3); color:#0d47a1; line-height:1.6;">
+  <h2 style="color:#1565c0; margin-bottom:1rem;">⚡ SignalR Core - Real-Time Communication Framework in ASP.NET Core</h2>
+
+  <p>
+    <strong>SignalR Core</strong> is a powerful library built into ASP.NET Core that enables <em>real-time bi-directional communication</em> between server and clients. 
+    Unlike traditional HTTP requests which are one-way and request/response-based, SignalR allows servers to push updates to clients instantly, enabling interactive and dynamic web applications such as chat apps, live dashboards, gaming, notifications, and collaboration tools.
+  </p>
+
+  <h3 style="color:#1e88e5; margin-top:1.5rem;">🚀 Why Use SignalR Core?</h3>
+  <ul style="list-style-type: disc; padding-left: 1.2rem; margin-bottom:1rem; color:#0d47a1;">
+    <li>✔️ Abstracts away complex WebSocket and fallback transports (Long Polling, Server-Sent Events), working seamlessly across browsers and environments.</li>
+    <li>✔️ Supports multiple simultaneous connections from clients.</li>
+    <li>✔️ Supports grouping clients logically for targeted message broadcasting.</li>
+    <li>✔️ Includes automatic connection management and reconnection features.</li>
+    <li>✔️ Scales easily with backplanes like Redis or Azure SignalR Service to support multiple server instances.</li>
+  </ul>
+
+  <h3 style="color:#1e88e5; margin-top:1.5rem;">🔧 Core Concepts</h3>
+  <ul style="list-style-type: none; padding-left: 0; color:#0d47a1;">
+    <li><strong>Hub:</strong> A central class where you define methods the server can call on clients and vice versa.</li>
+    <li><strong>Clients:</strong> Connected users or applications (web browsers, mobile apps) that communicate with the Hub.</li>
+    <li><strong>Connection:</strong> The active link between a client and the Hub over WebSocket or fallback transports.</li>
+    <li><strong>Groups:</strong> Logical collections of connections for sending messages to subsets of clients.</li>
+  </ul>
+
+  <h3 style="color:#1e88e5; margin-top:1.5rem;">📦 Basic Implementation Example</h3>
+  <p>Here is a simple example of creating a chat system with SignalR Core:</p>
+
+  <pre style="background:#bbdefb; padding:1rem; border-radius:8px; font-family: 'Courier New', Courier, monospace; font-size:0.9rem; overflow-x:auto;">
+// 1. Define a Hub class with a method clients can call
+public class ChatHub : Hub
+{
+    // Method that clients call to send messages
+    public async Task SendMessage(string user, string message)
+    {
+        // Broadcast the message to all connected clients
+        await Clients.All.SendAsync("ReceiveMessage", user, message);
+    }
+}
+
+// 2. Configure SignalR services and map hub endpoint in Program.cs
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddSignalR();
+
+var app = builder.Build();
+app.MapHub&lt;ChatHub&gt;("/chatHub");
+app.Run();
+  </pre>
+
+  <h3 style="color:#1e88e5; margin-top:1.5rem;">🖥️ Client Side Example (JavaScript)</h3>
+  <p>Connect to the hub and receive/send messages from a browser:</p>
+
+  <pre style="background:#bbdefb; padding:1rem; border-radius:8px; font-family: 'Courier New', Courier, monospace; font-size:0.9rem; overflow-x:auto;">
+const connection = new signalR.HubConnectionBuilder()
+    .withUrl("/chatHub")
+    .build();
+
+// Listen for messages from server
+connection.on("ReceiveMessage", function(user, message) {
+    console.log(user + ": " + message);
+    // Update your UI here, e.g., add messages to chat window
+});
+
+// Start connection
+connection.start()
+    .then(function() { console.log("Connected to SignalR Hub"); })
+    .catch(function(err) { console.error("Connection failed: ", err); });
+
+// Send a message to server
+function sendMessage(user, message) {
+    connection.invoke("SendMessage", user, message)
+        .catch(function(err) { console.error(err); });
+}
+  </pre>
+
+  <h3 style="color:#1e88e5; margin-top:1.5rem;">⚙️ Advanced Features & Best Practices</h3>
+  <ul style="list-style-type: disc; padding-left: 1.2rem; color:#0d47a1;">
+    <li>🔐 <strong>Secure your Hub:</strong> Protect your SignalR endpoints with authentication and authorization to restrict access.</li>
+    <li>👥 <strong>Use Groups:</strong> Manage groups to broadcast messages to specific subsets of clients, e.g., chat rooms or game lobbies.</li>
+    <li>🔄 <strong>Handle Connection Lifecycle:</strong> Implement handlers for connection events (<code>OnConnectedAsync</code>, <code>OnDisconnectedAsync</code>) to manage resources or notify others.</li>
+    <li>🌐 <strong>Scale with Backplanes:</strong> Use Redis or Azure SignalR Service to scale SignalR across multiple server instances seamlessly.</li>
+    <li>🚫 <strong>Optimize Payload Size:</strong> Avoid sending large or frequent messages to reduce bandwidth and latency.</li>
+    <li>📱 <strong>Support Multiple Clients:</strong> SignalR works with browsers, mobile apps, desktop clients, and even IoT devices.</li>
+  </ul>
+
+  <h3 style="color:#1e88e5; margin-top:1.5rem;">📚 Useful Links</h3>
+  <ul>
+    <li><a href="https://learn.microsoft.com/en-us/aspnet/core/signalr/introduction" target="_blank" style="color:#0d47a1;">Official Microsoft SignalR Documentation</a></li>
+    <li><a href="https://github.com/dotnet/aspnetcore/tree/main/src/SignalR" target="_blank" style="color:#0d47a1;">SignalR Source Code on GitHub</a></li>
+    <li><a href="https://dotnet.microsoft.com/apps/aspnet/signalr" target="_blank" style="color:#0d47a1;">Overview and Sample Apps</a></li>
+  </ul>
+</div>
+`  },
+        { id: "web-sockets", title: "Web Sockets", type: "good-to-know",
+          description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width:720px; margin:auto; padding:2rem; background:#f0f4c3; border-radius:14px; border:2px solid #afb42b; box-shadow: 0 5px 20px rgba(171, 180, 0, 0.3); color:#827717; line-height:1.6;">
+  <h2 style="color:#c0ca33; margin-bottom:1rem;">🔌 WebSockets - Full-Duplex Communication Protocol</h2>
+
+  <p>
+    <strong>WebSockets</strong> provide a standardized way for web clients (like browsers) and servers to establish a persistent, full-duplex communication channel over a single TCP connection. 
+    Unlike traditional HTTP, which is request-response oriented, WebSockets enable both client and server to send messages independently at any time, enabling true real-time web applications.
+  </p>
+
+  <h3 style="color:#dce775; margin-top:1.5rem;">⚡ Why WebSockets?</h3>
+  <ul style="list-style-type: disc; padding-left: 1.2rem; margin-bottom:1rem; color:#827717;">
+    <li>✔️ Bi-directional communication: Server can push data instantly without waiting for client requests.</li>
+    <li>✔️ Low latency: Minimal overhead after initial handshake, ideal for live updates.</li>
+    <li>✔️ Efficient bandwidth usage: Persistent connection avoids HTTP headers overhead on each message.</li>
+    <li>✔️ Supports real-time applications: chat, gaming, live feeds, financial tickers, collaborative tools, etc.</li>
+  </ul>
+
+  <h3 style="color:#dce775; margin-top:1.5rem;">📡 How WebSocket Works</h3>
+  <ol style="color:#827717;">
+    <li><strong>Handshake:</strong> Client sends HTTP upgrade request to switch protocol from HTTP to WebSocket.</li>
+    <li><strong>Connection Established:</strong> Server accepts and upgrades the connection.</li>
+    <li><strong>Data Transfer:</strong> Both client and server exchange messages freely over the open socket.</li>
+    <li><strong>Connection Close:</strong> Either side can close the connection gracefully.</li>
+  </ol>
+
+  <h3 style="color:#dce775; margin-top:1.5rem;">🛠️ Basic WebSocket Example (JavaScript)</h3>
+  <p>Client side example opening a connection and sending/receiving messages:</p>
+
+  <pre style="background:#f9fbe7; padding:1rem; border-radius:8px; font-family: 'Courier New', Courier, monospace; font-size:0.9rem; overflow-x:auto;">
+const socket = new WebSocket("wss://example.com/socket");
+
+// Connection opened
+socket.onopen = function(event) {
+  console.log("WebSocket is open now.");
+  socket.send("Hello Server!");
+};
+
+// Listen for messages
+socket.onmessage = function(event) {
+  console.log("Message from server ", event.data);
+};
+
+// Connection closed
+socket.onclose = function(event) {
+  console.log("WebSocket is closed now.");
+};
+
+// Handle errors
+socket.onerror = function(error) {
+  console.error("WebSocket error: ", error);
+};
+  </pre>
+
+  <h3 style="color:#dce775; margin-top:1.5rem;">🔗 Server-Side WebSocket in ASP.NET Core</h3>
+  <p>Example of setting up a simple WebSocket middleware in ASP.NET Core:</p>
+
+  <pre style="background:#f9fbe7; padding:1rem; border-radius:8px; font-family: 'Courier New', Courier, monospace; font-size:0.9rem; overflow-x:auto;">
+app.Use(async (context, next) =>
+{
+    if (context.WebSockets.IsWebSocketRequest)
+    {
+        var webSocket = await context.WebSockets.AcceptWebSocketAsync();
+        // Handle websocket connection here (read/write messages)
+    }
+    else
+    {
+        await next();
+    }
+});
+  </pre>
+
+  <h3 style="color:#dce775; margin-top:1.5rem;">⚙️ Best Practices</h3>
+  <ul style="list-style-type: disc; padding-left: 1.2rem; color:#827717;">
+    <li>🔐 Secure WebSockets with TLS (wss://) to encrypt communication.</li>
+    <li>👥 Manage client connections carefully; track open sockets to prevent leaks.</li>
+    <li>🔄 Implement proper reconnect logic on client side for resilience.</li>
+    <li>🧹 Clean up resources and close connections gracefully on disconnect.</li>
+    <li>📊 Monitor performance and scale using load balancers or specialized services.</li>
+  </ul>
+
+  <h3 style="color:#dce775; margin-top:1.5rem;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API" target="_blank" style="color:#827717;">MDN WebSocket API Documentation</a></li>
+    <li><a href="https://tools.ietf.org/html/rfc6455" target="_blank" style="color:#827717;">RFC 6455 - The WebSocket Protocol</a></li>
+    <li><a href="https://learn.microsoft.com/en-us/aspnet/core/fundamentals/websockets" target="_blank" style="color:#827717;">ASP.NET Core WebSockets Middleware</a></li>
+  </ul>
+</div>
+`  },
       ]
     },
     {
@@ -3333,15 +4458,15 @@ await context.SaveAsync(user);
           id: "rest",
           title: "REST",
           children: [
-            { id: "griffiy", title: "Griffiy", type: "good-to-know" },
-            { id: "odata", title: "OData", type: "optional" },
+            { id: "griffiy", title: "Griffiy", type: "good-to-know",description: `` },
+            { id: "odata", title: "OData", type: "optional",description: `` },
             {
               id: "repr",
               title: "REPR Pattern",
               type: "optional",
               children: [
-                { id: "minimal-apis", title: "Minimal APIs", type: "must-know" },
-                { id: "ardalis-endpoints", title: "Ardalis.Endpoints", type: "optional" },
+                { id: "minimal-apis", title: "Minimal APIs", type: "must-know",description: `` },
+                { id: "ardalis-endpoints", title: "Ardalis.Endpoints", type: "optional",description: `` },
                 { id: "fastendpoints", title: "FastEndpoints", type: "optional" },
               ]
             },
