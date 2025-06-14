@@ -2025,45 +2025,1203 @@ optionsBuilder.AddInterceptors(new CommandInterceptor());
         {
           id: "relational",
           title: "Relational",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef9f0; padding:1.5rem; border-radius:1rem; border:1px solid #f59e0b; box-shadow:0 4px 15px rgba(245, 158, 11, 0.3)">
+  <h2 style="color:#b45309">🗄️ Relational Databases (RDBMS)</h2>
+  <p>
+    Relational Databases organize data into tables (relations) with rows and columns. They use <strong>Structured Query Language (SQL)</strong> to manage and query data efficiently.
+  </p>
+
+  <h3 style="color:#f59e0b">Core Concepts</h3>
+  <ul>
+    <li><strong>Tables:</strong> Store data in rows and columns.</li>
+    <li><strong>Primary Key:</strong> Unique identifier for table rows.</li>
+    <li><strong>Foreign Key:</strong> Enforces referential integrity between tables.</li>
+    <li><strong>Normalization:</strong> Organizes data to reduce redundancy.</li>
+    <li><strong>ACID Properties:</strong> Ensure reliable transactions (Atomicity, Consistency, Isolation, Durability).</li>
+  </ul>
+
+  <h3 style="color:#b45309">Popular Relational Databases</h3>
+  <ul>
+    <li>Microsoft SQL Server</li>
+    <li>PostgreSQL</li>
+    <li>MySQL / MariaDB</li>
+    <li>Oracle Database</li>
+    <li>SQLite (lightweight, embedded)</li>
+  </ul>
+
+  <h3 style="color:#f59e0b">Basic SQL Example</h3>
+  <pre style="background:#fef3c7; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>-- Create table
+CREATE TABLE Employees (
+  EmployeeId INT PRIMARY KEY,
+  FirstName NVARCHAR(50),
+  LastName NVARCHAR(50),
+  DepartmentId INT,
+  Salary DECIMAL(10, 2)
+);
+
+-- Insert data
+INSERT INTO Employees (EmployeeId, FirstName, LastName, DepartmentId, Salary)
+VALUES (1, 'Alice', 'Smith', 101, 60000.00);
+
+-- Query data
+SELECT FirstName, LastName, Salary
+FROM Employees
+WHERE DepartmentId = 101;
+</code></pre>
+
+  <h3 style="color:#b45309">💡 Best Practices</h3>
+  <ul>
+    <li>Design normalized schemas to avoid data duplication.</li>
+    <li>Use indexes on frequently searched columns for faster queries.</li>
+    <li>Use transactions to maintain data integrity.</li>
+    <li>Backup data regularly and monitor performance.</li>
+    <li>Write efficient and secure SQL queries to prevent injection attacks.</li>
+  </ul>
+</div>
+` ,
           children: [
-            { id: "sql-server", title: "SQL Server", type: "must-know" ,description: `` },
-            { id: "postgresql", title: "PostgreSQL", type: "good-to-know",description: ``  },
-            { id: "mariadb", title: "MariaDB", type: "optional",description: ``  },
-            { id: "mysql", title: "MySQL", type: "optional",description: ``  },
+            { id: "sql-server", title: "SQL Server", type: "must-know" ,
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #3b82f6; box-shadow:0 4px 15px rgba(59, 130, 246, 0.3)">
+  <h2 style="color:#1e40af">🛢️ Microsoft SQL Server</h2>
+  <p>
+    Microsoft SQL Server is a powerful, enterprise-grade relational database management system (RDBMS) widely used for mission-critical applications.
+    It supports advanced features like transactions, stored procedures, triggers, and high availability.
+  </p>
+
+  <h3 style="color:#3b82f6">Key Features</h3>
+  <ul>
+    <li>Support for T-SQL (Transact-SQL) – an extension of SQL with procedural programming capabilities.</li>
+    <li>Built-in security with roles, encryption, and auditing.</li>
+    <li>Advanced performance tuning with indexing, partitioning, and in-memory OLTP.</li>
+    <li>Integration with Azure cloud services.</li>
+    <li>High availability with Always On Availability Groups.</li>
+  </ul>
+
+  <h3 style="color:#1e40af">Basic Example: Creating a Table and Querying Data</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>-- Create a table
+CREATE TABLE Customers (
+    CustomerId INT PRIMARY KEY IDENTITY(1,1),
+    Name NVARCHAR(100) NOT NULL,
+    Email NVARCHAR(100) UNIQUE,
+    CreatedDate DATETIME DEFAULT GETDATE()
+);
+
+-- Insert data
+INSERT INTO Customers (Name, Email)
+VALUES ('John Doe', 'john.doe@example.com');
+
+-- Query data
+SELECT CustomerId, Name, Email, CreatedDate
+FROM Customers
+WHERE Name LIKE 'John%';</code></pre>
+
+  <h3 style="color:#3b82f6">⚠️ Important Tips</h3>
+  <ul>
+    <li>Always use parameterized queries or stored procedures to prevent SQL injection.</li>
+    <li>Regularly maintain indexes and update statistics for optimal performance.</li>
+    <li>Use transactions to ensure data integrity during multi-step operations.</li>
+    <li>Backup databases frequently and test restores.</li>
+  </ul>
+
+  <h3 style="color:#1e40af">💡 Best Practices</h3>
+  <ul>
+    <li>Design normalized schemas but denormalize when read performance is critical.</li>
+    <li>Implement proper error handling in T-SQL stored procedures.</li>
+    <li>Monitor query performance with SQL Server Profiler and Extended Events.</li>
+    <li>Secure your database with least privilege principle and encryption.</li>
+  </ul>
+</div>
+` },
+            { id: "postgresql", title: "PostgreSQL", type: "good-to-know",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#f7f9fc; padding:1.5rem; border-radius:1rem; border:1px solid #3b82f6; box-shadow:0 4px 15px rgba(59, 130, 246, 0.2)">
+  <h2 style="color:#2563eb">🍃 PostgreSQL - Advanced Open Source RDBMS</h2>
+  <p>
+    PostgreSQL is a powerful, open-source relational database known for its extensibility, standards compliance, and support for advanced data types and performance features.
+  </p>
+
+  <h3 style="color:#3b82f6">Key Features</h3>
+  <ul>
+    <li>Full ACID compliance and MVCC (Multi-Version Concurrency Control).</li>
+    <li>Support for JSON and JSONB data types for semi-structured data.</li>
+    <li>Extensible via custom data types, operators, and functions.</li>
+    <li>Advanced indexing techniques (GIN, GiST, BRIN).</li>
+    <li>Robust replication and high availability options.</li>
+  </ul>
+
+  <h3 style="color:#2563eb">Basic Usage Example</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>-- Create a table
+CREATE TABLE users (
+    user_id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Insert data
+INSERT INTO users (username, email)
+VALUES ('johndoe', 'john@example.com');
+
+-- Query data
+SELECT user_id, username, email, created_at
+FROM users
+WHERE username LIKE 'john%';</code></pre>
+
+  <h3 style="color:#3b82f6">⚠️ Important Tips</h3>
+  <ul>
+    <li>Use prepared statements or parameterized queries to prevent SQL injection.</li>
+    <li>Take advantage of JSONB for flexible schema needs.</li>
+    <li>Analyze and vacuum regularly to maintain performance.</li>
+    <li>Use EXPLAIN ANALYZE to optimize queries.</li>
+  </ul>
+
+  <h3 style="color:#2563eb">💡 Best Practices</h3>
+  <ul>
+    <li>Design normalized schemas but optimize for query patterns.</li>
+    <li>Implement proper indexing, especially with GIN for JSONB fields.</li>
+    <li>Leverage PostgreSQL extensions like PostGIS for geospatial data.</li>
+    <li>Backup and test restores frequently using tools like pg_dump and pg_restore.</li>
+  </ul>
+</div>
+`  },
+            { id: "mariadb", title: "MariaDB", type: "optional",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff8f0; padding:1.5rem; border-radius:1rem; border:1px solid #f97316; box-shadow:0 4px 15px rgba(249, 115, 22, 0.3)">
+  <h2 style="color:#c2410c">🔥 MariaDB - Open Source Relational Database</h2>
+  <p>
+    MariaDB is a popular open-source relational database, forked from MySQL, known for its performance, scalability, and rich feature set.
+    It is fully compatible with MySQL and widely used for web applications and enterprise solutions.
+  </p>
+
+  <h3 style="color:#f97316">Key Features</h3>
+  <ul>
+    <li>Compatibility with MySQL clients and tools.</li>
+    <li>Storage engines like InnoDB, Aria, and ColumnStore for analytics.</li>
+    <li>Advanced features: JSON support, GIS extensions, and dynamic columns.</li>
+    <li>Strong community support and active development.</li>
+    <li>Replication, clustering, and Galera for high availability.</li>
+  </ul>
+
+  <h3 style="color:#c2410c">Basic Usage Example</h3>
+  <pre style="background:#ffedd5; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>-- Create a table
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50),
+    last_name VARCHAR(50),
+    department VARCHAR(100),
+    salary DECIMAL(10,2)
+);
+
+-- Insert data
+INSERT INTO employees (first_name, last_name, department, salary)
+VALUES ('Jane', 'Doe', 'HR', 55000.00);
+
+-- Query data
+SELECT first_name, last_name, salary
+FROM employees
+WHERE department = 'HR';</code></pre>
+
+  <h3 style="color:#f97316">⚠️ Important Tips</h3>
+  <ul>
+    <li>Use prepared statements or parameterized queries to prevent SQL injection.</li>
+    <li>Choose the right storage engine based on your workload.</li>
+    <li>Optimize indexes for faster query performance.</li>
+    <li>Regularly backup your databases and monitor replication status.</li>
+  </ul>
+
+  <h3 style="color:#c2410c">💡 Best Practices</h3>
+  <ul>
+    <li>Normalize data but denormalize where performance gains are needed.</li>
+    <li>Keep your MariaDB server updated for latest security patches.</li>
+    <li>Monitor slow queries and optimize them using EXPLAIN.</li>
+    <li>Leverage Galera Cluster for fault-tolerant setups.</li>
+  </ul>
+</div>
+`  },
+            { id: "mysql", title: "MySQL", type: "optional",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #2563eb; box-shadow:0 4px 15px rgba(37, 99, 235, 0.3)">
+  <h2 style="color:#1e40af">🐬 MySQL - Popular Open Source RDBMS</h2>
+  <p>
+    MySQL is one of the most widely used open-source relational database management systems, favored for its reliability, ease of use, and strong community support.
+  </p>
+
+  <h3 style="color:#2563eb">Key Features</h3>
+  <ul>
+    <li>Support for SQL and ACID-compliant transactions.</li>
+    <li>Multiple storage engines including InnoDB (default), MyISAM.</li>
+    <li>Replication, clustering, and sharding support for scalability.</li>
+    <li>Wide compatibility with programming languages and frameworks.</li>
+    <li>Strong ecosystem with tools like MySQL Workbench.</li>
+  </ul>
+
+  <h3 style="color:#1e40af">Basic Usage Example</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>-- Create a table
+CREATE TABLE products (
+    product_id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    price DECIMAL(10, 2),
+    stock INT DEFAULT 0
+);
+
+-- Insert data
+INSERT INTO products (name, price, stock)
+VALUES ('Laptop', 1200.00, 10);
+
+-- Query data
+SELECT product_id, name, price, stock
+FROM products
+WHERE stock > 0;</code></pre>
+
+  <h3 style="color:#2563eb">⚠️ Important Tips</h3>
+  <ul>
+    <li>Use prepared statements or parameterized queries to avoid SQL injection.</li>
+    <li>Index columns that are frequently used in WHERE clauses for performance.</li>
+    <li>Regularly monitor slow queries and optimize them.</li>
+    <li>Back up your databases regularly and test restore procedures.</li>
+  </ul>
+
+  <h3 style="color:#1e40af">💡 Best Practices</h3>
+  <ul>
+    <li>Design normalized schemas for data integrity.</li>
+    <li>Use transactions for multi-step operations to maintain consistency.</li>
+    <li>Optimize queries and schema based on usage patterns.</li>
+    <li>Keep your MySQL server updated with security patches.</li>
+  </ul>
+</div>
+`  },
           ]
         },
         {
           id: "search-engines",
           title: "Search Engines",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#e8f0fe; padding:1.5rem; border-radius:1rem; border:1px solid #4285f4; box-shadow:0 4px 15px rgba(66, 133, 244, 0.3)">
+  <h2 style="color:#1967d2">🔍 Search Engines - How They Work & Best Practices</h2>
+  <p>
+    Search engines are software systems designed to search, index, and retrieve information from the web or databases based on user queries. They use complex algorithms to deliver relevant results quickly.
+  </p>
+
+  <h3 style="color:#4285f4">Key Concepts</h3>
+  <ul>
+    <li><strong>Crawling:</strong> Discovering new and updated web pages using bots (spiders).</li>
+    <li><strong>Indexing:</strong> Organizing and storing web page data in a searchable database.</li>
+    <li><strong>Ranking:</strong> Ordering results by relevance using algorithms like PageRank, TF-IDF, and machine learning.</li>
+    <li><strong>Query Processing:</strong> Understanding user intent and matching with indexed data.</li>
+  </ul>
+
+  <h3 style="color:#1967d2">Search Engine Optimization (SEO) Basics</h3>
+  <ul>
+    <li>Use relevant keywords naturally within titles, headings, and content.</li>
+    <li>Ensure fast page load times and mobile-friendly design.</li>
+    <li>Use descriptive meta tags and alt attributes for images.</li>
+    <li>Build quality backlinks and maintain site authority.</li>
+  </ul>
+
+  <h3 style="color:#4285f4">Example: Simple Search Algorithm (Conceptual)</h3>
+  <pre style="background:#d2e3fc; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>// Pseudo-code for basic keyword matching
+function search(query, documents) {
+  const results = [];
+  for (const doc of documents) {
+    if (doc.text.includes(query)) {
+      results.push(doc);
+    }
+  }
+  return results;
+}</code></pre>
+
+  <h3 style="color:#1967d2">💡 Best Practices</h3>
+  <ul>
+    <li>Keep content relevant and updated frequently.</li>
+    <li>Use structured data (schema.org) to enhance search results.</li>
+    <li>Monitor analytics to understand user behavior and improve.</li>
+    <li>Optimize for voice and semantic search as they gain popularity.</li>
+  </ul>
+</div>
+` ,
           children: [
-            { id: "elasticsearch", title: "Elasticsearch", type: "must-know",description: ``  },
-            { id: "meilisearch", title: "Meilisearch", type: "must-know",description: ``  },
-            { id: "manticoresearch", title: "ManticoreSearch", type: "optional",description: ``  },
-            { id: "opensearch", title: "OpenSearch", type: "optional",description: ``  },
+            { id: "elasticsearch", title: "Elasticsearch", type: "must-know",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#f5f7fa; padding:1.5rem; border-radius:1rem; border:1px solid #0077b6; box-shadow:0 4px 15px rgba(0, 119, 182, 0.3)">
+  <h2 style="color:#023e8a">⚡ Elasticsearch - Distributed Search & Analytics Engine</h2>
+  <p>
+    Elasticsearch is a powerful, distributed, RESTful search and analytics engine built on top of Apache Lucene. It's designed for fast full-text search, structured search, and analytics at scale.
+  </p>
+
+  <h3 style="color:#0077b6">Key Features</h3>
+  <ul>
+    <li>Near real-time search and indexing.</li>
+    <li>Full-text search with powerful query DSL.</li>
+    <li>Scalable distributed architecture with clustering and sharding.</li>
+    <li>Support for structured and unstructured data.</li>
+    <li>Integration with Kibana for visualization.</li>
+  </ul>
+
+  <h3 style="color:#023e8a">Basic Usage Example</h3>
+  <pre style="background:#d0e7ff; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>POST /products/_doc/1
+{
+  "name": "Smartphone",
+  "description": "Latest model with advanced features",
+  "price": 699,
+  "available": true
+}
+
+GET /products/_search
+{
+  "query": {
+    "match": {
+      "description": "advanced features"
+    }
+  }
+}</code></pre>
+
+  <h3 style="color:#0077b6">⚠️ Important Tips</h3>
+  <ul>
+    <li>Design your index mappings carefully for optimized search.</li>
+    <li>Use analyzers to customize text processing.</li>
+    <li>Monitor cluster health and shard allocation regularly.</li>
+    <li>Secure Elasticsearch with authentication and firewall rules.</li>
+  </ul>
+
+  <h3 style="color:#023e8a">💡 Best Practices</h3>
+  <ul>
+    <li>Use bulk API for batch indexing to improve performance.</li>
+    <li>Keep mappings immutable; use aliases for versioning indices.</li>
+    <li>Regularly back up snapshots and test restore processes.</li>
+    <li>Leverage Kibana dashboards for insightful data visualization.</li>
+  </ul>
+</div>
+`  },
+            { id: "meilisearch", title: "Meilisearch", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdfa; padding:1.5rem; border-radius:1rem; border:1px solid #10b981; box-shadow:0 4px 15px rgba(16, 185, 129, 0.3)">
+  <h2 style="color:#047857">⚡ Meilisearch - Fast & Relevant Open-Source Search Engine</h2>
+  <p>
+    Meilisearch is a blazing-fast, easy-to-use, open-source search engine optimized for instant, typo-tolerant, and highly relevant full-text search experiences.
+  </p>
+
+  <h3 style="color:#10b981">Key Features</h3>
+  <ul>
+    <li>Instant search with millisecond response times.</li>
+    <li>Typo tolerance and typo correction out of the box.</li>
+    <li>Simple RESTful API and easy integration.</li>
+    <li>Faceting, filtering, and custom ranking rules.</li>
+    <li>Lightweight and easy to deploy.</li>
+  </ul>
+
+  <h3 style="color:#047857">Basic Usage Example</h3>
+  <pre style="background:#d1fae5; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>// Add documents to an index
+POST /indexes/products/documents
+[
+  { "id": 1, "name": "Laptop", "description": "High-performance laptop" },
+  { "id": 2, "name": "Smartphone", "description": "Latest model smartphone" }
+]
+
+// Search query with typo tolerance
+GET /indexes/products/search?q=lptop</code></pre>
+
+  <h3 style="color:#10b981">⚠️ Important Tips</h3>
+  <ul>
+    <li>Define clear searchable attributes to improve relevance.</li>
+    <li>Use custom ranking rules for tailored search results.</li>
+    <li>Regularly update your indexes for fresh data.</li>
+    <li>Leverage filters and facets to refine search experiences.</li>
+  </ul>
+
+  <h3 style="color:#047857">💡 Best Practices</h3>
+  <ul>
+    <li>Keep your document schema consistent across updates.</li>
+    <li>Use pagination to optimize large result sets.</li>
+    <li>Monitor performance metrics to ensure low latency.</li>
+    <li>Secure your API keys and endpoints to prevent unauthorized access.</li>
+  </ul>
+</div>
+`  },
+            { id: "manticoresearch", title: "ManticoreSearch", type: "optional",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff7ed; padding:1.5rem; border-radius:1rem; border:1px solid #f97316; box-shadow:0 4px 15px rgba(249, 115, 22, 0.3)">
+  <h2 style="color:#c2410c">🔥 Manticore Search - High-Performance Open Source Search Engine</h2>
+  <p>
+    Manticore Search is a fast, scalable, and feature-rich open source full-text search engine designed for handling large volumes of data with powerful query capabilities.
+  </p>
+
+  <h3 style="color:#f97316">Key Features</h3>
+  <ul>
+    <li>Real-time full-text search with relevance ranking.</li>
+    <li>Supports SQL-like query language for flexibility.</li>
+    <li>Faceted search, filtering, and geospatial search.</li>
+    <li>Distributed search with replication and sharding.</li>
+    <li>Integrates well with MySQL and PostgreSQL.</li>
+  </ul>
+
+  <h3 style="color:#c2410c">Basic Usage Example</h3>
+  <pre style="background:#ffe7cc; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code># Create an index
+CREATE TABLE products (
+  id INT,
+  name TEXT,
+  description TEXT
+) TYPE=RT;
+
+# Insert data
+INSERT INTO products (id, name, description) VALUES (1, 'Laptop', 'High-performance laptop with SSD');
+
+# Search query
+SELECT * FROM products WHERE MATCH('laptop SSD') LIMIT 10;</code></pre>
+
+  <h3 style="color:#f97316">⚠️ Important Tips</h3>
+  <ul>
+    <li>Design your schema carefully to optimize search relevance.</li>
+    <li>Use real-time (RT) indexes for instant data availability.</li>
+    <li>Monitor query performance and tune ranking parameters.</li>
+    <li>Secure access to Manticore Search instances to prevent unauthorized use.</li>
+  </ul>
+
+  <h3 style="color:#c2410c">💡 Best Practices</h3>
+  <ul>
+    <li>Use incremental indexing to keep data up-to-date.</li>
+    <li>Leverage distributed features for scaling large datasets.</li>
+    <li>Test and fine-tune ranking expressions based on your use case.</li>
+    <li>Regularly backup your indexes and configuration.</li>
+  </ul>
+</div>
+`  },
+            
+              { id: "opensearch", title: "OpenSearch", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f4ff; padding:1.5rem; border-radius:1rem; border:1px solid #3b82f6; box-shadow:0 4px 15px rgba(59, 130, 246, 0.3)">
+  <h2 style="color:#2563eb">🔎 OpenSearch - Open-Source Search & Analytics Suite</h2>
+  <p>
+    OpenSearch is a community-driven, open-source search and analytics suite derived from Elasticsearch 7.10.2 and Kibana 7.10.2. It offers powerful search, log analytics, and data visualization capabilities.
+  </p>
+
+  <h3 style="color:#3b82f6">Key Features</h3>
+  <ul>
+    <li>Full-text search with scalable distributed architecture.</li>
+    <li>Real-time data ingestion and near-instant search results.</li>
+    <li>Advanced analytics and dashboard visualizations with OpenSearch Dashboards.</li>
+    <li>Security features including role-based access control (RBAC) and encryption.</li>
+    <li>Extensible with plugins and supports SQL queries.</li>
+  </ul>
+
+  <h3 style="color:#2563eb">Basic Usage Example</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>PUT /library/_doc/1
+{
+  "title": "Modern Web Development",
+  "author": "Jane Doe",
+  "published_year": 2023
+}
+
+GET /library/_search
+{
+  "query": {
+    "match": {
+      "title": "web development"
+    }
+  }
+}</code></pre>
+
+  <h3 style="color:#3b82f6">⚠️ Important Tips</h3>
+  <ul>
+    <li>Plan your index mappings carefully for optimal search and aggregation.</li>
+    <li>Leverage OpenSearch Dashboards for monitoring and data visualization.</li>
+    <li>Use snapshot and restore features for reliable backups.</li>
+    <li>Implement security best practices to protect your cluster.</li>
+  </ul>
+
+  <h3 style="color:#2563eb">💡 Best Practices</h3>
+  <ul>
+    <li>Use bulk indexing APIs to improve data ingestion performance.</li>
+    <li>Keep your cluster healthy by monitoring shard allocation and resource usage.</li>
+    <li>Use aliases for zero-downtime index updates and versioning.</li>
+    <li>Regularly update and test your backups and restore procedures.</li>
+  </ul>
+</div>
+`  },
           ]
         },
         {
           id: "nosql",
           title: "NoSQL",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff9f0; padding:1.5rem; border-radius:1rem; border:1px solid #d97706; box-shadow:0 4px 15px rgba(217, 119, 6, 0.3)">
+  <h2 style="color:#b45309">🚀 NoSQL Databases - Flexible & Scalable Data Storage</h2>
+  <p>
+    NoSQL databases provide schema-less, highly scalable, and flexible data storage solutions designed to handle large volumes of structured, semi-structured, and unstructured data.
+  </p>
+
+  <h3 style="color:#d97706">Types of NoSQL Databases</h3>
+  <ul>
+    <li><strong>Document Stores:</strong> Store data as JSON-like documents. (e.g., MongoDB, CouchDB)</li>
+    <li><strong>Key-Value Stores:</strong> Simple key-value pairs for fast retrieval. (e.g., Redis, DynamoDB)</li>
+    <li><strong>Column-Family Stores:</strong> Store data in columns grouped into families. (e.g., Cassandra, HBase)</li>
+    <li><strong>Graph Databases:</strong> Model data as nodes and edges for relationships. (e.g., Neo4j, Amazon Neptune)</li>
+  </ul>
+
+  <h3 style="color:#b45309">Key Features</h3>
+  <ul>
+    <li>Schema flexibility — no fixed schema required.</li>
+    <li>Horizontal scalability — easy to scale out on commodity hardware.</li>
+    <li>High availability with replication and partitioning.</li>
+    <li>Optimized for specific use cases like real-time analytics, caching, and content management.</li>
+  </ul>
+
+  <h3 style="color:#d97706">Basic Usage Example (MongoDB)</h3>
+  <pre style="background:#ffedd5; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>// Insert a document into a collection
+db.users.insertOne({
+  name: "Alice",
+  email: "alice@example.com",
+  age: 30,
+  interests: ["reading", "travel"]
+});
+
+// Query documents
+db.users.find({ age: { $gte: 25 } })</code></pre>
+
+  <h3 style="color:#b45309">⚠️ Important Tips</h3>
+  <ul>
+    <li>Choose the NoSQL type that best fits your data model and use case.</li>
+    <li>Design your data with denormalization and embedding for performance.</li>
+    <li>Be mindful of consistency models (eventual vs strong consistency).</li>
+    <li>Implement proper indexing to optimize query performance.</li>
+  </ul>
+
+  <h3 style="color:#d97706">💡 Best Practices</h3>
+  <ul>
+    <li>Use NoSQL for flexible, evolving schemas and large-scale distributed systems.</li>
+    <li>Monitor and tune performance with proper capacity planning.</li>
+    <li>Regularly backup data and test disaster recovery processes.</li>
+    <li>Understand trade-offs between consistency, availability, and partition tolerance (CAP theorem).</li>
+  </ul>
+</div>
+`,
           children: [
             {
               id: "on-premises",
               title: "On-Premises",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#f9fafb; padding:1.5rem; border-radius:1rem; border:1px solid #6b7280; box-shadow:0 4px 15px rgba(107, 114, 128, 0.3)">
+  <h2 style="color:#374151">🏢 On-Premises Infrastructure - Control & Security in Your Hands</h2>
+  <p>
+    On-premises refers to hosting and managing your software, hardware, and data within your own physical data centers or office locations rather than relying on cloud services.
+  </p>
+
+  <h3 style="color:#6b7280">Key Characteristics</h3>
+  <ul>
+    <li>Full control over hardware and software environments.</li>
+    <li>Data resides within your own infrastructure, improving security and compliance.</li>
+    <li>Customization and integration flexibility with existing systems.</li>
+    <li>Requires investment in physical resources and ongoing maintenance.</li>
+  </ul>
+
+  <h3 style="color:#374151">Advantages</h3>
+  <ul>
+    <li>Better control over data privacy and regulatory compliance.</li>
+    <li>Reduced dependency on internet connectivity for internal applications.</li>
+    <li>Tailored configurations and performance optimizations possible.</li>
+  </ul>
+
+  <h3 style="color:#6b7280">Challenges</h3>
+  <ul>
+    <li>High upfront costs for hardware and infrastructure setup.</li>
+    <li>Need for skilled personnel for maintenance and updates.</li>
+    <li>Scalability can be slower and more costly compared to cloud solutions.</li>
+  </ul>
+
+  <h3 style="color:#374151">Best Practices</h3>
+  <ul>
+    <li>Ensure robust security measures including firewalls, intrusion detection, and physical security.</li>
+    <li>Plan capacity with scalability in mind to avoid over- or under-provisioning.</li>
+    <li>Implement regular backups and disaster recovery plans.</li>
+    <li>Keep software and hardware up to date with patches and upgrades.</li>
+  </ul>
+</div>
+`,
               children: [
-                { id: "redis-onprem", title: "Redis", type: "must-know" },
-                { id: "mongodb", title: "MongoDB", type: "good-to-know" },
-                { id: "lite-db", title: "LiteDB", type: "optional" },
-                { id: "apache-cassandra", title: "Apache Cassandra", type: "optional" },
-                { id: "ravendb", title: "RavenDB", type: "optional" },
-                { id: "couchdb", title: "CouchDB", type: "optional" },
+                { id: "redis-onprem", title: "Redis", type: "must-know",
+                  description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:2rem; border-radius:1rem; border:2px solid #0284c7; box-shadow:0 6px 20px rgba(2, 132, 199, 0.3)">
+  <h2 style="color:#0369a1; margin-bottom:1rem;">⚡ Redis - Advanced In-Memory Data Structure Store</h2>
+  <p>
+    Redis (REmote DIctionary Server) is an open-source, in-memory data store that supports various complex data structures such as strings, hashes, lists, sets, sorted sets, bitmaps, hyperloglogs, streams, and geospatial indexes.
+    It excels in scenarios requiring extremely fast data access, caching, real-time analytics, messaging, and pub/sub systems.
+  </p>
+
+  <h3 style="color:#0284c7; margin-top:1.5rem;">🌟 Core Features</h3>
+  <ul>
+    <li><strong>In-memory storage:</strong> Ultra-low latency for reads/writes by storing all data in RAM.</li>
+    <li><strong>Rich data types:</strong> Beyond simple key-value pairs, supports hashes, lists, sets, sorted sets, streams, bitmaps, and more.</li>
+    <li><strong>Persistence:</strong> Supports RDB snapshots and Append-Only Files (AOF) for data durability.</li>
+    <li><strong>Replication & High Availability:</strong> Master-slave replication, Redis Sentinel for failover, and Redis Cluster for sharding.</li>
+    <li><strong>Atomic operations:</strong> Supports transactions and Lua scripting for complex logic.</li>
+    <li><strong>Pub/Sub Messaging:</strong> Real-time event broadcasting between applications.</li>
+  </ul>
+
+  <h3 style="color:#0369a1; margin-top:1.5rem;">📋 Common Use Cases</h3>
+  <ul>
+    <li><strong>Cache Layer:</strong> Reduce database load by caching frequent queries or session data.</li>
+    <li><strong>Session Store:</strong> Store user session state for web apps with quick retrieval.</li>
+    <li><strong>Real-time Analytics:</strong> Increment counters, leaderboards, or time-series data.</li>
+    <li><strong>Message Queues:</strong> Implement queues or task management with lists and streams.</li>
+    <li><strong>Geospatial Applications:</strong> Location-based queries using geospatial indexes.</li>
+  </ul>
+
+  <h3 style="color:#0284c7; margin-top:1.5rem;">💻 Basic Commands & Examples</h3>
+  <pre style="background:#bae6fd; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family: monospace;">
+# Set and get simple key-value
+SET user:1000 "Alice"
+GET user:1000
+
+# Hash to store user profile
+HSET user:1000 name "Alice" age 30 email "alice@example.com"
+HGETALL user:1000
+
+# List for task queue
+LPUSH tasks "task1"
+LPUSH tasks "task2"
+RPOP tasks
+
+# Sorted set for leaderboard
+ZADD leaderboard 100 "player1"
+ZADD leaderboard 200 "player2"
+ZRANGE leaderboard 0 -1 WITHSCORES
+
+# Publish/Subscribe
+PUBLISH notifications "New user registered"
+SUBSCRIBE notifications
+  </pre>
+
+  <h3 style="color:#0369a1; margin-top:1.5rem;">⚠️ Important Considerations</h3>
+  <ul>
+    <li><strong>Memory Management:</strong> Since Redis stores data in RAM, monitor usage carefully to avoid running out of memory.</li>
+    <li><strong>Eviction Policies:</strong> Configure policies like LRU (Least Recently Used) to evict keys when memory limits are reached.</li>
+    <li><strong>Persistence:</strong> Understand trade-offs between performance and durability when choosing between RDB snapshots and AOF logs.</li>
+    <li><strong>Scaling:</strong> Use Redis Cluster to shard data across multiple nodes for horizontal scaling.</li>
+    <li><strong>Security:</strong> Enable AUTH, use firewalls, and avoid exposing Redis directly to the internet.</li>
+  </ul>
+
+  <h3 style="color:#0284c7; margin-top:1.5rem;">💡 Best Practices</h3>
+  <ul>
+    <li>Use meaningful and consistent key naming conventions (e.g., <code>user:1000:profile</code>).</li>
+    <li>Keep data structures small and focused to maximize performance.</li>
+    <li>Use Lua scripts to perform atomic, multi-step operations efficiently.</li>
+    <li>Regularly monitor latency, throughput, and memory usage with tools like Redis INFO and Redis Monitor.</li>
+    <li>Use Redis Sentinel for automated failover and high availability setups.</li>
+    <li>Backup data frequently and test recovery plans to prevent data loss.</li>
+  </ul>
+
+  <h3 style="color:#0369a1; margin-top:1.5rem;">🔗 Additional Resources</h3>
+  <ul>
+    <li><a href="https://redis.io/docs/" target="_blank" style="color:#0284c7; text-decoration:none;">Official Redis Documentation</a></li>
+    <li><a href="https://redis.io/topics/cluster-tutorial" target="_blank" style="color:#0284c7; text-decoration:none;">Redis Cluster Tutorial</a></li>
+    <li><a href="https://redis.io/topics/transactions" target="_blank" style="color:#0284c7; text-decoration:none;">Redis Transactions & Lua Scripting</a></li>
+  </ul>
+</div>
+` },
+                { id: "mongodb", title: "MongoDB", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34, 197, 94, 0.3)">
+  <h2 style="color:#15803d; margin-bottom:1rem;">🍃 MongoDB - NoSQL Document Database</h2>
+  <p>
+    MongoDB is a leading NoSQL, document-oriented database designed for high performance, scalability, and flexibility. It stores data in JSON-like BSON documents which allow complex nested structures.
+  </p>
+
+  <h3 style="color:#22c55e; margin-top:1.5rem;">🌟 Key Features</h3>
+  <ul>
+    <li><strong>Document-based storage:</strong> Uses BSON format for flexible schema design.</li>
+    <li><strong>Horizontal Scalability:</strong> Supports sharding to distribute data across multiple servers.</li>
+    <li><strong>Replication & High Availability:</strong> Replica sets enable automatic failover and data redundancy.</li>
+    <li><strong>Powerful Query Language:</strong> Rich query capabilities including filtering, aggregation, geospatial queries, and text search.</li>
+    <li><strong>Indexing:</strong> Supports various index types to optimize query performance.</li>
+    <li><strong>Transactions:</strong> Multi-document ACID transactions support.</li>
+  </ul>
+
+  <h3 style="color:#15803d; margin-top:1.5rem;">📋 Common Use Cases</h3>
+  <ul>
+    <li>Applications with evolving or flexible schemas.</li>
+    <li>Real-time analytics and big data applications.</li>
+    <li>Content management systems and catalogs.</li>
+    <li>Mobile apps requiring fast and flexible data access.</li>
+  </ul>
+
+  <h3 style="color:#22c55e; margin-top:1.5rem;">💻 Basic Usage Examples</h3>
+  <pre style="background:#bbf7d0; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family: monospace;">
+// Insert a document
+db.users.insertOne({
+  name: "Alice",
+  age: 30,
+  email: "alice@example.com",
+  interests: ["reading", "hiking"]
+})
+
+// Query documents
+db.users.find({ age: { $gte: 18 } })
+
+// Update a document
+db.users.updateOne(
+  { name: "Alice" },
+  { $set: { email: "alice_new@example.com" } }
+)
+
+// Create an index
+db.users.createIndex({ email: 1 }, { unique: true })
+
+// Aggregation example: count users by interest
+db.users.aggregate([
+  { $unwind: "$interests" },
+  { $group: { _id: "$interests", count: { $sum: 1 } } }
+])
+  </pre>
+
+  <h3 style="color:#15803d; margin-top:1.5rem;">⚠️ Important Considerations</h3>
+  <ul>
+    <li>Schema design is flexible but requires thoughtful planning to optimize queries.</li>
+    <li>Understand consistency models and use replica sets for durability.</li>
+    <li>Use indexes wisely to improve performance but monitor index overhead.</li>
+    <li>Plan shard keys carefully for effective horizontal scaling.</li>
+  </ul>
+
+  <h3 style="color:#22c55e; margin-top:1.5rem;">💡 Best Practices</h3>
+  <ul>
+    <li>Design your schema to match query patterns (denormalization may help).</li>
+    <li>Leverage aggregation framework for complex data processing.</li>
+    <li>Keep documents reasonably sized to avoid performance issues.</li>
+    <li>Use transactions when you need ACID guarantees across multiple documents.</li>
+    <li>Secure your MongoDB instances with authentication, encryption, and network controls.</li>
+  </ul>
+
+  <h3 style="color:#15803d; margin-top:1.5rem;">🔗 Additional Resources</h3>
+  <ul>
+    <li><a href="https://www.mongodb.com/docs/manual/" target="_blank" style="color:#22c55e; text-decoration:none;">Official MongoDB Documentation</a></li>
+    <li><a href="https://www.mongodb.com/docs/manual/tutorial/" target="_blank" style="color:#22c55e; text-decoration:none;">MongoDB Tutorials</a></li>
+    <li><a href="https://university.mongodb.com/" target="_blank" style="color:#22c55e; text-decoration:none;">MongoDB University (Free Courses)</a></li>
+  </ul>
+</div>
+` },
+                { id: "lite-db", title: "LiteDB", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:2rem; border-radius:1rem; border:2px solid #ca8a04; box-shadow:0 6px 20px rgba(202, 138, 4, 0.3)">
+  <h2 style="color:#854d0e; margin-bottom:1rem;">📦 LiteDB – Lightweight Embedded NoSQL Database for .NET</h2>
+  <p>
+    <strong>LiteDB</strong> is a lightweight, fast, serverless NoSQL database designed for .NET applications. It stores data in a single .db file and requires no installation or setup, making it ideal for local or embedded storage.
+  </p>
+
+  <h3 style="color:#ca8a04; margin-top:1.5rem;">⚙️ Key Features</h3>
+  <ul>
+    <li>Single .db file for data storage</li>
+    <li>BSON-based flexible schema</li>
+    <li>ACID transactions</li>
+    <li>LINQ-style queries</li>
+    <li>Indexing support</li>
+    <li>Zero external dependencies</li>
+  </ul>
+
+  <h3 style="color:#854d0e; margin-top:1.5rem;">📋 Typical Use Cases</h3>
+  <ul>
+    <li>Desktop applications (WPF, WinForms)</li>
+    <li>Blazor and mobile apps</li>
+    <li>Prototypes or quick data storage solutions</li>
+    <li>Offline-capable systems</li>
+  </ul>
+
+  <h3 style="color:#ca8a04; margin-top:1.5rem;">💻 Basic Example</h3>
+  <pre style="background:#fef9c3; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using var db = new LiteDatabase("MyData.db");
+
+var customers = db.GetCollection<Customer>("customers");
+
+customers.Insert(new Customer { Name = "Alice", Age = 30 });
+
+var results = customers.Find(x => x.Age > 25);
+
+var customer = customers.FindOne(x => x.Name == "Alice");
+customer.Age = 31;
+customers.Update(customer);
+
+customers.Delete(customer.Id);
+  </pre>
+
+  <h3 style="color:#854d0e; margin-top:1.5rem;">📌 Things to Consider</h3>
+  <ul>
+    <li>Not suitable for high-concurrency systems</li>
+    <li>Best used under a few GBs of data</li>
+    <li>Store file locally, avoid sharing over network</li>
+  </ul>
+
+  <h3 style="color:#ca8a04; margin-top:1.5rem;">✅ Best Practices</h3>
+  <ul>
+    <li>Use indexes for performance on frequently queried fields</li>
+    <li>Call db.Rebuild() periodically to reduce file size</li>
+    <li>Enable encryption if storing sensitive data</li>
+    <li>Backup the .db file regularly</li>
+    <li>Avoid accessing the same file from multiple processes</li>
+  </ul>
+
+  <h3 style="color:#854d0e; margin-top:1.5rem;">🔗 Resources</h3>
+  <ul>
+    <li><a href="https://www.litedb.org/docs/" target="_blank" style="color:#ca8a04; text-decoration:none;">LiteDB Documentation</a></li>
+    <li><a href="https://github.com/mbdavid/LiteDB" target="_blank" style="color:#ca8a04; text-decoration:none;">LiteDB GitHub</a></li>
+    <li><a href="https://www.nuget.org/packages/LiteDB/" target="_blank" style="color:#ca8a04; text-decoration:none;">LiteDB on NuGet</a></li>
+  </ul>
+</div>
+` },
+                { id: "apache-cassandra", title: "Apache Cassandra", type: "optional",
+                  description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0284c7; box-shadow:0 6px 20px rgba(2, 132, 199, 0.2)">
+  <h2 style="color:#075985; margin-bottom:1rem;">🌐 Apache Cassandra – Distributed NoSQL Database for Massive Scalability</h2>
+  <p>
+    <strong>Apache Cassandra</strong> is a highly scalable, distributed NoSQL database designed for handling large amounts of structured data across many servers with no single point of failure. It's optimized for high availability and horizontal scalability, making it ideal for real-time big data applications.
+  </p>
+
+  <h3 style="color:#0284c7; margin-top:1.5rem;">⚙️ Key Features</h3>
+  <ul>
+    <li><strong>Decentralized architecture:</strong> No master node; all nodes are equal.</li>
+    <li><strong>Linear scalability:</strong> Easily add nodes without downtime.</li>
+    <li><strong>High availability:</strong> Built-in replication and fault-tolerance.</li>
+    <li><strong>Tunable consistency:</strong> You control the consistency vs performance tradeoff.</li>
+    <li><strong>CQL (Cassandra Query Language):</strong> SQL-like syntax for ease of use.</li>
+  </ul>
+
+  <h3 style="color:#075985; margin-top:1.5rem;">📦 Use Cases</h3>
+  <ul>
+    <li>IoT and time-series data platforms</li>
+    <li>Real-time analytics</li>
+    <li>High-volume write-heavy applications</li>
+    <li>Globally distributed services</li>
+  </ul>
+
+  <h3 style="color:#0284c7; margin-top:1.5rem;">💻 Basic CQL Example</h3>
+  <pre style="background:#e0f2fe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+-- Create a keyspace
+CREATE KEYSPACE blog WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+
+-- Create a table
+CREATE TABLE blog.posts (
+    id UUID PRIMARY KEY,
+    title TEXT,
+    content TEXT,
+    author TEXT,
+    created_at TIMESTAMP
+);
+
+-- Insert data
+INSERT INTO blog.posts (id, title, content, author, created_at)
+VALUES (uuid(), 'Hello Cassandra', 'Cassandra is fast and scalable!', 'Alice', toTimestamp(now()));
+
+-- Query data
+SELECT * FROM blog.posts;
+  </pre>
+
+  <h3 style="color:#075985; margin-top:1.5rem;">🧠 Integration in .NET</h3>
+  <ul>
+    <li>Use the official <code>CassandraCSharpDriver</code> from DataStax.</li>
+    <li>Install via NuGet:
+      <pre style="background:#e0f2fe; padding:0.5rem; border-radius:0.5rem; font-family:monospace;">dotnet add package CassandraCSharpDriver</pre>
+    </li>
+    <li>Connect using a session:
+      <pre style="background:#e0f2fe; padding:0.5rem; border-radius:0.5rem; font-family:monospace;">
+var cluster = Cluster.Builder().AddContactPoint("127.0.0.1").Build();
+var session = cluster.Connect("blog");
+var rows = session.Execute("SELECT * FROM posts");
+      </pre>
+    </li>
+  </ul>
+
+  <h3 style="color:#0284c7; margin-top:1.5rem;">✅ Best Practices</h3>
+  <ul>
+    <li>Model your data around query patterns (denormalize when needed).</li>
+    <li>Avoid large partitions; keep them under 100MB.</li>
+    <li>Use prepared statements for performance and safety.</li>
+    <li>Distribute writes evenly using good partition keys.</li>
+    <li>Monitor with tools like Prometheus + Grafana.</li>
+  </ul>
+
+  <h3 style="color:#075985; margin-top:1.5rem;">🔗 Resources</h3>
+  <ul>
+    <li><a href="https://cassandra.apache.org/_/index.html" target="_blank" style="color:#0284c7; text-decoration:none;">Official Website</a></li>
+    <li><a href="https://docs.datastax.com/en/developer/csharp-driver/latest/" target="_blank" style="color:#0284c7; text-decoration:none;">.NET Driver Docs (DataStax)</a></li>
+  </ul>
+</div>
+` },
+                { id: "ravendb", title: "RavenDB", type: "optional" ,description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfdf5; padding:2rem; border-radius:1rem; border:2px solid #059669; box-shadow:0 6px 20px rgba(5, 150, 105, 0.2)">
+  <h2 style="color:#065f46; margin-bottom:1rem;">🕊️ RavenDB – Fully Transactional NoSQL Document Database for .NET</h2>
+  <p>
+    <strong>RavenDB</strong> is a high-performance, open-source <em>document database</em> built with .NET developers in mind. It supports ACID transactions, full-text search, and automatic indexing out-of-the-box. RavenDB is production-ready, scalable, and ideal for .NET applications.
+  </p>
+
+  <h3 style="color:#059669; margin-top:1.5rem;">⚙️ Key Features</h3>
+  <ul>
+    <li>Built-in full-text search (Lucene)</li>
+    <li>ACID-compliant even in distributed setups</li>
+    <li>Strong .NET integration (LINQ, async/await, etc.)</li>
+    <li>Automatic indexes & query optimization</li>
+    <li>Multi-document transactions</li>
+    <li>Embedded mode or server-based deployments</li>
+    <li>Cross-platform: Windows, Linux, Docker</li>
+  </ul>
+
+  <h3 style="color:#065f46; margin-top:1.5rem;">💻 Getting Started with C#</h3>
+  <pre style="background:#d1fae5; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+public class User
+{
+    public string Id { get; set; }
+    public string Name { get; set; }
+}
+
+using var store = new DocumentStore
+{
+    Urls = new[] { "http://localhost:8080" },
+    Database = "MyApp"
+}.Initialize();
+
+using (var session = store.OpenSession())
+{
+    session.Store(new User { Name = "Alice" });
+    session.SaveChanges();
+
+    var user = session.Query<User>()
+                      .Where(u => u.Name == "Alice")
+                      .FirstOrDefault();
+}
+  </pre>
+
+  <h3 style="color:#059669; margin-top:1.5rem;">🧠 Use Cases</h3>
+  <ul>
+    <li>Event sourcing and CQRS architectures</li>
+    <li>Document-heavy business applications</li>
+    <li>Multi-tenant SaaS platforms</li>
+    <li>Audit logging, e-invoice systems, and more</li>
+  </ul>
+
+  <h3 style="color:#065f46; margin-top:1.5rem;">✅ Best Practices</h3>
+  <ul>
+    <li>Use <code>IDocumentStore</code> as a singleton</li>
+    <li>Define indexes explicitly when complex queries are needed</li>
+    <li>Take advantage of RavenDB’s patching API to update documents in bulk</li>
+    <li>Enable revision tracking for audit trails</li>
+    <li>Monitor system health using RavenDB Studio</li>
+  </ul>
+
+  <h3 style="color:#059669; margin-top:1.5rem;">📚 Resources</h3>
+  <ul>
+    <li><a href="https://ravendb.net/" target="_blank" style="color:#059669; text-decoration:none;">Official Website</a></li>
+    <li><a href="https://ravendb.net/docs/article-page/latest/csharp/start/what-is-ravendb" target="_blank" style="color:#059669; text-decoration:none;">C# Quick Start</a></li>
+    <li><a href="https://www.youtube.com/@ravendb" target="_blank" style="color:#059669; text-decoration:none;">YouTube Tutorials</a></li>
+    <li><a href="https://github.com/ravendb/ravendb" target="_blank" style="color:#059669; text-decoration:none;">GitHub Repo</a></li>
+  </ul>
+</div>
+`},
+                { id: "couchdb", title: "CouchDB", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:2rem; border-radius:1rem; border:2px solid #facc15; box-shadow:0 6px 20px rgba(234, 179, 8, 0.2)">
+  <h2 style="color:#92400e; margin-bottom:1rem;">🍵 CouchDB – RESTful NoSQL Database with Seamless Sync</h2>
+  <p>
+    <strong>Apache CouchDB</strong> is a document-oriented NoSQL database designed to be easy to use, with a focus on reliability and offline synchronization. It uses <code>JSON</code> to store data, <code>HTTP</code> for its API, and <code>MapReduce</code> for querying and indexing.
+  </p>
+
+  <h3 style="color:#b45309; margin-top:1.5rem;">🚀 Key Features</h3>
+  <ul>
+    <li>RESTful HTTP API for all operations</li>
+    <li>Multi-master replication and conflict resolution</li>
+    <li>Offline-first approach – great for mobile/web apps</li>
+    <li>Built-in web administration console: <strong>Fauxton</strong></li>
+    <li>Optimized for availability, partition tolerance</li>
+    <li>Document revisions with MVCC (Multi-Version Concurrency Control)</li>
+  </ul>
+
+  <h3 style="color:#92400e; margin-top:1.5rem;">📦 Sample Document</h3>
+  <pre style="background:#fef3c7; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+{
+  "_id": "user_123",
+  "name": "Jane Doe",
+  "email": "jane@example.com",
+  "role": "admin",
+  "type": "user"
+}
+  </pre>
+
+  <h3 style="color:#b45309; margin-top:1.5rem;">💻 Interacting with CouchDB in .NET</h3>
+  <ul>
+    <li>Use the <code>MyCouch</code> or <code>CouchDB.Driver</code> NuGet packages</li>
+    <li>Example using <strong>MyCouch</strong>:
+      <pre style="background:#fef3c7; padding:0.75rem; border-radius:0.5rem; font-family:monospace;">
+using (var client = new MyCouchClient("http://localhost:5984", "users"))
+{
+    var response = await client.Entities.PostAsync(new {
+        name = "Alice",
+        email = "alice@site.com"
+    });
+
+    var doc = await client.Entities.GetAsync(response.Id);
+}
+      </pre>
+    </li>
+  </ul>
+
+  <h3 style="color:#92400e; margin-top:1.5rem;">🧠 Use Cases</h3>
+  <ul>
+    <li>Progressive web apps (PWAs) with offline sync</li>
+    <li>IoT applications with edge-to-cloud data flow</li>
+    <li>Mobile apps needing replication and local storage</li>
+    <li>Event logging and audit trails</li>
+  </ul>
+
+  <h3 style="color:#b45309; margin-top:1.5rem;">✅ Best Practices</h3>
+  <ul>
+    <li>Use UUIDs or meaningful _id values for documents</li>
+    <li>Design views carefully using MapReduce functions</li>
+    <li>Monitor document revisions to avoid bloating</li>
+    <li>Leverage replication for fault-tolerant systems</li>
+    <li>Secure your instance: CouchDB is open by default</li>
+  </ul>
+
+  <h3 style="color:#92400e; margin-top:1.5rem;">🔗 Resources</h3>
+  <ul>
+    <li><a href="https://couchdb.apache.org/" target="_blank" style="color:#b45309; text-decoration:none;">Official Site</a></li>
+    <li><a href="https://docs.couchdb.org/en/stable/" target="_blank" style="color:#b45309; text-decoration:none;">Documentation</a></li>
+    <li><a href="https://www.npmjs.com/package/pouchdb" target="_blank" style="color:#b45309; text-decoration:none;">PouchDB (client-side sync)</a></li>
+    <li><a href="https://github.com/danielwertheim/mycouch" target="_blank" style="color:#b45309; text-decoration:none;">MyCouch (.NET Driver)</a></li>
+  </ul>
+</div>
+` },
               ]
             },
             {
               id: "cloud",
               title: "Cloud",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#eef2ff; padding:2rem; border-radius:1rem; border:2px solid #6366f1; box-shadow:0 6px 20px rgba(99, 102, 241, 0.2)">
+  <h2 style="color:#3730a3; margin-bottom:1rem;">☁️ Cloud Computing for .NET Developers</h2>
+  <p>
+    <strong>Cloud</strong> platforms enable developers to build scalable, resilient, and cost-effective applications without worrying about infrastructure. For .NET developers, integrating with cloud services is critical for building modern, distributed systems.
+  </p>
+
+  <h3 style="color:#4f46e5; margin-top:1.5rem;">🚀 Must-Know Cloud Providers</h3>
+  <ul>
+    <li><strong>Microsoft Azure</strong> – Seamless .NET & Visual Studio integration</li>
+    <li><strong>Amazon Web Services (AWS)</strong> – Robust services, global reach</li>
+    <li><strong>Google Cloud Platform (GCP)</strong> – Developer-friendly with modern tools</li>
+    <li><strong>DigitalOcean, Heroku, Vercel</strong> – Great for small/medium .NET apps</li>
+  </ul>
+
+  <h3 style="color:#3730a3; margin-top:1.5rem;">🔧 Core Cloud Services for .NET Apps</h3>
+  <ul>
+    <li><strong>App Services / App Engine / Elastic Beanstalk</strong> – Web app hosting</li>
+    <li><strong>Azure Functions / AWS Lambda</strong> – Serverless APIs</li>
+    <li><strong>Blob Storage / S3 / Cloud Storage</strong> – File & media storage</li>
+    <li><strong>SQL/NoSQL Databases</strong> – Azure SQL, CosmosDB, DynamoDB, Firestore</li>
+    <li><strong>Monitoring</strong> – Azure Monitor, CloudWatch, Stackdriver</li>
+    <li><strong>Messaging</strong> – Azure Service Bus, AWS SQS/SNS, Pub/Sub</li>
+  </ul>
+
+  <h3 style="color:#4f46e5; margin-top:1.5rem;">📦 Sample Deployment with Azure CLI</h3>
+  <pre style="background:#e0e7ff; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+az webapp up --name my-dotnet-app \
+             --resource-group my-resource-group \
+             --runtime "DOTNET|8.0" \
+             --location westeurope
+  </pre>
+
+  <h3 style="color:#3730a3; margin-top:1.5rem;">🔐 Best Practices</h3>
+  <ul>
+    <li>Use <strong>Managed Identities</strong> instead of secrets</li>
+    <li>Set up <strong>CI/CD pipelines</strong> with GitHub Actions or Azure DevOps</li>
+    <li>Deploy to <strong>multiple regions</strong> for high availability</li>
+    <li>Monitor health using <strong>Application Insights</strong></li>
+    <li>Store configs in <strong>Key Vault / Secrets Manager</strong></li>
+  </ul>
+
+  <h3 style="color:#4f46e5; margin-top:1.5rem;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://learn.microsoft.com/en-us/azure/dotnet/" target="_blank" style="color:#6366f1; text-decoration:none;">Azure for .NET Developers</a></li>
+    <li><a href="https://aws.amazon.com/net/" target="_blank" style="color:#6366f1; text-decoration:none;">AWS for .NET Developers</a></li>
+    <li><a href="https://cloud.google.com/dotnet" target="_blank" style="color:#6366f1; text-decoration:none;">GCP for .NET Developers</a></li>
+  </ul>
+</div>
+`,
               children: [
-                { id: "azure-cosmosdb", title: "Azure CosmosDB", type: "good-to-know" },
-                { id: "amazon-dynamodb", title: "Amazon DynamoDB", type: "optional" },
+                { id: "azure-cosmosdb", title: "Azure CosmosDB", type: "good-to-know",
+                  description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfdf5; padding:2rem; border-radius:1rem; border:2px solid #10b981; box-shadow:0 6px 20px rgba(16, 185, 129, 0.15)">
+  <h2 style="color:#065f46; margin-bottom:1rem;">🪐 Azure Cosmos DB – Global, Scalable NoSQL for .NET</h2>
+  <p>
+    <strong>Azure Cosmos DB</strong> is Microsoft’s globally distributed, multi-model NoSQL database designed for low-latency, high-availability applications. It's ideal for building planet-scale apps with native support for JSON and seamless .NET integration.
+  </p>
+
+  <h3 style="color:#047857; margin-top:1.5rem;">🌍 Key Features</h3>
+  <ul>
+    <li>Global distribution with <strong>multi-region replication</strong></li>
+    <li>Support for multiple APIs: <strong>Core (SQL), MongoDB, Cassandra, Gremlin, Table</strong></li>
+    <li><strong>99.999% availability</strong> with automatic failover</li>
+    <li><strong>Elastic scaling</strong> of throughput and storage (RU/s model)</li>
+    <li><strong>Low-latency reads/writes</strong> (under 10ms)</li>
+    <li>Built-in support for <strong>automatic indexing</strong></li>
+  </ul>
+
+  <h3 style="color:#065f46; margin-top:1.5rem;">💻 Example – Using Azure Cosmos DB SDK in ASP.NET Core</h3>
+  <pre style="background:#d1fae5; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+var cosmosClient = new CosmosClient("<your-connection-string>");
+var database = await cosmosClient.CreateDatabaseIfNotExistsAsync("MyDatabase");
+var container = await database.Database.CreateContainerIfNotExistsAsync("Users", "/id");
+
+var user = new { id = "u1", name = "Jane", role = "Admin" };
+await container.Container.CreateItemAsync(user, new PartitionKey("u1"));
+  </pre>
+
+  <h3 style="color:#047857; margin-top:1.5rem;">🔧 Integration Tips</h3>
+  <ul>
+    <li>Install <code>Microsoft.Azure.Cosmos</code> NuGet package</li>
+    <li>Use <strong>PartitionKey</strong> to optimize performance</li>
+    <li>Monitor usage with <strong>Azure Monitor</strong> and <strong>Metrics</strong></li>
+    <li>Set <strong>Throughput Mode</strong>: Manual or Autoscale</li>
+  </ul>
+
+  <h3 style="color:#065f46; margin-top:1.5rem;">✅ Best Practices</h3>
+  <ul>
+    <li>Choose <strong>Partition Keys</strong> wisely – aim for even data distribution</li>
+    <li>Use <strong>lazy initialization</strong> of the client</li>
+    <li>Catch and handle <strong>429 (Rate Limited)</strong> responses with retries</li>
+    <li>Use <code>Bulk</code> operations for batch inserts/updates</li>
+    <li>Minimize cross-partition queries where possible</li>
+  </ul>
+
+  <h3 style="color:#047857; margin-top:1.5rem;">🔗 Resources</h3>
+  <ul>
+    <li><a href="https://learn.microsoft.com/en-us/azure/cosmos-db/" target="_blank" style="color:#10b981; text-decoration:none;">Official Documentation</a></li>
+    <li><a href="https://github.com/Azure/azure-cosmos-dotnet-v3" target="_blank" style="color:#10b981; text-decoration:none;">.NET SDK GitHub Repo</a></li>
+    <li><a href="https://learn.microsoft.com/en-us/azure/cosmos-db/sql/sql-query-overview" target="_blank" style="color:#10b981; text-decoration:none;">SQL Query Language for Cosmos DB</a></li>
+  </ul>
+</div>
+` },
+                { id: "amazon-dynamodb", title: "Amazon DynamoDB", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
+  <h2 style="color:#15803d; margin-bottom:1rem;">🟩 Amazon DynamoDB – Fast & Flexible NoSQL on AWS</h2>
+  <p>
+    <strong>Amazon DynamoDB</strong> is a fully managed NoSQL database service by AWS designed for single-digit millisecond performance at any scale. It's ideal for high-throughput apps and integrates well with ASP.NET Core via the AWS SDK.
+  </p>
+
+  <h3 style="color:#16a34a; margin-top:1.5rem;">⚙️ Key Features</h3>
+  <ul>
+    <li>⚡ Millisecond response times even at massive scale</li>
+    <li>📈 On-demand or provisioned throughput modes (auto-scaling)</li>
+    <li>🧩 Built-in support for <strong>Streams</strong>, <strong>TTL</strong>, and <strong>Global Tables</strong></li>
+    <li>🔒 Encryption at rest, IAM integration for fine-grained access</li>
+    <li>🛠️ Integration with AWS Lambda, Step Functions, and EventBridge</li>
+  </ul>
+
+  <h3 style="color:#15803d; margin-top:1.5rem;">💻 Sample .NET Core Code</h3>
+  <pre style="background:#dcfce7; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using Amazon.DynamoDBv2;
+using Amazon.DynamoDBv2.DataModel;
+
+var config = new AmazonDynamoDBConfig { RegionEndpoint = RegionEndpoint.EUWest1 };
+var client = new AmazonDynamoDBClient(config);
+var context = new DynamoDBContext(client);
+
+var user = new User { Id = "u1", Name = "Jane", Role = "Admin" };
+await context.SaveAsync(user);
+  </pre>
+
+  <h3 style="color:#16a34a; margin-top:1.5rem;">📁 Table Design Tips</h3>
+  <ul>
+    <li>Design for <strong>access patterns</strong>, not relational modeling</li>
+    <li>Use <strong>composite keys</strong> (partition key + sort key)</li>
+    <li>Normalize read performance with <strong>Global Secondary Indexes (GSI)</strong></li>
+  </ul>
+
+  <h3 style="color:#15803d; margin-top:1.5rem;">✅ Best Practices</h3>
+  <ul>
+    <li>Enable <strong>DAX</strong> (DynamoDB Accelerator) for microsecond latency</li>
+    <li>Use <strong>batch operations</strong> for efficiency</li>
+    <li>Leverage <strong>Streams + Lambda</strong> for real-time processing</li>
+    <li>Limit item size to <strong>400KB</strong></li>
+    <li>Avoid hot partitions by distributing partition key values</li>
+  </ul>
+
+  <h3 style="color:#16a34a; margin-top:1.5rem;">🔗 Resources</h3>
+  <ul>
+    <li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html" target="_blank" style="color:#22c55e; text-decoration:none;">Official Documentation</a></li>
+    <li><a href="https://github.com/aws/aws-sdk-net" target="_blank" style="color:#22c55e; text-decoration:none;">AWS SDK for .NET</a></li>
+    <li><a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Operations_Amazon_DynamoDB.html" target="_blank" style="color:#22c55e; text-decoration:none;">API Reference</a></li>
+  </ul>
+</div>
+` },
               ]
             },
           ]
@@ -2078,25 +3236,30 @@ optionsBuilder.AddInterceptors(new CommandInterceptor());
         {
           id: "memory-cache",
           title: "Memory Cache",
+          description: ``,
           type: "must-know"
         },
         {
           id: "distributed-cache",
           title: "Distributed Cache",
+          description: ``,
           children: [
             {
               id: "redis",
               title: "Redis",
+              description: ``,
               type: "must-know",
               children: [
                 {
                   id: "stackexchange-redis",
                   title: "StackExchange.Redis",
+                  description: ``,
                   type: "must-know"
                 },
                 {
                   id: "easycaching",
                   title: "EasyCaching",
+                  description: ``,
                   type: "good-to-know"
                 }
               ]
