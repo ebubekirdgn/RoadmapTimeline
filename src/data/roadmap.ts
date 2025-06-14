@@ -11,24 +11,17 @@ export const roadmapData = {
           title: "GIT - Version Control (VSTS, GitHub, GitLab)",
           type: "must-know",
           description: `
-            <h2>🔧 GIT Nedir?</h2>
-            <p>
-              <strong>Git</strong>, geliştiricilerin yazılım projelerinde kaynak kodunun sürümlerini takip edebilmesini sağlayan dağıtık bir versiyon kontrol sistemidir.
-            </p>
-            <h3>📂 Kullanım Alanları</h3>
-            <ul>
-              <li>Proje geçmişini kayıt altına alma</li>
-              <li>Takım çalışması ve iş birliği</li>
-              <li>Farklı ortamlarda (GitHub, GitLab, VSTS) senkronizasyon</li>
-            </ul>
-            <h3>🧪 Temel Komutlar</h3>
-            <pre><code>git init
-      git add .
-      git commit -m "İlk kayıt"
-      git push origin main</code></pre>
-            <p>
-              Detaylı bilgi için <a href="https://git-scm.com/doc" target="_blank">resmi Git dökümantasyonu</a>'na göz at.
-            </p>
+            <div style='font-family:sans-serif;line-height:1.6;background:#f9fafb;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'><h2 style='color:#3b82f6'>🔧 GIT - Version Control (VSTS, GitHub, GitLab)</h2><p><strong>Git</strong> is a must-know version control system. It helps track changes, collaborate with teams, and manage codebases efficiently.</p><h3 style='color:#10b981'>🚀 Core Concepts</h3><ul style='list-style:disc;padding-left:1.2rem'><li><strong>Repository:</strong> Stores all project history.</li><li><strong>Commit:</strong> Snapshot of your changes.</li><li><strong>Branch:</strong> Work independently on features.</li><li><strong>Merge:</strong> Combine branches together.</li><li><strong>Pull/Push:</strong> Sync with remote servers.</li></ul><h3 style='color:#f59e0b'>🧠 Essential Commands</h3><pre style='background:#1f2937;color:#f3f4f6;padding:1rem;border-radius:.5rem;overflow:auto'><code>git init       # Start a new repo
+git clone URL  # Clone a remote repo
+git status     # Check current changes
+git add .      # Stage all changes
+git commit -m "Message"  # Commit changes
+git push       # Upload to remote
+git pull       # Get latest changes
+git branch     # List branches
+git checkout -b new_branch  # New branch
+git merge main # Merge changes</code></pre><h3 style='color:#8b5cf6'>🧰 Platforms</h3><ul style='list-style:circle;padding-left:1.2rem'><li><strong>GitHub:</strong> Ideal for open-source and teams.</li><li><strong>GitLab:</strong> Great for CI/CD integration.</li><li><strong>Azure DevOps:</strong> Microsoft-backed with pipelines.</li></ul><h3 style='color:#ef4444'>⚠️ Best Practices</h3><ul style='list-style:square;padding-left:1.2rem'><li>Always set up <code>.gitignore</code>.</li><li>Don’t commit directly to main.</li><li>Write clear commit messages.</li><li>Understand rebase vs merge.</li><li>Practice conflict resolution.</li></ul><h3 style='color:#0ea5e9'>📚 Learn More</h3><ul style='padding-left:1.2rem'><li><a href='https://git-scm.com/doc' target='_blank' style='color:#3b82f6'>Official Git Docs</a></li><li><a href='https://lab.github.com/' target='_blank' style='color:#3b82f6'>GitHub Learning Lab</a></li><li><a href='https://www.atlassian.com/git/tutorials' target='_blank' style='color:#3b82f6'>Atlassian Tutorials</a></li><li><a href='https://git-scm.com/book/en/v2' target='_blank' style='color:#3b82f6'>Pro Git Book</a></l
+
           `
         },
         {
@@ -36,25 +29,7 @@ export const roadmapData = {
           title: "HTTP/HTTPS protocol + TLS/SSL",
           type: "must-know",
           description: `
-            <h2>🌐 HTTP & HTTPS Nedir?</h2>
-            <p>
-              <strong>HTTP</strong> (HyperText Transfer Protocol), istemci ve sunucu arasında veri alışverişi için kullanılan bir protokoldür.
-              <strong>HTTPS</strong> ise bu iletişimi <strong>TLS/SSL</strong> ile güvence altına alır.
-            </p>
-            <h3>🔒 TLS/SSL</h3>
-            <ul>
-              <li><strong>TLS</strong>: Transport Layer Security</li>
-              <li><strong>SSL</strong>: Secure Sockets Layer (artık yerini TLS aldı)</li>
-              <li>HTTPS, TLS/SSL kullanarak veri şifreler</li>
-            </ul>
-            <h3>📌 Yaygın Kullanım</h3>
-            <ul>
-              <li>Web sitelerinde güvenli oturum</li>
-              <li>API çağrılarında veri gizliliği</li>
-            </ul>
-            <p>
-              Daha fazlası için <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview" target="_blank">MDN HTTP Rehberi</a>'ne göz at.
-            </p>
+           <div style='font-family:sans-serif;line-height:1.6;background:#f9fafb;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'><h2 style='color:#3b82f6'>🌐 HTTP/HTTPS Protocol + TLS/SSL</h2><p><strong>HTTP</strong> (HyperText Transfer Protocol) is the foundation of data communication on the web. <strong>HTTPS</strong> is its secure version, using <strong>TLS/SSL</strong> encryption to protect data in transit.</p><h3 style='color:#10b981'>📘 Core Concepts</h3><ul style='list-style:disc;padding-left:1.2rem'><li><strong>HTTP:</strong> Stateless, text-based protocol for client-server communication.</li><li><strong>HTTPS:</strong> HTTP over TLS. Adds encryption and integrity.</li><li><strong>TLS (Transport Layer Security):</strong> Modern standard for secure communication.</li><li><strong>SSL:</strong> Older protocol replaced by TLS.</li></ul><h3 style='color:#f59e0b'>🔐 Why It Matters</h3><ul style='list-style:circle;padding-left:1.2rem'><li>Prevents eavesdropping and man-in-the-middle attacks.</li><li>Ensures data integrity and authenticity.</li><li>Crucial for login forms, APIs, payments, and private data.</li><li>Modern browsers require HTTPS for many features (e.g., service workers, geolocation).</li></ul><h3 style='color:#8b5cf6'>🧪 Key Terms</h3><ul style='list-style:square;padding-left:1.2rem'><li><strong>SSL Certificate:</strong> Digital document proving site identity (uses TLS).</li><li><strong>Handshake:</strong> Negotiation process between client and server to establish a secure session.</li><li><strong>Symmetric & Asymmetric Encryption:</strong> Encryption models used by TLS for secure communication.</li></ul><h3 style='color:#ef4444'>⚠️ Best Practices</h3><ul><li>Always use HTTPS in production.</li><li>Use certificates from trusted authorities (e.g., Let's Encrypt).</li><li>Redirect all HTTP traffic to HTTPS (301 Redirect).</li><li>Enable HSTS (HTTP Strict Transport Security).</li></ul><h3 style='color:#0ea5e9'>📚 Learn More</h3><ul><li><a href='https://developer.mozilla.org/en-US/docs/Web/HTTP' target='_blank' style='color:#3b82f6'>MDN: HTTP Overview</a></li><li><a href='https://letsencrypt.org/' target='_blank' style='color:#3b82f6'>Let's Encrypt - Free SSL/TLS</a></li><li><a href='https://www.cloudflare.com/learning/ssl/' target='_blank' style='color:#3b82f6'>Cloudflare: SSL/TLS Guide</a></li><li><a href='https://tools.ietf.org/html/rfc8446' target='_blank' style='color:#3b82f6'>RFC 8446 - TLS 1.3 Spec</a></li></ul></div>
           `
         },
         {
@@ -62,22 +37,7 @@ export const roadmapData = {
           title: "Learn to search for solutions using Google + ChatGPT/Claude/Github Copilot",
           type: "must-know",
           description: `
-            <h2>🔍 Nasıl Daha İyi Araştırma Yapılır?</h2>
-            <p>
-              Modern geliştiriciler için doğru kaynağa hızlı ulaşmak kritik bir beceridir. Etkili arama motoru kullanımı ve yapay zeka destekli araçlar (ChatGPT, Claude, Copilot) bu süreci hızlandırır.
-            </p>
-            <h3>💡 Arama Taktikleri</h3>
-            <ul>
-              <li><code>site:stackoverflow.com</code> gibi filtrelemelerle arama daralt</li>
-              <li>Kod hatasını <strong>net mesajla</strong> ara</li>
-              <li>Dokümantasyonları <strong>okumayı öğren</strong></li>
-            </ul>
-            <h3>🧠 Yapay Zeka Destekli Yardımcılar</h3>
-            <ul>
-              <li><strong>ChatGPT</strong>: Konsept anlatımı, örnek kod, çözüm önerisi</li>
-              <li><strong>Copilot</strong>: Kod yazarken öneri sunar (IDE içinde)</li>
-              <li><strong>Claude</strong>: Uzun içerikler üzerinde çalışma için uygundur</li>
-            </ul>
+            <div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'><h2 style='color:#3b82f6'>🧠 Learn to Search for Solutions Using Google, ChatGPT, Claude, GitHub Copilot</h2><p>Mastering modern development means knowing how to find and use solutions quickly. Leveraging AI tools and search engines can dramatically boost your efficiency.</p><h3 style='color:#10b981'>🔍 Search Fundamentals</h3><ul style='list-style:disc;padding-left:1.2rem'><li><strong>Google Dorking:</strong> Use operators like <code>site:</code>, <code>filetype:</code>, <code>intitle:</code>, etc.</li><li><strong>Error-First Search:</strong> Paste the error message as-is. Add context (framework, tool).</li><li><strong>Stack Overflow/Docs:</strong> Prioritize reputable sources, upvoted answers, and official docs.</li></ul><h3 style='color:#f59e0b'>🤖 Using AI Tools Effectively</h3><ul style='list-style:circle;padding-left:1.2rem'><li><strong>ChatGPT:</strong> Ask with context and code snippets. Iterate on answers.</li><li><strong>Claude:</strong> Great for long-form reasoning and refactoring help.</li><li><strong>GitHub Copilot:</strong> Inline AI suggestions within editors (VS Code, JetBrains).</li></ul><h3 style='color:#8b5cf6'>🧰 Pro Tips</h3><ul style='list-style:square;padding-left:1.2rem'><li>Break problems down before asking.</li><li>Don't copy blindly — understand before you apply.</li><li>Compare AI suggestions with official documentation.</li><li>Use version-specific queries (e.g., "Next.js 14 middleware auth").</li></ul><h3 style='color:#ef4444'>⚠️ What to Avoid</h3><ul><li>Overreliance on Copilot/ChatGPT — they guess based on patterns, not truth.</li><li>Trusting outdated Stack Overflow posts without checking versions.</li><li>Ignoring security best practices in copied code.</li></ul><h3 style='color:#0ea5e9'>📚 Learn More</h3><ul><li><a href='https://developers.google.com/search/docs' target='_blank' style='color:#3b82f6'>Google Search Operators</a></li><li><a href='https://docs.github.com/en/copilot' target='_blank' style='color:#3b82f6'>GitHub Copilot Docs</a></li><li><a href='https://openai.com/chatgpt' target='_blank' style='color:#3b82f6'>ChatGPT Official</a></li><li><a href='https://claude.ai/' target='_blank' style='color:#3b82f6'>Claude AI</a></li></ul></div>
           `
         },
         {
@@ -85,27 +45,7 @@ export const roadmapData = {
           title: "Data Structures and Algorithms",
           type: "must-know",
           description: `
-            <h2>📚 Veri Yapıları ve Algoritmalar</h2>
-            <p>
-              Bilgisayar bilimlerinin temel taşlarından biridir. Etkili kod yazımı, bellek yönetimi ve algoritmik düşünce için gereklidir.
-            </p>
-            <h3>🧱 Temel Veri Yapıları</h3>
-            <ul>
-              <li><strong>Array</strong> (dizi)</li>
-              <li><strong>Linked List</strong> (bağlı liste)</li>
-              <li><strong>Stack / Queue</strong> (yığın / kuyruk)</li>
-              <li><strong>HashMap / Set</strong></li>
-              <li><strong>Tree / Graph</strong></li>
-            </ul>
-            <h3>⚙️ Algoritma Konuları</h3>
-            <ul>
-              <li>Sıralama (Bubble, Merge, Quick Sort)</li>
-              <li>Arama (Binary Search)</li>
-              <li>Graf algoritmaları (DFS, BFS)</li>
-            </ul>
-            <p>
-              Pratik için: <a href="https://leetcode.com/" target="_blank">LeetCode</a>, <a href="https://visualgo.net/en" target="_blank">VisuAlgo</a>
-            </p>
+           <div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'><h2 style='color:#3b82f6'>🧮 Data Structures and Algorithms</h2><p><strong>DSA</strong> is the foundation of computer science and critical for writing efficient, optimized code. It improves problem-solving, memory usage, and performance.</p><h3 style='color:#10b981'>📦 Core Data Structures</h3><ul style='list-style:disc;padding-left:1.2rem'><li><strong>Arrays & Lists:</strong> Store sequential data.</li><li><strong>Stacks & Queues:</strong> LIFO and FIFO access models.</li><li><strong>Hash Tables:</strong> Key-value mapping with fast access.</li><li><strong>Trees & Graphs:</strong> Represent hierarchical and connected data.</li><li><strong>Heaps, Sets:</strong> Specialized storage for priorities and uniqueness.</li></ul><h3 style='color:#f59e0b'>⚙️ Essential Algorithms</h3><ul style='list-style:circle;padding-left:1.2rem'><li><strong>Sorting:</strong> QuickSort, MergeSort, BubbleSort</li><li><strong>Searching:</strong> Binary Search, BFS, DFS</li><li><strong>Recursion & Divide & Conquer</strong></li><li><strong>Greedy & Dynamic Programming</strong></li><li><strong>Graph Algorithms:</strong> Dijkstra, Kruskal, A*</li></ul><h3 style='color:#8b5cf6'>💡 Why It Matters</h3><ul style='list-style:square;padding-left:1.2rem'><li>Write faster, more efficient code.</li><li>Crucial for technical interviews and system design.</li><li>Better use of memory and time complexity.</li></ul><h3 style='color:#ef4444'>⚠️ Best Practices</h3><ul><li>Understand time/space complexity (Big O).</li><li>Learn to choose the right data structure for the problem.</li><li>Write and trace algorithms by hand.</li></ul><h3 style='color:#0ea5e9'>📚 Learn More</h3><ul><li><a href='https://visualgo.net/en' target='_blank' style='color:#3b82f6'>Visual Algo (interactive)</a></li><li><a href='https://leetcode.com/' target='_blank' style='color:#3b82f6'>LeetCode</a></li><li><a href='https://www.geeksforgeeks.org/data-structures/' target='_blank' style='color:#3b82f6'>GeeksforGeeks - DSA</a></li><li><a href='https://cs50.harvard.edu/' target='_blank' style='color:#3b82f6'>CS50 by Harvard</a></li></ul></div>
           `
         }]
     },
@@ -114,10 +54,182 @@ export const roadmapData = {
       title: "C#",
       direction: "left", // Indicates it branches to the left
       children: [
-        { id: "csharp-basics", title: "Learn the basics of C# 13", type: "must-know" },
-        { id: "dotnet9", title: "Learn .NET 9", type: "must-know" },
-        { id: "dotnet-cli", title: "Learn dotnet CLI", type: "must-know" },
-        { id: "stylecop", title: "StyleCop rules", type: "must-know" },
+        { id: "csharp-basics", title: "Learn the basics of C# 13", type: "must-know",
+          description: `
+         <div style='font-family:sans-serif;line-height:1.6;background:#fefefe;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'><h2 style='color:#3b82f6'>💻 Learn the Basics of C# 13</h2><p><strong>C# 13</strong> is the latest version of Microsoft's powerful object-oriented language, packed with features that improve performance, readability, and developer productivity.</p><h3 style='color:#10b981'>🔤 Language Fundamentals</h3><ul style='list-style:disc;padding-left:1.2rem'><li><strong>Variables & Types:</strong> <code>int</code>, <code>string</code>, <code>bool</code>, <code>float</code>, etc.</li><li><strong>Conditionals:</strong> <code>if</code>, <code>switch</code>, <code>match</code></li><li><strong>Loops:</strong> <code>for</code>, <code>foreach</code>, <code>while</code></li><li><strong>OOP:</strong> Classes, Objects, Inheritance, Interfaces</li></ul><pre style='background:#f3f4f6;padding:1rem;border-radius:0.75rem;overflow-x:auto'><code>// Simple method in C# 13
+int Add(int a, int b) => a + b;</code></pre>
+
+<h3 style='color:#f59e0b'>✨ New Features in C# 13</h3><ul style='list-style:circle;padding-left:1.2rem'><li><strong>🔹 Primary Constructors in Classes</strong><br/><pre style='background:#f3f4f6;padding:1rem;border-radius:0.75rem;overflow-x:auto'><code>class Person(string name, int age)
+{
+    public void PrintInfo() => Console.WriteLine($&quot;{name}, {age} years old&quot;);
+}</code></pre></li>
+
+<li><strong>🔹 Default Parameters in Lambdas</strong><br/><pre style='background:#f3f4f6;padding:1rem;border-radius:0.75rem;overflow-x:auto'><code>Func&lt;int, int, int&gt; sum = (a = 5, b = 10) =&gt; a + b;
+Console.WriteLine(sum()); // 15</code></pre></li>
+
+<li><strong>🔹 Parametric Attributes</strong><br/><pre style='background:#f3f4f6;padding:1rem;border-radius:0.75rem;overflow-x:auto'><code>[MaxLength(50)]
+public string Name { get; set; }</code></pre></li>
+
+<li><strong>🔹 Pattern Matching Enhancements</strong><br/><pre style='background:#f3f4f6;padding:1rem;border-radius:0.75rem;overflow-x:auto'><code>object obj = 42;
+if (obj is int number and &gt; 40)
+{
+    Console.WriteLine(&quot;It's a big number!&quot;);
+}</code></pre></li></ul>
+
+<h3 style='color:#8b5cf6'>💡 Why Learn C#?</h3><ul style='list-style:square;padding-left:1.2rem'><li>First-class support in .NET ecosystem</li><li>Great for web (ASP.NET Core), mobile (MAUI), desktop, and game dev (Unity)</li><li>Strong typing + functional features + performance</li></ul>
+
+<h3 style='color:#ef4444'>⚠️ Common Pitfalls</h3><ul><li>Mixing value and reference types</li><li>Using null without checking (nullable reference types!)</li><li>Overusing static/global state</li></ul>
+
+<h3 style='color:#0ea5e9'>📚 Learn More</h3><ul><li><a href='https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-13' target='_blank' style='color:#3b82f6'>What's new in C# 13</a></li><li><a href='https://learn.microsoft.com/en-us/dotnet/csharp/' target='_blank' style='color:#3b82f6'>C# Documentation (Microsoft)</a></li><li><a href='https://dotnet.microsoft.com/en-us/learn/csharp' target='_blank' style='color:#3b82f6'>.NET Learn C# Portal</a></li></ul></div>
+`
+         },
+        { id: "dotnet9", title: "Learn .NET 9", type: "must-know",
+          description: `
+         <div style="font-family:sans-serif;line-height:1.6;background:#fefefe;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+  <h2 style="color:#2563eb">🚀 Learn .NET 9</h2>
+  <p><strong>.NET 9</strong> is the latest release of Microsoft's cross-platform, high-performance development framework. It offers enhanced performance, cloud-native capabilities, and improved developer productivity.</p>
+
+  <h3 style="color:#16a34a">✨ Key Features</h3>
+  <ul style="list-style:disc;padding-left:1.2rem">
+    <li><strong>Ahead-of-Time (AOT) Compilation Improvements:</strong> Faster startup and reduced memory usage.</li>
+    <li><strong>Cloud-Native Enhancements:</strong> Better support for Kubernetes and containerized applications.</li>
+    <li><strong>ASP.NET Core Updates:</strong> Performance optimizations and new APIs for web development.</li>
+    <li><strong>Improved Diagnostics:</strong> Advanced tools to debug and monitor applications.</li>
+    <li><strong>C# 13 Support:</strong> Integration with the latest C# language features.</li>
+  </ul>
+
+  <h3 style="color:#f59e0b">🛠️ Getting Started</h3>
+  <pre style="background:#f3f4f6;padding:1rem;border-radius:0.75rem;overflow-x:auto"><code>dotnet new webapp -o MyApp
+cd MyApp
+dotnet run
+</code></pre>
+
+  <h3 style="color:#8b5cf6">💡 Why Choose .NET 9?</h3>
+  <ul style="list-style:square;padding-left:1.2rem">
+    <li>Cross-platform support (Windows, Linux, macOS)</li>
+    <li>High performance and scalability</li>
+    <li>Rich ecosystem with libraries and tools</li>
+    <li>Ideal for web, desktop, mobile, cloud, and IoT applications</li>
+  </ul>
+
+  <h3 style="color:#ef4444">⚠️ Common Pitfalls</h3>
+  <ul>
+    <li>Ignoring performance tuning options</li>
+    <li>Not leveraging cloud-native features</li>
+    <li>Missing out on diagnostics and monitoring tools</li>
+  </ul>
+
+  <h3 style="color:#0ea5e9">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://learn.microsoft.com/en-us/aspnet/core/release-notes/aspnetcore-9.0?view=aspnetcore-9.0" target="_blank" style="color:#2563eb">What's new in .NET 9</a></li>
+    <li><a href="https://dotnet.microsoft.com/en-us/learn/dotnet/hello-world-tutorial" target="_blank" style="color:#2563eb">Official .NET 9 Tutorials</a></li>
+    <li><a href="https://github.com/dotnet" target="_blank" style="color:#2563eb">.NET GitHub Repository</a></li>
+  </ul>
+</div>
+`
+         },
+        { id: "dotnet-cli", title: "Learn dotnet CLI", type: "must-know",
+           description: `<div style="font-family:sans-serif;line-height:1.6;background:#fefefe;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+  <h2 style="color:#2563eb">⚙️ Learn .NET CLI</h2>
+  <p>The <strong>.NET CLI</strong> (Command Line Interface) is a powerful tool to create, build, run, and publish .NET applications efficiently from the terminal.</p>
+
+  <h3 style="color:#16a34a">🚀 Key Commands</h3>
+  <ul style="list-style:disc;padding-left:1.2rem">
+    <li><code>dotnet new</code> - Create a new project or file.</li>
+    <li><code>dotnet build</code> - Build a project and its dependencies.</li>
+    <li><code>dotnet run</code> - Run application from source code.</li>
+    <li><code>dotnet test</code> - Execute unit tests.</li>
+    <li><code>dotnet publish</code> - Package the application for deployment.</li>
+    <li><code>dotnet clean</code> - Remove build outputs.</li>
+  </ul>
+
+  <h3 style="color:#f59e0b">💡 Basic Usage Example</h3>
+  <pre style="background:#f3f4f6;padding:1rem;border-radius:0.75rem;overflow-x:auto"><code>// Create a new console app
+dotnet new console -o MyApp
+cd MyApp
+
+// Run the app
+dotnet run
+</code></pre>
+
+  <h3 style="color:#8b5cf6">🔧 Why Use .NET CLI?</h3>
+  <ul style="list-style:square;padding-left:1.2rem">
+    <li>Lightweight and fast development workflow</li>
+    <li>Automation-friendly for CI/CD pipelines</li>
+    <li>Cross-platform compatibility</li>
+    <li>Full control over build and deployment process</li>
+  </ul>
+
+  <h3 style="color:#ef4444">⚠️ Common Mistakes</h3>
+  <ul>
+    <li>Forgetting to restore packages (<code>dotnet restore</code>)</li>
+    <li>Not specifying project path when working with multiple projects</li>
+    <li>Confusing build and run commands</li>
+  </ul>
+
+  <h3 style="color:#0ea5e9">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://learn.microsoft.com/en-us/dotnet/core/tools/" target="_blank" style="color:#2563eb">Official .NET CLI Documentation</a></li>
+    <li><a href="https://dotnet.microsoft.com/en-us/learn/dotnet/hello-world-tutorial" target="_blank" style="color:#2563eb">Getting Started with .NET CLI</a></li>
+    <li><a href="https://github.com/dotnet/sdk" target="_blank" style="color:#2563eb">.NET SDK GitHub Repo</a></li>
+  </ul>
+</div>
+`
+         },
+        { id: "stylecop", title: "StyleCop rules", type: "must-know",
+          description: `<div style="font-family:sans-serif;line-height:1.6;background:#fefefe;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+  <h2 style="color:#2563eb">📏 StyleCop Rules</h2>
+  <p><strong>StyleCop</strong> is a static code analysis tool that enforces consistent style and coding conventions in C# projects, helping teams maintain readable and maintainable codebases.</p>
+
+  <h3 style="color:#16a34a">✨ Key Rule Categories</h3>
+  <ul style="list-style:disc;padding-left:1.2rem">
+    <li><strong>Layout Rules:</strong> Enforce spacing, indentation, and blank lines.</li>
+    <li><strong>Naming Rules:</strong> Enforce consistent naming conventions for variables, methods, classes, etc.</li>
+    <li><strong>Maintainability Rules:</strong> Promote clean and maintainable code structures.</li>
+    <li><strong>Documentation Rules:</strong> Ensure XML documentation comments are present and correctly formatted.</li>
+    <li><strong>Ordering Rules:</strong> Define order of elements within files and classes.</li>
+  </ul>
+
+  <h3 style="color:#f59e0b">🛠️ Common StyleCop Rules Examples</h3>
+  <pre style="background:#f3f4f6;padding:1rem;border-radius:0.75rem;overflow-x:auto"><code>// Enforce PascalCase for method names
+public void CalculateTotal() { }
+
+// Require XML documentation for public members
+/// <summary>
+/// Calculates total price.
+/// </summary>
+public decimal CalculateTotalPrice() { return 0; }
+
+// Enforce braces for all control statements
+if (isValid)
+{
+    Process();
+}
+</code></pre>
+
+  <h3 style="color:#8b5cf6">💡 Benefits of Using StyleCop</h3>
+  <ul style="list-style:square;padding-left:1.2rem">
+    <li>Improves code readability and consistency</li>
+    <li>Reduces code review time</li>
+    <li>Helps catch potential issues early</li>
+    <li>Supports team-wide coding standards</li>
+  </ul>
+
+  <h3 style="color:#ef4444">⚠️ Common Pitfalls</h3>
+  <ul>
+    <li>Ignoring warnings instead of fixing issues</li>
+    <li>Overly strict rules causing developer frustration</li>
+    <li>Not customizing rules to fit project needs</li>
+  </ul>
+
+  <h3 style="color:#0ea5e9">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://github.com/StyleCop/StyleCop" target="_blank" style="color:#2563eb">Official StyleCop GitHub</a></li>
+    <li><a href="https://learn.microsoft.com/en-us/visualstudio/code-quality/stylecop-analyzers-overview" target="_blank" style="color:#2563eb">StyleCop Analyzers Overview (Microsoft Docs)</a></li>
+    <li><a href="https://marketplace.visualstudio.com/items?itemName=SteveCadwallader.StyleCop" target="_blank" style="color:#2563eb">Visual Studio Marketplace - StyleCop</a></li>
+  </ul>
+</div>
+` },
       ]
     },
 
@@ -126,44 +238,231 @@ export const roadmapData = {
       title: "SQL Fundamentals",
       direction: "right",
       children: [
-        { id: "fundamentals", title: "Fundamentals about database design and SQL Syntax", type: "must-know" },
-        { id: "stored-procedure", title: "Stored Procedures", type: "must-know" },
-        { id: "constraints", title: "Constraints", type: "must-know" },
+        { id: "fundamentals", title: "Fundamentals about database design and SQL Syntax", type: "must-know"
+          ,description: `<div style="font-family:sans-serif;line-height:1.6;background:#fefefe;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+  <h2 style="color:#2563eb">🗄️ Fundamentals of Database Design & SQL Syntax</h2>
+  <p><strong>Database design</strong> is the process of structuring data to ensure efficiency, integrity, and scalability. SQL (Structured Query Language) is the standard language used to communicate with relational databases.</p>
+
+  <h3 style="color:#16a34a">📐 Key Concepts in Database Design</h3>
+  <ul style="list-style:disc;padding-left:1.2rem">
+    <li><strong>Entities and Tables:</strong> Represent real-world objects and data collections.</li>
+    <li><strong>Primary Keys:</strong> Unique identifiers for table records.</li>
+    <li><strong>Foreign Keys:</strong> Define relationships between tables.</li>
+    <li><strong>Normalization:</strong> Organizing data to reduce redundancy.</li>
+    <li><strong>Indexes:</strong> Improve query performance.</li>
+  </ul>
+
+  <h3 style="color:#f59e0b">💡 Basic SQL Syntax Examples</h3>
+  <pre style="background:#f3f4f6;padding:1rem;border-radius:0.75rem;overflow-x:auto"><code>-- Create a table
+CREATE TABLE Customers (
+  CustomerID INT PRIMARY KEY,
+  Name NVARCHAR(100),
+  Email NVARCHAR(100)
+);
+
+-- Insert data
+INSERT INTO Customers (CustomerID, Name, Email) 
+VALUES (1, 'Alice', 'alice@example.com');
+
+-- Query data
+SELECT * FROM Customers WHERE CustomerID = 1;
+
+-- Update data
+UPDATE Customers SET Email = 'alice@newdomain.com' WHERE CustomerID = 1;
+
+-- Delete data
+DELETE FROM Customers WHERE CustomerID = 1;
+</code></pre>
+
+  <h3 style="color:#8b5cf6">⚙️ Best Practices</h3>
+  <ul style="list-style:square;padding-left:1.2rem">
+    <li>Use meaningful table and column names</li>
+    <li>Define clear relationships with foreign keys</li>
+    <li>Normalize data to avoid duplication</li>
+    <li>Use indexes wisely to enhance performance</li>
+  </ul>
+
+  <h3 style="color:#ef4444">⚠️ Common Mistakes</h3>
+  <ul>
+    <li>Ignoring normalization leading to data anomalies</li>
+    <li>Over-indexing causing slow writes</li>
+    <li>Using vague or inconsistent naming</li>
+  </ul>
+
+  <h3 style="color:#0ea5e9">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://www.w3schools.com/sql/" target="_blank" style="color:#2563eb">SQL Tutorial - W3Schools</a></li>
+    <li><a href="https://learn.microsoft.com/en-us/sql/t-sql/language-reference" target="_blank" style="color:#2563eb">T-SQL Language Reference - Microsoft Docs</a></li>
+    <li><a href="https://www.databasejournal.com/features/mssql/article.php/3905961/Database-Design-Best-Practices.htm" target="_blank" style="color:#2563eb">Database Design Best Practices</a></li>
+  </ul>
+</div>
+`  },
+        { id: "stored-procedure", title: "Stored Procedures", type: "must-know",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefefe; padding:1.5rem; border-radius:1rem; border:1px solid #e5e7eb; box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+  <h2 style="color:#2563eb">🔧 Stored Procedures</h2>
+  <p><strong>Stored Procedures</strong> are precompiled SQL code stored in the database that can be executed repeatedly. They encapsulate complex operations, improve performance, and enhance security.</p>
+
+  <h3 style="color:#16a34a">✨ Benefits of Stored Procedures</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>Improved performance due to precompilation and execution plan reuse</li>
+    <li>Centralized business logic inside the database</li>
+    <li>Enhanced security by controlling direct table access</li>
+    <li>Reduced network traffic by executing multiple statements in one call</li>
+  </ul>
+
+  <h3 style="color:#f59e0b">🛠️ Basic Syntax Example (SQL Server)</h3>
+  <pre style="background:#f3f4f6; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>CREATE PROCEDURE GetCustomerById
+  @CustomerID INT
+AS
+BEGIN
+  SELECT CustomerID, Name, Email
+  FROM Customers
+  WHERE CustomerID = @CustomerID;
+END;
+</code></pre>
+
+  <h3 style="color:#f59e0b">🚀 Executing a Stored Procedure</h3>
+  <pre style="background:#f3f4f6; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>EXEC GetCustomerById @CustomerID = 1;
+</code></pre>
+
+  <h3 style="color:#8b5cf6">💡 Advanced Features</h3>
+  <ul style="list-style:square; padding-left:1.2rem">
+    <li>Input and output parameters to exchange data with procedures</li>
+    <li>Error handling with <code>TRY...CATCH</code> blocks</li>
+    <li>Transaction control inside procedures for atomic operations</li>
+    <li>Dynamic SQL execution for flexible queries</li>
+  </ul>
+
+  <h3 style="color:#ef4444">⚠️ Common Pitfalls</h3>
+  <ul>
+    <li>Overusing stored procedures for simple queries</li>
+    <li>Ignoring proper indexing which affects procedure performance</li>
+    <li>Complex procedures that are hard to maintain</li>
+    <li>Security misconfigurations allowing SQL injection if not careful</li>
+  </ul>
+
+  <h3 style="color:#0ea5e9">📚 Best Practices</h3>
+  <ul>
+    <li>Keep procedures focused on a single responsibility</li>
+    <li>Use meaningful and consistent naming conventions</li>
+    <li>Use parameters to avoid SQL injection and improve flexibility</li>
+    <li>Handle errors gracefully with TRY...CATCH</li>
+    <li>Keep logic maintainable and avoid excessive complexity</li>
+    <li>Test procedures thoroughly, especially with edge cases</li>
+    <li>Document stored procedures clearly for team collaboration</li>
+    <li>Regularly review and optimize execution plans</li>
+  </ul>
+</div>
+
+`  },
+        { id: "constraints", title: "Constraints", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefefe; padding:1.5rem; border-radius:1rem; border:1px solid #e5e7eb; box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+  <h2 style="color:#2563eb">🔐 Database Constraints</h2>
+  <p><strong>Constraints</strong> are rules applied to database tables to enforce data integrity and consistency. They ensure that the data adheres to business logic and prevents invalid entries.</p>
+
+  <h3 style="color:#16a34a">📋 Common Types of Constraints</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li><strong>PRIMARY KEY:</strong> Uniquely identifies each record in a table.</li>
+    <li><strong>FOREIGN KEY:</strong> Enforces referential integrity between tables.</li>
+    <li><strong>UNIQUE:</strong> Ensures all values in a column are distinct.</li>
+    <li><strong>NOT NULL:</strong> Ensures a column cannot have NULL values.</li>
+    <li><strong>CHECK:</strong> Validates that values meet a specified condition.</li>
+    <li><strong>DEFAULT:</strong> Provides a default value if none is specified.</li>
+  </ul>
+
+  <h3 style="color:#f59e0b">💡 Syntax Examples</h3>
+  <pre style="background:#f3f4f6; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>-- Create table with constraints
+CREATE TABLE Employees (
+  EmployeeID INT PRIMARY KEY,
+  Name NVARCHAR(100) NOT NULL,
+  Email NVARCHAR(100) UNIQUE,
+  DepartmentID INT,
+  Salary DECIMAL(10, 2) CHECK (Salary > 0),
+  HireDate DATE DEFAULT GETDATE(),
+  CONSTRAINT FK_Department FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID)
+);
+</code></pre>
+
+  <h3 style="color:#8b5cf6">⚙️ How Constraints Help</h3>
+  <ul style="list-style:square; padding-left:1.2rem">
+    <li>Maintain data accuracy and reliability</li>
+    <li>Enforce business rules automatically</li>
+    <li>Prevent orphaned records via foreign keys</li>
+    <li>Reduce application-level validation needs</li>
+  </ul>
+
+  <h3 style="color:#ef4444">⚠️ Common Mistakes</h3>
+  <ul>
+    <li>Ignoring constraints leads to data corruption</li>
+    <li>Overusing constraints causing performance overhead</li>
+    <li>Not defining foreign keys causing referential integrity issues</li>
+    <li>Using CHECK constraints with complex logic better handled in application</li>
+  </ul>
+
+  <h3 style="color:#0ea5e9">📚 Best Practices</h3>
+  <ul>
+    <li>Define primary keys on every table for unique identification</li>
+    <li>Use foreign keys to maintain referential integrity</li>
+    <li>Apply NOT NULL and UNIQUE constraints to critical columns</li>
+    <li>Keep CHECK constraints simple and efficient</li>
+    <li>Use DEFAULT constraints to avoid null or missing data</li>
+    <li>Document constraints clearly for maintainability</li>
+  </ul>
+</div>
+`  },
         {
           id: "triggers", title: "Triggers", type: "good-to-know",
           description: `
-          <section style="font-family: 'Segoe UI', sans-serif;">
-            <h2 style="font-size: 1.5rem; font-weight: bold; color: #0369a1;">🔁 SQL Trigger Nedir?</h2>
-            <p style="margin: 0.5rem 0;">
-              <strong>Trigger</strong> (tetikleyici), bir SQL tablosuna <code>INSERT</code>, <code>UPDATE</code> veya <code>DELETE</code> işlemleri uygulandığında otomatik olarak çalışan yapıdır.
-            </p>
+         <div style="font-family:sans-serif; line-height:1.6; background:#fefefe; padding:1.5rem; border-radius:1rem; border:1px solid #e5e7eb; box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+  <h2 style="color:#2563eb">⚡ Database Triggers</h2>
+  <p><strong>Triggers</strong> are special stored procedures that automatically execute in response to certain events on a table or view, such as INSERT, UPDATE, or DELETE operations.</p>
 
-            <h3 style="font-size: 1.2rem; margin-top: 1rem;">📌 Ne Zaman Kullanılır?</h3>
-            <ul style="margin-left: 1rem; list-style: disc;">
-              <li>Veri değişikliklerini loglamak</li>
-              <li>İş kurallarını otomatik yürütmek</li>
-              <li>Veri tutarlılığını korumak</li>
-            </ul>
+  <h3 style="color:#16a34a">🔍 Types of Triggers</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li><strong>AFTER Triggers:</strong> Execute after the triggering SQL operation completes.</li>
+    <li><strong>INSTEAD OF Triggers:</strong> Execute instead of the triggering operation, often used on views.</li>
+    <li><strong>BEFORE Triggers:</strong> (Supported in some DBMS) Execute before the triggering operation.</li>
+  </ul>
 
-            <h3 style="font-size: 1.2rem; margin-top: 1rem;">🧪 Örnek Trigger</h3>
-            <pre style="background-color: #0f172a; color: white; padding: 1rem; border-radius: 0.5rem; overflow-x: auto;">
-        <code>CREATE TRIGGER trg_LogInsert
-        AFTER INSERT ON Orders
-        FOR EACH ROW
-        BEGIN
-          INSERT INTO AuditLog (OrderId, Action, LogDate)
-          VALUES (NEW.OrderId, 'INSERT', CURRENT_TIMESTAMP);
-        END;</code></pre>
+  <h3 style="color:#f59e0b">🛠️ Example: AFTER INSERT Trigger (SQL Server)</h3>
+  <pre style="background:#f3f4f6; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>CREATE TRIGGER trgAfterInsertCustomer
+ON Customers
+AFTER INSERT
+AS
+BEGIN
+  SET NOCOUNT ON;
+  INSERT INTO AuditLog (Action, ActionDate)
+  SELECT 'Inserted customer with ID: ' + CAST(CustomerID AS NVARCHAR), GETDATE()
+  FROM inserted;
+END;
+</code></pre>
 
-            <h3 style="font-size: 1.2rem; margin-top: 1rem;">💡 İpuçları</h3>
-            <ul style="margin-left: 1rem; list-style: disc;">
-              <li><code>NEW</code>: Yeni veri satırını temsil eder (INSERT/UPDATE).</li>
-              <li><code>OLD</code>: Eski veri satırını temsil eder (DELETE/UPDATE).</li>
-              <li><code>AFTER</code> ve <code>BEFORE</code>: Tetikleyici zamanlaması belirler.</li>
-            </ul>
+  <h3 style="color:#8b5cf6">💡 Use Cases</h3>
+  <ul style="list-style:square; padding-left:1.2rem">
+    <li>Auditing data changes</li>
+    <li>Enforcing complex business rules</li>
+    <li>Synchronizing tables</li>
+    <li>Validating or modifying data automatically</li>
+  </ul>
 
-       
-          </section>
+  <h3 style="color:#ef4444">⚠️ Common Pitfalls</h3>
+  <ul>
+    <li>Triggers can impact performance if not optimized</li>
+    <li>Overuse may lead to hidden logic and debugging difficulties</li>
+    <li>Unexpected side effects if triggers call other triggers recursively</li>
+    <li>Complex triggers are hard to maintain</li>
+  </ul>
+
+  <h3 style="color:#0ea5e9">📚 Best Practices</h3>
+  <ul>
+    <li>Keep triggers simple and focused on a single task</li>
+    <li>Document trigger logic thoroughly</li>
+    <li>Avoid long-running or complex operations inside triggers</li>
+    <li>Test triggers extensively to prevent unintended effects</li>
+    <li>Use triggers mainly for auditing and enforcement of critical rules</li>
+    <li>Monitor trigger performance impact regularly</li>
+  </ul>
+</div>
+
             `
         },
       ]
@@ -173,15 +472,650 @@ export const roadmapData = {
       title: "ASP.NET Core Basics",
       direction: "left",
       children: [
-        { id: "mvc-api", title: "MVC & Minimal APIs", type: "must-know" },
-        { id: "options-config", title: "Options & Configurations", type: "must-know" },
-        { id: "middlewares", title: "Middlewares", type: "must-know" },
-        { id: "filter-attributes", title: "Filter & Attributes", type: "must-know" },
-        { id: "background-tasks", title: "Background Tasks", type: "good-to-know" },
-        { id: "auth", title: "Authentication & Authorization (Identity, IdentityServer, OpenIddict, Auth0/OIDC, OWASP Top 10)", type: "must-know" },
-        { id: "caching", title: "Caching (Output, Response, Hybrid)", type: "good-to-know" },
-        { id: "razor-pages", title: "Razor Pages", type: "good-to-know" },
-        { id: "razor-components", title: "Razor Components", type: "optional" },
+        { id: "mvc-api", title: "MVC & Minimal APIs", type: "must-know",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefefe; padding:1.5rem; border-radius:1rem; border:1px solid #e5e7eb; box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+  <h2 style="color:#2563eb">🕸️ MVC & Minimal APIs in ASP.NET Core</h2>
+  <p><strong>MVC (Model-View-Controller)</strong> and <strong>Minimal APIs</strong> are two approaches to building web APIs and web applications with ASP.NET Core.</p>
+
+  <h3 style="color:#16a34a">🔍 MVC Overview</h3>
+  <p>MVC separates an application into three main components:</p>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li><strong>Model:</strong> Represents the data and business logic.</li>
+    <li><strong>View:</strong> Handles the presentation/UI.</li>
+    <li><strong>Controller:</strong> Manages user input and interacts with Model and View.</li>
+  </ul>
+  <p>MVC is suited for complex applications requiring full control over views and UI.</p>
+
+  <h3 style="color:#f59e0b">🛠️ Basic MVC Controller Example</h3>
+  <pre style="background:#f3f4f6; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public class ProductsController : Controller
+{
+    public IActionResult Index()
+    {
+        var products = ProductService.GetAll();
+        return View(products);
+    }
+}
+</code></pre>
+
+  <h3 style="color:#16a34a">🔍 Minimal APIs Overview</h3>
+  <p>Minimal APIs provide a lightweight, simplified way to build HTTP APIs with minimal boilerplate. Ideal for small services, microservices, or simple endpoints.</p>
+
+  <h3 style="color:#f59e0b">🛠️ Basic Minimal API Example</h3>
+  <pre style="background:#f3f4f6; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+app.MapGet("/products", () => ProductService.GetAll());
+
+app.Run();
+</code></pre>
+
+  <h3 style="color:#8b5cf6">⚖️ When to Use Which?</h3>
+  <ul style="list-style:square; padding-left:1.2rem">
+    <li><strong>MVC:</strong> For apps with complex UI, multiple views, and full control over rendering.</li>
+    <li><strong>Minimal APIs:</strong> For small, fast, simple APIs or microservices.</li>
+  </ul>
+
+  <h3 style="color:#ef4444">⚠️ Common Pitfalls</h3>
+  <ul>
+    <li>MVC can be overkill for very simple APIs</li>
+    <li>Minimal APIs lack built-in features like model binding, validation (requires manual setup)</li>
+    <li>Mixing approaches without clear boundaries can cause maintenance issues</li>
+  </ul>
+
+  <h3 style="color:#0ea5e9">📚 Best Practices</h3>
+  <ul>
+    <li>Choose the approach based on project size and complexity</li>
+    <li>Use dependency injection consistently in both approaches</li>
+    <li>For Minimal APIs, implement validation and error handling carefully</li>
+    <li>Keep controllers and endpoints focused and concise</li>
+    <li>Write unit and integration tests to ensure quality</li>
+    <li>Document APIs clearly for team and consumer understanding</li>
+  </ul>
+</div>
+` },
+        { id: "options-config", title: "Options & Configurations", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefefe; padding:1.5rem; border-radius:1rem; border:1px solid #e5e7eb; box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+  <h2 style="color:#2563eb">⚙️ Options & Configurations in ASP.NET Core</h2>
+  <p><strong>Options and configuration</strong> are essential for managing application settings in a flexible and maintainable way. ASP.NET Core provides built-in support for hierarchical configuration sources and strongly-typed options.</p>
+
+  <h3 style="color:#16a34a">🔍 Configuration Sources</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>appsettings.json / appsettings.{Environment}.json</li>
+    <li>Environment variables</li>
+    <li>Command-line arguments</li>
+    <li>User secrets (for development)</li>
+    <li>Azure Key Vault or other external providers</li>
+  </ul>
+
+  <h3 style="color:#f59e0b">🛠️ Binding Configuration to Options Class</h3>
+  <pre style="background:#f3f4f6; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>// appsettings.json
+{
+  "MySettings": {
+    "ApiKey": "12345",
+    "RetryCount": 3
+  }
+}
+
+// Options class
+public class MySettings
+{
+  public string ApiKey { get; set; }
+  public int RetryCount { get; set; }
+}
+
+// Startup or Program.cs
+builder.Services.Configure<MySettings>(builder.Configuration.GetSection("MySettings"));
+
+// Usage via IOptions<MySettings>
+public class MyService
+{
+  private readonly MySettings _settings;
+  public MyService(IOptions<MySettings> options)
+  {
+    _settings = options.Value;
+  }
+}
+</code></pre>
+
+  <h3 style="color:#8b5cf6">💡 Benefits of Options Pattern</h3>
+  <ul style="list-style:square; padding-left:1.2rem">
+    <li>Strongly-typed access to configuration values</li>
+    <li>Supports validation with Data Annotations or custom validators</li>
+    <li>Decouples configuration from implementation</li>
+    <li>Easy to test and maintain</li>
+  </ul>
+
+  <h3 style="color:#ef4444">⚠️ Common Mistakes</h3>
+  <ul>
+    <li>Injecting IConfiguration directly instead of IOptions for configuration classes</li>
+    <li>Not using configuration reload on change when needed</li>
+    <li>Hardcoding configuration values instead of using configuration system</li>
+    <li>Ignoring environment-specific configuration</li>
+  </ul>
+
+  <h3 style="color:#0ea5e9">📚 Best Practices</h3>
+  <ul>
+    <li>Use strongly-typed options classes for configuration</li>
+    <li>Leverage multiple configuration sources in a hierarchical way</li>
+    <li>Validate configuration on startup</li>
+    <li>Use environment-specific configuration files</li>
+    <li>Keep secrets out of source control (use User Secrets or Azure Key Vault)</li>
+    <li>Subscribe to configuration reload events if dynamic updates are needed</li>
+    <li>Document configuration options clearly</li>
+  </ul>
+</div>
+` },
+        { id: "middlewares", title: "Middlewares", type: "must-know",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefefe; padding:1.5rem; border-radius:1rem; border:1px solid #e5e7eb; box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+  <h2 style="color:#2563eb">🔌 Middlewares in ASP.NET Core</h2>
+  <p><strong>Middleware</strong> are software components that form a pipeline to handle HTTP requests and responses in ASP.NET Core applications. Each middleware can inspect, modify, or short-circuit the request/response process.</p>
+
+  <h3 style="color:#16a34a">🔍 Built-in Middleware Examples</h3>
+  <p>ASP.NET Core provides many built-in middleware components to handle common tasks:</p>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li><strong>Authentication:</strong> Validates user identity.</li>
+    <li><strong>Authorization:</strong> Controls access to resources.</li>
+    <li><strong>Static Files:</strong> Serves files like images, CSS, JS.</li>
+    <li><strong>Routing:</strong> Matches requests to endpoints.</li>
+    <li><strong>Error Handling:</strong> Handles exceptions gracefully.</li>
+    <li><strong>CORS:</strong> Manages cross-origin resource sharing.</li>
+  </ul>
+
+  <h3 style="color:#f59e0b">🛠️ Creating Custom Middleware</h3>
+  <p>You can create custom middleware to add functionality tailored to your needs.</p>
+  <pre style="background:#f3f4f6; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public class RequestLoggingMiddleware
+{
+    private readonly RequestDelegate _next;
+
+    public RequestLoggingMiddleware(RequestDelegate next)
+    {
+        _next = next;
+    }
+
+    public async Task InvokeAsync(HttpContext context)
+    {
+        Console.WriteLine($"Incoming request: {context.Request.Method} {context.Request.Path}");
+
+        // Call the next middleware in the pipeline
+        await _next(context);
+
+        Console.WriteLine($"Outgoing response: {context.Response.StatusCode}");
+    }
+}
+
+// Register in Program.cs or Startup.cs
+app.UseMiddleware&lt;RequestLoggingMiddleware&gt;();
+</code></pre>
+
+  <h3 style="color:#8b5cf6">⚠️ Middleware Pipeline Considerations</h3>
+  <ul style="list-style:square; padding-left:1.2rem">
+    <li>Middleware order matters — it affects request processing.</li>
+    <li>Each middleware should call <code>await _next(context)</code> to pass control.</li>
+    <li>Avoid long-running or blocking operations inside middleware.</li>
+    <li>Use middleware for cross-cutting concerns like logging, authentication, and error handling.</li>
+  </ul>
+
+  <h3 style="color:#0ea5e9">📚 Best Practices</h3>
+  <ul>
+    <li>Keep middleware focused and lightweight.</li>
+    <li>Leverage built-in middleware when possible.</li>
+    <li>Ensure correct ordering in the pipeline for expected behavior.</li>
+    <li>Handle exceptions and errors gracefully inside middleware.</li>
+    <li>Test middleware independently and as part of the pipeline.</li>
+  </ul>
+</div>
+
+` },
+        { id: "filter-attributes", title: "Filter & Attributes", type: "must-know",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#fffdfa; padding:1.5rem; border-radius:1rem; border:1px solid #e0e7ff; box-shadow:0 4px 15px rgba(96, 165, 250, 0.2)">
+  <h2 style="color:#4f46e5">🎛️ Filters & Attributes in ASP.NET Core</h2>
+  <p><strong>Filters</strong> let you run code at specific points in the MVC request pipeline. They are perfect for handling cross-cutting concerns like authorization, caching, error handling, and logging.</p>
+
+  <h3 style="color:#10b981">🔍 Built-in Filter Types & Examples</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>
+      <strong>Authorization Filters</strong><br>
+      Runs before controller actions to check user permissions.<br>
+      <code style="background:#f3f4f6; padding:0.2rem 0.4rem; border-radius:0.3rem">[Authorize]</code> attribute is the most common example.<br><br>
+      <code style="background:#f3f4f6; padding:0.3rem 0.6rem; display:block; border-radius:0.3rem; overflow-x:auto">
+[Authorize(Roles = "Admin")]
+public IActionResult AdminOnly() { ... }
+      </code>
+    </li>
+    <li>
+      <strong>Resource Filters</strong><br>
+      Run code before and after rest of the pipeline (good for caching).<br>
+      Example: <code>[ResponseCache(Duration = 60)]</code><br><br>
+      <code style="background:#f3f4f6; padding:0.3rem 0.6rem; display:block; border-radius:0.3rem; overflow-x:auto">
+[ResponseCache(Duration = 60, Location = ResponseCacheLocation.Client)]
+public IActionResult CachedAction() { ... }
+      </code>
+    </li>
+    <li>
+      <strong>Action Filters</strong><br>
+      Run code before and after action methods.<br>
+      Example: <code>[ServiceFilter(typeof(MyLoggingFilter))]</code><br><br>
+      <code style="background:#f3f4f6; padding:0.3rem 0.6rem; display:block; border-radius:0.3rem; overflow-x:auto">
+public class MyLoggingFilter : IActionFilter
+{
+    public void OnActionExecuting(ActionExecutingContext context) { ... }
+    public void OnActionExecuted(ActionExecutedContext context) { ... }
+}
+      </code>
+    </li>
+    <li>
+      <strong>Exception Filters</strong><br>
+      Handle unhandled exceptions thrown by actions.<br>
+      Example: <code>[TypeFilter(typeof(CustomExceptionFilter))]</code>
+    </li>
+    <li>
+      <strong>Result Filters</strong><br>
+      Run code before and after the action result executes.<br>
+      Useful for modifying response data or headers.
+    </li>
+  </ul>
+
+  <h3 style="color:#f59e0b">🛠️ Creating Custom Action Filter</h3>
+  <pre style="background:#f3f4f6; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public class MyCustomActionFilter : IActionFilter
+{
+    public void OnActionExecuting(ActionExecutingContext context)
+    {
+        // Runs before action executes
+        Console.WriteLine("Action is starting.");
+    }
+
+    public void OnActionExecuted(ActionExecutedContext context)
+    {
+        // Runs after action executes
+        Console.WriteLine("Action finished.");
+    }
+}
+
+// Applying the filter
+[ServiceFilter(typeof(MyCustomActionFilter))]
+public IActionResult Index()
+{
+    return View();
+}
+</code></pre>
+
+  <h3 style="color:#ef4444">⚠️ Common Pitfalls</h3>
+  <ul>
+    <li>Overusing global filters that impact performance.</li>
+    <li>Embedding business logic inside filters.</li>
+    <li>Improper ordering causing unexpected results.</li>
+  </ul>
+
+  <h3 style="color:#3b82f6">📚 Best Practices</h3>
+  <ul>
+    <li>Use filters for cross-cutting concerns only.</li>
+    <li>Prefer built-in filters before creating custom ones.</li>
+    <li>Keep custom filters simple and focused.</li>
+    <li>Leverage dependency injection for filter services.</li>
+    <li>Test filters independently and in integration.</li>
+  </ul>
+</div>
+` },
+        { id: "background-tasks", title: "Background Tasks", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f9fafb; padding:1.5rem; border-radius:1rem; border:1px solid #cbd5e1; box-shadow:0 4px 15px rgba(148, 163, 184, 0.3)">
+  <h2 style="color:#2563eb">⚙️ Background Tasks in ASP.NET Core</h2>
+  <p><strong>Background Tasks</strong> are operations that run asynchronously outside the main HTTP request pipeline, allowing you to perform long-running or periodic work without blocking user requests.</p>
+
+  <h3 style="color:#16a34a">🔍 When to Use Background Tasks</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>Sending emails or notifications asynchronously</li>
+    <li>Performing scheduled data cleanup or maintenance</li>
+    <li>Processing files or heavy computations</li>
+    <li>Calling external APIs without delaying user response</li>
+  </ul>
+
+  <h3 style="color:#f59e0b">🛠️ Implementing Background Tasks</h3>
+  <p>ASP.NET Core provides <code>IHostedService</code> and <code>BackgroundService</code> base classes to create and run background tasks.</p>
+
+  <h4 style="color:#4b5563">Example: Simple Background Service</h4>
+  <pre style="background:#f3f4f6; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public class TimedBackgroundService : BackgroundService
+{
+    private readonly ILogger&lt;TimedBackgroundService&gt; _logger;
+    private readonly TimeSpan _interval = TimeSpan.FromMinutes(5);
+
+    public TimedBackgroundService(ILogger&lt;TimedBackgroundService&gt; logger)
+    {
+        _logger = logger;
+    }
+
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        _logger.LogInformation("Timed Background Service is starting.");
+
+        while (!stoppingToken.IsCancellationRequested)
+        {
+            _logger.LogInformation("Background task running at: {time}", DateTimeOffset.Now);
+            
+            // TODO: Add background task logic here
+            await Task.Delay(_interval, stoppingToken);
+        }
+
+        _logger.LogInformation("Timed Background Service is stopping.");
+    }
+}
+</code></pre>
+
+  <h4 style="color:#4b5563">Registering the Background Service</h4>
+  <pre style="background:#f3f4f6; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>builder.Services.AddHostedService&lt;TimedBackgroundService&gt;();
+</code></pre>
+
+  <h3 style="color:#8b5cf6">🧩 Other Options for Background Work</h3>
+  <ul style="list-style:square; padding-left:1.2rem">
+    <li><strong>Queued Background Tasks:</strong> Use <code>IBackgroundTaskQueue</code> patterns to queue tasks safely.</li>
+    <li><strong>Third-party libraries:</strong> Such as <code>Hangfire</code> or <code>Quartz.NET</code> for advanced scheduling and persistence.</li>
+    <li><strong>Azure Functions or AWS Lambda:</strong> For serverless background processing.</li>
+  </ul>
+
+  <h3 style="color:#ef4444">⚠️ Common Pitfalls</h3>
+  <ul>
+    <li>Running long blocking operations that cause thread starvation</li>
+    <li>Not handling cancellation tokens properly</li>
+    <li>Assuming background tasks run immediately on app start (can be delayed)</li>
+    <li>Not persisting tasks that should survive app restarts</li>
+  </ul>
+
+  <h3 style="color:#0ea5e9">📚 Best Practices</h3>
+  <ul>
+    <li>Keep background tasks lightweight and non-blocking</li>
+    <li>Always respect <code>CancellationToken</code> to gracefully stop tasks</li>
+    <li>Use queues to manage task load and concurrency</li>
+    <li>Monitor and log background task status and errors</li>
+    <li>Consider distributed task schedulers for complex workloads</li>
+  </ul>
+</div>
+` },
+        { id: "auth", title: "Authentication & Authorization (Identity, IdentityServer, OpenIddict, Auth0/OIDC, OWASP Top 10)", type: "must-know",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef9f9; padding:1.5rem; border-radius:1rem; border:1px solid #f87171; box-shadow:0 4px 15px rgba(248, 113, 113, 0.3)">
+  <h2 style="color:#b91c1c">🔐 Authentication & Authorization in ASP.NET Core</h2>
+  <p>Securing your app is critical. <strong>Authentication</strong> verifies user identity, while <strong>Authorization</strong> controls access based on permissions and roles.</p>
+
+  <h3 style="color:#dc2626">🛠️ Core Components</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li><strong>ASP.NET Core Identity:</strong> Built-in user management and authentication system.</li>
+    <li><strong>IdentityServer / OpenIddict:</strong> OpenID Connect (OIDC) and OAuth2 frameworks to build centralized auth servers.</li>
+    <li><strong>Third-party providers:</strong> Auth0, Azure AD, Google, Facebook (via OIDC).</li>
+    <li><strong>OWASP Top 10:</strong> Follow security best practices to mitigate common vulnerabilities.</li>
+  </ul>
+
+  <h3 style="color:#f87171">🔐 ASP.NET Core Identity Example</h3>
+  <pre style="background:#fce7e7; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>// Register Identity services
+builder.Services.AddIdentity&lt;ApplicationUser, IdentityRole&gt;()
+    .AddEntityFrameworkStores&lt;ApplicationDbContext&gt;()
+    .AddDefaultTokenProviders();
+
+// Protect a controller or action
+[Authorize]
+public class DashboardController : Controller
+{
+    public IActionResult Index()
+    {
+        return View();
+    }
+}
+</code></pre>
+
+  <h3 style="color:#dc2626">🌐 IdentityServer / OpenIddict</h3>
+  <p>Use these to implement OAuth2 and OpenID Connect protocols for centralized authentication, especially for APIs and microservices.</p>
+  <pre style="background:#fce7e7; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>// Configure IdentityServer
+builder.Services.AddIdentityServer()
+    .AddInMemoryClients(Config.Clients)
+    .AddInMemoryApiScopes(Config.ApiScopes)
+    .AddInMemoryIdentityResources(Config.IdentityResources)
+    .AddDeveloperSigningCredential();
+</code></pre>
+
+  <h3 style="color:#f87171">🔄 Using External Authentication Providers (e.g., Auth0)</h3>
+  <pre style="background:#fce7e7; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = "Auth0";
+})
+.AddCookie()
+.AddOpenIdConnect("Auth0", options =>
+{
+    options.Authority = "https://YOUR_DOMAIN.auth0.com";
+    options.ClientId = "YOUR_CLIENT_ID";
+    options.ClientSecret = "YOUR_CLIENT_SECRET";
+    options.ResponseType = "code";
+    options.SaveTokens = true;
+});
+</code></pre>
+
+  <h3 style="color:#dc2626">🛡️ OWASP Top 10 - Key Security Tips</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>Use HTTPS everywhere to protect data in transit.</li>
+    <li>Implement proper input validation to avoid injection attacks.</li>
+    <li>Protect against Cross-Site Request Forgery (CSRF) using anti-forgery tokens.</li>
+    <li>Limit authentication attempts to prevent brute-force attacks.</li>
+    <li>Store passwords securely with strong hashing (e.g., bcrypt).</li>
+  </ul>
+
+  <h3 style="color:#b91c1c">📚 Best Practices</h3>
+  <ul>
+    <li>Prefer OpenID Connect for modern authentication scenarios.</li>
+    <li>Use Role-Based or Policy-Based Authorization depending on complexity.</li>
+    <li>Keep secrets (keys, tokens) secure using Azure Key Vault or environment variables.</li>
+    <li>Regularly update dependencies to patch security vulnerabilities.</li>
+    <li>Log authentication and authorization events for audit trails.</li>
+  </ul>
+</div>
+` },
+        { id: "caching", title: "Caching (Output, Response, Hybrid)", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #93c5fd; box-shadow:0 4px 15px rgba(59, 130, 246, 0.2)">
+  <h2 style="color:#2563eb">⚡ Caching in ASP.NET Core</h2>
+  <p><strong>Caching</strong> improves performance by storing frequently accessed data temporarily, reducing the need for repeated processing or external calls.</p>
+
+  <h3 style="color:#0ea5e9">🔍 Types of Caching</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li><strong>Output Caching:</strong> Caches the entire response of a controller/action to quickly serve future requests.</li>
+    <li><strong>Response Caching:</strong> Controls HTTP response headers to enable client or proxy caching.</li>
+    <li><strong>Hybrid Caching:</strong> Combines server-side caching with client or proxy caching for optimal performance.</li>
+  </ul>
+
+  <h3 style="color:#3b82f6">🛠️ Output Caching Example</h3>
+  <p>Introduced in ASP.NET Core 7+, Output Caching stores the entire response.</p>
+  <pre style="background:#e0f2fe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>// Enable output caching middleware in Program.cs
+app.UseOutputCache();
+
+// Apply output cache attribute on controller/action
+[OutputCache(Duration = 60)]
+public IActionResult Index()
+{
+    return View();
+}
+</code></pre>
+
+  <h3 style="color:#3b82f6">🛠️ Response Caching Example</h3>
+  <p>Response caching sets cache headers to instruct browsers/proxies to cache responses.</p>
+  <pre style="background:#e0f2fe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>// Enable response caching middleware
+app.UseResponseCaching();
+
+// Controller action with caching headers
+[ResponseCache(Duration = 120, Location = ResponseCacheLocation.Client)]
+public IActionResult GetData()
+{
+    return Json(new { Time = DateTime.Now });
+}
+</code></pre>
+
+  <h3 style="color:#3b82f6">🛠️ Hybrid Caching Approach</h3>
+  <p>Combine server-side caching (e.g., IMemoryCache or IDistributedCache) with response caching headers.</p>
+  <pre style="background:#e0f2fe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>private readonly IMemoryCache _cache;
+
+public MyController(IMemoryCache cache)
+{
+    _cache = cache;
+}
+
+public IActionResult GetCachedData()
+{
+    if(!_cache.TryGetValue("cachedTime", out DateTime cachedTime))
+    {
+        cachedTime = DateTime.Now;
+        _cache.Set("cachedTime", cachedTime, TimeSpan.FromMinutes(5));
+    }
+    return Json(new { CachedTime = cachedTime });
+}
+</code></pre>
+
+  <h3 style="color:#ef4444">⚠️ Common Pitfalls</h3>
+  <ul>
+    <li>Caching sensitive or user-specific data publicly.</li>
+    <li>Not invalidating cache on data changes, leading to stale data.</li>
+    <li>Over-caching causing memory pressure on the server.</li>
+  </ul>
+
+  <h3 style="color:#2563eb">📚 Best Practices</h3>
+  <ul>
+    <li>Use appropriate caching duration balancing freshness and performance.</li>
+    <li>Prefer distributed cache (Redis, Memcached) for scalable applications.</li>
+    <li>Set cache headers correctly to avoid client-side caching issues.</li>
+    <li>Monitor cache hit/miss rates to optimize caching strategy.</li>
+    <li>Clear or refresh caches proactively when data updates.</li>
+  </ul>
+</div>
+` },
+        { id: "razor-pages", title: "Razor Pages", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff7ed; padding:1.5rem; border-radius:1rem; border:1px solid #fdba74; box-shadow:0 4px 15px rgba(251, 191, 36, 0.3)">
+  <h2 style="color:#c2410c">📄 Razor Pages in ASP.NET Core</h2>
+  <p><strong>Razor Pages</strong> is a page-focused framework for building dynamic, server-rendered web apps with clean separation of concerns.</p>
+
+  <h3 style="color:#ea580c">🛠️ Basic Razor Page Structure</h3>
+  <p>A Razor Page consists of a <code>.cshtml</code> file and an optional <code>.cshtml.cs</code> code-behind file:</p>
+
+  <pre style="background:#ffedd5; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+&lt;h1&gt;Welcome to Razor Pages!&lt;/h1&gt;
+&lt;p&gt;Current time: @DateTime.Now&lt;/p&gt;
+</code></pre>
+
+  <pre style="background:#ffedd5; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public class IndexModel : PageModel
+{
+    public void OnGet()
+    {
+        // Initialization logic here
+    }
+}
+</code></pre>
+
+  <h3 style="color:#ea580c">🔄 Handling Requests</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li><code>OnGet()</code> – Handles GET requests.</li>
+    <li><code>OnPost()</code> – Handles POST requests.</li>
+    <li>Supports other verbs: <code>OnPut()</code>, <code>OnDelete()</code>, etc.</li>
+  </ul>
+
+  <h3 style="color:#f97316">📋 Model Binding & Validation</h3>
+  <p>Bind form data directly to properties and validate using data annotations:</p>
+
+  <pre style="background:#ffedd5; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public class ContactModel : PageModel
+{
+    [BindProperty]
+    public ContactForm Form { get; set; }
+
+    public void OnGet()
+    {
+    }
+
+    public IActionResult OnPost()
+    {
+        if (!ModelState.IsValid)
+        {
+            return Page();
+        }
+        // Process form
+        return RedirectToPage("Success");
+    }
+}
+
+public class ContactForm
+{
+    [Required]
+    public string Name { get; set; }
+    
+    [EmailAddress]
+    public string Email { get; set; }
+}
+</code></pre>
+
+  <h3 style="color:#f97316">⚙️ Routing</h3>
+  <p>Razor Pages use convention-based routing based on file location:</p>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>Pages in <code>/Pages/Index.cshtml</code> map to <code>/</code></li>
+    <li>Pages in subfolders map to paths accordingly, e.g. <code>/Pages/Blog/Post.cshtml</code> maps to <code>/Blog/Post</code></li>
+  </ul>
+
+  <h3 style="color:#ea580c">📚 Best Practices</h3>
+  <ul>
+    <li>Use Razor Pages for page-centric scenarios requiring simple UI logic.</li>
+    <li>Keep PageModels lean by moving business logic to services.</li>
+    <li>Use tag helpers and partial views to avoid repetition.</li>
+    <li>Leverage built-in model validation and error handling.</li>
+    <li>Secure pages with <code>[Authorize]</code> attribute when needed.</li>
+  </ul>
+</div>
+` },
+        { id: "razor-components", title: "Razor Components", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfdf5; padding:1.5rem; border-radius:1rem; border:1px solid #6ee7b7; box-shadow:0 4px 15px rgba(34,197,94,0.3)">
+  <h2 style="color:#059669">⚛️ Razor Components (Blazor Components)</h2>
+  <p><strong>Razor Components</strong> are reusable UI building blocks in Blazor for creating interactive web apps with C# instead of JavaScript.</p>
+
+  <h3 style="color:#10b981">🛠️ Basic Component Example</h3>
+  <pre style="background:#d1fae5; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>@code {
+    private int count = 0;
+
+    void IncrementCount()
+    {
+        count++;
+    }
+}
+&lt;h3&gt;Counter&lt;/h3&gt;
+&lt;p&gt;Current count: @count&lt;/p&gt;
+&lt;button @onclick="IncrementCount"&gt;Click me&lt;/button&gt;
+</code></pre>
+
+  <h3 style="color:#10b981">📦 Component Parameters</h3>
+  <p>Pass data to components using <code>[Parameter]</code> attribute:</p>
+  <pre style="background:#d1fae5; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>@code {
+    [Parameter]
+    public string Title { get; set; }
+}
+&lt;h2&gt;@Title&lt;/h2&gt;
+</code></pre>
+
+  <h3 style="color:#059669">🔄 Lifecycle Methods</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li><code>OnInitialized()</code> – Called when component initializes.</li>
+    <li><code>OnParametersSet()</code> – Called when parameters are set or updated.</li>
+    <li><code>OnAfterRender()</code> – Called after component rendering.</li>
+  </ul>
+
+  <h3 style="color:#10b981">🔗 Event Handling & Binding</h3>
+  <pre style="background:#d1fae5; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>&lt;input type="text" @bind="name" /&gt;
+&lt;p&gt;Hello, @name!&lt;/p&gt;
+
+@code {
+    private string name = "";
+}
+</code></pre>
+
+  <h3 style="color:#059669">⚙️ Integration</h3>
+  <p>Razor Components work both in server-side Blazor and client-side WebAssembly apps. They can be embedded in ASP.NET Core apps as well.</p>
+
+  <h3 style="color:#065f46">📚 Best Practices</h3>
+  <ul>
+    <li>Keep components small and focused on a single responsibility.</li>
+    <li>Use cascading parameters and dependency injection wisely.</li>
+    <li>Handle async operations carefully to avoid UI blocking.</li>
+    <li>Use <code>@key</code> directive to optimize list rendering.</li>
+    <li>Separate UI markup and logic clearly for maintainability.</li>
+  </ul>
+</div>
+` },
       ]
     },
 
@@ -190,11 +1124,378 @@ export const roadmapData = {
       title: "SOLID",
       direction: "right",
       children: [
-        { id: "single-responsibility", title: "Single Responsibility Principle (SRP)", type: "must-know" },
-        { id: "open-closed", title: "Open Closed Principle (OCP)", type: "must-know" },
-        { id: "liskov", title: "Liskov Substitution Principle (LSP)", type: "must-know" },
-        { id: "interface-segregation", title: "Interface Segregation Principle (ISP)", type: "good-to-know" },
-        { id: "dependency-inversion", title: "Dependency Inversion Principle (DIP)", type: "good-to-know" },
+        { id: "single-responsibility", title: "Single Responsibility Principle (SRP)", type: "must-know",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #93c5fd; box-shadow:0 4px 15px rgba(59, 130, 246, 0.2)">
+  <h2 style="color:#2563eb">📏 Single Responsibility Principle (SRP)</h2>
+  <p>The <strong>Single Responsibility Principle</strong> is one of the five SOLID principles introduced by <em>Robert C. Martin</em> (commonly known as <strong>Uncle Bob</strong>).</p>
+  <blockquote style="background:#dbeafe; border-left:4px solid #3b82f6; margin:1rem 0; padding:0.5rem 1rem; font-style:italic; color:#1e40af;">
+    "A class should have one, and only one, reason to change."
+    <br><br>
+    — Robert C. Martin
+  </blockquote>
+
+  <h3 style="color:#3b82f6">🔍 Why SRP Matters</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>Improves code maintainability and readability.</li>
+    <li>Makes debugging and testing easier.</li>
+    <li>Reduces unintended side effects when modifying code.</li>
+    <li>Encourages separation of concerns, leading to cleaner architecture.</li>
+  </ul>
+
+  <h3 style="color:#2563eb">🛠️ SRP Violation Example</h3>
+  <pre style="background:#e0f2fe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public class UserService
+{
+    public void RegisterUser(User user)
+    {
+        // Validate user data
+        // Save user to database
+        // Send welcome email
+        // Log registration event
+    }
+}
+</code></pre>
+  <p>In this example, <code>UserService</code> does many unrelated things, violating SRP.</p>
+
+  <h3 style="color:#3b82f6">✅ Refactored Example Applying SRP</h3>
+  <pre style="background:#e0f2fe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public class UserValidator { /* validation logic */ }
+public class UserRepository { /* database logic */ }
+public class EmailSender { /* email logic */ }
+public class Logger { /* logging logic */ }
+
+public class UserService
+{
+    private readonly UserValidator _validator;
+    private readonly UserRepository _repository;
+    private readonly EmailSender _emailSender;
+    private readonly Logger _logger;
+
+    public UserService(UserValidator validator, UserRepository repository, EmailSender emailSender, Logger logger)
+    {
+        _validator = validator;
+        _repository = repository;
+        _emailSender = emailSender;
+        _logger = logger;
+    }
+
+    public void RegisterUser(User user)
+    {
+        if(!_validator.Validate(user))
+            throw new ArgumentException("Invalid user data");
+
+        _repository.Save(user);
+        _emailSender.SendWelcomeEmail(user);
+        _logger.Log("User registered: " + user.Id);
+    }
+}
+</code></pre>
+
+  <h3 style="color:#2563eb">📚 Best Practices</h3>
+  <ul>
+    <li>Design classes with a single responsibility to ensure they have only one reason to change.</li>
+    <li>Use dependency injection to separate concerns.</li>
+    <li>Avoid “God classes” that manage multiple unrelated tasks.</li>
+    <li>Write small, focused, and testable components.</li>
+    <li>Refactor code regularly to adhere to SRP and improve maintainability.</li>
+  </ul>
+</div>
+` },
+        { id: "open-closed", title: "Open Closed Principle (OCP)", type: "must-know",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff7ed; padding:1.5rem; border-radius:1rem; border:1px solid #fdba74; box-shadow:0 4px 15px rgba(251, 146, 60, 0.3)">
+  <h2 style="color:#ea580c">📐 Open/Closed Principle (OCP)</h2>
+  <p>The <strong>Open/Closed Principle</strong> is another key SOLID principle formulated by <em>Robert C. Martin</em> (aka <strong>Uncle Bob</strong>):</p>
+  <blockquote style="background:#fed7aa; border-left:4px solid #f97316; margin:1rem 0; padding:0.5rem 1rem; font-style:italic; color:#b45309;">
+    "Software entities (classes, modules, functions, etc.) should be open for extension, but closed for modification."
+    <br><br>
+    — Robert C. Martin
+  </blockquote>
+
+  <h3 style="color:#f97316">🔍 Why OCP Matters</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>Allows adding new features without changing existing tested code.</li>
+    <li>Reduces risk of bugs by minimizing code modification.</li>
+    <li>Encourages flexible and maintainable design.</li>
+    <li>Supports scalability in growing software systems.</li>
+  </ul>
+
+  <h3 style="color:#ea580c">🛠️ OCP Violation Example</h3>
+  <pre style="background:#fed7aa; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public class DiscountCalculator
+{
+    public double CalculateDiscount(Order order)
+    {
+        if (order.CustomerType == "Regular")
+            return order.Total * 0.1;
+        else if (order.CustomerType == "VIP")
+            return order.Total * 0.2;
+
+        // If new customer types added, this method needs modification
+        return 0;
+    }
+}
+</code></pre>
+  <p>This code violates OCP because adding new customer types forces changes inside the <code>CalculateDiscount</code> method.</p>
+
+  <h3 style="color:#f97316">✅ OCP Compliant Refactoring</h3>
+  <pre style="background:#fed7aa; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public interface IDiscountStrategy
+{
+    double CalculateDiscount(Order order);
+}
+
+public class RegularDiscount : IDiscountStrategy
+{
+    public double CalculateDiscount(Order order) => order.Total * 0.1;
+}
+
+public class VipDiscount : IDiscountStrategy
+{
+    public double CalculateDiscount(Order order) => order.Total * 0.2;
+}
+
+public class DiscountCalculator
+{
+    private readonly IDiscountStrategy _strategy;
+
+    public DiscountCalculator(IDiscountStrategy strategy)
+    {
+        _strategy = strategy;
+    }
+
+    public double CalculateDiscount(Order order) => _strategy.CalculateDiscount(order);
+}
+</code></pre>
+
+  <h3 style="color:#ea580c">📚 Best Practices</h3>
+  <ul>
+    <li>Design systems so you can add new functionality by adding new code, not modifying existing code.</li>
+    <li>Use interfaces and abstractions to enable extensibility.</li>
+    <li>Apply design patterns like Strategy, Decorator, or Template Method to comply with OCP.</li>
+    <li>Write unit tests to ensure that existing functionality is not broken when extending.</li>
+  </ul>
+</div>
+` },
+        { id: "liskov", title: "Liskov Substitution Principle (LSP)", type: "must-know",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fff4; padding:1.5rem; border-radius:1rem; border:1px solid #34d399; box-shadow:0 4px 15px rgba(52, 211, 153, 0.3)">
+  <h2 style="color:#059669">🔄 Liskov Substitution Principle (LSP)</h2>
+  <p>The <strong>Liskov Substitution Principle</strong> was introduced by Barbara Liskov and later incorporated into the SOLID principles by <em>Robert C. Martin</em> (Uncle Bob).</p>
+  <blockquote style="background:#bbf7d0; border-left:4px solid #22c55e; margin:1rem 0; padding:0.5rem 1rem; font-style:italic; color:#065f46;">
+    "Objects of a superclass shall be replaceable with objects of its subclasses without breaking the application."
+    <br><br>
+    — Barbara Liskov
+  </blockquote>
+
+  <h3 style="color:#22c55e">🔍 Why LSP Matters</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>Ensures subtype objects behave as expected when used in place of base types.</li>
+    <li>Maintains program correctness and robustness.</li>
+    <li>Enables polymorphism without surprises.</li>
+    <li>Improves code reusability and extensibility.</li>
+  </ul>
+
+  <h3 style="color:#059669">🛠️ LSP Violation Example</h3>
+  <pre style="background:#bbf7d0; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public class Bird
+{
+    public virtual void Fly()
+    {
+        Console.WriteLine("Flying");
+    }
+}
+
+public class Ostrich : Bird
+{
+    public override void Fly()
+    {
+        throw new NotSupportedException("Ostriches can't fly");
+    }
+}
+</code></pre>
+  <p>Here, substituting <code>Ostrich</code> for <code>Bird</code> breaks expected behavior, violating LSP.</p>
+
+  <h3 style="color:#22c55e">✅ LSP Compliant Refactoring</h3>
+  <pre style="background:#bbf7d0; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public abstract class Bird
+{
+    public abstract void Move();
+}
+
+public class FlyingBird : Bird
+{
+    public override void Move()
+    {
+        Fly();
+    }
+    public void Fly()
+    {
+        Console.WriteLine("Flying");
+    }
+}
+
+public class Ostrich : Bird
+{
+    public override void Move()
+    {
+        Run();
+    }
+    public void Run()
+    {
+        Console.WriteLine("Running");
+    }
+}
+</code></pre>
+
+  <h3 style="color:#059669">📚 Best Practices</h3>
+  <ul>
+    <li>Design base classes and subclasses so derived classes fully conform to base class behavior.</li>
+    <li>Avoid overriding methods to throw exceptions or change expected behaviors.</li>
+    <li>Use abstract classes or interfaces to clearly define expected behaviors.</li>
+    <li>Write tests to ensure subclass objects behave correctly when substituted for base types.</li>
+  </ul>
+</div>
+` },
+        { id: "interface-segregation", title: "Interface Segregation Principle (ISP)", type: "good-to-know",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff4f6; padding:1.5rem; border-radius:1rem; border:1px solid #fca5a5; box-shadow:0 4px 15px rgba(251, 113, 133, 0.3)">
+  <h2 style="color:#ef4444">📐 Interface Segregation Principle (ISP)</h2>
+  <p>The <strong>Interface Segregation Principle</strong> states that clients should not be forced to depend on interfaces they do not use. In other words, larger interfaces should be split into smaller, more specific ones so that clients only need to know about the methods that are relevant to them.</p>
+
+  <h3 style="color:#f87171">🔍 Why ISP Matters</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>Prevents "fat" interfaces that force unnecessary dependencies.</li>
+    <li>Makes code easier to maintain and understand.</li>
+    <li>Supports better decoupling and modularity.</li>
+    <li>Encourages designing focused, role-specific interfaces.</li>
+  </ul>
+
+  <h3 style="color:#ef4444">🛠️ ISP Violation Example</h3>
+  <pre style="background:#fecaca; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public interface IPrinter
+{
+    void Print(Document doc);
+    void Scan(Document doc);
+    void Fax(Document doc);
+}
+
+public class OldPrinter : IPrinter
+{
+    public void Print(Document doc) { /* printing logic */ }
+    public void Scan(Document doc) { throw new NotSupportedException(); }
+    public void Fax(Document doc) { throw new NotSupportedException(); }
+}
+</code></pre>
+  <p>In this example, <code>OldPrinter</code> must implement methods it does not support, violating ISP.</p>
+
+  <h3 style="color:#f87171">✅ ISP Compliant Refactoring</h3>
+  <pre style="background:#fecaca; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public interface IPrinter
+{
+    void Print(Document doc);
+}
+
+public interface IScanner
+{
+    void Scan(Document doc);
+}
+
+public interface IFax
+{
+    void Fax(Document doc);
+}
+
+public class BasicPrinter : IPrinter
+{
+    public void Print(Document doc) { /* printing logic */ }
+}
+
+public class MultiFunctionPrinter : IPrinter, IScanner, IFax
+{
+    public void Print(Document doc) { /* printing logic */ }
+    public void Scan(Document doc) { /* scanning logic */ }
+    public void Fax(Document doc) { /* fax logic */ }
+}
+</code></pre>
+
+  <h3 style="color:#ef4444">📚 Best Practices</h3>
+  <ul>
+    <li>Split large interfaces into smaller, role-specific ones.</li>
+    <li>Implement only the interfaces necessary for the class’s responsibility.</li>
+    <li>Favor composition of interfaces over inheritance of large ones.</li>
+    <li>Keep client dependencies minimal and focused.</li>
+  </ul>
+</div>
+` },
+        { id: "dependency-inversion", title: "Dependency Inversion Principle (DIP)", type: "good-to-know",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:1.5rem; border-radius:1rem; border:1px solid #38bdf8; box-shadow:0 4px 15px rgba(56, 189, 248, 0.3)">
+  <h2 style="color:#0284c7">🔌 Dependency Inversion Principle (DIP)</h2>
+  <p><strong>Dependency Inversion Principle</strong> states that:</p>
+  <blockquote style="background:#bae6fd; border-left:4px solid #0ea5e9; margin:1rem 0; padding:0.5rem 1rem; font-style:italic; color:#0369a1;">
+    1. High-level modules should not depend on low-level modules. Both should depend on abstractions.<br>
+    2. Abstractions should not depend on details. Details should depend on abstractions.<br>
+  </blockquote>
+
+  <h3 style="color:#0ea5e9">🔍 Why DIP Matters</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>Decouples high-level and low-level components.</li>
+    <li>Improves flexibility and maintainability.</li>
+    <li>Makes unit testing easier by allowing mocks/stubs.</li>
+    <li>Encourages dependency injection and use of interfaces/abstract classes.</li>
+  </ul>
+
+  <h3 style="color:#0284c7">🛠️ DIP Violation Example</h3>
+  <pre style="background:#bae6fd; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public class FileLogger
+{
+    public void Log(string message)
+    {
+        // Log message to file
+    }
+}
+
+public class UserService
+{
+    private FileLogger _logger = new FileLogger();
+
+    public void CreateUser(string name)
+    {
+        // Create user logic
+        _logger.Log("User created: " + name);
+    }
+}
+</code></pre>
+  <p>In this example, <code>UserService</code> directly depends on the concrete <code>FileLogger</code> class, violating DIP.</p>
+
+  <h3 style="color:#0ea5e9">✅ DIP Compliant Refactoring</h3>
+  <pre style="background:#bae6fd; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public interface ILogger
+{
+    void Log(string message);
+}
+
+public class FileLogger : ILogger
+{
+    public void Log(string message)
+    {
+        // Log message to file
+    }
+}
+
+public class UserService
+{
+    private readonly ILogger _logger;
+
+    public UserService(ILogger logger)
+    {
+        _logger = logger;
+    }
+
+    public void CreateUser(string name)
+    {
+        // Create user logic
+        _logger.Log("User created: " + name);
+    }
+}
+</code></pre>
+
+  <h3 style="color:#0284c7">📚 Best Practices</h3>
+  <ul>
+    <li>Depend on abstractions (interfaces or abstract classes), not concrete implementations.</li>
+    <li>Use dependency injection (constructor, property, or method injection).</li>
+    <li>Keep high-level modules unaware of low-level module details.</li>
+    <li>Design for easy substitution of dependencies (e.g., for testing or future changes).</li>
+  </ul>
+</div>
+` },
       ]
     },
     {
@@ -205,19 +1506,513 @@ export const roadmapData = {
         {
           "id": "ef-core",
           "title": "Entity Framework Core",
+          "description": `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #60a5fa; box-shadow:0 4px 15px rgba(96, 165, 250, 0.3)">
+  <h2 style="color:#2563eb">📦 Entity Framework Core (EF Core)</h2>
+  <p><strong>EF Core</strong> is a modern, lightweight, extensible, and cross-platform Object-Relational Mapper (ORM) for .NET. It enables developers to work with a database using .NET objects, eliminating most of the data-access code.</p>
+
+  <h3 style="color:#3b82f6">🔍 Key Features</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>Cross-platform support (Windows, Linux, macOS).</li>
+    <li>Supports LINQ queries for querying data.</li>
+    <li>Change tracking and automatic database updates.</li>
+    <li>Supports migrations for database schema evolution.</li>
+    <li>Multiple database providers (SQL Server, SQLite, PostgreSQL, MySQL, etc.).</li>
+  </ul>
+
+  <h3 style="color:#2563eb">🛠️ Basic Usage Example</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public class Blog
+{
+    public int BlogId { get; set; }
+    public string Url { get; set; }
+}
+
+public class BloggingContext : DbContext
+{
+    public DbSet&lt;Blog&gt; Blogs { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder options)
+        =&gt; options.UseSqlServer("Server=.;Database=Blogging;Trusted_Connection=True;");
+}
+</code></pre>
+
+  <h3 style="color:#3b82f6">📊 Querying Data</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>using (var context = new BloggingContext())
+{
+    var blogs = context.Blogs
+                       .Where(b =&gt; b.Url.Contains("dotnet"))
+                       .ToList();
+}
+</code></pre>
+
+  <h3 style="color:#2563eb">⚙️ Migrations</h3>
+  <p>EF Core supports migrations to incrementally evolve the database schema:</p>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>dotnet ef migrations add InitialCreate
+dotnet ef database update
+</code></pre>
+
+  <h3 style="color:#3b82f6">📚 Best Practices</h3>
+  <ul>
+    <li>Use asynchronous methods (e.g., <code>ToListAsync()</code>) to avoid blocking.</li>
+    <li>Keep DbContext lifetime scoped to a request in web apps.</li>
+    <li>Avoid tracking queries when read-only by using <code>AsNoTracking()</code>.</li>
+    <li>Define explicit keys and relationships for clarity.</li>
+    <li>Handle exceptions properly, especially <code>DbUpdateException</code>.</li>
+    <li>Separate domain logic from data access concerns.</li>
+  </ul>
+</div>
+`,
           "children": [
-            { "id": "ef-basics", "title": "Learn the basics of Entity Framework Core", "type": "must-know" },
-            { "id": "code-first", "title": "Code First + Migrations", "type": "must-know" },
-            { "id": "change-tracker", "title": "Change Tracker API", "type": "good-to-know" },
-            { "id": "loading-strategies", "title": "Lazy Loading, Eager Loading, Explicit Loading", "type": "good-to-know" },
-            { "id": "inheritance-mapping", "title": "TPH, TPC, TPT", "type": "optional" },
-            { "id": "bulk-operations", "title": "Bulk Insert/Update APIs", "type": "optional" },
-            { "id": "interceptors", "title": "Interceptors", "type": "optional" }
+            { "id": "ef-basics", "title": "Learn the basics of Entity Framework Core", "type": "must-know",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #60a5fa; box-shadow:0 4px 15px rgba(96, 165, 250, 0.3)">
+  <h2 style="color:#2563eb">📚 Learn the Basics of Entity Framework Core</h2>
+  <p><strong>Entity Framework Core (EF Core)</strong> is a lightweight, extensible, and cross-platform ORM for .NET that allows you to work with databases using .NET objects, minimizing manual SQL queries.</p>
+
+  <h3 style="color:#3b82f6">🚀 Getting Started</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>Install the EF Core NuGet packages (e.g., <code>Microsoft.EntityFrameworkCore.SqlServer</code>).</li>
+    <li>Define your model classes representing database tables.</li>
+    <li>Create a <code>DbContext</code> class to manage the connection and mapping.</li>
+    <li>Use LINQ queries to interact with your data.</li>
+  </ul>
+
+  <h3 style="color:#2563eb">🛠️ Example: Simple Model & DbContext</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public class Product
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public decimal Price { get; set; }
+}
+
+public class AppDbContext : DbContext
+{
+    public DbSet&lt;Product&gt; Products { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder options)
+        =&gt; options.UseSqlServer("Server=.;Database=ShopDb;Trusted_Connection=True;");
+}
+</code></pre>
+
+  <h3 style="color:#3b82f6">📊 Basic CRUD Operations</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>// Adding a product
+using var context = new AppDbContext();
+var product = new Product { Name = "Laptop", Price = 1200 };
+context.Products.Add(product);
+context.SaveChanges();
+
+// Querying products
+var products = context.Products.Where(p =&gt; p.Price &gt; 1000).ToList();
+</code></pre>
+
+  <h3 style="color:#2563eb">💡 Tips</h3>
+  <ul>
+    <li>Use <code>async</code> versions like <code>SaveChangesAsync()</code> and <code>ToListAsync()</code> for better scalability.</li>
+    <li>Manage <code>DbContext</code> lifetime properly to avoid performance issues.</li>
+    <li>Leverage EF Core migrations to evolve your database schema safely.</li>
+  </ul>
+</div>
+` },
+            { "id": "code-first", "title": "Code First + Migrations", "type": "must-know",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef9f0; padding:1.5rem; border-radius:1rem; border:1px solid #facc15; box-shadow:0 4px 15px rgba(250, 204, 21, 0.3)">
+  <h2 style="color:#ca8a04">🛠️ Entity Framework Core - Code First & Migrations</h2>
+  <p><strong>Code First</strong> allows you to define your database schema using C# classes and then generate the database from these models.</p>
+
+  <h3 style="color:#d97706">🚀 How Code First Works</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>Write POCO classes to represent your domain models.</li>
+    <li>Create a <code>DbContext</code> class to configure your database connection and model sets.</li>
+    <li>Use EF Core migrations to create and update the database schema based on model changes.</li>
+  </ul>
+
+  <h3 style="color:#ca8a04">📚 Example: Define Model & DbContext</h3>
+  <pre style="background:#fff7ed; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public class Student
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public DateTime EnrollmentDate { get; set; }
+}
+
+public class SchoolContext : DbContext
+{
+    public DbSet&lt;Student&gt; Students { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder options)
+        =&gt; options.UseSqlServer("Server=.;Database=SchoolDB;Trusted_Connection=True;");
+}
+</code></pre>
+
+  <h3 style="color:#d97706">⚙️ Using Migrations</h3>
+  <p>Migrations let you evolve the database schema without losing existing data.</p>
+  <pre style="background:#fff7ed; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>// Add initial migration
+dotnet ef migrations add InitialCreate
+
+// Update database with migration
+dotnet ef database update
+</code></pre>
+
+  <h3 style="color:#ca8a04">🔄 Updating Schema</h3>
+  <p>When your model changes (e.g., adding a new property), create a new migration:</p>
+  <pre style="background:#fff7ed; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>dotnet ef migrations add AddBirthDateToStudent
+dotnet ef database update
+</code></pre>
+
+  <h3 style="color:#d97706">💡 Best Practices</h3>
+  <ul>
+    <li>Keep migrations small and focused on a single change.</li>
+    <li>Review generated migration code before applying it.</li>
+    <li>Use descriptive migration names for clarity.</li>
+    <li>Keep your model classes clean and avoid database-specific logic.</li>
+    <li>Backup your database before applying migrations in production.</li>
+  </ul>
+</div>
+` },
+            { "id": "change-tracker", "title": "Change Tracker API", "type": "good-to-know",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdfa; padding:1.5rem; border-radius:1rem; border:1px solid #22c55e; box-shadow:0 4px 15px rgba(34, 197, 94, 0.3)">
+  <h2 style="color:#16a34a">🔄 Entity Framework Core - Change Tracker API</h2>
+  <p><strong>Change Tracker</strong> is a powerful feature of EF Core that keeps track of all changes made to entities during the lifetime of a <code>DbContext</code>. It enables EF Core to detect what data has been added, modified, or deleted, and generates the appropriate SQL commands when you call <code>SaveChanges()</code>.</p>
+
+  <h3 style="color:#22c55e">⚙️ How Change Tracker Works</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>When you query entities from the database, they are tracked by default.</li>
+    <li>Any modifications to tracked entities are recorded in the Change Tracker.</li>
+    <li>The Change Tracker maintains entity states such as <code>Added</code>, <code>Modified</code>, <code>Deleted</code>, <code>Unchanged</code>, and <code>Detached</code>.</li>
+    <li>On calling <code>SaveChanges()</code>, EF Core translates these changes into appropriate SQL statements.</li>
+  </ul>
+
+  <h3 style="color:#16a34a">🛠️ Entity States</h3>
+  <ul style="list-style:circle; padding-left:1.2rem; color:#065f46">
+    <li><strong>Added:</strong> Entity is new and will be inserted into the database.</li>
+    <li><strong>Modified:</strong> Entity has been changed and will be updated in the database.</li>
+    <li><strong>Deleted:</strong> Entity will be removed from the database.</li>
+    <li><strong>Unchanged:</strong> Entity is unchanged since it was loaded.</li>
+    <li><strong>Detached:</strong> Entity is not being tracked by the context.</li>
+  </ul>
+
+  <h3 style="color:#22c55e">🔍 Example: Inspecting Change Tracker</h3>
+  <pre style="background:#dcfce7; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>using var context = new AppDbContext();
+
+// Query a product (tracked by default)
+var product = context.Products.First();
+
+// Modify a property
+product.Price = 199.99m;
+
+// Add a new product (state = Added)
+var newProduct = new Product { Name = "Smartphone", Price = 599 };
+context.Products.Add(newProduct);
+
+// Check entity states
+foreach (var entry in context.ChangeTracker.Entries())
+{
+    Console.WriteLine($"{entry.Entity.GetType().Name} - State: {entry.State}");
+}
+</code></pre>
+
+  <h3 style="color:#16a34a">⚡ Change Tracker Methods & Properties</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li><code>ChangeTracker.Entries()</code>: Gets all tracked entity entries.</li>
+    <li><code>Entry(entity).State</code>: Gets or sets the state of a specific entity.</li>
+    <li><code>DetectChanges()</code>: Manually triggers change detection (usually automatic).</li>
+    <li><code>AutoDetectChangesEnabled</code>: Enable or disable automatic change detection for performance tuning.</li>
+  </ul>
+
+  <h3 style="color:#22c55e">💡 Best Practices</h3>
+  <ul>
+    <li>Be mindful when disabling <code>AutoDetectChangesEnabled</code> to improve performance in bulk operations, but remember to call <code>DetectChanges()</code> manually before saving.</li>
+    <li>Use <code>AsNoTracking()</code> for read-only queries to improve performance when tracking is unnecessary.</li>
+    <li>Explicitly set entity states if you are attaching disconnected entities.</li>
+    <li>Keep <code>DbContext</code> scope short-lived to avoid stale tracking data.</li>
+  </ul>
+</div>
+` },
+            { "id": "loading-strategies", "title": "Lazy Loading, Eager Loading, Explicit Loading", "type": "good-to-know",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff7f3; padding:1.5rem; border-radius:1rem; border:1px solid #fb923c; box-shadow:0 4px 15px rgba(251, 146, 60, 0.3)">
+  <h2 style="color:#c2410c">📦 Entity Framework Core - Loading Related Data</h2>
+  <p>EF Core provides three main strategies to load related data (navigation properties): <strong>Lazy Loading</strong>, <strong>Eager Loading</strong>, and <strong>Explicit Loading</strong>. Choosing the right approach is essential for performance and correctness.</p>
+
+  <h3 style="color:#fb923c">🔹 Lazy Loading</h3>
+  <p>Related data is loaded automatically on-demand when you access the navigation property for the first time.</p>
+  <ul>
+    <li>Requires virtual navigation properties and enabling proxy creation.</li>
+    <li>Can cause <em>multiple queries</em> (N+1 query problem) if not used carefully.</li>
+  </ul>
+  <pre style="background:#ffedd5; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public class Blog
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public virtual ICollection&lt;Post&gt; Posts { get; set; }
+}
+
+// Usage
+var blog = context.Blogs.First();
+var posts = blog.Posts; // Posts loaded here on-demand (lazy)</code></pre>
+
+  <h3 style="color:#fb923c">🔹 Eager Loading</h3>
+  <p>Related data is loaded as part of the initial query using <code>Include()</code> or <code>ThenInclude()</code>.</p>
+  <ul>
+    <li>Helps reduce number of queries by loading everything at once.</li>
+    <li>Good for scenarios where related data is always needed.</li>
+  </ul>
+  <pre style="background:#ffedd5; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>var blogs = context.Blogs
+    .Include(b =&gt; b.Posts)
+    .ToList(); // Blog + Posts loaded in a single query</code></pre>
+
+  <h3 style="color:#fb923c">🔹 Explicit Loading</h3>
+  <p>Related data is loaded explicitly via code, but not automatically like lazy loading.</p>
+  <ul>
+    <li>Useful when you want to load related data conditionally.</li>
+    <li>Requires explicit calls like <code>context.Entry(entity).Collection(...).Load()</code>.</li>
+  </ul>
+  <pre style="background:#ffedd5; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>var blog = context.Blogs.First();
+
+// Load Posts explicitly when needed
+context.Entry(blog).Collection(b =&gt; b.Posts).Load();
+
+var posts = blog.Posts;</code></pre>
+
+  <h3 style="color:#c2410c">💡 Best Practices</h3>
+  <ul>
+    <li>Prefer <strong>eager loading</strong> to avoid performance pitfalls of lazy loading in web applications.</li>
+    <li>Use <strong>explicit loading</strong> when related data is needed conditionally.</li>
+    <li>Disable lazy loading if not used to avoid accidental performance issues.</li>
+    <li>Always monitor generated SQL queries to optimize data fetching.</li>
+  </ul>
+</div>
+` },
+            { "id": "inheritance-mapping", "title": "TPH, TPC, TPT", "type": "optional",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #3b82f6; box-shadow:0 4px 15px rgba(59, 130, 246, 0.3)">
+  <h2 style="color:#1e40af">📚 EF Core Inheritance Mapping Strategies</h2>
+  <p>When modeling inheritance in EF Core, you can choose how to map your class hierarchy to the database tables. The main strategies are:</p>
+
+  <h3 style="color:#3b82f6">1. TPH - Table Per Hierarchy</h3>
+  <p>All classes in the hierarchy are mapped to a single table with a <em>discriminator</em> column.</p>
+  <ul>
+    <li>Single table for all derived types.</li>
+    <li>Discriminator column identifies the entity type.</li>
+    <li>Simple and performant but table can become sparse with many NULL columns.</li>
+  </ul>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public abstract class Animal
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+}
+
+public class Dog : Animal
+{
+    public string Breed { get; set; }
+}
+
+public class Cat : Animal
+{
+    public bool LikesCream { get; set; }
+    public bool IsIndoor { get; set; }
+}
+
+// DbContext config (by default EF Core uses TPH)
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Animal>()
+        .HasDiscriminator<string>("AnimalType")
+        .HasValue<Dog>("Dog")
+        .HasValue<Cat>("Cat");
+}
+</code></pre>
+
+  <h3 style="color:#3b82f6">2. TPT - Table Per Type</h3>
+  <p>Each class has its own table. Derived tables contain columns for their properties and link to the base table via primary key.</p>
+  <ul>
+    <li>Normalized design.</li>
+    <li>Supports polymorphic queries.</li>
+    <li>Can have performance overhead due to joins.</li>
+  </ul>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>// Enable TPT in EF Core 5+
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Dog>().ToTable("Dogs");
+    modelBuilder.Entity<Cat>().ToTable("Cats");
+}
+</code></pre>
+
+  <h3 style="color:#3b82f6">3. TPC - Table Per Concrete Class</h3>
+  <p>Each concrete class has its own table with all properties, including inherited ones.</p>
+  <ul>
+    <li>No table for base class.</li>
+    <li>Data duplicated if multiple derived types share common properties.</li>
+    <li>EF Core supports TPC since version 7.</li>
+  </ul>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>// Enable TPC in EF Core 7+
+protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<Dog>().ToTable("Dogs").UseTpcMappingStrategy();
+    modelBuilder.Entity<Cat>().ToTable("Cats").UseTpcMappingStrategy();
+}
+</code></pre>
+
+  <h3 style="color:#1e40af">💡 Best Practices</h3>
+  <ul>
+    <li>Use <strong>TPH</strong> for simplicity and performance in most cases.</li>
+    <li>Choose <strong>TPT</strong> when normalized schema is important and joins are acceptable.</li>
+    <li>Use <strong>TPC</strong> for legacy compatibility or when tables must be separate with no base table.</li>
+    <li>Test query performance for your specific use case.</li>
+  </ul>
+</div>
+` },
+            { "id": "bulk-operations", "title": "Bulk Insert/Update APIs", "type": "optional",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef6ff; padding:1.5rem; border-radius:1rem; border:1px solid #a78bfa; box-shadow:0 4px 15px rgba(167, 139, 250, 0.3)">
+  <h2 style="color:#7c3aed">🚀 Bulk Insert/Update in Entity Framework Core</h2>
+  <p>
+    EF Core does not provide built-in bulk insert/update APIs out of the box. For high-performance operations involving large data sets, you typically rely on third-party libraries like <strong>EFCore.BulkExtensions</strong>, <strong>Z.EntityFramework.Extensions</strong>, or use raw SQL.
+  </p>
+
+  <h3 style="color:#a78bfa">Why Bulk Operations?</h3>
+  <ul>
+    <li>Reduce database roundtrips by inserting or updating thousands of rows in a single operation.</li>
+    <li>Significantly improve performance compared to individual <code>Add</code> or <code>Update</code> calls.</li>
+    <li>Minimize memory footprint and transaction duration.</li>
+  </ul>
+
+  <h3 style="color:#7c3aed">📦 Example using EFCore.BulkExtensions</h3>
+  <pre style="background:#ede9fe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>using EFCore.BulkExtensions;
+
+var products = new List<Product>();
+for (int i = 0; i &lt; 10000; i++)
+{
+    products.Add(new Product { Name = $"Product {i}", Price = i * 10 });
+}
+
+using var context = new AppDbContext();
+
+// Bulk Insert
+context.BulkInsert(products);
+
+// Bulk Update (after modifying entities)
+foreach (var p in products)
+{
+    p.Price += 5;
+}
+context.BulkUpdate(products);
+</code></pre>
+
+  <h3 style="color:#a78bfa">🔧 Key Features of Bulk Extensions</h3>
+  <ul>
+    <li>BulkInsert, BulkUpdate, BulkDelete, BulkMerge operations.</li>
+    <li>Supports SQL Server, PostgreSQL, MySQL, SQLite, and more.</li>
+    <li>Transactional support for batch operations.</li>
+    <li>Configurable batch size and timeout.</li>
+  </ul>
+
+  <h3 style="color:#7c3aed">⚠️ Important Considerations</h3>
+  <ul>
+    <li>Bulk operations bypass EF Core change tracking, so context may become stale.</li>
+    <li>Be careful with navigation properties; bulk APIs usually work with flat data.</li>
+    <li>Use bulk operations mainly for large-scale inserts/updates to improve performance.</li>
+  </ul>
+
+  <h3 style="color:#a78bfa">💡 Best Practices</h3>
+  <ul>
+    <li>Use bulk APIs for importing or syncing large datasets.</li>
+    <li>Combine with <code>AsNoTracking()</code> for read operations before bulk updates.</li>
+    <li>Always test performance and behavior in your specific environment.</li>
+    <li>Keep <code>DbContext</code> scope short to avoid stale data issues.</li>
+  </ul>
+</div>
+` },
+            { "id": "interceptors", "title": "Interceptors", "type": "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #3b82f6; box-shadow:0 4px 15px rgba(59, 130, 246, 0.3)">
+  <h2 style="color:#1e40af">🛡️ EF Core Interceptors</h2>
+  <p>
+    Interceptors in EF Core allow you to intercept and customize low-level database operations such as command execution, connection opening, and saving changes.
+    They are powerful for logging, auditing, modifying commands, or enforcing policies.
+  </p>
+
+  <h3 style="color:#3b82f6">What are Interceptors?</h3>
+  <ul>
+    <li>Classes implementing EF Core interceptor interfaces like <code>IDbCommandInterceptor</code>, <code>ISaveChangesInterceptor</code>, etc.</li>
+    <li>Automatically invoked during EF Core operations.</li>
+    <li>Allow inspecting and modifying behavior or data.</li>
+  </ul>
+
+  <h3 style="color:#3b82f6">Common Interceptor Types</h3>
+  <ul>
+    <li><strong>IDbCommandInterceptor</strong>: Intercepts database commands before/after execution.</li>
+    <li><strong>ISaveChangesInterceptor</strong>: Hooks into <code>SaveChanges</code> lifecycle.</li>
+    <li><strong>IDbConnectionInterceptor</strong>: Monitors connection events.</li>
+  </ul>
+
+  <h3 style="color:#3b82f6">Example: Logging SQL Commands</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public class CommandInterceptor : DbCommandInterceptor
+{
+    public override InterceptionResult&lt;DbDataReader&gt; ReaderExecuting(
+        DbCommand command,
+        CommandEventData eventData,
+        InterceptionResult&lt;DbDataReader&gt; result)
+    {
+        Console.WriteLine($"Executing SQL: {command.CommandText}");
+        return base.ReaderExecuting(command, eventData, result);
+    }
+}
+
+// Register in DbContext options:
+optionsBuilder.AddInterceptors(new CommandInterceptor());
+</code></pre>
+
+  <h3 style="color:#1e40af">💡 Best Practices</h3>
+  <ul>
+    <li>Use interceptors for cross-cutting concerns like logging, auditing, caching.</li>
+    <li>Keep interceptor logic efficient to avoid performance hits.</li>
+    <li>Test thoroughly to ensure interceptors do not alter queries unintentionally.</li>
+  </ul>
+</div>
+` }
           ]
         },
         {
           "id": "dapper",
           "title": "Dapper",
+          "description": `<div style="font-family:sans-serif; line-height:1.6; background:#fff7ed; padding:1.5rem; border-radius:1rem; border:1px solid #fbbf24; box-shadow:0 4px 15px rgba(251, 191, 36, 0.3)">
+  <h2 style="color:#b45309">🐿️ Dapper - Lightweight ORM for .NET</h2>
+  <p>
+    <strong>Dapper</strong> is a simple, high-performance micro-ORM developed by the team at Stack Overflow. It extends <code>IDbConnection</code> interface and provides fast and easy data access without the overhead of a full ORM.
+  </p>
+
+  <h3 style="color:#fbbf24">Why Use Dapper?</h3>
+  <ul>
+    <li>Minimal abstraction: close to raw ADO.NET but simpler.</li>
+    <li>Excellent performance, often faster than EF Core for simple queries.</li>
+    <li>Easy to use with existing SQL queries.</li>
+    <li>Supports parameterized queries to prevent SQL injection.</li>
+  </ul>
+
+  <h3 style="color:#b45309">📦 Basic Usage Example</h3>
+  <pre style="background:#fef3c7; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>using (var connection = new SqlConnection(connectionString))
+{
+    var sql = "SELECT Id, Name, Price FROM Products WHERE Price &gt; @MinPrice";
+    var products = connection.Query&lt;Product&gt;(sql, new { MinPrice = 100 }).ToList();
+}</code></pre>
+
+  <h3 style="color:#fbbf24">Key Features</h3>
+  <ul>
+    <li><strong>Query:</strong> Executes SQL and maps results to objects.</li>
+    <li><strong>Execute:</strong> For insert, update, delete commands.</li>
+    <li><strong>Multi-mapping:</strong> Map multiple joined tables to complex object graphs.</li>
+    <li><strong>Transaction support</strong> via <code>IDbTransaction</code>.</li>
+  </ul>
+
+  <h3 style="color:#b45309">⚠️ Important Tips</h3>
+  <ul>
+    <li>Dapper does not track changes or generate SQL.</li>
+    <li>You write SQL manually, so SQL knowledge is essential.</li>
+    <li>Ideal for performance-critical parts or when you want full control over queries.</li>
+  </ul>
+
+  <h3 style="color:#fbbf24">💡 Best Practices</h3>
+  <ul>
+    <li>Always use parameterized queries to avoid SQL injection.</li>
+    <li>Combine with lightweight dependency injection for managing connections.</li>
+    <li>Use multi-mapping for complex joins to reduce multiple DB calls.</li>
+    <li>Keep business logic separate from SQL code.</li>
+  </ul>
+</div>
+`,
+
           "type": "good-to-know"
         }
       ]
@@ -231,20 +2026,20 @@ export const roadmapData = {
           id: "relational",
           title: "Relational",
           children: [
-            { id: "sql-server", title: "SQL Server", type: "must-know" },
-            { id: "postgresql", title: "PostgreSQL", type: "good-to-know" },
-            { id: "mariadb", title: "MariaDB", type: "optional" },
-            { id: "mysql", title: "MySQL", type: "optional" },
+            { id: "sql-server", title: "SQL Server", type: "must-know" ,description: `` },
+            { id: "postgresql", title: "PostgreSQL", type: "good-to-know",description: ``  },
+            { id: "mariadb", title: "MariaDB", type: "optional",description: ``  },
+            { id: "mysql", title: "MySQL", type: "optional",description: ``  },
           ]
         },
         {
           id: "search-engines",
           title: "Search Engines",
           children: [
-            { id: "elasticsearch", title: "Elasticsearch", type: "must-know" },
-            { id: "meilisearch", title: "Meilisearch", type: "must-know" },
-            { id: "manticoresearch", title: "ManticoreSearch", type: "optional" },
-            { id: "opensearch", title: "OpenSearch", type: "optional" },
+            { id: "elasticsearch", title: "Elasticsearch", type: "must-know",description: ``  },
+            { id: "meilisearch", title: "Meilisearch", type: "must-know",description: ``  },
+            { id: "manticoresearch", title: "ManticoreSearch", type: "optional",description: ``  },
+            { id: "opensearch", title: "OpenSearch", type: "optional",description: ``  },
           ]
         },
         {
