@@ -7,6 +7,7 @@ type Node = {
   id: string;
   title: string;
   type?: string;
+  link?: string;
   children?: Node[];
 };
 
@@ -41,6 +42,18 @@ export default function MindMapNode({ node }: { node: Node }) {
         <p><strong>ID:</strong> {node.id}</p>
         <p><strong>Tür:</strong> {node.type}</p>
         <p>Bu konu hakkında detaylı açıklamaları buraya yazabilirsin.</p>
+        {node.link && (
+          <p>
+            <a
+              href={node.link}
+              className="text-sky-600 underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Detaylı bilgi
+            </a>
+          </p>
+        )}
       </Modal>
     </div>
   );
