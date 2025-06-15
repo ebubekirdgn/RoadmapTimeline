@@ -7587,9 +7587,235 @@ greeter.Tell("Akka.NET");</code></pre>
       title: "Design Patterns",
       direction: "left",
       children: [
-        { id: "creational", title: "Creational", type: "must-know" },
-        { id: "structural", title: "Structural", type: "must-know" },
-        { id: "behavioral", title: "Behavioral", type: "must-know" },
+        { id: "creational", title: "Creational", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
+  <h2 style="color:#16a34a;">🏗️ Creational Design Patterns</h2>
+  <p>
+    <strong>Creational Design Patterns</strong> control object creation mechanisms, increasing flexibility and reuse of existing code. They abstract the instantiation logic and help decouple client code from the concrete implementation.
+  </p>
+
+  <h3 style="color:#15803d;">💡 Why Use Creational Patterns?</h3>
+  <ul>
+    <li>🎛️ Decouples code from specific classes</li>
+    <li>🚀 Simplifies object creation and management</li>
+    <li>✅ Enables scalable and maintainable designs</li>
+    <li>🔄 Supports object pooling, lazy loading, and resource management</li>
+  </ul>
+
+  <h3 style="color:#166534;">🔧 Creational Design Patterns List</h3>
+  <ul>
+    <li><strong>Singleton</strong> – ensures a class has only one instance and provides a global access point to it.</li>
+    <li><strong>Factory Method</strong> – defines an interface for creating an object but lets subclasses decide which class to instantiate.</li>
+    <li><strong>Abstract Factory</strong> – provides an interface for creating families of related or dependent objects without specifying their concrete classes.</li>
+    <li><strong>Builder</strong> – separates the construction of a complex object from its representation, allowing the same construction process to create different representations.</li>
+    <li><strong>Prototype</strong> – creates new objects by copying an existing object, known as the prototype.</li>
+  </ul>
+
+  <h3 style="color:#15803d;">💻 Quick Examples (C#)</h3>
+  <pre style="background:#dcfce7; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+// Singleton
+public sealed class Logger
+{
+    private static readonly Logger _instance = new Logger();
+    private Logger() {}
+    public static Logger Instance => _instance;
+}
+
+// Factory Method
+public abstract class Dialog
+{
+    public abstract Button CreateButton();
+}
+
+// Abstract Factory
+public interface IGUIFactory
+{
+    Button CreateButton();
+    Checkbox CreateCheckbox();
+}
+
+// Builder
+public class CarBuilder
+{
+    public void BuildEngine() { /* ... */ }
+    public void BuildWheels() { /* ... */ }
+}
+
+// Prototype
+public abstract class Shape
+{
+    public abstract Shape Clone();
+}
+  </pre>
+
+  <h3 style="color:#14532d;">✅ Best Practices</h3>
+  <ul>
+    <li>🔒 Ensure Singleton implementations are thread-safe (use <code>Lazy&lt;T&gt;</code> in .NET)</li>
+    <li>🏷️ Use Factory Method when class instantiation logic is complex or needs to vary dynamically</li>
+    <li>📦 Choose Abstract Factory to manage groups of related objects consistently</li>
+    <li>🧱 Apply Builder when constructing large or complex objects step-by-step</li>
+    <li>📄 Use Prototype when object creation is costly, and cloning is more efficient</li>
+    <li>⚙️ Combine patterns for advanced scenarios (e.g., Factory + Singleton)</li>
+    <li>🚫 Avoid overusing Singleton to prevent tight coupling and hidden dependencies</li>
+  </ul>
+
+  <h3 style="color:#15803d;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://refactoring.guru/design-patterns/creational-patterns" target="_blank" style="color:#22c55e;">Refactoring Guru: Creational Patterns</a></li>
+    <li><a href="https://www.dofactory.com/net/creational-design-patterns" target="_blank" style="color:#22c55e;">DoFactory: Creational Patterns in .NET</a></li>
+  </ul>
+</div>
+` },
+        { id: "structural", title: "Structural", type: "must-know" ,description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfeff; padding:2rem; border-radius:1rem; border:2px solid #06b6d4; box-shadow:0 6px 20px rgba(6,182,212,0.2)">
+  <h2 style="color:#0891b2;">🏛️ Structural Design Patterns</h2>
+  <p>
+    <strong>Structural Design Patterns</strong> focus on how classes and objects are composed to form larger structures while keeping these structures flexible and efficient. They help ensure that system components work together in a maintainable and scalable way.
+  </p>
+
+  <h3 style="color:#0e7490;">💡 Why Use Structural Patterns?</h3>
+  <ul>
+    <li>🧩 Organizes code for better readability and maintainability</li>
+    <li>🔗 Simplifies relationships between entities</li>
+    <li>🔄 Provides flexible and reusable object structures</li>
+    <li>✅ Promotes separation of concerns and abstraction</li>
+  </ul>
+
+  <h3 style="color:#0e7490;">🔧 Structural Design Patterns List</h3>
+  <ul>
+    <li><strong>Adapter</strong> – allows incompatible interfaces to work together</li>
+    <li><strong>Bridge</strong> – separates an object’s abstraction from its implementation</li>
+    <li><strong>Composite</strong> – composes objects into tree-like structures</li>
+    <li><strong>Decorator</strong> – adds responsibilities to objects dynamically</li>
+    <li><strong>Facade</strong> – provides a simplified interface to a complex system</li>
+    <li><strong>Flyweight</strong> – reduces memory usage by sharing common data</li>
+    <li><strong>Proxy</strong> – provides a surrogate or placeholder for another object</li>
+  </ul>
+
+  <h3 style="color:#0891b2;">💻 Quick Examples (C#)</h3>
+  <pre style="background:#cffafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+// Adapter
+public interface ITarget { void Request(); }
+public class Adaptee { public void SpecificRequest() {} }
+public class Adapter : ITarget
+{
+    private readonly Adaptee _adaptee = new Adaptee();
+    public void Request() => _adaptee.SpecificRequest();
+}
+
+// Decorator
+public interface INotifier { void Send(string message); }
+public class EmailNotifier : INotifier
+{
+    public void Send(string message) { /* send email */ }
+}
+public class SmsDecorator : INotifier
+{
+    private readonly INotifier _notifier;
+    public SmsDecorator(INotifier notifier) { _notifier = notifier; }
+    public void Send(string message)
+    {
+        _notifier.Send(message);
+        // also send SMS
+    }
+}
+  </pre>
+
+  <h3 style="color:#0f766e;">✅ Best Practices</h3>
+  <ul>
+    <li>🔄 Use <strong>Adapter</strong> to integrate with legacy or third-party code</li>
+    <li>🧩 Prefer <strong>Composite</strong> for hierarchical structures (e.g., UI components, file systems)</li>
+    <li>🎨 Apply <strong>Decorator</strong> for dynamic behavior extension without altering original code</li>
+    <li>🗝️ Use <strong>Facade</strong> to simplify complex APIs for client code</li>
+    <li>♻️ Choose <strong>Flyweight</strong> for large numbers of similar objects (e.g., game sprites, icons)</li>
+    <li>🛡️ Apply <strong>Proxy</strong> for access control, lazy loading, or logging purposes</li>
+    <li>🌉 Use <strong>Bridge</strong> when you need to decouple abstractions from implementations</li>
+  </ul>
+
+  <h3 style="color:#0e7490;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://refactoring.guru/design-patterns/structural-patterns" target="_blank" style="color:#06b6d4;">Refactoring Guru: Structural Patterns</a></li>
+    <li><a href="https://www.dofactory.com/net/structural-design-patterns" target="_blank" style="color:#06b6d4;">DoFactory: Structural Patterns in .NET</a></li>
+  </ul>
+</div>
+`},
+        { id: "behavioral", title: "Behavioral", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef9c3; padding:2rem; border-radius:1rem; border:2px solid #eab308; box-shadow:0 6px 20px rgba(234,179,8,0.2)">
+  <h2 style="color:#ca8a04;">🧠 Behavioral Design Patterns</h2>
+  <p>
+    <strong>Behavioral Design Patterns</strong> are concerned with how objects interact and communicate with each other. They define the responsibilities between objects and help control the flow of a program.
+  </p>
+
+  <h3 style="color:#a16207;">💡 Why Use Behavioral Patterns?</h3>
+  <ul>
+    <li>🤝 Improves object communication without tight coupling</li>
+    <li>🔄 Manages complex control flows and responsibilities</li>
+    <li>🔍 Simplifies complex decision logic</li>
+    <li>📏 Promotes clean, testable, and maintainable code</li>
+  </ul>
+
+  <h3 style="color:#a16207;">🔧 Behavioral Design Patterns List</h3>
+  <ul>
+    <li><strong>Chain of Responsibility</strong> – passes requests along a chain of handlers</li>
+    <li><strong>Command</strong> – encapsulates requests as objects</li>
+    <li><strong>Interpreter</strong> – implements a language grammar</li>
+    <li><strong>Iterator</strong> – sequentially access elements of a collection</li>
+    <li><strong>Mediator</strong> – centralizes complex communications</li>
+    <li><strong>Memento</strong> – captures and restores an object’s state</li>
+    <li><strong>Observer</strong> – notifies multiple objects about state changes</li>
+    <li><strong>State</strong> – allows an object to alter its behavior when its state changes</li>
+    <li><strong>Strategy</strong> – enables selecting an algorithm at runtime</li>
+    <li><strong>Template Method</strong> – defines the skeleton of an operation and lets subclasses fill in the details</li>
+    <li><strong>Visitor</strong> – separates algorithms from the objects on which they operate</li>
+  </ul>
+
+  <h3 style="color:#ca8a04;">💻 Quick Examples (C#)</h3>
+  <pre style="background:#fef08a; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+// Observer
+public interface IObserver { void Update(string message); }
+public class User : IObserver
+{
+    public string Name { get; }
+    public User(string name) { Name = name; }
+    public void Update(string message) => Console.WriteLine($"{Name} received: {message}");
+}
+
+public class NotificationService
+{
+    private readonly List<IObserver> _observers = new();
+    public void Subscribe(IObserver observer) => _observers.Add(observer);
+    public void Notify(string message)
+    {
+        foreach (var observer in _observers) observer.Update(message);
+    }
+}
+
+// Strategy
+public interface IPaymentStrategy { void Pay(decimal amount); }
+public class CreditCardPayment : IPaymentStrategy
+{
+    public void Pay(decimal amount) => Console.WriteLine($"Paid {amount} via Credit Card.");
+}
+public class PayPalPayment : IPaymentStrategy
+{
+    public void Pay(decimal amount) => Console.WriteLine($"Paid {amount} via PayPal.");
+}
+  </pre>
+
+  <h3 style="color:#854d0e;">✅ Best Practices</h3>
+  <ul>
+    <li>🔄 Use <strong>Chain of Responsibility</strong> to decouple senders and receivers</li>
+    <li>📦 Apply <strong>Command</strong> for task queues, undo/redo, and transactional operations</li>
+    <li>🗺️ Prefer <strong>Mediator</strong> for centralizing and simplifying complex object communication</li>
+    <li>📝 Use <strong>Observer</strong> for event-driven systems like UI or notifications</li>
+    <li>🔧 Select <strong>Strategy</strong> for algorithms that need runtime flexibility</li>
+    <li>🗂️ Use <strong>Template Method</strong> to enforce a process flow while letting subclasses customize steps</li>
+    <li>💾 Implement <strong>Memento</strong> for undo history and state snapshots</li>
+  </ul>
+
+  <h3 style="color:#a16207;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://refactoring.guru/design-patterns/behavioral-patterns" target="_blank" style="color:#eab308;">Refactoring Guru: Behavioral Patterns</a></li>
+  </ul>
+</div>
+` },
       ]
     },
     {
@@ -7597,10 +7823,273 @@ greeter.Tell("Akka.NET");</code></pre>
       title: "Continuous Integration & Delivery (Automation)",
       direction: "right",
       children: [
-        { id: "github-actions", title: "GitHub Actions", type: "must-know" },
-        { id: "azure-pipelines", title: "Azure Pipelines", type: "good-to-know" },
-        { id: "gitlab-ci-cd", title: "GitLab CI/CD", type: "optional" },
-        { id: "teamcity-ci-cd", title: "TeamCity CI/CD", type: "optional" },
+        { id: "github-actions", title: "GitHub Actions", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
+  <h2 style="color:#16a34a;">🚀 Continuous Integration & Delivery with GitHub Actions</h2>
+  <p>
+    <strong>Continuous Integration (CI)</strong> is the practice of regularly merging code changes into a shared repository, followed by automated builds and tests.  
+    <strong>Continuous Delivery (CD)</strong> extends this by automatically deploying the validated code to production or staging environments.
+  </p>
+
+  <h3 style="color:#15803d;">💡 Why Use CI/CD?</h3>
+  <ul>
+    <li>⚡ Automates build, test, and deployment pipelines</li>
+    <li>✅ Detects integration issues early</li>
+    <li>🚀 Enables faster, reliable, and repeatable releases</li>
+    <li>📦 Reduces manual errors in deployment processes</li>
+    <li>📈 Improves developer productivity and code quality</li>
+  </ul>
+
+  <h3 style="color:#15803d;">🔧 What is GitHub Actions?</h3>
+  <p>
+    <strong>GitHub Actions</strong> is an automation tool natively integrated with GitHub, allowing you to create workflows for building, testing, and deploying your code directly from your repository.
+  </p>
+
+  <h3 style="color:#16a34a;">💻 Example: CI Workflow for .NET App</h3>
+  <pre style="background:#dcfce7; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+name: .NET CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build project
+      run: dotnet build --no-restore --configuration Release
+
+    - name: Run tests
+      run: dotnet test --no-build --verbosity normal
+  </pre>
+
+  <h3 style="color:#15803d;">✅ Best Practices</h3>
+  <ul>
+    <li>📝 Keep workflows version-controlled and readable (use YAML cleanly)</li>
+    <li>⚡ Use caching (e.g. NuGet packages) to speed up builds</li>
+    <li>🔒 Store sensitive data like API keys in <strong>GitHub Secrets</strong></li>
+    <li>🔍 Run unit and integration tests on every pull request</li>
+    <li>🛑 Fail fast: stop workflows on critical failures early</li>
+    <li>🚀 Use multi-environment deployments (staging ➝ production)</li>
+    <li>📊 Monitor workflow run history and performance via GitHub Actions UI</li>
+  </ul>
+
+  <h3 style="color:#16a34a;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://docs.github.com/en/actions" target="_blank" style="color:#22c55e;">GitHub Actions Official Documentation</a></li>
+    <li><a href="https://learn.microsoft.com/en-us/dotnet/devops/dotnet-actions" target="_blank" style="color:#22c55e;">.NET + GitHub Actions Guide</a></li>
+  </ul>
+</div>
+` },
+        { id: "azure-pipelines", title: "Azure Pipelines", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfdf5; padding:2rem; border-radius:1rem; border:2px solid #10b981; box-shadow:0 6px 20px rgba(16,185,129,0.2)">
+  <h2 style="color:#059669;">⚙️ Continuous Integration & Delivery with Azure Pipelines</h2>
+  <p>
+    <strong>Azure Pipelines</strong> is a cloud-based CI/CD service provided by Azure DevOps that supports building, testing, and deploying code to any platform or cloud.
+    It integrates with GitHub, Azure Repos, Bitbucket, and more.
+  </p>
+
+  <h3 style="color:#047857;">💡 Why Use Azure Pipelines?</h3>
+  <ul>
+    <li>🚀 Automates build, test, and deployment workflows</li>
+    <li>🌐 Supports Windows, Linux, macOS, and container environments</li>
+    <li>🤝 Integrates easily with Azure services and external tools</li>
+    <li>📈 Enables scalable, consistent, and repeatable deployments</li>
+    <li>🛡️ Offers enterprise-grade security, approvals, and gated releases</li>
+  </ul>
+
+  <h3 style="color:#047857;">🔧 Core Features</h3>
+  <ul>
+    <li>✅ YAML and Classic UI pipelines</li>
+    <li>📦 Container and multi-stage pipelines</li>
+    <li>🗄️ Azure Key Vault integration for secure secrets management</li>
+    <li>📑 Deployment approvals, gates, and rollback support</li>
+  </ul>
+
+  <h3 style="color:#059669;">💻 Example: .NET Build Pipeline (YAML)</h3>
+  <pre style="background:#d1fae5; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+trigger:
+- main
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+- task: UseDotNet@2
+  inputs:
+    packageType: 'sdk'
+    version: '8.0.x'
+
+- script: dotnet restore
+  displayName: 'Restore dependencies'
+
+- script: dotnet build --configuration $(buildConfiguration)
+  displayName: 'Build project'
+
+- script: dotnet test --configuration $(buildConfiguration) --no-build --verbosity normal
+  displayName: 'Run tests'
+  </pre>
+
+  <h3 style="color:#047857;">✅ Best Practices</h3>
+  <ul>
+    <li>📝 Use YAML pipelines for version-controlled, portable definitions</li>
+    <li>⚡ Cache dependencies (e.g., NuGet packages) to improve build times</li>
+    <li>🔒 Store secrets in <strong>Azure Key Vault</strong>, not in YAML files</li>
+    <li>🛑 Implement quality gates and manual approval steps for production deployments</li>
+    <li>📊 Monitor pipeline history and test coverage reports regularly</li>
+    <li>🔍 Break long pipelines into reusable templates and stages</li>
+  </ul>
+
+  <h3 style="color:#059669;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/?view=azure-devops" target="_blank" style="color:#10b981;">Azure Pipelines Documentation</a></li>
+    <li><a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/yaml-schema?view=azure-devops&tabs=example" target="_blank" style="color:#10b981;">YAML Schema Reference</a></li>
+  </ul>
+</div>
+` },
+        { id: "gitlab-ci-cd", title: "GitLab CI/CD", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:2rem; border-radius:1rem; border:2px solid #eab308; box-shadow:0 6px 20px rgba(234,179,8,0.2)">
+  <h2 style="color:#ca8a04;">🔧 Continuous Integration & Delivery with GitLab CI/CD</h2>
+  <p>
+    <strong>GitLab CI/CD</strong> is a built-in automation system within GitLab for defining, running, and monitoring Continuous Integration and Continuous Deployment pipelines.
+    It uses a <code>.gitlab-ci.yml</code> file stored in the project root to define pipeline stages, jobs, and triggers.
+  </p>
+
+  <h3 style="color:#a16207;">💡 Why Use GitLab CI/CD?</h3>
+  <ul>
+    <li>⚡ Fully integrated with GitLab — no extra setup needed</li>
+    <li>🚀 Automates build, test, and deployment workflows</li>
+    <li>🌍 Supports Docker, Kubernetes, cloud, and on-prem deployments</li>
+    <li>🔒 Secure secrets management via GitLab variables</li>
+    <li>📊 Visual pipeline monitoring with detailed job logs</li>
+  </ul>
+
+  <h3 style="color:#a16207;">🔧 Core Features</h3>
+  <ul>
+    <li>✅ YAML-based pipeline definitions via <code>.gitlab-ci.yml</code></li>
+    <li>📦 Multi-stage pipelines (build, test, deploy)</li>
+    <li>📊 Auto DevOps support for containerized apps</li>
+    <li>🚦 Manual jobs, approvals, and environment-specific deployments</li>
+  </ul>
+
+  <h3 style="color:#ca8a04;">💻 Example: .NET Build & Test Pipeline</h3>
+  <pre style="background:#fef9c3; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+stages:
+  - build
+  - test
+
+variables:
+  DOTNET_CLI_TELEMETRY_OPTOUT: "1"
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: "true"
+
+build:
+  stage: build
+  image: mcr.microsoft.com/dotnet/sdk:8.0
+  script:
+    - dotnet restore
+    - dotnet build --configuration Release
+
+test:
+  stage: test
+  image: mcr.microsoft.com/dotnet/sdk:8.0
+  script:
+    - dotnet test --no-build --verbosity normal
+  </pre>
+
+  <h3 style="color:#a16207;">✅ Best Practices</h3>
+  <ul>
+    <li>📝 Keep <strong>.gitlab-ci.yml</strong> clean, modular, and version-controlled</li>
+    <li>🚀 Use stages to logically separate build, test, deploy workflows</li>
+    <li>🔒 Store secrets and tokens as GitLab CI/CD variables</li>
+    <li>⚡ Use Docker caching to speed up repetitive builds</li>
+    <li>📊 Regularly monitor pipeline metrics and job run times</li>
+    <li>🔍 Split long pipelines using <code>includes</code> or <code>trigger</code> jobs for large projects</li>
+    <li>🛑 Implement manual approval steps for production deployments</li>
+  </ul>
+
+  <h3 style="color:#ca8a04;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://docs.gitlab.com/ee/ci/" target="_blank" style="color:#eab308;">GitLab CI/CD Documentation</a></li>
+    <li><a href="https://docs.gitlab.com/ee/ci/yaml/" target="_blank" style="color:#eab308;">.gitlab-ci.yml Syntax Guide</a></li>
+  </ul>
+</div>
+` },
+        { id: "teamcity-ci-cd", title: "TeamCity CI/CD", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
+  <h2 style="color:#0284c7;">🏗️ Continuous Integration & Delivery with TeamCity</h2>
+  <p>
+    <strong>TeamCity</strong> is a powerful, enterprise-grade CI/CD server developed by JetBrains. It supports building, testing, and deploying applications on a wide range of platforms, with deep integrations for popular tools and frameworks.
+  </p>
+
+  <h3 style="color:#0369a1;">💡 Why Use TeamCity?</h3>
+  <ul>
+    <li>🖥️ On-premise or cloud-based CI/CD server</li>
+    <li>⚙️ Rich UI with advanced build configuration management</li>
+    <li>🔄 Supports parallel builds, pipelines, and dependencies</li>
+    <li>📊 Detailed build history, trends, and analytics dashboards</li>
+    <li>🔐 Secure, enterprise-ready access control and token management</li>
+  </ul>
+
+  <h3 style="color:#0369a1;">🔧 Core Features</h3>
+  <ul>
+    <li>✅ Build chains (dependent builds)</li>
+    <li>📦 Docker support and Kubernetes integration</li>
+    <li>📑 Custom build steps with scripts, tools, or Docker</li>
+    <li>🌐 Integration with GitHub, Azure DevOps, Bitbucket, GitLab, and more</li>
+    <li>📊 Visual pipelines and build status monitoring</li>
+  </ul>
+
+  <h3 style="color:#0284c7;">💻 Example: Build Step (PowerShell)</h3>
+  <pre style="background:#e0f2fe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+steps:
+  - name: Restore
+    type: PowerShell
+    script: |
+      dotnet restore
+
+  - name: Build
+    type: PowerShell
+    script: |
+      dotnet build --configuration Release
+
+  - name: Test
+    type: PowerShell
+    script: |
+      dotnet test --no-build --verbosity normal
+  </pre>
+
+  <h3 style="color:#0369a1;">✅ Best Practices</h3>
+  <ul>
+    <li>📝 Use <strong>build templates</strong> for reusable configurations</li>
+    <li>📊 Regularly monitor build health and failure rates</li>
+    <li>⚙️ Isolate build steps using Docker when possible</li>
+    <li>🔒 Store secrets and API keys securely in TeamCity parameters</li>
+    <li>🚀 Split large builds into parallel build steps to reduce total time</li>
+    <li>🛡️ Set up <strong>build triggers</strong> on feature branches and merge requests</li>
+    <li>📦 Use artifact dependencies between builds for optimized workflows</li>
+  </ul>
+
+  <h3 style="color:#0284c7;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://www.jetbrains.com/teamcity/documentation/" target="_blank" style="color:#0ea5e9;">TeamCity Official Documentation</a></li>
+    <li><a href="https://www.jetbrains.com/teamcity/features/" target="_blank" style="color:#0ea5e9;">TeamCity Features Overview</a></li>
+  </ul>
+</div>
+` },
       ]
     },
     {
