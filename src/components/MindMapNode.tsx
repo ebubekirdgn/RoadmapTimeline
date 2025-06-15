@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Modal from "./Modal";
+import { motion } from "framer-motion";
 
 type Node = {
   id: string;
@@ -25,40 +26,61 @@ export default function MindMapNode({ node }: { node: Node }) {
   const hasChildren = node.children && node.children.length > 0;
 
   return (
-    <div className="flex flex-col items-start relative">
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      className="relative flex flex-col items-start text-sm text-gray-900 dark:text-white"
+    >
       {/* Ana düğüm */}
-      <div className="flex items-center relative mb-4 self-start">
-        {hasChildren && (
-          <div className="absolute left-1/2 top-full h-4 w-px bg-gray-400 -translate-x-1/2"></div>
-        )}
+      <div className="relative group">
         <button
-          className={`text-sm px-4 py-2 rounded-lg shadow-md flex items-center gap-2 border ${badgeColor} text-white hover:scale-105 transition-all duration-200 hover:shadow-lg min-h-[40px]`}
           onClick={() => setOpen(true)}
+          className={`flex items-center gap-2 px-4 py-2 rounded-full border ${badgeColor} text-white hover:scale-105 transition-all duration-300 shadow`}
         >
-          <span className="w-2 h-2 rounded-full bg-white" />
+          <span className="w-2.5 h-2.5 rounded-full bg-white" />
           {node.title}
         </button>
+
+        {/* Tooltip */}
+        {node.description && (
+          <div className="absolute hidden group-hover:block left-full ml-2 top-1/2 -translate-y-1/2 bg-gray-800 text-white text-xs rounded px-2 py-1 max-w-xs z-10">
+            {node.description.slice(0, 60)}...
+          </div>
+        )}
+
+        {/* Modal */}
         <Modal isOpen={open} onClose={() => setOpen(false)} title={node.title}>
-          <div className="space-y-4">
-            <p className="text-base">
-              <strong>ID:</strong> {node.id}
-            </p>
-            <p className="text-base">
-              <strong>Tür:</strong> {node.type}
-            </p>
+          <div className="space-y-4 text-base">
+            <p><strong>ID:</strong> {node.id}</p>
+            <p><strong>Tür:</strong> {node.type || "Bilinmiyor"}</p>
             <div
-              className="prose max-w-none text-base text-gray-800"
+              className="prose max-w-none text-gray-800 dark:text-gray-200"
               dangerouslySetInnerHTML={{ __html: node.description || "" }}
             />
             {node.link && (
-              <p className="text-base">
+              <p>
                 <a
                   href={node.link}
-                  className="text-sky-600 hover:text-sky-800 underline transition-colors duration-200"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-sky-600 hover:text-sky-800 underline underline-offset-4 transition"
                 >
                   Detaylı bilgi
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-4 h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 7l-10 10m0 0h6m-6 0V7"
+                    />
+                  </svg>
                 </a>
               </p>
             )}
@@ -66,19 +88,16 @@ export default function MindMapNode({ node }: { node: Node }) {
         </Modal>
       </div>
 
-      {/* Çocuklar kutusu */}
+      {/* Çocuk düğümler */}
       {hasChildren && (
-        <div className="relative ml-8 pl-6 border-l-2 border-gray-300">
-          <div className="relative mt-2 bg-gray-50 rounded-xl shadow-sm border border-gray-200 p-4 flex flex-col gap-6">
-            {node.children!.map((child) => (
-              <div className="relative pl-6" key={child.id}>
-                <div className="absolute left-0 top-1/2 w-6 h-px bg-gray-400 -translate-y-1/2" />
-                <MindMapNode node={child} />
-              </div>
-            ))}
-          </div>
+        <div className="mt-4 pl-6 border-l-2 border-sky-400 relative">
+          {node.children!.map((child, index) => (
+            <div key={child.id} className="relative ml-4 py-2 before:absolute before:top-1/2 before:left-[-1.5rem] before:w-6 before:h-px before:bg-sky-400 before:-translate-y-1/2">
+              <MindMapNode node={child} />
+            </div>
+          ))}
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }
