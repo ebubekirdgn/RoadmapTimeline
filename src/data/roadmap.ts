@@ -4457,17 +4457,514 @@ app.Use(async (context, next) =>
         {
           id: "rest",
           title: "REST",
+          description: `<div style="font-family:'Segoe UI', Tahoma, sans-serif; max-width:720px; background:#e3f2fd; border:2px solid #64b5f6; border-radius:12px; padding:1.5rem; box-shadow:0 5px 15px rgba(33,150,243,0.2); color:#0d47a1; line-height:1.7;">
+  <h2 style="color:#1976d2;">🌐 REST Fundamentals - Must Know for API Communication</h2>
+
+  <p>
+    <strong>REST (Representational State Transfer)</strong> is a standardized architecture for building scalable web services. It’s the foundation of most modern APIs. Understanding REST is <em>essential</em> for any backend or full-stack developer.
+  </p>
+
+  <h3 style="color:#2196f3;">🧱 Core REST Principles</h3>
+  <ul>
+    <li><strong>Stateless:</strong> Each request from client to server must contain all information to understand the request.</li>
+    <li><strong>Uniform Interface:</strong> Resource-based, using URIs like <code>/products/123</code>.</li>
+    <li><strong>Resource-Oriented:</strong> Everything is treated as a resource (e.g., <code>/users</code>, <code>/orders</code>).</li>
+    <li><strong>HTTP Verbs:</strong> Use standard methods:
+      <ul>
+        <li><code>GET</code> – Read data</li>
+        <li><code>POST</code> – Create data</li>
+        <li><code>PUT</code> – Update full resource</li>
+        <li><code>PATCH</code> – Partial update</li>
+        <li><code>DELETE</code> – Remove resource</li>
+      </ul>
+    </li>
+  </ul>
+
+  <h3 style="color:#2196f3;">🚀 HTTP Status Codes You MUST Know</h3>
+  <ul>
+    <li><code>200 OK</code> – Successful request</li>
+    <li><code>201 Created</code> – New resource created</li>
+    <li><code>204 No Content</code> – Success, no body</li>
+    <li><code>400 Bad Request</code> – Client error (validation, etc.)</li>
+    <li><code>401 Unauthorized</code> – Auth required</li>
+    <li><code>403 Forbidden</code> – No permission</li>
+    <li><code>404 Not Found</code> – Resource not found</li>
+    <li><code>500 Internal Server Error</code> – Unexpected server error</li>
+  </ul>
+
+  <h3 style="color:#2196f3;">🧪 Sample RESTful URL Design</h3>
+  <pre style="background:#e1f5fe; padding:1rem; border-radius:8px; font-family:monospace;">
+GET     /api/products
+GET     /api/products/42
+POST    /api/products
+PUT     /api/products/42
+DELETE  /api/products/42
+  </pre>
+
+  <h3 style="color:#2196f3;">🔐 Authentication in REST</h3>
+  <ul>
+    <li><strong>Bearer Tokens:</strong> Pass JWT or OAuth2 tokens in the <code>Authorization</code> header.</li>
+    <li><strong>API Keys:</strong> For simpler use-cases (but less secure).</li>
+  </ul>
+
+  <h3 style="color:#2196f3;">📦 Content Types</h3>
+  <p>Always use headers:</p>
+  <ul>
+    <li><code>Content-Type: application/json</code> – when sending data</li>
+    <li><code>Accept: application/json</code> – when expecting JSON response</li>
+  </ul>
+
+  <h3 style="color:#2196f3;">🛠️ Best Practices</h3>
+  <ul>
+    <li>✅ Use nouns in URIs, not verbs (e.g., <code>/users</code> not <code>/getUsers</code>).</li>
+    <li>✅ Version your APIs (<code>/api/v1/products</code>).</li>
+    <li>✅ Use pagination, filtering, and sorting via query params.</li>
+    <li>✅ Always return proper HTTP status codes and error messages.</li>
+    <li>✅ Document your APIs with Swagger / OpenAPI.</li>
+    <li>✅ Validate and sanitize all inputs.</li>
+  </ul>
+
+  <h3 style="color:#2196f3;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://restfulapi.net/" target="_blank" style="color:#1565c0;">https://restfulapi.net/</a></li>
+    <li><a href="https://learn.microsoft.com/en-us/aspnet/core/web-api/?view=aspnetcore-8.0" target="_blank" style="color:#1565c0;">.NET REST API Docs</a></li>
+  </ul>
+</div>
+`,
           children: [
-            { id: "griffiy", title: "Griffiy", type: "good-to-know",description: `` },
-            { id: "odata", title: "OData", type: "optional",description: `` },
+            { id: "gridify", title: "Gridify", type: "good-to-know",
+              description: `<h2>🔍 REST + Gridify (Smart Filtering, Paging, Sorting)</h2>
+<p><strong>Gridify</strong> is a lightweight .NET library that simplifies advanced filtering, sorting, and pagination over REST endpoints. It helps you avoid writing repetitive LINQ code and improves API usability.</p>
+
+<h3>📌 Why Gridify?</h3>
+<ul>
+  <li>✅ Clean & DRY filtering logic</li>
+  <li>✅ Automatically parses query parameters</li>
+  <li>✅ Works with IQueryable, supports EF Core</li>
+  <li>✅ Easy to integrate with .NET 6/7/8/9 Web APIs</li>
+</ul>
+
+<h3>⚙️ How to Use Gridify</h3>
+
+<h4>1. Install NuGet Package</h4>
+<pre><code>dotnet add package Gridify</code></pre>
+
+<h4>2. Sample Controller</h4>
+<pre><code>public class ProductsController : ControllerBase
+{
+    private readonly AppDbContext _db;
+
+    public ProductsController(AppDbContext db)
+    {
+        _db = db;
+    }
+
+    [HttpGet("api/products")]
+    public IActionResult Get([FromQuery] GridifyQuery query)
+    {
+        var result = _db.Products.Gridify(query);
+        return Ok(result);
+    }
+}</code></pre>
+
+<h4>3. Sample Request</h4>
+<pre><code>GET /api/products?filter=price>100;name@mouse&orderBy=price&page=1&pageSize=10</code></pre>
+
+<h4>4. GridifyQuery Features</h4>
+<ul>
+  <li><strong>Filtering:</strong> <code>filter=name@keyboard;price>50</code></li>
+  <li><strong>Sorting:</strong> <code>orderBy=price,-name</code></li>
+  <li><strong>Paging:</strong> <code>page=2&pageSize=20</code></li>
+</ul>
+
+<h3>📈 Output Format (Auto-Paged)</h3>
+<pre><code>{
+  "data": [ { "id": 1, "name": "Mouse", "price": 45.0 } ],
+  "totalItems": 1,
+  "currentPage": 1,
+  "totalPages": 1
+}</code></pre>
+
+<h3>🛡️ Best Practices</h3>
+<ul>
+  <li>Use <code>GridifyQuery</code> with validation attributes</li>
+  <li>Combine with <strong>Mapster</strong> or <strong>AutoMapper</strong> for DTO mapping</li>
+  <li>Use <code>.AsNoTracking()</code> in EF Core for read-only endpoints</li>
+  <li>Expose filtering fields only when needed (security)</li>
+</ul>
+
+<h3>📚 Docs</h3>
+<p>More info: <a href="https://github.com/alirezanet/Gridify" target="_blank">GitHub - Gridify</a></p>
+` },
+            { id: "odata", title: "OData", type: "optional",description: `<h2>🌐 OData (Open Data Protocol) – Advanced Querying for REST APIs</h2>
+
+<p><strong>OData</strong> is a standardized protocol built on top of REST, enabling clients to query and manipulate data using rich query capabilities such as filtering, sorting, pagination, and data shaping directly through URL parameters. It is widely supported in .NET ecosystem and ideal for building flexible, scalable APIs.</p>
+
+<h3>🔑 Key Concepts & Features</h3>
+<ul>
+  <li><strong>Filtering (<code>$filter</code>)</strong>: Apply complex conditions (e.g., logical, comparison, string functions) to return only relevant data.</li>
+  <li><strong>Sorting (<code>$orderby</code>)</strong>: Sort the result set by one or more fields ascending/descending.</li>
+  <li><strong>Pagination (<code>$top</code>, <code>$skip</code>)</strong>: Retrieve data page by page, controlling size and offset to optimize network usage and performance.</li>
+  <li><strong>Projection (<code>$select</code>)</strong>: Return only required fields to reduce payload size.</li>
+  <li><strong>Expansion (<code>$expand</code>)</strong>: Include related entities (navigation properties) in the response.</li>
+  <li><strong>Counting (<code>$count</code>)</strong>: Get the total number of matching entities without fetching them all.</li>
+</ul>
+
+<h3>⚙️ Enabling OData in ASP.NET Core</h3>
+<p>Setup is straightforward via <code>Microsoft.AspNetCore.OData</code> package.</p>
+<pre><code>public void ConfigureServices(IServiceCollection services)
+{
+    services.AddControllers()
+        .AddOData(opt => opt
+            .Select()    // Enable $select
+            .Filter()    // Enable $filter
+            .OrderBy()   // Enable $orderby
+            .Expand()    // Enable $expand
+            .Count()     // Enable $count
+            .SetMaxTop(100)); // Limit maximum page size for $top
+}</code></pre>
+
+<h3>🚀 Sample Controller Implementation</h3>
+<pre><code>using Microsoft.AspNetCore.OData.Query;
+
+[ApiController]
+[Route("api/[controller]")]
+public class ProductsController : ControllerBase
+{
+    private readonly AppDbContext _context;
+
+    public ProductsController(AppDbContext context)
+    {
+        _context = context;
+    }
+
+    [HttpGet]
+    [EnableQuery(MaxExpansionDepth = 3, MaxNodeCount = 1000, AllowedQueryOptions = AllowedQueryOptions.All)]
+    public IQueryable<Product> Get() => _context.Products;
+}</code></pre>
+
+<h3>📌 Example OData Queries</h3>
+<ul>
+  <li><code>GET /api/products?$filter=price gt 100 and contains(name, 'Pro')</code> — Filter products with price > 100 and name contains "Pro".</li>
+  <li><code>GET /api/products?$orderby=price desc,name asc</code> — Sort by price descending, then name ascending.</li>
+  <li><code>GET /api/products?$top=10&$skip=20</code> — Get 10 products after skipping first 20 (pagination).</li>
+  <li><code>GET /api/products?$select=name,price</code> — Return only name and price fields.</li>
+  <li><code>GET /api/products?$expand=category</code> — Include related category details.</li>
+  <li><code>GET /api/products?$count=true</code> — Return total count of filtered products.</li>
+</ul>
+
+<h3>🛡️ Best Practices for OData APIs</h3>
+<ul>
+  <li><strong>Limit query complexity</strong>: Use <code>MaxExpansionDepth</code> and <code>MaxNodeCount</code> to prevent expensive or malicious queries.</li>
+  <li><strong>Restrict allowed query options</strong>: Specify exactly which query options you support via <code>AllowedQueryOptions</code> to reduce attack surface.</li>
+  <li><strong>Use server-side paging</strong>: Always enable <code>$top</code> and <code>$skip</code> with max limits to prevent huge payloads.</li>
+  <li><strong>Validate inputs</strong>: Sanitize query parameters and validate user input to avoid injection or DoS.</li>
+  <li><strong>Cache responses</strong>: Combine with caching strategies (e.g. response caching, ETag) to improve performance.</li>
+  <li><strong>Document your API</strong>: Clearly document which OData features are supported and how to use them.</li>
+  <li><strong>Consider security</strong>: Implement authentication and authorization to control data exposure via OData.</li>
+</ul>
+
+<h3>🔗 Additional Resources</h3>
+<ul>
+  <li><a href="https://docs.microsoft.com/en-us/odata/" target="_blank">Official OData Documentation</a></li>
+  <li><a href="https://github.com/OData/AspNetCoreOData" target="_blank">AspNetCoreOData GitHub Repo</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/aspnet/core/web-api/advanced/odata" target="_blank">Microsoft ASP.NET Core OData Docs</a></li>
+</ul>
+` },
             {
               id: "repr",
               title: "REPR Pattern",
+              description: `<h2 style="color:#0d47a1;">🌐 REST & Representation (Repr) Pattern</h2>
+
+<p style="font-size:14px; color:#333;">
+REST (Representational State Transfer) is an architectural style for designing networked applications. It uses stateless communication and standard HTTP methods (GET, POST, PUT, DELETE) to manage resources.
+</p>
+
+<p style="font-size:14px; color:#333;">
+The <strong>Representation (Repr) Pattern</strong> means clients work with representations (JSON, XML, etc.) of resources instead of the resources themselves.
+</p>
+
+<h3 style="color:#1565c0;">🔑 Key Concepts</h3>
+<ul style="background:#e3f2fd; padding:10px 15px; border-radius:5px; color:#0d47a1;">
+  <li><strong>Resource:</strong> Abstract entities (user, order, product) identified by a URI.</li>
+  <li><strong>Representation:</strong> Concrete data format (JSON, XML) carrying resource state.</li>
+  <li><strong>Statelessness:</strong> Each request includes all info needed for processing.</li>
+  <li><strong>HATEOAS:</strong> Hypermedia links in representations for navigation and discoverability.</li>
+</ul>
+
+<h3 style="color:#1565c0;">⚙️ How REST & Representation Work</h3>
+<ul style="color:#333;">
+  <li><strong>GET /users/123</strong> — Returns JSON representation of user 123.</li>
+  <li><strong>PUT /users/123</strong> — Updates user 123 with modified representation.</li>
+  <li><strong>POST /users</strong> — Creates a new user from representation.</li>
+  <li><strong>DELETE /users/123</strong> — Deletes the user resource.</li>
+</ul>
+
+<h3 style="color:#1565c0;">📋 Example JSON Representation</h3>
+<pre style="background:#263238; color:#cfd8dc; padding:15px; border-radius:6px; overflow-x:auto;">
+{
+  "id": 123,
+  "name": "Alice",
+  "email": "alice@example.com",
+  "links": {
+    "self": "/users/123",
+    "orders": "/users/123/orders"
+  }
+}
+</pre>
+
+<h3 style="color:#1565c0;">🛡️ Best Practices</h3>
+<ul style="color:#333;">
+  <li>Use consistent and meaningful URIs for resources.</li>
+  <li>Make representations self-descriptive with metadata and links.</li>
+  <li>Support content negotiation (JSON, XML) via HTTP headers.</li>
+  <li>Keep APIs stateless by including all info in requests.</li>
+  <li>Use correct HTTP status codes to signal outcomes.</li>
+  <li>Document your API and its representations clearly.</li>
+</ul>
+
+<h3 style="color:#1565c0;">🔗 More Info</h3>
+<ul>
+  <li><a href="https://restfulapi.net/" target="_blank" style="color:#1e88e5;">RESTful API Tutorial</a></li>
+  <li><a href="https://martinfowler.com/articles/richardsonMaturityModel.html" target="_blank" style="color:#1e88e5;">Richardson Maturity Model</a></li>
+  <li><a href="https://restfulapi.net/hateoas/" target="_blank" style="color:#1e88e5;">HATEOAS and REST</a></li>
+</ul>
+`,
               type: "optional",
               children: [
-                { id: "minimal-apis", title: "Minimal APIs", type: "must-know",description: `` },
-                { id: "ardalis-endpoints", title: "Ardalis.Endpoints", type: "optional",description: `` },
-                { id: "fastendpoints", title: "FastEndpoints", type: "optional" },
+                { id: "minimal-apis", title: "Minimal APIs", type: "must-know",
+                  description: `<style>
+  .section {
+    background: #fff8e1;
+    border-left: 6px solid #fbc02d;
+    padding: 20px 25px;
+    margin-bottom: 25px;
+    border-radius: 8px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #4e342e;
+  }
+  .section h2 {
+    color: #f57f17;
+    margin-bottom: 12px;
+  }
+  .section h3 {
+    color: #ef6c00;
+    margin-top: 18px;
+  }
+  .key-concepts {
+    background: #fff3e0;
+    border-radius: 6px;
+    padding: 12px 18px;
+    color: #bf360c;
+    font-weight: 600;
+  }
+  .key-concepts li {
+    margin-bottom: 8px;
+  }
+  pre {
+    background: #3e2723;
+    color: #ffcc80;
+    padding: 18px;
+    border-radius: 8px;
+    overflow-x: auto;
+  }
+  code {
+    font-family: 'Courier New', Courier, monospace;
+  }
+  a {
+    color: #f9a825;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  ul {
+    margin-top: 8px;
+    margin-left: 20px;
+  }
+  li {
+    margin-bottom: 10px;
+  }
+</style>
+
+<div class="section">
+  <h2>🚀 Minimal APIs & Representation (Repr) Pattern</h2>
+
+  <p>
+    Minimal APIs in ASP.NET Core enable building lightweight, high-performance HTTP APIs with minimal ceremony and code.
+    They perfectly align with the <strong>Representation Pattern</strong> in REST, where clients interact with resource <em>representations</em>
+    (like JSON) rather than resource internals.
+  </p>
+
+  <h3>🔑 Key Concepts</h3>
+  <ul class="key-concepts">
+    <li><strong>Minimal APIs:</strong> Concise, functional style APIs using top-level statements and simple route handlers.</li>
+    <li><strong>Representation (Repr):</strong> Data format (usually JSON) describing resource state exchanged between client and server.</li>
+    <li><strong>Statelessness:</strong> Each request includes all info to process it; no server session needed.</li>
+    <li><strong>Http Methods:</strong> Use standard verbs (GET, POST, PUT, DELETE) to act on resource representations.</li>
+    <li><strong>Content Negotiation:</strong> Supports multiple formats (JSON, XML) as response representations.</li>
+  </ul>
+
+  <h3>⚙️ Minimal API Example with Representation</h3>
+
+  <pre><code>var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+// Sample in-memory user store
+var users = new List&lt;User&gt; {
+  new User { Id = 1, Name = "Alice" },
+  new User { Id = 2, Name = "Bob" }
+};
+
+// GET user by id - returns JSON representation
+app.MapGet("/users/{id}", (int id) =&gt; {
+  var user = users.FirstOrDefault(u =&gt; u.Id == id);
+  return user is not null ? Results.Ok(user) : Results.NotFound();
+});
+
+// POST to create new user - accepts JSON representation
+app.MapPost("/users", (User newUser) =&gt; {
+  users.Add(newUser);
+  return Results.Created($"/users/{newUser.Id}", newUser);
+});
+
+app.Run();
+
+record User(int Id, string Name);
+</code></pre>
+
+  <h3>🛡️ Best Practices</h3>
+  <ul>
+    <li>Use minimal, focused route handlers to keep APIs simple and readable.</li>
+    <li>Always return <code>Results</code> with appropriate HTTP status codes (200, 201, 404, etc.).</li>
+    <li>Design your representations to be clear and self-descriptive with necessary fields only.</li>
+    <li>Leverage dependency injection to keep business logic separate from route handlers.</li>
+    <li>Use content negotiation and support multiple media types for client flexibility.</li>
+    <li>Validate incoming representations and handle errors gracefully.</li>
+  </ul>
+
+  <h3>🔗 Learn More</h3>
+  <ul>
+    <li><a href="https://learn.microsoft.com/en-us/aspnet/core/fundamentals/minimal-apis" target="_blank">Official ASP.NET Core Minimal APIs Docs</a></li>
+    <li><a href="https://restfulapi.net/" target="_blank">RESTful API Design Tutorial</a></li>
+    <li><a href="https://restfulapi.net/representation/" target="_blank">Representation Pattern Explained</a></li>
+  </ul>
+</div>
+` },
+                { id: "ardalis-endpoints", title: "Ardalis.Endpoints", type: "optional",
+                  description: `<div style="background:#e3f2fd; border-left:6px solid #1976d2; padding:20px 25px; margin-bottom:25px; border-radius:8px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#0d47a1;">
+  <h2 style="color:#1565c0; margin-bottom:12px;">📦 Ardalis Endpoints</h2>
+  <p>
+    <strong>Ardalis Endpoints</strong> is a lightweight, opinionated library to help organize ASP.NET Core APIs around distinct endpoints.
+    It promotes clarity, maintainability, and separation of concerns by encapsulating each API action into a single class.
+  </p>
+
+  <h3 style="color:#0d47a1; margin-top:18px;">🔑 Key Concepts</h3>
+  <ul style="background:#bbdefb; border-radius:6px; padding:12px 18px; color:#0d47a1; font-weight:600;">
+    <li style="margin-bottom:8px;"><strong>Single Responsibility:</strong> Each endpoint class handles one request and response.</li>
+    <li style="margin-bottom:8px;"><strong>Request-Response Models:</strong> Encapsulates input and output data separately.</li>
+    <li style="margin-bottom:8px;"><strong>Minimal Boilerplate:</strong> Simplifies wiring endpoints to the ASP.NET Core pipeline.</li>
+    <li style="margin-bottom:8px;"><strong>Supports CQRS:</strong> Easily integrates Command and Query responsibilities.</li>
+    <li style="margin-bottom:8px;"><strong>Testable:</strong> Encourages writing unit tests focused on single endpoint behavior.</li>
+  </ul>
+
+  <h3 style="color:#0d47a1; margin-top:18px;">⚙️ Basic Example</h3>
+  <pre style="background:#0d47a1; color:#e3f2fd; padding:18px; border-radius:8px; overflow-x:auto;">
+<code>public class GetProduct : Endpoint&lt;int, ProductDto&gt;
+{
+  private readonly IProductRepository _repository;
+
+  public GetProduct(IProductRepository repository)
+  {
+    _repository = repository;
+  }
+
+  public override async Task&lt;ActionResult&lt;ProductDto&gt;&gt; HandleAsync(int id, CancellationToken ct)
+  {
+    var product = await _repository.GetByIdAsync(id);
+    if (product == null) return NotFound();
+    return Ok(new ProductDto(product));
+  }
+}</code>
+  </pre>
+
+  <h3 style="color:#0d47a1; margin-top:18px;">🛡️ Best Practices</h3>
+  <ul>
+    <li style="margin-bottom:10px;">Keep endpoints focused and small, encapsulating one use case.</li>
+    <li style="margin-bottom:10px;">Use clear naming conventions to reflect actions (e.g., GetProduct, CreateOrder).</li>
+    <li style="margin-bottom:10px;">Separate domain logic into services or handlers called from endpoints.</li>
+    <li style="margin-bottom:10px;">Inject dependencies via constructor for testability.</li>
+    <li style="margin-bottom:10px;">Write unit tests for each endpoint to verify behavior and edge cases.</li>
+    <li style="margin-bottom:10px;">Use request and response DTOs to decouple API contracts from domain models.</li>
+  </ul>
+
+  <h3 style="color:#0d47a1; margin-top:18px;">🔗 More Info</h3>
+  <ul>
+    <li><a href="https://github.com/ardalis/Endpoints" target="_blank" style="color:#1976d2; text-decoration:none;">Ardalis Endpoints GitHub Repo</a></li>
+    <li><a href="https://ardalis.com/asp-net-core-endpoints-pattern" target="_blank" style="color:#1976d2; text-decoration:none;">Blog: Organizing ASP.NET Core APIs with Endpoints</a></li>
+  </ul>
+</div>
+` },
+                { id: "fastendpoints", title: "FastEndpoints", type: "optional",description: `<div style="background:#e8f5e9; border-left:6px solid #388e3c; padding:20px 25px; margin-bottom:25px; border-radius:8px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#2e7d32;">
+  <h2 style="color:#2e7d32; margin-bottom:12px;">⚡ FastEndpoints</h2>
+  <p>
+    <strong>FastEndpoints</strong> is a modern, high-performance, and minimalistic framework built on top of ASP.NET Core.
+    It simplifies building APIs by eliminating boilerplate and providing a clean, intuitive endpoint-centric approach.
+  </p>
+
+  <h3 style="color:#1b5e20; margin-top:18px;">🔑 Key Features</h3>
+  <ul style="background:#c8e6c9; border-radius:6px; padding:12px 18px; color:#2e7d32; font-weight:600;">
+    <li style="margin-bottom:8px;"><strong>Endpoint-Centric:</strong> Define each API endpoint in its own class with clear request and response models.</li>
+    <li style="margin-bottom:8px;"><strong>Minimal Boilerplate:</strong> No need for controllers or actions, simplifying the project structure.</li>
+    <li style="margin-bottom:8px;"><strong>Built-in Validation:</strong> Supports FluentValidation integration out-of-the-box.</li>
+    <li style="margin-bottom:8px;"><strong>Performance Optimized:</strong> Lightweight and fast, ideal for high-throughput scenarios.</li>
+    <li style="margin-bottom:8px;"><strong>OpenAPI Support:</strong> Automatic generation of Swagger/OpenAPI documentation.</li>
+    <li style="margin-bottom:8px;"><strong>Dependency Injection:</strong> Seamless DI support for services and repositories.</li>
+  </ul>
+
+  <h3 style="color:#1b5e20; margin-top:18px;">⚙️ Basic Example</h3>
+  <pre style="background:#2e7d32; color:#e8f5e9; padding:18px; border-radius:8px; overflow-x:auto;">
+<code>public class CreateProductRequest : IRequest
+{
+  public string Name { get; set; }
+  public decimal Price { get; set; }
+}
+
+public class CreateProductEndpoint : Endpoint&lt;CreateProductRequest&gt;
+{
+  private readonly IProductService _service;
+
+  public CreateProductEndpoint(IProductService service)
+  {
+    _service = service;
+  }
+
+  public override async Task HandleAsync(CreateProductRequest req, CancellationToken ct)
+  {
+    var product = await _service.CreateAsync(req.Name, req.Price);
+    await SendOkAsync(product, ct);
+  }
+}</code>
+  </pre>
+
+  <h3 style="color:#1b5e20; margin-top:18px;">🛡️ Best Practices</h3>
+  <ul>
+    <li style="margin-bottom:10px;">Keep each endpoint focused on a single responsibility and use clear naming conventions.</li>
+    <li style="margin-bottom:10px;">Use FluentValidation for request validation to ensure data integrity.</li>
+    <li style="margin-bottom:10px;">Inject dependencies via constructor for clean separation of concerns.</li>
+    <li style="margin-bottom:10px;">Write unit and integration tests specifically for endpoints.</li>
+    <li style="margin-bottom:10px;">Use request and response DTOs to avoid leaking domain entities.</li>
+    <li style="margin-bottom:10px;">Leverage FastEndpoints built-in support for OpenAPI to keep API docs up-to-date.</li>
+  </ul>
+
+  <h3 style="color:#1b5e20; margin-top:18px;">🔗 More Info</h3>
+  <ul>
+    <li><a href="https://fast-endpoints.com/" target="_blank" style="color:#388e3c; text-decoration:none;">Official FastEndpoints Website</a></li>
+    <li><a href="https://github.com/FastEndpoints/FastEndpoints" target="_blank" style="color:#388e3c; text-decoration:none;">GitHub Repo</a></li>
+    <li><a href="https://fast-endpoints.com/docs/" target="_blank" style="color:#388e3c; text-decoration:none;">Documentation</a></li>
+  </ul>
+</div>
+` },
               ]
             },
           ]
@@ -4475,16 +4972,262 @@ app.Use(async (context, next) =>
         {
           id: "grpc",
           title: "gRPC",
-          children: [
-            { id: "miniapi", title: "Minimal APIs", type: "must-know" },
-          ]
+          description: `<div style="background:#e0f7fa; border-left:6px solid #00796b; padding:20px 25px; margin-bottom:25px; border-radius:8px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#004d40;">
+  <h2 style="color:#00695c; margin-bottom:12px;">🚀 gRPC - Modern Remote Procedure Calls</h2>
+  <p>
+    <strong>gRPC</strong> is a high-performance, open-source RPC (Remote Procedure Call) framework developed by Google.  
+    It uses HTTP/2 as its transport protocol and Protocol Buffers (protobuf) as its interface definition language (IDL), enabling efficient, scalable communication between distributed systems.
+  </p>
+
+  <h3 style="color:#004d40; margin-top:18px;">🔑 Key Concepts</h3>
+  <ul style="background:#b2dfdb; border-radius:6px; padding:12px 18px; color:#004d40; font-weight:600;">
+    <li style="margin-bottom:8px;"><strong>Protocol Buffers:</strong> Compact binary serialization format defining service contracts and messages.</li>
+    <li style="margin-bottom:8px;"><strong>HTTP/2 Transport:</strong> Supports multiplexed streams, bidirectional streaming, header compression, and improved performance.</li>
+    <li style="margin-bottom:8px;"><strong>Service Definition:</strong> Defined in .proto files specifying RPC methods and message types.</li>
+    <li style="margin-bottom:8px;"><strong>Code Generation:</strong> Generates strongly-typed client and server stubs for multiple languages.</li>
+    <li style="margin-bottom:8px;"><strong>Streaming:</strong> Supports unary, server streaming, client streaming, and bidirectional streaming RPCs.</li>
+  </ul>
+
+  <h3 style="color:#004d40; margin-top:18px;">⚙️ Basic Example (.proto)</h3>
+  <pre style="background:#004d40; color:#b2dfdb; padding:18px; border-radius:8px; overflow-x:auto;">
+<code>syntax = "proto3";
+
+package product;
+
+service ProductService {
+  rpc GetProduct (ProductRequest) returns (ProductReply);
+  rpc ListProducts (Empty) returns (stream ProductReply);
+}
+
+message ProductRequest {
+  int32 id = 1;
+}
+
+message ProductReply {
+  int32 id = 1;
+  string name = 2;
+  float price = 3;
+}
+
+message Empty {}
+</code>
+  </pre>
+
+  <h3 style="color:#004d40; margin-top:18px;">🔧 ASP.NET Core gRPC Server Example</h3>
+  <pre style="background:#004d40; color:#b2dfdb; padding:18px; border-radius:8px; overflow-x:auto;">
+<code>public class ProductServiceImpl : ProductService.ProductServiceBase
+{
+    public override Task<ProductReply> GetProduct(ProductRequest request, ServerCallContext context)
+    {
+        var product = new ProductReply
+        {
+            Id = request.Id,
+            Name = "Sample Product",
+            Price = 12.99f
+        };
+        return Task.FromResult(product);
+    }
+
+    public override async Task ListProducts(Empty request, IServerStreamWriter<ProductReply> responseStream, ServerCallContext context)
+    {
+        var products = GetAllProducts();
+        foreach(var p in products)
+        {
+            await responseStream.WriteAsync(p);
+        }
+    }
+}
+</code>
+  </pre>
+
+  <h3 style="color:#004d40; margin-top:18px;">🛡️ Best Practices</h3>
+  <ul>
+    <li style="margin-bottom:10px;">Use <strong>proto3</strong> syntax for better compatibility and features.</li>
+    <li style="margin-bottom:10px;">Define clear and concise message and service contracts to keep APIs maintainable.</li>
+    <li style="margin-bottom:10px;">Leverage streaming RPCs where appropriate for efficient data transfer.</li>
+    <li style="margin-bottom:10px;">Enable <strong>deadline and cancellation tokens</strong> on server methods to prevent resource leaks.</li>
+    <li style="margin-bottom:10px;">Use TLS encryption for secure communication over the network.</li>
+    <li style="margin-bottom:10px;">Keep backward compatibility by careful versioning of your .proto files.</li>
+    <li style="margin-bottom:10px;">Integrate monitoring and logging especially on streaming endpoints for troubleshooting.</li>
+    <li style="margin-bottom:10px;">Test clients and servers extensively including edge cases of network failures.</li>
+  </ul>
+
+  <h3 style="color:#004d40; margin-top:18px;">🔗 More Resources</h3>
+  <ul>
+    <li><a href="https://grpc.io/docs/" target="_blank" style="color:#00796b; text-decoration:none;">Official gRPC Documentation</a></li>
+    <li><a href="https://learn.microsoft.com/en-us/aspnet/core/grpc/" target="_blank" style="color:#00796b; text-decoration:none;">Microsoft ASP.NET Core gRPC Guide</a></li>
+    <li><a href="https://github.com/grpc/grpc" target="_blank" style="color:#00796b; text-decoration:none;">gRPC GitHub Repo</a></li>
+  </ul>
+</div>
+`,
         },
         {
           id: "graphql",
           title: "GraphQL",
+          description: `<div style="background:#e3f2fd; border-left:6px solid #1e88e5; padding:20px 25px; margin-bottom:25px; border-radius:8px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#0d47a1;">
+  <h2 style="color:#1565c0; margin-bottom:12px;">🚀 GraphQL - Flexible API Query Language</h2>
+  <p>
+    <strong>GraphQL</strong> is a powerful query language and runtime for APIs developed by Facebook. Unlike REST, it allows clients to request exactly the data they need, enabling more efficient and flexible interactions between client and server.
+  </p>
+
+  <h3 style="color:#1565c0; margin-top:18px;">🔑 Key Features</h3>
+  <ul style="background:#bbdefb; border-radius:6px; padding:12px 18px; color:#0d47a1; font-weight:600;">
+    <li style="margin-bottom:8px;"><strong>Declarative Queries:</strong> Clients specify what data they want in a single request.</li>
+    <li style="margin-bottom:8px;"><strong>Strongly Typed Schema:</strong> Defines types, queries, mutations, and subscriptions.</li>
+    <li style="margin-bottom:8px;"><strong>Single Endpoint:</strong> All queries and mutations sent to one endpoint.</li>
+    <li style="margin-bottom:8px;"><strong>Real-time Data:</strong> Supports subscriptions for live updates.</li>
+    <li style="margin-bottom:8px;"><strong>Introspection:</strong> Clients can query the schema itself.</li>
+  </ul>
+
+  <h3 style="color:#1565c0; margin-top:18px;">⚙️ Basic Example</h3>
+  <pre style="background:#0d47a1; color:#bbdefb; padding:18px; border-radius:8px; overflow-x:auto;">
+<code>query {
+  product(id: 1) {
+    id
+    name
+    price
+  }
+}
+
+mutation {
+  addProduct(name: "New Product", price: 19.99) {
+    id
+    name
+  }
+}</code>
+  </pre>
+
+  <h3 style="color:#1565c0; margin-top:18px;">🛠️ Implementing GraphQL Server in .NET</h3>
+  <p>
+    Use libraries like <strong>HotChocolate</strong> or <strong>GraphQL.NET</strong> to build GraphQL APIs in .NET. Define your schema using C# classes or schema definition language (SDL), and configure query and mutation resolvers.
+  </p>
+
+  <h3 style="color:#1565c0; margin-top:18px;">🛡️ Best Practices</h3>
+  <ul>
+    <li style="margin-bottom:10px;">Design your schema carefully to keep it intuitive and maintainable.</li>
+    <li style="margin-bottom:10px;">Use input validation and authorization at resolver level to secure your API.</li>
+    <li style="margin-bottom:10px;">Avoid over-fetching by carefully selecting fields and using query complexity limits.</li>
+    <li style="margin-bottom:10px;">Implement caching and batching (e.g., DataLoader) to optimize performance.</li>
+    <li style="margin-bottom:10px;">Enable query depth and cost analysis to protect against malicious queries.</li>
+    <li style="margin-bottom:10px;">Provide good error handling and meaningful error messages.</li>
+  </ul>
+
+  <h3 style="color:#1565c0; margin-top:18px;">🔗 More Resources</h3>
+  <ul>
+    <li><a href="https://graphql.org/" target="_blank" style="color:#1e88e5; text-decoration:none;">Official GraphQL Website</a></li>
+    <li><a href="https://chillicream.com/docs/hotchocolate" target="_blank" style="color:#1e88e5; text-decoration:none;">HotChocolate - GraphQL for .NET</a></li>
+    <li><a href="https://github.com/graphql-dotnet/graphql-dotnet" target="_blank" style="color:#1e88e5; text-decoration:none;">GraphQL.NET GitHub</a></li>
+  </ul>
+</div>
+`,
           children: [
-            { id: "hotchocolate", title: "HotChocolate", type: "good-to-know" },
-            { id: "graphql-dotnet", title: "GraphQL.dotnet", type: "good-to-know" },
+            { id: "hotchocolate", title: "HotChocolate", type: "good-to-know",
+              description: `<div style="background:#e8f5e9; border-left:6px solid #43a047; padding:20px 25px; margin-bottom:25px; border-radius:8px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#2e7d32;">
+  <h2 style="color:#388e3c; margin-bottom:12px;">🍫 HotChocolate - Modern GraphQL Server for .NET</h2>
+  <p>
+    <strong>HotChocolate</strong> is a powerful and modern GraphQL server implementation for .NET, designed for performance, extensibility, and developer productivity.
+    It allows building GraphQL APIs using schema-first or code-first approaches, with rich support for advanced features like subscriptions, filtering, sorting, and more.
+  </p>
+
+  <h3 style="color:#388e3c; margin-top:18px;">🔑 Key Features</h3>
+  <ul style="background:#c8e6c9; border-radius:6px; padding:12px 18px; color:#2e7d32; font-weight:600;">
+    <li style="margin-bottom:8px;"><strong>Schema-first & Code-first:</strong> Define your schema with SDL or C# classes.</li>
+    <li style="margin-bottom:8px;"><strong>Advanced Query Capabilities:</strong> Built-in support for filtering, sorting, paging.</li>
+    <li style="margin-bottom:8px;"><strong>Real-time Subscriptions:</strong> Enable push updates to clients easily.</li>
+    <li style="margin-bottom:8px;"><strong>Integration:</strong> Works seamlessly with ASP.NET Core DI, middleware, and authentication.</li>
+    <li style="margin-bottom:8px;"><strong>Performance:</strong> Optimized for high throughput and low latency.</li>
+  </ul>
+
+  <h3 style="color:#388e3c; margin-top:18px;">⚙️ Basic Example (Program.cs)</h3>
+  <pre style="background:#2e7d32; color:#e8f5e9; padding:18px; border-radius:8px; overflow-x:auto;">
+<code>var builder = WebApplication.CreateBuilder(args);
+builder.Services
+    .AddGraphQLServer()
+    .AddQueryType<Query>();
+
+var app = builder.Build();
+app.MapGraphQL();
+app.Run();
+
+public class Query
+{
+    public string Hello() => "Hello from HotChocolate!";
+}</code>
+  </pre>
+
+  <h3 style="color:#388e3c; margin-top:18px;">🛡️ Best Practices</h3>
+  <ul>
+    <li style="margin-bottom:10px;">Use DataLoader to batch and cache database calls to improve performance.</li>
+    <li style="margin-bottom:10px;">Implement proper authorization using HotChocolate's built-in authorization attributes.</li>
+    <li style="margin-bottom:10px;">Define clear and maintainable schemas, favoring code-first for better type safety.</li>
+    <li style="margin-bottom:10px;">Leverage middleware to handle logging, error handling, and request validation.</li>
+    <li style="margin-bottom:10px;">Use query complexity analysis to protect your API from expensive queries.</li>
+  </ul>
+
+  <h3 style="color:#388e3c; margin-top:18px;">🔗 Useful Resources</h3>
+  <ul>
+    <li><a href="https://chillicream.com/docs/hotchocolate" target="_blank" style="color:#43a047; text-decoration:none;">HotChocolate Official Docs</a></li>
+    <li><a href="https://github.com/chillicream/hotchocolate" target="_blank" style="color:#43a047; text-decoration:none;">GitHub Repository</a></li>
+    <li><a href="https://graphql.org/code/#csharp" target="_blank" style="color:#43a047; text-decoration:none;">GraphQL Official - C# Resources</a></li>
+  </ul>
+</div>
+` },
+            { id: "graphql-dotnet", title: "GraphQL.dotnet", type: "good-to-know",
+              description: `<div style="background:#f3e5f5; border-left:6px solid #7b1fa2; padding:20px 25px; margin-bottom:25px; border-radius:8px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#4a148c;">
+  <h2 style="color:#6a1b9a; margin-bottom:12px;">📦 GraphQL.NET - .NET implementation of GraphQL</h2>
+  <p>
+    <strong>GraphQL.NET</strong> is a mature and widely-used .NET library that enables building GraphQL APIs. It provides flexible schema definitions and supports queries, mutations, subscriptions, and more.
+    It’s ideal for developers wanting full control over schema and resolver logic using a code-first approach.
+  </p>
+
+  <h3 style="color:#6a1b9a; margin-top:18px;">🔑 Key Features</h3>
+  <ul style="background:#e1bee7; border-radius:6px; padding:12px 18px; color:#4a148c; font-weight:600;">
+    <li style="margin-bottom:8px;"><strong>Code-first Schema:</strong> Define types, queries, and mutations with C# classes.</li>
+    <li style="margin-bottom:8px;"><strong>Subscriptions:</strong> Support real-time data updates.</li>
+    <li style="margin-bottom:8px;"><strong>Flexible Resolver Logic:</strong> Customize field resolution as needed.</li>
+    <li style="margin-bottom:8px;"><strong>Middleware Pipeline:</strong> Intercept requests and add cross-cutting concerns.</li>
+    <li style="margin-bottom:8px;"><strong>Integration:</strong> Works with ASP.NET Core, dependency injection, and authentication.</li>
+  </ul>
+
+  <h3 style="color:#6a1b9a; margin-top:18px;">⚙️ Basic Example</h3>
+  <pre style="background:#4a148c; color:#e1bee7; padding:18px; border-radius:8px; overflow-x:auto;">
+<code>public class Query : ObjectGraphType
+{
+    public Query()
+    {
+        Field<StringGraphType>(
+            "hello",
+            resolve: context => "Hello from GraphQL.NET!"
+        );
+    }
+}
+
+// In Startup.cs or Program.cs
+services.AddGraphQL(options => {
+    options.EnableMetrics = false;
+})
+.AddSystemTextJson()
+.AddGraphTypes(ServiceLifetime.Scoped);
+</code>
+  </pre>
+
+  <h3 style="color:#6a1b9a; margin-top:18px;">🛡️ Best Practices</h3>
+  <ul>
+    <li style="margin-bottom:10px;">Modularize schema definitions to improve maintainability.</li>
+    <li style="margin-bottom:10px;">Implement DataLoader pattern to avoid N+1 query problems.</li>
+    <li style="margin-bottom:10px;">Use authorization checks in resolvers to secure sensitive data.</li>
+    <li style="margin-bottom:10px;">Apply query complexity and depth limits to protect your API.</li>
+    <li style="margin-bottom:10px;">Write comprehensive unit tests for schema and resolver logic.</li>
+  </ul>
+
+  <h3 style="color:#6a1b9a; margin-top:18px;">🔗 Useful Links</h3>
+  <ul>
+    <li><a href="https://graphql-dotnet.github.io/" target="_blank" style="color:#7b1fa2; text-decoration:none;">Official Documentation</a></li>
+    <li><a href="https://github.com/graphql-dotnet/graphql-dotnet" target="_blank" style="color:#7b1fa2; text-decoration:none;">GitHub Repository</a></li>
+    <li><a href="https://graphql.org/code/#csharp" target="_blank" style="color:#7b1fa2; text-decoration:none;">GraphQL Official - C# Resources</a></li>
+  </ul>
+</div>
+` },
           ]
         },
       ]
@@ -4494,10 +5237,254 @@ app.Use(async (context, next) =>
       title: "Background Task Scheduler",
       direction: "left",
       children: [
-        { id: "native-background-service", title: "Native BackgroundService", type: "must-know" },
-        { id: "hangfire", title: "HangFire", type: "good-to-know" },
-        { id: "quartz", title: "Quartz", type: "optional" },
-        { id: "coravel", title: "Coravel", type: "optional" },
+        { id: "native-background-service", title: "Native BackgroundService", type: "must-know",
+          description: `<div style="background:#e3f2fd; border-left:6px solid #1976d2; padding:20px 25px; margin-bottom:25px; border-radius:8px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#0d47a1;">
+  <h2 style="color:#1565c0; margin-bottom:12px;">⏳ Native Background Service in .NET Core</h2>
+  <p>
+    A <strong>Native Background Service</strong> is a long-running process or task that operates independently of user interaction,
+    typically used for running background jobs such as sending emails, processing queues, cleanup tasks, or scheduled jobs.
+  </p>
+
+  <h3 style="color:#1565c0; margin-top:18px;">🔑 Key Points</h3>
+  <ul style="background:#bbdefb; border-radius:6px; padding:12px 18px; color:#0d47a1; font-weight:600;">
+    <li style="margin-bottom:8px;"><strong>HostedService Interface:</strong> Implemented by <code>IHostedService</code> in ASP.NET Core to create background tasks.</li>
+    <li style="margin-bottom:8px;"><strong>BackgroundService Base Class:</strong> Abstract class simplifying the implementation of long-running background tasks.</li>
+    <li style="margin-bottom:8px;"><strong>Integration:</strong> Runs alongside your ASP.NET Core app, sharing the same host lifecycle.</li>
+    <li style="margin-bottom:8px;"><strong>Cancellation Token:</strong> Supports graceful shutdown with cancellation tokens.</li>
+    <li style="margin-bottom:8px;"><strong>Use Cases:</strong> Queue processing, scheduled jobs, event-driven workflows, cleanup.</li>
+  </ul>
+
+  <h3 style="color:#1565c0; margin-top:18px;">⚙️ Basic Example</h3>
+  <pre style="background:#0d47a1; color:#bbdefb; padding:18px; border-radius:8px; overflow-x:auto;">
+<code>public class MyBackgroundService : BackgroundService
+{
+    protected override async Task ExecuteAsync(CancellationToken stoppingToken)
+    {
+        while (!stoppingToken.IsCancellationRequested)
+        {
+            // Your background task logic here
+            Console.WriteLine("Background task running at: " + DateTimeOffset.Now);
+            await Task.Delay(TimeSpan.FromMinutes(1), stoppingToken);
+        }
+    }
+}
+
+// In Program.cs or Startup.cs
+builder.Services.AddHostedService<MyBackgroundService>();
+</code>
+  </pre>
+
+  <h3 style="color:#1565c0; margin-top:18px;">🛡️ Best Practices</h3>
+  <ul>
+    <li style="margin-bottom:10px;">Always respect <code>CancellationToken</code> to allow graceful shutdown of the service.</li>
+    <li style="margin-bottom:10px;">Keep background task logic isolated and simple.</li>
+    <li style="margin-bottom:10px;">Avoid blocking calls; use async/await for scalability.</li>
+    <li style="margin-bottom:10px;">Use dependency injection to access scoped services safely.</li>
+    <li style="margin-bottom:10px;">Log important events and errors within the background service.</li>
+    <li style="margin-bottom:10px;">For scheduled jobs, consider using libraries like <em>Quartz.NET</em> or hosted timers.</li>
+  </ul>
+
+  <h3 style="color:#1565c0; margin-top:18px;">🔗 Resources</h3>
+  <ul>
+    <li><a href="https://learn.microsoft.com/en-us/aspnet/core/fundamentals/host/hosted-services" target="_blank" style="color:#1976d2; text-decoration:none;">Microsoft Docs: Background tasks with hosted services</a></li>
+    <li><a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.hosting.backgroundservice" target="_blank" style="color:#1976d2; text-decoration:none;">BackgroundService Class API</a></li>
+    <li><a href="https://www.quartz-scheduler.net/" target="_blank" style="color:#1976d2; text-decoration:none;">Quartz.NET Scheduler Library</a></li>
+  </ul>
+</div>
+` },
+        { id: "hangfire", title: "HangFire", type: "good-to-know",
+          description: `<div style="background:#fff3e0; border-left:6px solid #fb8c00; padding:20px 25px; margin-bottom:25px; border-radius:8px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#e65100;">
+  <h2 style="color:#ef6c00; margin-bottom:12px;">⏰ Hangfire - Background Job Processing</h2>
+  <p>
+    <strong>Hangfire</strong> is a popular, open-source library to perform background job processing in .NET applications.
+    It allows running fire-and-forget, delayed, recurring, and continuations jobs reliably, without needing a separate Windows Service or Scheduler.
+  </p>
+
+  <h3 style="color:#ef6c00; margin-top:18px;">🔑 Key Features</h3>
+  <ul style="background:#ffe0b2; border-radius:6px; padding:12px 18px; color:#bf360c; font-weight:600;">
+    <li style="margin-bottom:8px;"><strong>Persistent storage:</strong> Supports SQL Server, Redis, PostgreSQL, and others for reliable job storage.</li>
+    <li style="margin-bottom:8px;"><strong>Automatic retries:</strong> Failed jobs are automatically retried based on configurable policies.</li>
+    <li style="margin-bottom:8px;"><strong>Dashboard UI:</strong> Provides a real-time, web-based dashboard to monitor job status, history, and performance.</li>
+    <li style="margin-bottom:8px;"><strong>Scalable:</strong> Can run on a single server or scaled out across multiple servers.</li>
+    <li style="margin-bottom:8px;"><strong>Supports various job types:</strong> Fire-and-forget, delayed, recurring, and continuations.</li>
+  </ul>
+
+  <h3 style="color:#ef6c00; margin-top:18px;">⚙️ Basic Usage Example</h3>
+  <pre style="background:#bf360c; color:#ffe0b2; padding:18px; border-radius:8px; overflow-x:auto;">
+<code>using Hangfire;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        var builder = WebApplication.CreateBuilder(args);
+
+        // Add Hangfire services
+        builder.Services.AddHangfire(config =>
+            config.UseSqlServerStorage("YourConnectionStringHere"));
+        builder.Services.AddHangfireServer();
+
+        var app = builder.Build();
+
+        // Use Hangfire Dashboard (optional)
+        app.UseHangfireDashboard();
+
+        // Enqueue a fire-and-forget job
+        BackgroundJob.Enqueue(() => Console.WriteLine("Hello from Hangfire!"));
+
+        app.Run();
+    }
+}
+</code>
+  </pre>
+
+  <h3 style="color:#ef6c00; margin-top:18px;">🛡️ Best Practices</h3>
+  <ul>
+    <li style="margin-bottom:10px;">Keep background job logic isolated and idempotent to prevent inconsistent results on retries.</li>
+    <li style="margin-bottom:10px;">Avoid long-running jobs; consider chunking large workloads.</li>
+    <li style="margin-bottom:10px;">Secure the Hangfire Dashboard with authentication and authorization to prevent unauthorized access.</li>
+    <li style="margin-bottom:10px;">Monitor job failures and configure alerting on critical job errors.</li>
+    <li style="margin-bottom:10px;">Use <code>RecurringJob</code> for scheduled tasks instead of external schedulers.</li>
+    <li style="margin-bottom:10px;">Clean up old jobs periodically using built-in retention settings.</li>
+  </ul>
+
+  <h3 style="color:#ef6c00; margin-top:18px;">🔗 Resources</h3>
+  <ul>
+    <li><a href="https://www.hangfire.io/" target="_blank" style="color:#fb8c00; text-decoration:none;">Official Hangfire Website</a></li>
+    <li><a href="https://docs.hangfire.io/en/latest/" target="_blank" style="color:#fb8c00; text-decoration:none;">Hangfire Documentation</a></li>
+    <li><a href="https://github.com/HangfireIO/Hangfire" target="_blank" style="color:#fb8c00; text-decoration:none;">GitHub Repository</a></li>
+  </ul>
+</div>
+` },
+        { id: "quartz", title: "Quartz", type: "optional",
+          description: `<div style="background:#e8f5e9; border-left:6px solid #43a047; padding:20px 25px; margin-bottom:25px; border-radius:8px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#2e7d32;">
+  <h2 style="color:#388e3c; margin-bottom:12px;">⏳ Quartz.NET - Advanced Job Scheduling</h2>
+  <p>
+    <strong>Quartz.NET</strong> is a powerful, open-source job scheduling library for .NET applications. It supports complex scheduling requirements including cron expressions, calendars, and job persistence.
+  </p>
+
+  <h3 style="color:#388e3c; margin-top:18px;">🔑 Key Features</h3>
+  <ul style="background:#c8e6c9; border-radius:6px; padding:12px 18px; color:#2e7d32; font-weight:600;">
+    <li style="margin-bottom:8px;"><strong>Cron Scheduling:</strong> Support for flexible and complex schedules using cron expressions.</li>
+    <li style="margin-bottom:8px;"><strong>Persistent Jobs:</strong> Stores job data and triggers in a durable store like SQL Server, ensuring jobs survive restarts.</li>
+    <li style="margin-bottom:8px;"><strong>Clustering:</strong> Supports distributed job execution across multiple servers.</li>
+    <li style="margin-bottom:8px;"><strong>Job Chaining & Listeners:</strong> Supports complex workflows with job listeners and chaining.</li>
+    <li style="margin-bottom:8px;"><strong>Job Types:</strong> Supports both simple and stateful jobs.</li>
+  </ul>
+
+  <h3 style="color:#388e3c; margin-top:18px;">⚙️ Basic Usage Example</h3>
+  <pre style="background:#2e7d32; color:#c8e6c9; padding:18px; border-radius:8px; overflow-x:auto;">
+<code>public class HelloJob : IJob
+{
+    public Task Execute(IJobExecutionContext context)
+    {
+        Console.WriteLine("Hello from Quartz.NET Job! - " + DateTime.Now);
+        return Task.CompletedTask;
+    }
+}
+
+// In Program.cs or Startup.cs
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddQuartz(q =>
+{
+    q.UseMicrosoftDependencyInjectionScopedJobFactory();
+
+    var jobKey = new JobKey("HelloJob");
+    q.AddJob<HelloJob>(opts => opts.WithIdentity(jobKey));
+
+    q.AddTrigger(opts => opts
+        .ForJob(jobKey)
+        .WithIdentity("HelloJob-trigger")
+        .WithCronSchedule("0/30 * * * * ?")); // Every 30 seconds
+});
+
+builder.Services.AddQuartzHostedService(q => q.WaitForJobsToComplete = true);
+
+var app = builder.Build();
+app.Run();
+</code>
+  </pre>
+
+  <h3 style="color:#388e3c; margin-top:18px;">🛡️ Best Practices</h3>
+  <ul>
+    <li style="margin-bottom:10px;">Use persistent job stores (e.g. SQL Server) to avoid losing jobs after app restarts.</li>
+    <li style="margin-bottom:10px;">Design jobs to be idempotent to handle retries safely.</li>
+    <li style="margin-bottom:10px;">Use dependency injection inside jobs to keep code clean and testable.</li>
+    <li style="margin-bottom:10px;">Monitor job execution and failures via listeners and logging.</li>
+    <li style="margin-bottom:10px;">Carefully manage long-running jobs to avoid blocking the scheduler thread pool.</li>
+  </ul>
+
+  <h3 style="color:#388e3c; margin-top:18px;">🔗 Resources</h3>
+  <ul>
+    <li><a href="https://www.quartz-scheduler.net/" target="_blank" style="color:#43a047; text-decoration:none;">Official Quartz.NET Website</a></li>
+    <li><a href="https://www.quartz-scheduler.net/documentation/" target="_blank" style="color:#43a047; text-decoration:none;">Quartz.NET Documentation</a></li>
+    <li><a href="https://github.com/quartznet/quartznet" target="_blank" style="color:#43a047; text-decoration:none;">GitHub Repository</a></li>
+  </ul>
+</div>
+` },
+        { id: "coravel", title: "Coravel", type: "optional",
+          description: `<div style="background:#e3f2fd; border-left:6px solid #1976d2; padding:20px 25px; margin-bottom:25px; border-radius:8px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#0d47a1;">
+  <h2 style="color:#1565c0; margin-bottom:12px;">⚡ Coravel - Simplified Background Tasks & Scheduling</h2>
+  <p>
+    <strong>Coravel</strong> is a lightweight, elegant library for .NET that simplifies common background tasks like scheduling, caching, queuing, and event broadcasting without the need for external dependencies.
+  </p>
+
+  <h3 style="color:#1565c0; margin-top:18px;">🔑 Key Features</h3>
+  <ul style="background:#bbdefb; border-radius:6px; padding:12px 18px; color:#0d47a1; font-weight:600;">
+    <li style="margin-bottom:8px;"><strong>Task Scheduling:</strong> Simple cron-like syntax to schedule recurring jobs.</li>
+    <li style="margin-bottom:8px;"><strong>Queue Processing:</strong> Built-in queue system for fire-and-forget and delayed tasks.</li>
+    <li style="margin-bottom:8px;"><strong>Cache Management:</strong> Easy caching with support for memory and distributed caches.</li>
+    <li style="margin-bottom:8px;"><strong>Event Broadcasting:</strong> Supports event-driven architecture with listeners and dispatchers.</li>
+    <li style="margin-bottom:8px;"><strong>No external dependencies:</strong> Runs entirely in-process, simplifying setup and deployment.</li>
+  </ul>
+
+  <h3 style="color:#1565c0; margin-top:18px;">⚙️ Basic Usage Example</h3>
+  <pre style="background:#0d47a1; color:#bbdefb; padding:18px; border-radius:8px; overflow-x:auto;">
+<code>public class SendReminderEmailTask : IInvocable
+{
+    public Task Invoke()
+    {
+        Console.WriteLine("Sending reminder email...");
+        // Your email sending logic here
+        return Task.CompletedTask;
+    }
+}
+
+// In Program.cs or Startup.cs
+var builder = WebApplication.CreateBuilder(args);
+
+// Register Coravel services
+builder.Services.AddCoravel();
+
+// Schedule the task every day at 9 AM
+builder.Services.UseScheduler(scheduler =>
+{
+    scheduler.Schedule<SendReminderEmailTask>().DailyAtHour(9);
+});
+
+var app = builder.Build();
+app.Run();
+</code>
+  </pre>
+
+  <h3 style="color:#1565c0; margin-top:18px;">🛡️ Best Practices</h3>
+  <ul>
+    <li style="margin-bottom:10px;">Keep scheduled tasks short and idempotent to avoid overlapping or repeated execution issues.</li>
+    <li style="margin-bottom:10px;">Use dependency injection to keep task classes clean and testable.</li>
+    <li style="margin-bottom:10px;">Monitor your scheduled jobs using logging and error handling.</li>
+    <li style="margin-bottom:10px;">For long-running or heavy tasks, consider queuing them instead of running synchronously.</li>
+    <li style="margin-bottom:10px;">Avoid using Coravel for extremely high-scale or distributed scenarios; prefer tools like Quartz.NET in those cases.</li>
+  </ul>
+
+  <h3 style="color:#1565c0; margin-top:18px;">🔗 Resources</h3>
+  <ul>
+    <li><a href="https://github.com/jamesmh/coravel" target="_blank" style="color:#1976d2; text-decoration:none;">Official Coravel GitHub</a></li>
+    <li><a href="https://docs.coravel.net/" target="_blank" style="color:#1976d2; text-decoration:none;">Coravel Documentation</a></li>
+    <li><a href="https://www.nuget.org/packages/Coravel" target="_blank" style="color:#1976d2; text-decoration:none;">NuGet Package</a></li>
+  </ul>
+</div>
+` },
       ]
     },
     {
@@ -4505,9 +5492,208 @@ app.Use(async (context, next) =>
       title: "Object Mapping",
       direction: "right",
       children: [
-        { id: "manual-mapping", title: "Manual mapping", type: "must-know" },
-        { id: "mappery", title: "Mapperly", type: "good-to-know" },
-        { id: "automapper", title: "AutoMapper", type: "good-to-know" },
+        { id: "manual-mapping", title: "Manual mapping", type: "must-know",
+          description: `<div style="background:#fff8e1; border-left:6px solid #ffb300; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#5d4037;">
+  <h2 style="color:#ff8f00; margin-bottom:15px;">🛠️ Manual Object Mapping in .NET - The Art of Explicit Transformation</h2>
+  
+  <p>
+    <strong>Manual mapping</strong> refers to the process of explicitly transferring data from one object to another by writing the mapping code yourself, without relying on third-party libraries. This technique is fundamental when you need <em>fine-grained control</em> over how data flows between layers, especially when transformations or business-specific conversions are involved.
+  </p>
+
+  <h3 style="color:#ff8f00; margin-top:25px;">🔍 Why choose manual mapping?</h3>
+  <ul style="background:#fff3e0; border-radius:8px; padding:15px 20px; color:#6d4c41; font-weight:600;">
+    <li style="margin-bottom:10px;">✔️ No external dependencies - keep your codebase lightweight.</li>
+    <li style="margin-bottom:10px;">✔️ Full control over every property and transformation applied.</li>
+    <li style="margin-bottom:10px;">✔️ Optimal performance for simple or highly customized mappings.</li>
+    <li style="margin-bottom:10px;">✔️ Easier debugging, as every step is explicit and transparent.</li>
+    <li style="margin-bottom:10px;">✔️ Flexibility to handle complex mapping scenarios that auto-mappers struggle with.</li>
+  </ul>
+
+  <h3 style="color:#ff8f00; margin-top:25px;">⚙️ Example: Mapping between Entity and DTO</h3>
+  <pre style="background:#5d4037; color:#fff3e0; padding:20px; border-radius:10px; overflow-x:auto;">
+<code>public class UserEntity
+{
+    public int Id { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+    public DateTime BirthDate { get; set; }
+}
+
+public class UserDto
+{
+    public string FullName { get; set; }
+    public int Age { get; set; }
+}
+
+// Manual mapping method
+public UserDto MapUserEntityToDto(UserEntity user)
+{
+    return new UserDto
+    {
+        FullName = $"{user.FirstName} {user.LastName}",
+        Age = CalculateAge(user.BirthDate)
+    };
+}
+
+private int CalculateAge(DateTime birthDate)
+{
+    var today = DateTime.Today;
+    var age = today.Year - birthDate.Year;
+    if (birthDate.Date > today.AddYears(-age)) age--;
+    return age;
+}</code>
+  </pre>
+
+  <h3 style="color:#ff8f00; margin-top:25px;">💡 Best Practices for Manual Mapping</h3>
+  <ul style="color:#6d4c41;">
+    <li style="margin-bottom:12px;">
+      <strong>Separate mapping logic:</strong> Organize your mapping code in dedicated classes or extension methods to keep your business logic clean.
+    </li>
+    <li style="margin-bottom:12px;">
+      <strong>Keep mappings simple and pure:</strong> Avoid embedding business rules or side-effects inside mapping functions.
+    </li>
+    <li style="margin-bottom:12px;">
+      <strong>Reuse common mappings:</strong> Use helper methods for repeated logic like date calculations or formatting.
+    </li>
+    <li style="margin-bottom:12px;">
+      <strong>Test your mappings:</strong> Write unit tests to verify your mappings especially when they include transformations.
+    </li>
+    <li style="margin-bottom:12px;">
+      <strong>Consider maintainability:</strong> When mappings become numerous and complex, consider introducing mapping libraries (e.g., AutoMapper) but always understand the manual approach first.
+    </li>
+  </ul>
+
+  <h3 style="color:#ff8f00; margin-top:25px;">🔗 Further Reading</h3>
+  <ul style="color:#6d4c41;">
+    <li><a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/structs" target="_blank" style="color:#ff8f00; text-decoration:none;">C# Structs and Classes</a></li>
+    <li><a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/models/model-binding" target="_blank" style="color:#ff8f00; text-decoration:none;">ASP.NET Core Model Binding</a></li>
+    <li><a href="https://ardalis.com/clarify-automapper-with-examples/" target="_blank" style="color:#ff8f00; text-decoration:none;">Understanding AutoMapper and When to Avoid It</a></li>
+  </ul>
+</div>
+` },
+        { id: "mappery", title: "Mapperly", type: "good-to-know",
+          description: `<div style="background:#e3f2fd; border-left:6px solid #2196f3; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#0d47a1;">
+  <h2 style="color:#1976d2; margin-bottom:15px;">🛠️ Mapperly: High-Performance Source-Generated Object Mapping for .NET</h2>
+
+  <p>
+    <strong>Mapperly</strong> is a modern, source generator-based object mapping library for .NET that offers blazing-fast, compile-time safe mappings with zero runtime reflection. It helps you avoid the overhead and pitfalls of runtime mappers by generating mapping code during compilation.
+  </p>
+
+  <h3 style="color:#1976d2; margin-top:25px;">🔍 Why Use Mapperly?</h3>
+  <ul style="background:#bbdefb; border-radius:8px; padding:15px 20px; color:#0d47a1; font-weight:600;">
+    <li style="margin-bottom:10px;">⚡ Ultra-fast performance with no runtime reflection overhead.</li>
+    <li style="margin-bottom:10px;">🔒 Compile-time safety - mapping errors are caught early.</li>
+    <li style="margin-bottom:10px;">🛠️ Simple attribute-based configuration for flexible mapping.</li>
+    <li style="margin-bottom:10px;">📦 Lightweight - minimal dependencies and easy to integrate.</li>
+    <li style="margin-bottom:10px;">🧩 Supports complex scenarios including custom converters and nested mappings.</li>
+  </ul>
+
+  <h3 style="color:#1976d2; margin-top:25px;">⚙️ Basic Example</h3>
+  <pre style="background:#0d47a1; color:#e3f2fd; padding:20px; border-radius:10px; overflow-x:auto;">
+<code>using Riok.Mapperly.Abstractions;
+
+public class UserEntity
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+}
+
+public class UserDto
+{
+    public string FullName { get; set; }
+}
+
+[Mapper]
+public partial class UserMapper
+{
+    public partial UserDto Map(UserEntity user);
+}</code>
+  </pre>
+
+  <p>
+    Mapperly will generate the implementation of <code>UserMapper.Map</code> at compile time, combining <code>FirstName</code> and <code>LastName</code> into <code>FullName</code> if configured properly.
+  </p>
+
+  <h3 style="color:#1976d2; margin-top:25px;">💡 Best Practices</h3>
+  <ul style="color:#0d47a1;">
+    <li style="margin-bottom:12px;">Use Mapperly for high-performance scenarios where runtime mappers introduce bottlenecks.</li>
+    <li style="margin-bottom:12px;">Keep your mapper classes small and focused per domain or feature.</li>
+    <li style="margin-bottom:12px;">Leverage custom mapping methods for special transformations.</li>
+    <li style="margin-bottom:12px;">Include unit tests for your mapping logic even if it's generated to ensure expected behavior.</li>
+    <li style="margin-bottom:12px;">Regularly update Mapperly package to benefit from latest improvements and bug fixes.</li>
+  </ul>
+
+  <h3 style="color:#1976d2; margin-top:25px;">🔗 Learn More</h3>
+  <ul style="color:#0d47a1;">
+    <li><a href="https://github.com/riok/mapperly" target="_blank" style="color:#1976d2; text-decoration:none;">Mapperly GitHub Repository</a></li>
+    <li><a href="https://github.com/riok/mapperly#readme" target="_blank" style="color:#1976d2; text-decoration:none;">Official Documentation & Examples</a></li>
+  </ul>
+</div>
+` },
+        { id: "automapper", title: "AutoMapper", type: "good-to-know",
+          description: `<div style="background:#fff3e0; border-left:6px solid #fb8c00; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#bf360c;">
+  <h2 style="color:#ef6c00; margin-bottom:15px;">🛠️ AutoMapper: Convention-Based Object-Object Mapper for .NET</h2>
+
+  <p>
+    <strong>AutoMapper</strong> is a widely-used object-to-object mapping library in .NET that helps reduce the manual coding required to map between objects, especially useful in layered architectures (DTOs, Entities, ViewModels).
+    It follows convention-based mapping but also supports explicit configuration.
+  </p>
+
+  <h3 style="color:#ef6c00; margin-top:25px;">🔍 Why Use AutoMapper?</h3>
+  <ul style="background:#ffe0b2; border-radius:8px; padding:15px 20px; color:#bf360c; font-weight:600;">
+    <li style="margin-bottom:10px;">🚀 Simplifies mapping logic, reducing boilerplate code.</li>
+    <li style="margin-bottom:10px;">🔄 Supports complex mappings, flattening, and nested objects.</li>
+    <li style="margin-bottom:10px;">⚙️ Customizable with profiles, converters, and resolvers.</li>
+    <li style="margin-bottom:10px;">🔧 Integrates well with dependency injection in ASP.NET Core.</li>
+    <li style="margin-bottom:10px;">🌐 Large community and mature ecosystem.</li>
+  </ul>
+
+  <h3 style="color:#ef6c00; margin-top:25px;">⚙️ Basic Example</h3>
+  <pre style="background:#bf360c; color:#fff3e0; padding:20px; border-radius:10px; overflow-x:auto;">
+<code>public class UserEntity
+{
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
+}
+
+public class UserDto
+{
+    public string FullName { get; set; }
+}
+
+public class UserProfile : Profile
+{
+    public UserProfile()
+    {
+        CreateMap<UserEntity, UserDto>()
+            .ForMember(dest => dest.FullName, opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}"));
+    }
+}
+
+// In Startup.cs or Program.cs
+services.AddAutoMapper(typeof(UserProfile));</code>
+  </pre>
+
+  <p>
+    After configuration, you can inject <code>IMapper</code> and use <code>mapper.Map&lt;UserDto&gt;(userEntity)</code> to map objects.
+  </p>
+
+  <h3 style="color:#ef6c00; margin-top:25px;">💡 Best Practices</h3>
+  <ul style="color:#bf360c;">
+    <li style="margin-bottom:12px;">Organize your mappings in Profiles by feature or domain for maintainability.</li>
+    <li style="margin-bottom:12px;">Avoid complex logic in mapping expressions—prefer pre-processing data.</li>
+    <li style="margin-bottom:12px;">Unit test critical mapping configurations to prevent silent failures.</li>
+    <li style="margin-bottom:12px;">Use <code>ProjectTo</code> for efficient LINQ-to-Entities queries that translate to SQL.</li>
+    <li style="margin-bottom:12px;">Keep AutoMapper updated to benefit from performance improvements and fixes.</li>
+  </ul>
+
+  <h3 style="color:#ef6c00; margin-top:25px;">🔗 Learn More</h3>
+  <ul style="color:#bf360c;">
+    <li><a href="https://automapper.org/" target="_blank" style="color:#ef6c00; text-decoration:none;">Official AutoMapper Documentation</a></li>
+    <li><a href="https://github.com/AutoMapper/AutoMapper" target="_blank" style="color:#ef6c00; text-decoration:none;">GitHub Repository</a></li>
+  </ul>
+</div>
+` },
       ]
     },
     {
@@ -4518,51 +5704,1431 @@ app.Use(async (context, next) =>
         {
           id: "message-broker",
           title: "Message broker",
+          description: `<div style="background:#f0f4c3; border-left:6px solid #c0ca33; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#33691e;">
+  <h2 style="color:#9ccc65; margin-bottom:15px;">🧩 Microservices & Message Brokers</h2>
+
+  <p>
+    <strong>Microservices</strong> architecture breaks down an application into smaller, independently deployable services, each focusing on a single business capability. Communication between microservices is often asynchronous to improve scalability and resilience.
+  </p>
+
+  <h3 style="color:#9ccc65; margin-top:25px;">📡 What is a Message Broker?</h3>
+  <p>
+    A <strong>Message Broker</strong> is an intermediary software that enables microservices to communicate asynchronously by sending and receiving messages through queues or topics.
+  </p>
+
+  <ul style="background:#dcedc8; border-radius:8px; padding:15px 20px; color:#33691e; font-weight:600;">
+    <li style="margin-bottom:10px;">🛠️ Decouples services by buffering and routing messages.</li>
+    <li style="margin-bottom:10px;">⚡ Enables reliable, scalable, and resilient event-driven communication.</li>
+    <li style="margin-bottom:10px;">🔄 Supports patterns like Publish/Subscribe, Request/Reply, and Event Sourcing.</li>
+  </ul>
+
+  <h3 style="color:#9ccc65; margin-top:25px;">⚙️ Popular Message Brokers</h3>
+  <ul style="color:#33691e;">
+    <li><strong>RabbitMQ:</strong> Open-source broker supporting AMQP protocol, reliable and widely adopted.</li>
+    <li><strong>Apache Kafka:</strong> Distributed streaming platform for high-throughput event processing.</li>
+    <li><strong>Azure Service Bus:</strong> Fully managed enterprise messaging service on Azure cloud.</li>
+    <li><strong>Amazon SQS:</strong> Scalable queue service in AWS ecosystem.</li>
+  </ul>
+
+  <h3 style="color:#9ccc65; margin-top:25px;">🚀 Example: Using RabbitMQ in ASP.NET Core</h3>
+  <pre style="background:#33691e; color:#f0f4c3; padding:20px; border-radius:10px; overflow-x:auto;">
+<code>public class MessagePublisher
+{
+    private readonly IModel _channel;
+
+    public MessagePublisher(IConnection connection)
+    {
+        _channel = connection.CreateModel();
+        _channel.QueueDeclare(queue: "orderQueue", durable: false, exclusive: false, autoDelete: false, arguments: null);
+    }
+
+    public void Publish(string message)
+    {
+        var body = Encoding.UTF8.GetBytes(message);
+        _channel.BasicPublish(exchange: "", routingKey: "orderQueue", basicProperties: null, body: body);
+    }
+}</code>
+  </pre>
+
+  <h3 style="color:#9ccc65; margin-top:25px;">💡 Best Practices</h3>
+  <ul style="color:#33691e;">
+    <li style="margin-bottom:12px;">Design microservices to be autonomous and loosely coupled.</li>
+    <li style="margin-bottom:12px;">Prefer asynchronous communication to improve scalability.</li>
+    <li style="margin-bottom:12px;">Implement retry and dead-letter queues for message failure handling.</li>
+    <li style="margin-bottom:12px;">Secure message brokers using TLS and proper authentication mechanisms.</li>
+    <li style="margin-bottom:12px;">Monitor broker metrics and set alerts for system health.</li>
+  </ul>
+
+  <h3 style="color:#9ccc65; margin-top:25px;">🔗 Learn More</h3>
+  <ul style="color:#33691e;">
+    <li><a href="https://www.rabbitmq.com/tutorials/tutorial-one-dotnet.html" target="_blank" style="color:#9ccc65; text-decoration:none;">RabbitMQ .NET Tutorials</a></li>
+    <li><a href="https://kafka.apache.org/documentation/" target="_blank" style="color:#9ccc65; text-decoration:none;">Apache Kafka Documentation</a></li>
+    <li><a href="https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview" target="_blank" style="color:#9ccc65; text-decoration:none;">Azure Service Bus Overview</a></li>
+  </ul>
+</div>
+`,
           children: [
-            { id: "rabbitmq", title: "RabbitMQ", type: "good-to-know" },
-            { id: "apache-kafka", title: "Apache Kafka", type: "good-to-know" },
-            { id: "azure-service-bus", title: "Azure Service Bus", type: "optional" },
-            { id: "amazon-sqs", title: "Amazon SQS", type: "optional" },
-            { id: "netmq", title: "NetMQ", type: "optional" },
+            { id: "rabbitmq", title: "RabbitMQ", type: "good-to-know",
+              description: `<div style="background:#e3f2fd; border-left:6px solid #2196f3; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#0d47a1;">
+  <h2 style="color:#1976d2; margin-bottom:15px;">🐇 RabbitMQ: Robust Message Broker for Distributed Systems</h2>
+
+  <p>
+    <strong>RabbitMQ</strong> is a popular open-source message broker that implements the Advanced Message Queuing Protocol (AMQP). It enables asynchronous communication between distributed systems or microservices by managing message queues, exchanges, and routing.
+  </p>
+
+  <h3 style="color:#1976d2; margin-top:25px;">🔑 Key Concepts</h3>
+  <ul style="background:#bbdefb; border-radius:8px; padding:15px 20px; color:#0d47a1; font-weight:600;">
+    <li style="margin-bottom:10px;"><strong>Producer:</strong> Sends messages to RabbitMQ exchanges.</li>
+    <li style="margin-bottom:10px;"><strong>Exchange:</strong> Routes messages to queues based on binding rules.</li>
+    <li style="margin-bottom:10px;"><strong>Queue:</strong> Buffers messages until consumers process them.</li>
+    <li style="margin-bottom:10px;"><strong>Consumer:</strong> Receives and processes messages from queues.</li>
+    <li style="margin-bottom:10px;"><strong>Binding:</strong> Relationship between exchange and queue.</li>
+  </ul>
+
+  <h3 style="color:#1976d2; margin-top:25px;">⚙️ Common Exchange Types</h3>
+  <ul style="color:#0d47a1;">
+    <li><strong>Direct:</strong> Routes messages to queues where routing key matches exactly.</li>
+    <li><strong>Fanout:</strong> Broadcasts messages to all bound queues regardless of routing key.</li>
+    <li><strong>Topic:</strong> Routes messages based on pattern matching of routing keys (supports wildcards).</li>
+    <li><strong>Headers:</strong> Routes messages based on message header attributes.</li>
+  </ul>
+
+  <h3 style="color:#1976d2; margin-top:25px;">🚀 Basic Example: Publishing & Consuming Messages</h3>
+  <pre style="background:#0d47a1; color:#bbdefb; padding:20px; border-radius:10px; overflow-x:auto;">
+<code>var factory = new ConnectionFactory() { HostName = "localhost" };
+using var connection = factory.CreateConnection();
+using var channel = connection.CreateModel();
+
+channel.QueueDeclare(queue: "task_queue", durable: true, exclusive: false, autoDelete: false, arguments: null);
+
+string message = "Hello RabbitMQ!";
+var body = Encoding.UTF8.GetBytes(message);
+
+var properties = channel.CreateBasicProperties();
+properties.Persistent = true; // Message persistence
+
+channel.BasicPublish(exchange: "", routingKey: "task_queue", basicProperties: properties, body: body);
+Console.WriteLine(" [x] Sent {0}", message);</code>
+  </pre>
+
+  <p>
+    Consumers can subscribe to <code>task_queue</code> and process messages reliably.
+  </p>
+
+  <h3 style="color:#1976d2; margin-top:25px;">💡 Best Practices</h3>
+  <ul style="color:#0d47a1;">
+    <li style="margin-bottom:12px;">Use <strong>durable queues</strong> and <strong>persistent messages</strong> to ensure messages survive broker restarts.</li>
+    <li style="margin-bottom:12px;">Implement <strong>acknowledgements</strong> to guarantee message processing.</li>
+    <li style="margin-bottom:12px;">Design for <strong>idempotency</strong> in consumers to handle potential duplicate deliveries.</li>
+    <li style="margin-bottom:12px;">Use <strong>dead-letter exchanges</strong> for handling failed messages.</li>
+    <li style="margin-bottom:12px;">Monitor RabbitMQ server health and set up alerts on queue lengths and consumer status.</li>
+    <li style="margin-bottom:12px;">Secure your broker with TLS and proper user permissions.</li>
+  </ul>
+
+  <h3 style="color:#1976d2; margin-top:25px;">🔗 Learn More</h3>
+  <ul style="color:#0d47a1;">
+    <li><a href="https://www.rabbitmq.com/tutorials/tutorial-one-dotnet.html" target="_blank" style="color:#1976d2; text-decoration:none;">Official RabbitMQ .NET Tutorial</a></li>
+    <li><a href="https://www.rabbitmq.com/documentation.html" target="_blank" style="color:#1976d2; text-decoration:none;">RabbitMQ Documentation</a></li>
+  </ul>
+</div>
+` },
+            { id: "apache-kafka", title: "Apache Kafka", type: "good-to-know",
+              description: `<div style="background:#f3e5f5; border-left:6px solid #7b1fa2; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#4a148c;">
+  <h2 style="color:#9c27b0; margin-bottom:15px;">🚀 Apache Kafka: Distributed Streaming Platform</h2>
+
+  <p>
+    <strong>Apache Kafka</strong> is a high-throughput, fault-tolerant distributed event streaming platform widely used for building real-time data pipelines and streaming applications. Kafka acts as a durable message broker designed for large-scale message processing with low latency.
+  </p>
+
+  <h3 style="color:#9c27b0; margin-top:25px;">🔑 Core Concepts</h3>
+  <ul style="background:#e1bee7; border-radius:8px; padding:15px 20px; color:#4a148c; font-weight:600;">
+    <li style="margin-bottom:10px;"><strong>Producer:</strong> Sends messages (events) to Kafka topics.</li>
+    <li style="margin-bottom:10px;"><strong>Consumer:</strong> Reads messages from topics, usually in consumer groups.</li>
+    <li style="margin-bottom:10px;"><strong>Topic:</strong> Logical channel to which messages are published.</li>
+    <li style="margin-bottom:10px;"><strong>Partition:</strong> Subdivision of topics for parallelism and scalability.</li>
+    <li style="margin-bottom:10px;"><strong>Broker:</strong> Kafka server node that stores and serves data.</li>
+    <li style="margin-bottom:10px;"><strong>Offset:</strong> Position of a consumer within a partition to track processed messages.</li>
+  </ul>
+
+  <h3 style="color:#9c27b0; margin-top:25px;">⚙️ Kafka Usage Patterns</h3>
+  <ul style="color:#4a148c;">
+    <li><strong>Event Sourcing:</strong> Persist state changes as a sequence of events.</li>
+    <li><strong>Stream Processing:</strong> Real-time analytics and data transformations.</li>
+    <li><strong>Decoupled Microservices Communication:</strong> Async messaging and event-driven architecture.</li>
+  </ul>
+
+  <h3 style="color:#9c27b0; margin-top:25px;">🚀 Basic Example: Producing Messages with .NET</h3>
+  <pre style="background:#4a148c; color:#e1bee7; padding:20px; border-radius:10px; overflow-x:auto;">
+<code>var config = new ProducerConfig { BootstrapServers = "localhost:9092" };
+
+using var producer = new ProducerBuilder&lt;Null, string&gt;(config).Build();
+
+try
+{
+    var deliveryResult = await producer.ProduceAsync("my-topic", new Message&lt;Null, string&gt; { Value = "Hello Kafka!" });
+    Console.WriteLine($"Delivered message to {deliveryResult.TopicPartitionOffset}");
+}
+catch (ProduceException&lt;Null, string&gt; e)
+{
+    Console.WriteLine($"Delivery failed: {e.Error.Reason}");
+}</code>
+  </pre>
+
+  <h3 style="color:#9c27b0; margin-top:25px;">💡 Best Practices</h3>
+  <ul style="color:#4a148c;">
+    <li style="margin-bottom:12px;">Partition topics thoughtfully to balance load and enable parallel processing.</li>
+    <li style="margin-bottom:12px;">Use consumer groups to scale message processing horizontally.</li>
+    <li style="margin-bottom:12px;">Enable message compression to optimize bandwidth usage.</li>
+    <li style="margin-bottom:12px;">Monitor offsets and lag to ensure consumers keep up with producers.</li>
+    <li style="margin-bottom:12px;">Implement idempotent producers and consumers to handle retries safely.</li>
+    <li style="margin-bottom:12px;">Secure Kafka with SSL, SASL, and ACLs to protect data and access.</li>
+  </ul>
+
+  <h3 style="color:#9c27b0; margin-top:25px;">🔗 Learn More</h3>
+  <ul style="color:#4a148c;">
+    <li><a href="https://kafka.apache.org/documentation/" target="_blank" style="color:#9c27b0; text-decoration:none;">Apache Kafka Official Docs</a></li>
+    <li><a href="https://github.com/confluentinc/confluent-kafka-dotnet" target="_blank" style="color:#9c27b0; text-decoration:none;">Confluent .NET Client for Kafka</a></li>
+  </ul>
+</div>
+` },
+            { id: "azure-service-bus", title: "Azure Service Bus", type: "optional",
+              description: `<div style="background:#e0f7fa; border-left:6px solid #26a69a; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#004d40;">
+  <h2 style="color:#00796b; margin-bottom:15px;">☁️ Azure Service Bus: Enterprise Message Broker for Cloud Apps</h2>
+
+  <p>
+    <strong>Azure Service Bus</strong> is a fully managed, reliable cloud messaging service designed for decoupling applications and services. It supports asynchronous communication via queues and topics, enabling scalable and resilient microservices architectures.
+  </p>
+
+  <h3 style="color:#00796b; margin-top:25px;">🔑 Core Components</h3>
+  <ul style="background:#b2dfdb; border-radius:8px; padding:15px 20px; color:#004d40; font-weight:600;">
+    <li style="margin-bottom:10px;"><strong>Queue:</strong> Simple first-in-first-out (FIFO) message storage, one-to-one communication.</li>
+    <li style="margin-bottom:10px;"><strong>Topic & Subscription:</strong> Publish-subscribe pattern allowing one-to-many communication.</li>
+    <li style="margin-bottom:10px;"><strong>Message:</strong> The data unit sent and received, can include metadata and custom properties.</li>
+    <li style="margin-bottom:10px;"><strong>Session:</strong> Enables ordered handling of related message groups.</li>
+    <li style="margin-bottom:10px;"><strong>Dead-letter Queue (DLQ):</strong> For storing messages that cannot be delivered or processed.</li>
+  </ul>
+
+  <h3 style="color:#00796b; margin-top:25px;">🚀 Basic Example: Sending and Receiving Messages</h3>
+  <pre style="background:#4db6ac; color:#004d40; padding:20px; border-radius:10px; overflow-x:auto;">
+<code>var connectionString = "&lt;Your Service Bus Connection String&gt;";
+var queueName = "myqueue";
+
+// Sender
+var client = new ServiceBusClient(connectionString);
+var sender = client.CreateSender(queueName);
+
+var message = new ServiceBusMessage("Hello Azure Service Bus!");
+await sender.SendMessageAsync(message);
+
+// Receiver
+var processor = client.CreateProcessor(queueName, new ServiceBusProcessorOptions());
+
+processor.ProcessMessageAsync += async args =&gt;
+{
+    string body = args.Message.Body.ToString();
+    Console.WriteLine($"Received: {body}");
+    await args.CompleteMessageAsync(args.Message);
+};
+
+processor.ProcessErrorAsync += async args =&gt;
+{
+    Console.WriteLine(args.Exception.ToString());
+    await Task.CompletedTask;
+};
+
+await processor.StartProcessingAsync();
+</code>
+  </pre>
+
+  <h3 style="color:#00796b; margin-top:25px;">💡 Best Practices</h3>
+  <ul style="color:#004d40;">
+    <li style="margin-bottom:12px;">Use <strong>sessions</strong> to guarantee ordered processing for message groups.</li>
+    <li style="margin-bottom:12px;">Implement <strong>dead-letter queue</strong> handling to process poison messages and prevent data loss.</li>
+    <li style="margin-bottom:12px;">Set <strong>message time-to-live (TTL)</strong> to avoid queue bloat from stale messages.</li>
+    <li style="margin-bottom:12px;">Leverage <strong>message batching</strong> to improve throughput and reduce costs.</li>
+    <li style="margin-bottom:12px;">Use <strong>auto-complete=false</strong> and explicitly complete or abandon messages to handle failures gracefully.</li>
+    <li style="margin-bottom:12px;">Monitor queue length and dead-letter queue metrics for system health and alerting.</li>
+    <li style="margin-bottom:12px;">Secure Service Bus access using <strong>Azure Active Directory (AAD)</strong> or Shared Access Signatures (SAS).</li>
+  </ul>
+
+  <h3 style="color:#00796b; margin-top:25px;">🔗 Learn More</h3>
+  <ul style="color:#004d40;">
+    <li><a href="https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview" target="_blank" style="color:#00796b; text-decoration:none;">Azure Service Bus Documentation</a></li>
+    <li><a href="https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-dotnet-get-started" target="_blank" style="color:#00796b; text-decoration:none;">Quickstart: Send and receive messages using .NET</a></li>
+  </ul>
+</div>
+` },
+            { id: "amazon-sqs", title: "Amazon SQS", type: "optional",description: `<div style="background:#f0f8ff; border-left:6px solid #ff9900; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#333;"> <h2 style="color:#e67300; margin-bottom:15px;">🧰 Amazon SQS: Scalable and Fully Managed Message Queue Service</h2> <p> <strong>Amazon Simple Queue Service (SQS)</strong> is a fully managed, distributed message queuing service from AWS that enables decoupling of microservices, distributed systems, and serverless applications. It supports reliable, scalable, and secure asynchronous message queuing. </p> <h3 style="color:#e67300; margin-top:25px;">🔑 Key Features</h3> <ul style="background:#fff3e0; border-radius:8px; padding:15px 20px; color:#663300; font-weight:600;"> <li style="margin-bottom:10px;"><strong>Standard Queues:</strong> Unlimited throughput, at-least-once delivery, and best-effort ordering.</li> <li style="margin-bottom:10px;"><strong>FIFO Queues:</strong> Exactly-once processing and first-in-first-out delivery.</li> <li style="margin-bottom:10px;"><strong>Message Visibility Timeout:</strong> Controls how long a message is hidden after being received.</li> <li style="margin-bottom:10px;"><strong>Dead-Letter Queues (DLQ):</strong> Automatically isolate messages that can't be processed successfully.</li> <li style="margin-bottom:10px;"><strong>Long Polling:</strong> Reduce empty responses and cost by waiting for messages to arrive.</li> </ul> <h3 style="color:#e67300; margin-top:25px;">🚀 Basic Example: Sending and Receiving Messages (AWS SDK for .NET)</h3> <pre style="background:#ffe0b2; color:#663300; padding:20px; border-radius:10px; overflow-x:auto;"> <code>var sqsClient = new AmazonSQSClient(); var queueUrl = "https://sqs.us-east-1.amazonaws.com/123456789012/MyQueue";
+// Send message
+var sendRequest = new SendMessageRequest
+{
+QueueUrl = queueUrl,
+MessageBody = "Hello Amazon SQS!"
+};
+await sqsClient.SendMessageAsync(sendRequest);
+
+// Receive message
+var receiveRequest = new ReceiveMessageRequest
+{
+QueueUrl = queueUrl,
+MaxNumberOfMessages = 1,
+WaitTimeSeconds = 10
+};
+var receiveResponse = await sqsClient.ReceiveMessageAsync(receiveRequest);
+foreach (var message in receiveResponse.Messages)
+{
+Console.WriteLine($"Received message: {message.Body}");
+// Delete message after processing
+await sqsClient.DeleteMessageAsync(queueUrl, message.ReceiptHandle);
+}
+</code>
+</pre>
+
+<h3 style="color:#e67300; margin-top:25px;">💡 Best Practices</h3> <ul style="color:#663300;"> <li style="margin-bottom:12px;">Use <strong>FIFO queues</strong> when order and exactly-once processing is required.</li> <li style="margin-bottom:12px;">Configure appropriate <strong>Visibility Timeout</strong> to avoid message duplication.</li> <li style="margin-bottom:12px;">Leverage <strong>Dead-Letter Queues</strong> to isolate problematic messages and analyze failures.</li> <li style="margin-bottom:12px;">Implement <strong>Long Polling</strong> to minimize API calls and reduce cost.</li> <li style="margin-bottom:12px;">Monitor queue length and message age metrics to detect backlogs and bottlenecks.</li> <li style="margin-bottom:12px;">Secure access with IAM policies and use encryption for sensitive data.</li> </ul> <h3 style="color:#e67300; margin-top:25px;">🔗 Learn More</h3> <ul style="color:#663300;"> <li><a href="https://aws.amazon.com/sqs/" target="_blank" style="color:#e67300; text-decoration:none;">Amazon SQS Official Site</a></li> <li><a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html" target="_blank" style="color:#e67300; text-decoration:none;">SQS Developer Guide</a></li> </ul> </div>` },
+            { id: "netmq", title: "NetMQ", type: "optional",
+              description: `<div style="background:#f3f4f6; border-left:6px solid #4a90e2; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#222;"> <h2 style="color:#2c6cdf; margin-bottom:15px;">⚡ NetMQ: High-Performance Messaging Library for .NET</h2> <p> <strong>NetMQ</strong> is a native .NET implementation of ZeroMQ, providing asynchronous, high-throughput, low-latency messaging patterns like pub/sub, request/reply, and push/pull. It enables building scalable and distributed applications with flexible socket communication. </p> <h3 style="color:#2c6cdf; margin-top:25px;">🔑 Key Features</h3> <ul style="background:#d6e4ff; border-radius:8px; padding:15px 20px; color:#1a3a8a; font-weight:600;"> <li style="margin-bottom:10px;"><strong>Multiple Messaging Patterns:</strong> Publish/Subscribe, Request/Reply, Push/Pull, and more.</li> <li style="margin-bottom:10px;"><strong>Cross-platform:</strong> Runs on Windows, Linux, macOS with .NET Core support.</li> <li style="margin-bottom:10px;"><strong>High Performance:</strong> Low-latency, asynchronous messaging suitable for real-time apps.</li> <li style="margin-bottom:10px;"><strong>Thread Safe:</strong> Supports concurrent use from multiple threads.</li> <li style="margin-bottom:10px;"><strong>No Broker Required:</strong> Peer-to-peer messaging without central server.</li> </ul> <h3 style="color:#2c6cdf; margin-top:25px;">🚀 Basic Example: Publisher and Subscriber</h3> <pre style="background:#bbd0ff; color:#1a3a8a; padding:20px; border-radius:10px; overflow-x:auto;"> <code>using NetMQ; using NetMQ.Sockets;
+// Publisher
+using (var pubSocket = new PublisherSocket())
+{
+pubSocket.Bind("tcp://*:12345");
+while (true)
+{
+pubSocket.SendFrame("TopicA Hello from NetMQ!");
+Thread.Sleep(1000);
+}
+}
+
+// Subscriber
+using (var subSocket = new SubscriberSocket())
+{
+subSocket.Connect("tcp://localhost:12345");
+subSocket.Subscribe("TopicA");
+while (true)
+{
+string message = subSocket.ReceiveFrameString();
+Console.WriteLine($"Received: {message}");
+}
+}
+</code>
+</pre>
+
+<h3 style="color:#2c6cdf; margin-top:25px;">💡 Best Practices</h3> <ul style="color:#1a3a8a;"> <li style="margin-bottom:12px;">Use appropriate messaging patterns to suit your application's communication needs.</li> <li style="margin-bottom:12px;">Manage socket lifecycle carefully to avoid resource leaks.</li> <li style="margin-bottom:12px;">Use <strong>polling</strong> or <strong>NetMQPoller</strong> for scalable event-driven messaging.</li> <li style="margin-bottom:12px;">Handle network interruptions and implement retries gracefully.</li> <li style="margin-bottom:12px;">Avoid blocking calls on the main thread to keep UI responsive in client apps.</li> </ul> <h3 style="color:#2c6cdf; margin-top:25px;">🔗 Learn More</h3> <ul style="color:#1a3a8a;"> <li><a href="https://github.com/zeromq/netmq" target="_blank" style="color:#2c6cdf; text-decoration:none;">NetMQ GitHub Repository</a></li> <li><a href="https://netmq.readthedocs.io/en/latest/" target="_blank" style="color:#2c6cdf; text-decoration:none;">NetMQ Documentation</a></li> </ul> </div>` },
           ]
         },
         {
           id: "message-bus",
           title: "Message-Bus",
+          description: `<div style="background:#eef6f9; border-left:6px solid #007acc; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#1a1a1a;">
+  <h2 style="color:#005a9e; margin-bottom:15px;">📬 Message Bus: Decoupled Communication Backbone</h2>
+
+  <p>
+    A <strong>Message Bus</strong> is an architectural pattern used to enable asynchronous communication between different components or microservices in a system by passing messages through a central bus. It helps decouple producers and consumers, improving scalability, maintainability, and fault tolerance.
+  </p>
+
+  <h3 style="color:#005a9e; margin-top:25px;">🔑 Core Concepts</h3>
+  <ul style="background:#d6e9f8; border-radius:8px; padding:15px 20px; color:#004a8d; font-weight:600;">
+    <li style="margin-bottom:10px;"><strong>Publish/Subscribe:</strong> Components publish events to the bus, and interested subscribers receive them.</li>
+    <li style="margin-bottom:10px;"><strong>Commands:</strong> Messages that instruct a service to perform a specific action.</li>
+    <li style="margin-bottom:10px;"><strong>Events:</strong> Notifications that something happened, without expecting a direct response.</li>
+    <li style="margin-bottom:10px;"><strong>Message Brokers:</strong> Tools like RabbitMQ, Azure Service Bus, or Kafka implement message bus functionality.</li>
+  </ul>
+
+  <h3 style="color:#005a9e; margin-top:25px;">🚀 Basic Example (Using MediatR for In-Process Message Bus)</h3>
+  <pre style="background:#cbe6fb; color:#004a8d; padding:20px; border-radius:10px; overflow-x:auto;">
+<code>public class Ping : IRequest&lt;string&gt; { }
+
+public class PingHandler : IRequestHandler\<Ping, string>
+{
+public Task\<string> Handle(Ping request, CancellationToken cancellationToken)
+{
+return Task.FromResult("Pong");
+}
+}
+
+// Usage
+var mediator = serviceProvider.GetRequiredService\<IMediator>();
+string response = await mediator.Send(new Ping());
+Console.WriteLine(response); // Outputs: Pong </code> </pre>
+
+  <h3 style="color:#005a9e; margin-top:25px;">💡 Best Practices</h3>
+  <ul style="color:#004a8d;">
+    <li style="margin-bottom:12px;">Choose the right message bus type based on system scale: in-process (e.g., MediatR) for simple apps, distributed brokers for microservices.</li>
+    <li style="margin-bottom:12px;">Ensure idempotency to handle message retries safely.</li>
+    <li style="margin-bottom:12px;">Use message schemas (e.g., JSON Schema, Avro) to enforce contract consistency.</li>
+    <li style="margin-bottom:12px;">Implement dead-letter queues or error handling for failed messages.</li>
+    <li style="margin-bottom:12px;">Monitor message flow and latency for operational insights.</li>
+  </ul>
+
+  <h3 style="color:#005a9e; margin-top:25px;">🔗 Learn More</h3>
+  <ul style="color:#004a8d;">
+    <li><a href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/multi-container-microservice-net-applications/implement-message-bus" target="_blank" style="color:#005a9e; text-decoration:none;">Microsoft Docs - Implement Message Bus</a></li>
+    <li><a href="https://github.com/jbogard/MediatR" target="_blank" style="color:#005a9e; text-decoration:none;">MediatR GitHub Repository</a></li>
+    <li><a href="https://www.enterpriseintegrationpatterns.com/patterns/messaging/MessageBus.html" target="_blank" style="color:#005a9e; text-decoration:none;">Enterprise Integration Patterns - Message Bus</a></li>
+  </ul>
+</div>
+`,
           children: [
-            { id: "masstransit", title: "MassTransit", type: "must-know" },
-            { id: "nservicebus", title: "NServiceBus", type: "good-to-know" },
-            { id: "realy-netq", title: "EasyNetMQ", type: "optional" },
+            { id: "masstransit", title: "MassTransit", type: "must-know",
+              description: `<div style="background:#f0f8ff; border-left:6px solid #0078d4; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#222;">
+  <h2 style="color:#005a9e; margin-bottom:15px;">🚀 MassTransit: .NET Distributed Application Framework</h2>
+
+  <p>
+    <strong>MassTransit</strong> is a powerful, open-source message bus framework for building reliable, scalable, and distributed .NET applications. It abstracts the complexities of messaging infrastructures like RabbitMQ, Azure Service Bus, Amazon SQS, and others, enabling developers to focus on business logic rather than transport details.
+  </p>
+
+  <h3 style="color:#005a9e; margin-top:25px;">🔑 Core Concepts</h3>
+  <ul style="background:#d6e9f8; border-radius:8px; padding:15px 20px; color:#004a8d; font-weight:600;">
+    <li style="margin-bottom:10px;"><strong>Message:</strong> Immutable data contract representing an event or command.</li>
+    <li style="margin-bottom:10px;"><strong>Consumer:</strong> A class that handles incoming messages.</li>
+    <li style="margin-bottom:10px;"><strong>Endpoint:</strong> Logical receiver or sender of messages (queue, topic).</li>
+    <li style="margin-bottom:10px;"><strong>Middleware Pipeline:</strong> Enables extension points for logging, validation, retry policies.</li>
+    <li style="margin-bottom:10px;"><strong>Saga:</strong> Stateful process manager to coordinate long-running workflows.</li>
+  </ul>
+
+  <h3 style="color:#005a9e; margin-top:25px;">📦 Supported Brokers</h3>
+  <p>
+    MassTransit supports many message brokers:
+  </p>
+  <ul style="color:#004a8d;">
+    <li>RabbitMQ</li>
+    <li>Azure Service Bus</li>
+    <li>Amazon SQS</li>
+    <li>ActiveMQ</li>
+    <li>In-Memory (for testing and development)</li>
+  </ul>
+
+  <h3 style="color:#005a9e; margin-top:25px;">🚀 Basic Example: Defining a Message and Consumer</h3>
+  <pre style="background:#cbe6fb; color:#004a8d; padding:20px; border-radius:10px; overflow-x:auto;">
+<code>public class SubmitOrder
+{
+    public Guid OrderId { get; set; }
+    public DateTime Timestamp { get; set; }
+}
+
+public class SubmitOrderConsumer : IConsumer&lt;SubmitOrder&gt;
+{
+    public async Task Consume(ConsumeContext&lt;SubmitOrder&gt; context)
+    {
+        Console.WriteLine($"Order received: {context.Message.OrderId} at {context.Message.Timestamp}");
+        // Business logic here...
+        await Task.CompletedTask;
+    }
+}
+</code>
+  </pre>
+
+  <h3 style="color:#005a9e; margin-top:25px;">⚙️ Configuration Example with RabbitMQ</h3>
+  <pre style="background:#cbe6fb; color:#004a8d; padding:20px; border-radius:10px; overflow-x:auto;">
+<code>services.AddMassTransit(x =&gt;
+{
+    x.AddConsumer&lt;SubmitOrderConsumer&gt;();
+
+    x.UsingRabbitMq((context, cfg) =&gt;
+    {
+        cfg.Host("rabbitmq://localhost");
+
+        cfg.ReceiveEndpoint("order-submit-queue", e =&gt;
+        {
+            e.ConfigureConsumer&lt;SubmitOrderConsumer&gt;(context);
+        });
+    });
+});
+</code>
+  </pre>
+
+  <h3 style="color:#005a9e; margin-top:25px;">💡 Best Practices</h3>
+  <ul style="color:#004a8d;">
+    <li style="margin-bottom:12px;">Design messages as immutable data transfer objects (DTOs) to prevent side effects and improve reliability.</li>
+    <li style="margin-bottom:12px;">Implement retry policies and use error queues to handle transient failures and avoid message loss.</li>
+    <li style="margin-bottom:12px;">Use sagas for complex, stateful, long-running workflows to manage process consistency.</li>
+    <li style="margin-bottom:12px;">Keep consumers single-purpose and focused on processing one message type to simplify testing and maintenance.</li>
+    <li style="margin-bottom:12px;">Monitor message throughput and failures with logging and metrics for observability.</li>
+    <li style="margin-bottom:12px;">Use message versioning and contracts carefully to maintain backward compatibility.</li>
+  </ul>
+
+  <h3 style="color:#005a9e; margin-top:25px;">🔗 Useful Resources</h3>
+  <ul style="color:#004a8d;">
+    <li><a href="https://masstransit-project.com/" target="_blank" style="color:#005a9e; text-decoration:none;">Official MassTransit Documentation</a></li>
+    <li><a href="https://github.com/MassTransit/MassTransit" target="_blank" style="color:#005a9e; text-decoration:none;">GitHub Repository</a></li>
+    <li><a href="https://masstransit-project.com/usage/sagas" target="_blank" style="color:#005a9e; text-decoration:none;">Sagas - Stateful Workflow</a></li>
+  </ul>
+</div>
+` },
+            { id: "nservicebus", title: "NServiceBus", type: "good-to-know",
+              description: `<div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#222; border-radius:10px; padding:25px 30px; margin-bottom:30px;">
+
+  <h2 style="color:#1e90ff; border-left:6px solid #1e90ff; padding-left:10px; margin-bottom:20px;">
+    🚀 NServiceBus: .NET Enterprise Messaging Framework
+  </h2>
+
+  <p style="color:#333; font-size:16px;">
+    <strong>NServiceBus</strong> is a robust, enterprise-grade messaging and workflow framework for building distributed systems on the .NET platform. It simplifies asynchronous communication between services by providing advanced features such as retries, sagas, message routing, and error handling out of the box.
+  </p>
+
+  <h3 style="color:#ff6347; margin-top:30px; margin-bottom:15px; border-bottom:2px solid #ff6347; padding-bottom:5px;">
+    🔑 Key Features
+  </h3>
+  <ul style="background:#ffe4e1; border-radius:8px; padding:15px 25px; color:#b22222; font-weight:600; list-style-type:circle;">
+    <li style="margin-bottom:10px;">Reliable Messaging: Guaranteed delivery with built-in retries, deduplication, and durable storage.</li>
+    <li style="margin-bottom:10px;">Sagas: Support for long-running, stateful business processes.</li>
+    <li style="margin-bottom:10px;">Pluggable Transport: Works with various transport technologies like MSMQ, RabbitMQ, Azure Service Bus, Amazon SQS, and more.</li>
+    <li style="margin-bottom:10px;">Message Routing: Flexible routing capabilities with endpoint discovery.</li>
+    <li>Extensive Monitoring & Management: Tools like ServicePulse and ServiceInsight for health checks and message tracing.</li>
+  </ul>
+
+  <h3 style="color:#228b22; margin-top:30px; margin-bottom:15px; border-bottom:2px solid #228b22; padding-bottom:5px;">
+    🚀 Basic Example: Define a Message and Handler
+  </h3>
+  <pre style="background:#e6ffe6; color:#2f4f2f; padding:20px; border-radius:10px; overflow-x:auto; font-size:14px;">
+<code>public class PlaceOrder : ICommand
+{
+    public Guid OrderId { get; set; }
+    public DateTime OrderDate { get; set; }
+}
+
+public class PlaceOrderHandler : IHandleMessages&lt;PlaceOrder&gt;
+{
+    public Task Handle(PlaceOrder message, IMessageHandlerContext context)
+    {
+        Console.WriteLine($"Processing order {message.OrderId} placed on {message.OrderDate}");
+        // Business logic here...
+        return Task.CompletedTask;
+    }
+}
+</code>
+  </pre>
+
+  <h3 style="color:#8a2be2; margin-top:30px; margin-bottom:15px; border-bottom:2px solid #8a2be2; padding-bottom:5px;">
+    ⚙️ Configuration Example
+  </h3>
+  <pre style="background:#f3e6ff; color:#4b0082; padding:20px; border-radius:10px; overflow-x:auto; font-size:14px;">
+<code>var endpointConfiguration = new EndpointConfiguration("OrderEndpoint");
+
+endpointConfiguration.UseTransport&lt;RabbitMQTransport&gt;()
+    .ConnectionString("host=localhost")
+    .UseConventionalRoutingTopology();
+
+endpointConfiguration.UsePersistence&lt;InMemoryPersistence&gt;();
+
+var endpointInstance = await Endpoint.Start(endpointConfiguration)
+    .ConfigureAwait(false);
+
+// Send a command
+await endpointInstance.Send(new PlaceOrder { OrderId = Guid.NewGuid(), OrderDate = DateTime.UtcNow });
+</code>
+  </pre>
+
+  <h3 style="color:#d2691e; margin-top:30px; margin-bottom:15px; border-bottom:2px solid #d2691e; padding-bottom:5px;">
+    💡 Best Practices
+  </h3>
+  <ul style="color:#8b4513;">
+    <li style="margin-bottom:12px;">Design messages as immutable and serializable objects.</li>
+    <li style="margin-bottom:12px;">Keep message handlers focused on a single responsibility.</li>
+    <li style="margin-bottom:12px;">Use sagas to manage complex, long-running workflows.</li>
+    <li style="margin-bottom:12px;">Implement proper error handling with retries and error queues.</li>
+    <li style="margin-bottom:12px;">Monitor endpoints and message flows using ServicePulse and ServiceInsight tools.</li>
+    <li>Secure communication by using transport-level encryption and access controls.</li>
+  </ul>
+
+  <h3 style="color:#2f4f4f; margin-top:30px; margin-bottom:15px; border-bottom:2px solid #2f4f4f; padding-bottom:5px;">
+    🔗 Useful Resources
+  </h3>
+  <ul style="color:#2f4f4f;">
+    <li><a href="https://docs.particular.net/nservicebus/" target="_blank" style="color:#1e90ff; text-decoration:none;">Official NServiceBus Documentation</a></li>
+    <li><a href="https://github.com/Particular/NServiceBus" target="_blank" style="color:#1e90ff; text-decoration:none;">NServiceBus GitHub Repository</a></li>
+    <li><a href="https://particular.net/" target="_blank" style="color:#1e90ff; text-decoration:none;">Particular Software Homepage</a></li>
+  </ul>
+
+</div>
+` },
+            { id: "realy-netq", title: "EasyNetMQ", type: "optional",
+              description: `<div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#222; border-radius:10px; padding:25px 30px; margin-bottom:30px;">
+
+  <h2 style="color:#005a9e; border-left:6px solid #005a9e; padding-left:10px; margin-bottom:20px;">
+    🐇 EasyNetQ: Simple .NET API for RabbitMQ
+  </h2>
+
+  <p style="font-size:16px; color:#333;">
+    <strong>EasyNetQ</strong> is a lightweight, easy-to-use abstraction library over RabbitMQ for .NET applications. It simplifies messaging by providing a straightforward API, handling common messaging patterns and RabbitMQ complexities under the hood.
+  </p>
+
+  <h3 style="color:#007acc; margin-top:30px; margin-bottom:15px; border-bottom:2px solid #007acc; padding-bottom:5px;">
+    🔑 Key Features
+  </h3>
+  <ul style="background:#dbeeff; border-radius:8px; padding:15px 25px; color:#004080; font-weight:600;">
+    <li style="margin-bottom:10px;">Simplifies publish/subscribe and request/response messaging patterns.</li>
+    <li style="margin-bottom:10px;">Automatic connection and channel management.</li>
+    <li style="margin-bottom:10px;">Strongly-typed messages with serialization built-in.</li>
+    <li style="margin-bottom:10px;">Support for advanced RabbitMQ features like routing, headers, and delayed messages.</li>
+    <li>Extensible with plugins for logging, error handling, and more.</li>
+  </ul>
+
+  <h3 style="color:#007acc; margin-top:30px; margin-bottom:15px; border-bottom:2px solid #007acc; padding-bottom:5px;">
+    🚀 Basic Usage Example
+  </h3>
+  <pre style="background:#e6f0ff; color:#003366; padding:20px; border-radius:10px; overflow-x:auto; font-size:14px;">
+<code>var bus = RabbitHutch.CreateBus("host=localhost");
+
+bus.PubSub.Subscribe&lt;OrderPlaced&gt;("subscriptionId", order =>
+{
+    Console.WriteLine($"Received order {order.OrderId} placed at {order.OrderDate}");
+});
+
+// Publish a message
+bus.PubSub.Publish(new OrderPlaced
+{
+    OrderId = Guid.NewGuid(),
+    OrderDate = DateTime.UtcNow
+});
+</code>
+  </pre>
+
+  <h3 style="color:#007acc; margin-top:30px; margin-bottom:15px; border-bottom:2px solid #007acc; padding-bottom:5px;">
+    💡 Best Practices
+  </h3>
+  <ul style="color:#004080;">
+    <li style="margin-bottom:12px;">Reuse the bus instance throughout your application to avoid connection overhead.</li>
+    <li style="margin-bottom:12px;">Design messages as immutable and version-tolerant DTOs.</li>
+    <li style="margin-bottom:12px;">Use meaningful subscription IDs to manage subscriptions effectively.</li>
+    <li style="margin-bottom:12px;">Handle exceptions within subscribers to avoid message loss.</li>
+    <li>Consider setting up retry policies and error queues for robust error handling.</li>
+  </ul>
+
+  <h3 style="color:#007acc; margin-top:30px; margin-bottom:15px; border-bottom:2px solid #007acc; padding-bottom:5px;">
+    🔗 Useful Links
+  </h3>
+  <ul style="color:#004080;">
+    <li><a href="https://github.com/EasyNetQ/EasyNetQ" target="_blank" style="color:#007acc; text-decoration:none;">EasyNetQ GitHub Repository</a></li>
+    <li><a href="https://easynetq.com/" target="_blank" style="color:#007acc; text-decoration:none;">Official EasyNetQ Documentation</a></li>
+    <li><a href="https://www.rabbitmq.com/" target="_blank" style="color:#007acc; text-decoration:none;">RabbitMQ Official Site</a></li>
+  </ul>
+
+</div>
+` },
           ]
         },
         {
           id: "api-gateway",
           title: "API Gateway",
+          description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #222; border-radius: 10px; padding: 25px 30px; margin-bottom: 30px;">
+
+  <h2 style="color: #007acc; border-left: 6px solid #007acc; padding-left: 10px; margin-bottom: 20px;">
+    🌐 API Gateway: Centralized Request Management for Microservices
+  </h2>
+
+  <p style="font-size: 16px; color: #333;">
+    An <strong>API Gateway</strong> is a server that acts as an entry point for clients to access multiple backend microservices. It abstracts the complexity of microservices architecture by routing requests, handling cross-cutting concerns such as authentication, rate limiting, caching, logging, and more.
+  </p>
+
+  <h3 style="color: #005a9e; margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid #005a9e; padding-bottom: 5px;">
+    🔑 Core Responsibilities
+  </h3>
+  <ul style="background: #dbeeff; border-radius: 8px; padding: 15px 25px; color: #004080; font-weight: 600;">
+    <li style="margin-bottom: 10px;">Request Routing: Direct client requests to appropriate microservices.</li>
+    <li style="margin-bottom: 10px;">Authentication & Authorization: Enforce security policies and validate tokens.</li>
+    <li style="margin-bottom: 10px;">Load Balancing: Distribute traffic evenly across service instances.</li>
+    <li style="margin-bottom: 10px;">Request & Response Transformation: Modify payloads or headers as needed.</li>
+    <li style="margin-bottom: 10px;">Rate Limiting & Throttling: Prevent abuse by limiting request rates.</li>
+    <li style="margin-bottom: 10px;">Caching: Cache frequent responses to improve performance.</li>
+    <li>Logging & Monitoring: Track requests for auditing and performance insights.</li>
+  </ul>
+
+  <h3 style="color: #007acc; margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid #007acc; padding-bottom: 5px;">
+    🚀 Basic Example
+  </h3>
+  <pre style="background: #e6f0ff; color: #003366; padding: 20px; border-radius: 10px; overflow-x: auto; font-size: 14px;">
+<code>var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+// Simple proxy example routing requests to order microservice
+app.Map("/orders/{*path}", async (HttpContext context) =&gt; {
+    var client = new HttpClient();
+    var targetUri = "https://orders-service/api/orders/" + context.Request.Path.Value?.Split('/')[2];
+    var response = await client.GetAsync(targetUri);
+    var content = await response.Content.ReadAsStringAsync();
+    context.Response.ContentType = "application/json";
+    await context.Response.WriteAsync(content);
+});
+
+app.Run();
+</code>
+  </pre>
+
+  <h3 style="color: #005a9e; margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid #005a9e; padding-bottom: 5px;">
+    💡 Best Practices
+  </h3>
+  <ul style="color: #004080;">
+    <li style="margin-bottom: 12px;">Centralize authentication & authorization in the gateway to reduce duplicated logic.</li>
+    <li style="margin-bottom: 12px;">Implement rate limiting to protect backend services from overload.</li>
+    <li style="margin-bottom: 12px;">Use caching strategically to improve performance without sacrificing data freshness.</li>
+    <li style="margin-bottom: 12px;">Handle errors gracefully and return meaningful responses to clients.</li>
+    <li style="margin-bottom: 12px;">Ensure your API gateway is highly available and scalable to avoid single points of failure.</li>
+    <li>Integrate comprehensive logging and monitoring for observability and debugging.</li>
+  </ul>
+
+  <h3 style="color: #007acc; margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid #007acc; padding-bottom: 5px;">
+    🔗 Further Reading
+  </h3>
+  <ul style="color: #004080;">
+    <li><a href="https://microservices.io/patterns/apigateway.html" target="_blank" style="color: #007acc; text-decoration: none;">Microservices API Gateway Pattern</a></li>
+    <li><a href="https://docs.microsoft.com/en-us/azure/api-management/api-management-key-concepts" target="_blank" style="color: #007acc; text-decoration: none;">Azure API Management Concepts</a></li>
+    <li><a href="https://konghq.com/" target="_blank" style="color: #007acc; text-decoration: none;">Kong API Gateway</a></li>
+    <li><a href="https://www.nginx.com/blog/what-is-an-api-gateway/" target="_blank" style="color: #007acc; text-decoration: none;">NGINX API Gateway Introduction</a></li>
+  </ul>
+
+</div>
+`,
           children: [
-            { id: "ocelot", title: "Ocelot", type: "must-know" },
-            { id: "yarp", title: "YARP", type: "good-to-know" },
+            { id: "ocelot", title: "Ocelot", type: "must-know",
+              description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #222; background: #f0f8ff; border-radius: 12px; padding: 25px 30px; box-shadow: 0 4px 12px rgba(0,123,255,0.15);">
+
+  <h2 style="color: #007bff; border-left: 6px solid #007bff; padding-left: 12px; margin-bottom: 20px;">
+    🛡️ Ocelot: API Gateway for .NET Core Microservices
+  </h2>
+
+  <p style="font-size: 16px; line-height: 1.5; color: #333;">
+    <strong>Ocelot</strong> is a lightweight, open-source API Gateway designed specifically for <em>.NET Core</em> microservices architectures. It centralizes routing, authentication, load balancing, rate limiting, caching, and more, providing a unified interface between clients and backend services.
+  </p>
+
+  <h3 style="color: #0056b3; margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid #0056b3; padding-bottom: 6px;">
+    🔑 Key Features
+  </h3>
+  <ul style="background: #d9eaff; border-radius: 8px; padding: 18px 25px; color: #004080; font-weight: 600;">
+    <li style="margin-bottom: 12px;">Flexible Request Routing & URL Rewriting</li>
+    <li style="margin-bottom: 12px;">Support for Authentication & Authorization (JWT, OAuth2, OpenID Connect)</li>
+    <li style="margin-bottom: 12px;">Load Balancing and Service Discovery Integration</li>
+    <li style="margin-bottom: 12px;">Rate Limiting & Throttling to protect backend services</li>
+    <li style="margin-bottom: 12px;">Response Caching for improved performance</li>
+    <li style="margin-bottom: 12px;">Custom Middleware support for extensibility</li>
+  </ul>
+
+  <h3 style="color: #007bff; margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid #007bff; padding-bottom: 6px;">
+    🚀 Basic Usage Example
+  </h3>
+  <pre style="background: #e6f3ff; color: #003366; padding: 18px 20px; border-radius: 10px; overflow-x: auto; font-size: 14px;">
+<code>var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddOcelot();
+
+var app = builder.Build();
+app.UseOcelot().Wait();
+
+app.Run();
+</code>
+  </pre>
+
+  <h3 style="color: #0056b3; margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid #0056b3; padding-bottom: 6px;">
+    🛠 Configuration (ocelot.json)
+  </h3>
+  <pre style="background: #e6f3ff; color: #003366; padding: 18px 20px; border-radius: 10px; overflow-x: auto; font-size: 14px;">
+<code>{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/orders/{everything}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "orderservice.local",
+          "Port": 443
+        }
+      ],
+      "UpstreamPathTemplate": "/orders/{everything}",
+      "UpstreamHttpMethod": [ "Get", "Post", "Put" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "Bearer",
+        "AllowedScopes": []
+      },
+      "RateLimitOptions": {
+        "ClientWhitelist": [],
+        "EnableRateLimiting": true,
+        "Period": "1m",
+        "Limit": 100
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://gateway.local"
+  }
+}
+</code>
+  </pre>
+
+  <h3 style="color: #007bff; margin-top: 30px; margin-bottom: 15px; border-bottom: 2px solid #007bff; padding-bottom: 6px;">
+    💡 Best Practices
+  </h3>
+  <ul style="color: #004080;">
+    <li style="margin-bottom: 12px;">Centralize authentication & authorization logic in the API Gateway to reduce redundancy.</li>
+    <li style="margin-bottom: 12px;">Use rate limiting to protect backend services from abuse and DoS attacks.</li>
+    <li style="margin-bottom: 12px;">Enable caching on frequently requested endpoints to improve latency.</li>
+    <li style="margin-bottom: 12px;">Monitor gateway logs and metrics actively for early detection of issues.</li>
+    <li style="margin-bottom: 12px;">Implement fallback and circuit breaker patterns to enhance system resilience.</li>
+  </ul>
+
+  <h3 style="color: #0056b3; margin-top: 30px; margin-bottom: 10px;">
+    🔗 Learn More
+  </h3>
+  <ul style="color: #004080; margin-top: 0; padding-left: 20px;">
+    <li><a href="https://ocelot.readthedocs.io/en/latest/" target="_blank" style="color:#007bff; text-decoration:none;">Official Ocelot Documentation</a></li>
+    <li><a href="https://github.com/ThreeMammals/Ocelot" target="_blank" style="color:#007bff; text-decoration:none;">Ocelot GitHub Repository</a></li>
+  </ul>
+
+</div>
+` },
+            { id: "yarp", title: "YARP", type: "good-to-know",
+              description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1e1e1e; background: #e6f7fa; border-radius: 12px; padding: 28px 32px; box-shadow: 0 5px 15px rgba(0, 150, 136, 0.15);">
+
+  <h2 style="color: #009688; border-left: 6px solid #00796b; padding-left: 14px; margin-bottom: 20px; font-weight: 700;">
+    🔄 YARP: Yet Another Reverse Proxy for .NET
+  </h2>
+
+  <p style="font-size: 16px; line-height: 1.6; color: #004d40;">
+    <strong>YARP</strong> is a highly customizable, fast, and feature-rich reverse proxy built on top of <em>ASP.NET Core</em>. Designed by Microsoft, it enables developers to easily route, transform, and manage HTTP requests to backend services in microservices and distributed system architectures.
+  </p>
+
+  <h3 style="color: #00796b; margin-top: 30px; margin-bottom: 16px; border-bottom: 3px solid #004d40; padding-bottom: 6px;">
+    🚀 Key Features
+  </h3>
+  <ul style="background: #b2dfdb; border-radius: 10px; padding: 18px 28px; color: #004d40; font-weight: 600;">
+    <li style="margin-bottom: 12px;">Dynamic and flexible routing to multiple backend services</li>
+    <li style="margin-bottom: 12px;">Load balancing with multiple algorithms (round-robin, power of two choices, etc.)</li>
+    <li style="margin-bottom: 12px;">Request and response transformation (header modification, path rewrites)</li>
+    <li style="margin-bottom: 12px;">Integration with ASP.NET Core middleware pipeline for extensibility</li>
+    <li style="margin-bottom: 12px;">Health checks and automatic backend service discovery</li>
+    <li style="margin-bottom: 12px;">Support for rate limiting, retries, and circuit breakers (via policies)</li>
+  </ul>
+
+  <h3 style="color: #004d40; margin-top: 32px; margin-bottom: 16px; border-bottom: 3px solid #00796b; padding-bottom: 6px;">
+    ⚙️ Basic Setup Example
+  </h3>
+  <pre style="background: #b2dfdb; color: #004d40; padding: 20px 25px; border-radius: 10px; overflow-x: auto; font-size: 14px;">
+<code>var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddReverseProxy()
+    .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
+
+var app = builder.Build();
+
+app.MapReverseProxy();
+
+app.Run();
+</code>
+  </pre>
+
+  <h3 style="color: #00796b; margin-top: 32px; margin-bottom: 16px; border-bottom: 3px solid #004d40; padding-bottom: 6px;">
+    🗂 Configuration Example (appsettings.json)
+  </h3>
+  <pre style="background: #b2dfdb; color: #004d40; padding: 20px 25px; border-radius: 10px; overflow-x: auto; font-size: 14px;">
+<code>{
+  "ReverseProxy": {
+    "Routes": [
+      {
+        "RouteId": "route1",
+        "ClusterId": "cluster1",
+        "Match": {
+          "Path": "/api/orders/{**catch-all}"
+        }
+      }
+    ],
+    "Clusters": [
+      {
+        "ClusterId": "cluster1",
+        "Destinations": {
+          "orderService": {
+            "Address": "https://orderservice.example.com/"
+          }
+        }
+      }
+    ]
+  }
+}
+</code>
+  </pre>
+
+  <h3 style="color: #004d40; margin-top: 32px; margin-bottom: 10px;">
+    💡 Best Practices
+  </h3>
+  <ul style="color: #004d40;">
+    <li style="margin-bottom: 12px;">Use health checks to monitor backend service availability and improve reliability.</li>
+    <li style="margin-bottom: 12px;">Leverage request/response transforms to implement cross-cutting concerns like headers and authentication.</li>
+    <li style="margin-bottom: 12px;">Implement load balancing strategies suited to your traffic patterns.</li>
+    <li style="margin-bottom: 12px;">Secure your proxy endpoints using authentication and authorization middleware.</li>
+    <li style="margin-bottom: 12px;">Use policy-based retry and circuit breakers for resilient communication with backend services.</li>
+  </ul>
+
+  <h3 style="color: #00796b; margin-top: 30px; margin-bottom: 10px;">
+    🔗 Learn More
+  </h3>
+  <ul style="color: #004d40; margin-top: 0; padding-left: 20px;">
+    <li><a href="https://microsoft.github.io/reverse-proxy/" target="_blank" style="color:#00796b; text-decoration:none;">Official YARP Documentation</a></li>
+    <li><a href="https://github.com/microsoft/reverse-proxy" target="_blank" style="color:#00796b; text-decoration:none;">YARP GitHub Repository</a></li>
+  </ul>
+
+</div>
+` },
           ]
         },
         {
           id: "containerization",
           title: "Containerization",
+          description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f7f9; border-radius: 12px; padding: 28px 32px; box-shadow: 0 6px 18px rgba(0, 123, 167, 0.15); color: #05445E;">
+
+  <h2 style="color: #189AB4; border-left: 6px solid #05445E; padding-left: 16px; margin-bottom: 24px; font-weight: 700;">
+    🐳 Containerization: Modern App Deployment Made Easy
+  </h2>
+
+  <p style="font-size: 16px; line-height: 1.7; color: #05445E;">
+    Containerization allows packaging applications and their dependencies into isolated, lightweight units called <strong>containers</strong>. This approach ensures consistent behavior across different environments — from development to production — and improves scalability, portability, and resource efficiency.
+  </p>
+
+  <h3 style="color: #05445E; margin-top: 32px; margin-bottom: 16px; border-bottom: 3px solid #189AB4; padding-bottom: 8px;">
+    🚀 Key Concepts
+  </h3>
+  <ul style="background: #ADE8F4; border-radius: 10px; padding: 18px 26px; color: #05445E; font-weight: 600;">
+    <li style="margin-bottom: 12px;">Containers encapsulate application code, runtime, libraries, and system tools.</li>
+    <li style="margin-bottom: 12px;">Unlike virtual machines, containers share the host OS kernel, making them lightweight and fast.</li>
+    <li style="margin-bottom: 12px;">Docker is the most popular container platform, offering tools to build, run, and manage containers.</li>
+    <li style="margin-bottom: 12px;">Container images are immutable snapshots used to instantiate containers.</li>
+    <li style="margin-bottom: 12px;">Container orchestration platforms (e.g., Kubernetes) automate deployment, scaling, and management.</li>
+  </ul>
+
+  <h3 style="color: #05445E; margin-top: 32px; margin-bottom: 16px; border-bottom: 3px solid #189AB4; padding-bottom: 8px;">
+    ⚙️ Basic Dockerfile Example
+  </h3>
+  <pre style="background: #ADE8F4; color: #05445E; padding: 20px 25px; border-radius: 10px; overflow-x: auto; font-size: 14px;">
+<code>FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+WORKDIR /app
+EXPOSE 80
+
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+WORKDIR /src
+COPY ["MyApp/MyApp.csproj", "MyApp/"]
+RUN dotnet restore "MyApp/MyApp.csproj"
+COPY . .
+WORKDIR "/src/MyApp"
+RUN dotnet build "MyApp.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "MyApp.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "MyApp.dll"]
+</code>
+  </pre>
+
+  <h3 style="color: #189AB4; margin-top: 32px; margin-bottom: 10px;">
+    💡 Best Practices
+  </h3>
+  <ul style="color: #05445E;">
+    <li style="margin-bottom: 12px;">Keep Docker images as small as possible by using multi-stage builds and slim base images.</li>
+    <li style="margin-bottom: 12px;">Avoid storing secrets or sensitive data inside container images.</li>
+    <li style="margin-bottom: 12px;">Use official and verified base images to ensure security and stability.</li>
+    <li style="margin-bottom: 12px;">Leverage container orchestration platforms (Kubernetes, Docker Swarm) for production deployments.</li>
+    <li style="margin-bottom: 12px;">Regularly update container images and dependencies to patch vulnerabilities.</li>
+  </ul>
+
+  <h3 style="color: #189AB4; margin-top: 30px; margin-bottom: 12px;">
+    🔗 Learn More
+  </h3>
+  <ul style="color: #05445E; margin-top: 0; padding-left: 20px;">
+    <li><a href="https://docs.docker.com/get-started/" target="_blank" style="color:#189AB4; text-decoration:none;">Docker Official Documentation</a></li>
+    <li><a href="https://kubernetes.io/docs/home/" target="_blank" style="color:#189AB4; text-decoration:none;">Kubernetes Official Docs</a></li>
+    <li><a href="https://www.redhat.com/en/topics/containers/what-is-containerization" target="_blank" style="color:#189AB4; text-decoration:none;">RedHat: What is Containerization?</a></li>
+  </ul>
+
+</div>
+`,
           children: [
-            { id: "docker", title: "Docker", type: "must-know" },
-            { id: "podman", title: "Podman", type: "optional" },
+            { id: "docker", title: "Docker", type: "must-know",
+              description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff8f0; border-radius: 14px; padding: 30px 36px; box-shadow: 0 5px 20px rgba(255, 152, 0, 0.15); color: #bf5700;">
+
+  <h2 style="color: #e65100; border-left: 8px solid #bf360c; padding-left: 18px; margin-bottom: 28px; font-weight: 700;">
+    🐳 Docker: Containerization Simplified
+  </h2>
+
+  <p style="font-size: 16.5px; line-height: 1.75; color: #6d3b00;">
+    Docker is an open-source platform that automates the deployment, scaling, and management of applications using container technology. It packages your application with all its dependencies into a standardized unit called a <strong>container</strong>, ensuring that it runs seamlessly in any environment.
+  </p>
+
+  <h3 style="color: #bf360c; margin-top: 36px; margin-bottom: 18px; border-bottom: 4px solid #e65100; padding-bottom: 10px;">
+    🔑 Core Concepts
+  </h3>
+  <ul style="background: #ffe0b2; border-radius: 12px; padding: 20px 30px; color: #6d3b00; font-weight: 600;">
+    <li style="margin-bottom: 14px;"><strong>Docker Engine:</strong> The runtime that builds and runs containers.</li>
+    <li style="margin-bottom: 14px;"><strong>Docker Images:</strong> Immutable snapshots containing your application and environment.</li>
+    <li style="margin-bottom: 14px;"><strong>Containers:</strong> Runtime instances of images, isolated and lightweight.</li>
+    <li style="margin-bottom: 14px;"><strong>Dockerfile:</strong> Script to define how to build Docker images.</li>
+    <li style="margin-bottom: 14px;"><strong>Docker Hub:</strong> Public registry to share and pull Docker images.</li>
+  </ul>
+
+  <h3 style="color: #bf360c; margin-top: 36px; margin-bottom: 18px; border-bottom: 4px solid #e65100; padding-bottom: 10px;">
+    🛠️ Sample Dockerfile for ASP.NET Core App
+  </h3>
+  <pre style="background: #ffe0b2; color: #6d3b00; padding: 25px 30px; border-radius: 12px; overflow-x: auto; font-size: 15px;">
+<code>FROM mcr.microsoft.com/dotnet/aspnet:7.0 AS base
+WORKDIR /app
+EXPOSE 80
+
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+WORKDIR /src
+COPY ["MyApp/MyApp.csproj", "MyApp/"]
+RUN dotnet restore "MyApp/MyApp.csproj"
+COPY . .
+WORKDIR "/src/MyApp"
+RUN dotnet build "MyApp.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "MyApp.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "MyApp.dll"]
+</code>
+  </pre>
+
+  <h3 style="color: #e65100; margin-top: 36px; margin-bottom: 14px;">🚀 Best Practices</h3>
+  <ul style="color: #6d3b00;">
+    <li style="margin-bottom: 14px;">Use <strong>multi-stage builds</strong> to keep image size minimal.</li>
+    <li style="margin-bottom: 14px;">Prefer official, slim base images for security and efficiency.</li>
+    <li style="margin-bottom: 14px;">Avoid including secrets or credentials inside images.</li>
+    <li style="margin-bottom: 14px;">Use <strong>.dockerignore</strong> file to exclude unnecessary files from builds.</li>
+    <li style="margin-bottom: 14px;">Regularly update images to patch vulnerabilities.</li>
+    <li style="margin-bottom: 14px;">Leverage <strong>Docker Compose</strong> for multi-container applications.</li>
+    <li style="margin-bottom: 14px;">Use container orchestration platforms (like Kubernetes) for production environments.</li>
+  </ul>
+
+  <h3 style="color: #bf360c; margin-top: 36px; margin-bottom: 14px;">🔗 Learn More</h3>
+  <ul style="color: #6d3b00; padding-left: 20px;">
+    <li><a href="https://docs.docker.com/get-started/" target="_blank" style="color:#e65100; text-decoration:none;">Official Docker Documentation</a></li>
+    <li><a href="https://docs.microsoft.com/en-us/dotnet/core/docker/" target="_blank" style="color:#e65100; text-decoration:none;">Microsoft's Docker Guide for .NET</a></li>
+    <li><a href="https://docker-curriculum.com/" target="_blank" style="color:#e65100; text-decoration:none;">Docker Curriculum - Interactive Learning</a></li>
+  </ul>
+
+</div>
+` },
+            { id: "podman", title: "Podman", type: "optional",
+              description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f3f9f9; border-radius: 14px; padding: 28px 32px; box-shadow: 0 6px 20px rgba(26, 115, 105, 0.15); color: #1a7369;">
+
+  <h2 style="color: #13856f; border-left: 6px solid #0e5248; padding-left: 16px; margin-bottom: 24px; font-weight: 700;">
+    🐙 Podman: Docker-Compatible Container Engine Without Daemon
+  </h2>
+
+  <p style="font-size: 16px; line-height: 1.7;">
+    Podman is an open-source container engine compatible with Docker that runs daemonless and allows container management without root privileges. It is a secure and flexible alternative designed especially for modern Linux environments.
+  </p>
+
+  <h3 style="color: #0e5248; margin-top: 32px; margin-bottom: 16px; border-bottom: 3px solid #13856f; padding-bottom: 8px;">
+    ⚙️ Key Features
+  </h3>
+  <ul style="background: #c4f0e7; border-radius: 10px; padding: 18px 26px; color: #0e5248; font-weight: 600;">
+    <li style="margin-bottom: 12px;">Compatible with Docker CLI; most commands work the same way.</li>
+    <li style="margin-bottom: 12px;">Runs containers directly as user processes without a background daemon.</li>
+    <li style="margin-bottom: 12px;">Supports running containers without root privileges, enhancing security.</li>
+    <li style="margin-bottom: 12px;">Supports pods: grouping multiple containers sharing network and storage resources.</li>
+    <li style="margin-bottom: 12px;">Integrates with system services and supports Kubernetes YAML manifests.</li>
+  </ul>
+
+  <h3 style="color: #0e5248; margin-top: 32px; margin-bottom: 16px; border-bottom: 3px solid #13856f; padding-bottom: 8px;">
+    🛠️ Sample Podman Commands
+  </h3>
+  <pre style="background: #c4f0e7; color: #0e5248; padding: 20px 25px; border-radius: 10px; overflow-x: auto; font-size: 14px;">
+<code># Run a container
+podman run -d -p 8080:80 nginx
+
+# List running containers
+podman ps
+
+# Stop a container
+podman stop &lt;container_id&gt;
+
+# Create a pod (group multiple containers)
+podman pod create --name mypod
+
+# List containers with pods
+podman ps --pod
+</code>
+  </pre>
+
+  <h3 style="color: #13856f; margin-top: 32px; margin-bottom: 12px;">
+    💡 Best Practices
+  </h3>
+  <ul style="color: #0e5248;">
+    <li style="margin-bottom: 12px;">Run Podman as a non-root user to improve security.</li>
+    <li style="margin-bottom: 12px;">Use meaningful names for containers and pods for easier management.</li>
+    <li style="margin-bottom: 12px;">Leverage systemd integration to automate container lifecycle management.</li>
+    <li style="margin-bottom: 12px;">Utilize Podman’s Kubernetes-compatible YAML output for seamless orchestration.</li>
+    <li style="margin-bottom: 12px;">Reuse your existing Dockerfiles and tooling with Podman’s Docker compatibility.</li>
+  </ul>
+
+  <h3 style="color: #13856f; margin-top: 30px; margin-bottom: 12px;">
+    🔗 Learn More
+  </h3>
+  <ul style="color: #0e5248; margin-top: 0; padding-left: 20px;">
+    <li><a href="https://podman.io/" target="_blank" style="color:#13856f; text-decoration:none;">Official Podman Website</a></li>
+    <li><a href="https://docs.podman.io/en/latest/" target="_blank" style="color:#13856f; text-decoration:none;">Podman Official Documentation</a></li>
+    <li><a href="https://developers.redhat.com/blog/2019/11/26/introduction-to-podman" target="_blank" style="color:#13856f; text-decoration:none;">Introduction to Podman (RedHat)</a></li>
+  </ul>
+
+</div>
+` },
           ]
         },
         {
           id: "orchestration",
           title: "Orchestration",
+          description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f9fafb; border-radius: 14px; padding: 28px 32px; box-shadow: 0 6px 20px rgba(20, 20, 20, 0.1); color: #2c3e50;">
+
+  <h2 style="color: #2980b9; border-left: 6px solid #2471a3; padding-left: 16px; margin-bottom: 24px; font-weight: 700;">
+    ⚙️ Orchestration: Automating Containerized Application Management
+  </h2>
+
+  <p style="font-size: 16px; line-height: 1.7;">
+    Orchestration refers to the automated management, coordination, and scaling of containerized applications and services. It enables efficient deployment, scaling, networking, and lifecycle management across clusters of machines.
+  </p>
+
+  <h3 style="color: #2471a3; margin-top: 32px; margin-bottom: 16px; border-bottom: 3px solid #2980b9; padding-bottom: 8px;">
+    🚀 Why Orchestration is Essential
+  </h3>
+  <ul style="background: #d6eaf8; border-radius: 10px; padding: 18px 26px; color: #1b4f72; font-weight: 600;">
+    <li style="margin-bottom: 12px;">Automates deployment and scaling of containers across multiple hosts.</li>
+    <li style="margin-bottom: 12px;">Provides self-healing capabilities like automatic restarts and rescheduling.</li>
+    <li style="margin-bottom: 12px;">Manages networking, load balancing, and service discovery.</li>
+    <li style="margin-bottom: 12px;">Enables declarative configuration and desired state management.</li>
+    <li style="margin-bottom: 12px;">Facilitates rolling updates and rollback to minimize downtime.</li>
+  </ul>
+
+  <h3 style="color: #2471a3; margin-top: 32px; margin-bottom: 16px; border-bottom: 3px solid #2980b9; padding-bottom: 8px;">
+    🔧 Popular Orchestration Tools
+  </h3>
+  <ul style="background: #d6eaf8; border-radius: 10px; padding: 18px 26px; color: #1b4f72; font-weight: 600;">
+    <li style="margin-bottom: 12px;"><strong>Kubernetes:</strong> The leading open-source container orchestration platform with extensive features for scaling, networking, and rolling updates.</li>
+    <li style="margin-bottom: 12px;"><strong>Docker Swarm:</strong> Docker’s native clustering and orchestration tool, easier to start with but less feature-rich than Kubernetes.</li>
+    <li style="margin-bottom: 12px;"><strong>Nomad:</strong> A simple and flexible orchestrator from HashiCorp, designed for workload scheduling beyond containers.</li>
+  </ul>
+
+  <h3 style="color: #2471a3; margin-top: 32px; margin-bottom: 16px; border-bottom: 3px solid #2980b9; padding-bottom: 8px;">
+    🛠️ Basic Kubernetes Example: Deploying an NGINX Pod
+  </h3>
+  <pre style="background: #d6eaf8; color: #1b4f72; padding: 20px 25px; border-radius: 10px; overflow-x: auto; font-size: 14px;">
+<code>apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-pod
+spec:
+  containers:
+  - name: nginx
+    image: nginx:latest
+    ports:
+    - containerPort: 80
+</code>
+  </pre>
+
+  <h3 style="color: #2980b9; margin-top: 32px; margin-bottom: 12px;">
+    💡 Best Practices
+  </h3>
+  <ul style="color: #1b4f72;">
+    <li style="margin-bottom: 12px;">Use declarative manifests (YAML/JSON) to define your desired state for reproducibility.</li>
+    <li style="margin-bottom: 12px;">Implement health checks and readiness probes to ensure application availability.</li>
+    <li style="margin-bottom: 12px;">Leverage namespaces and labels to organize resources effectively.</li>
+    <li style="margin-bottom: 12px;">Automate deployment pipelines with CI/CD integrating orchestration tools.</li>
+    <li style="margin-bottom: 12px;">Secure orchestration platforms by following the principle of least privilege and using role-based access control (RBAC).</li>
+  </ul>
+
+  <h3 style="color: #2980b9; margin-top: 30px; margin-bottom: 12px;">
+    🔗 Learn More
+  </h3>
+  <ul style="color: #1b4f72; margin-top: 0; padding-left: 20px;">
+    <li><a href="https://kubernetes.io/" target="_blank" style="color:#2980b9; text-decoration:none;">Kubernetes Official Website</a></li>
+    <li><a href="https://docs.docker.com/engine/swarm/" target="_blank" style="color:#2980b9; text-decoration:none;">Docker Swarm Documentation</a></li>
+    <li><a href="https://www.nomadproject.io/docs" target="_blank" style="color:#2980b9; text-decoration:none;">Nomad Documentation</a></li>
+  </ul>
+
+</div>
+`,
           children: [
             {
               id: "kubernetes",
               title: "Kubernetes",
+              description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f8ff; border-radius: 14px; padding: 28px 32px; box-shadow: 0 8px 24px rgba(0, 123, 255, 0.15); color: #003366;">
+
+  <h2 style="color: #0056b3; border-left: 6px solid #004080; padding-left: 16px; margin-bottom: 24px; font-weight: 700;">
+    ☸️ Kubernetes: Container Orchestration Platform
+  </h2>
+
+  <p style="font-size: 16px; line-height: 1.75;">
+    Kubernetes (k8s) is an open-source, scalable, and portable container orchestration platform. Originally developed by Google and now maintained by the Cloud Native Computing Foundation (CNCF), Kubernetes automates deployment, scaling, and management of containerized applications.
+  </p>
+
+  <h3 style="color: #004080; margin-top: 32px; margin-bottom: 16px; border-bottom: 3px solid #0056b3; padding-bottom: 8px;">
+    🚀 Core Components of Kubernetes
+  </h3>
+  <ul style="background: #dbeeff; border-radius: 10px; padding: 18px 26px; color: #00264d; font-weight: 600;">
+    <li style="margin-bottom: 12px;"><strong>Master Node:</strong> Controls the cluster and runs key components like API Server, Scheduler, Controller Manager, and Etcd.</li>
+    <li style="margin-bottom: 12px;"><strong>Worker Nodes:</strong> Physical or virtual machines where application containers run, managed by kubelet and kube-proxy.</li>
+    <li style="margin-bottom: 12px;"><strong>Pod:</strong> The smallest deployable unit in Kubernetes, typically hosting one or more containers.</li>
+    <li style="margin-bottom: 12px;"><strong>Service:</strong> Provides stable networking and load balancing for pods.</li>
+    <li style="margin-bottom: 12px;"><strong>Namespace:</strong> Logical partitions to isolate resources within a cluster.</li>
+    <li style="margin-bottom: 12px;"><strong>Deployment:</strong> Manages the lifecycle of pods, enabling automated updates and scaling.</li>
+  </ul>
+
+  <h3 style="color: #004080; margin-top: 32px; margin-bottom: 16px; border-bottom: 3px solid #0056b3; padding-bottom: 8px;">
+    🔧 Basic Kubernetes Commands
+  </h3>
+  <pre style="background: #dbeeff; color: #00264d; padding: 20px 25px; border-radius: 10px; overflow-x: auto; font-size: 14px;">
+<code># Check cluster info
+kubectl cluster-info
+
+# List all nodes
+kubectl get nodes
+
+# List all pods
+kubectl get pods
+
+# Create a new deployment
+kubectl create deployment nginx-deploy --image=nginx
+
+# Scale deployment replicas
+kubectl scale deployment nginx-deploy --replicas=3
+
+# Update deployment image
+kubectl set image deployment/nginx-deploy nginx=nginx:latest
+
+# Delete deployment
+kubectl delete deployment nginx-deploy
+</code>
+  </pre>
+
+  <h3 style="color: #004080; margin-top: 32px; margin-bottom: 16px; border-bottom: 3px solid #0056b3; padding-bottom: 8px;">
+    📝 Sample Deployment YAML
+  </h3>
+  <pre style="background: #dbeeff; color: #00264d; padding: 20px 25px; border-radius: 10px; overflow-x: auto; font-size: 14px;">
+<code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.21
+        ports:
+        - containerPort: 80
+</code>
+  </pre>
+
+  <h3 style="color: #0056b3; margin-top: 32px; margin-bottom: 12px;">
+    💡 Best Practices
+  </h3>
+  <ul style="color: #00264d;">
+    <li style="margin-bottom: 12px;"><strong>Declarative management:</strong> Define Kubernetes resources using YAML or JSON files and store them in version control.</li>
+    <li style="margin-bottom: 12px;"><strong>Namespaces:</strong> Use namespaces to isolate environments or teams within the cluster.</li>
+    <li style="margin-bottom: 12px;"><strong>Health checks:</strong> Implement readiness and liveness probes to monitor app health and enable self-healing.</li>
+    <li style="margin-bottom: 12px;"><strong>Resource limits:</strong> Set CPU and memory limits to control resource usage.</li>
+    <li style="margin-bottom: 12px;"><strong>Security:</strong> Use Role-Based Access Control (RBAC) to enforce the principle of least privilege.</li>
+    <li style="margin-bottom: 12px;"><strong>Rolling updates:</strong> Deploy updates without downtime by leveraging rolling update strategies.</li>
+  </ul>
+
+  <h3 style="color: #0056b3; margin-top: 30px; margin-bottom: 12px;">
+    🔗 Learn More
+  </h3>
+  <ul style="color: #00264d; margin-top: 0; padding-left: 20px;">
+    <li><a href="https://kubernetes.io/" target="_blank" style="color:#0056b3; text-decoration:none;">Kubernetes Official Documentation</a></li>
+    <li><a href="https://kubernetes.io/docs/concepts/" target="_blank" style="color:#0056b3; text-decoration:none;">Kubernetes Concepts</a></li>
+    <li><a href="https://kubernetes.io/docs/tasks/" target="_blank" style="color:#0056b3; text-decoration:none;">Kubernetes Tutorials</a></li>
+  </ul>
+
+</div>
+` ,
               type: "must-know",
               children: [
-                { id: "kubect1", title: "Kubect1", type: "good-to-know" },
-                { id: "rancher", title: "Rancher", type: "optional" },
-                { id: "k8s", title: "K9s", type: "must-know" },
+                { id: "kubectl", title: "Kubectl", type: "good-to-know",
+                  description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff8e1; border-radius: 12px; padding: 24px 28px; box-shadow: 0 6px 18px rgba(255, 193, 7, 0.3); color: #665800;">
+
+  <h2 style="color: #ffb300; border-left: 6px solid #ff8f00; padding-left: 14px; margin-bottom: 20px; font-weight: 700;">
+    🛠️ Kubectl: Kubernetes CLI Tool
+  </h2>
+
+  <p style="font-size: 16px; line-height: 1.7;">
+    <strong>kubectl</strong> is the command-line interface tool used to interact with Kubernetes clusters. It allows you to deploy applications, inspect and manage cluster resources, and view logs.
+  </p>
+
+  <h3 style="color: #ff8f00; margin-top: 28px; margin-bottom: 14px; border-bottom: 3px solid #ffb300; padding-bottom: 8px;">
+    🔑 Core Concepts
+  </h3>
+  <ul style="background: #fff3cd; border-radius: 10px; padding: 16px 22px; color: #856404; font-weight: 600;">
+    <li style="margin-bottom: 10px;"><strong>kubectl</strong> communicates with the Kubernetes API server to manage cluster resources.</li>
+    <li style="margin-bottom: 10px;">Supports declarative resource management using YAML or JSON manifests.</li>
+    <li style="margin-bottom: 10px;">Enables troubleshooting with commands to fetch logs and describe resources.</li>
+  </ul>
+
+  <h3 style="color: #ff8f00; margin-top: 28px; margin-bottom: 14px; border-bottom: 3px solid #ffb300; padding-bottom: 8px;">
+    ⚡ Common Commands & Usage
+  </h3>
+  <pre style="background: #fff3cd; color: #856404; padding: 18px 22px; border-radius: 10px; overflow-x: auto; font-size: 14px;">
+<code># Show cluster info
+kubectl cluster-info
+
+# List all nodes in the cluster
+kubectl get nodes
+
+# List pods in default namespace
+kubectl get pods
+
+# Describe a pod in detail
+kubectl describe pod &lt;pod-name&gt;
+
+# View logs of a pod
+kubectl logs &lt;pod-name&gt;
+
+# Apply configuration from a YAML file (create or update resources)
+kubectl apply -f deployment.yaml
+
+# Delete a resource defined in a YAML file
+kubectl delete -f deployment.yaml
+
+# Scale a deployment to 5 replicas
+kubectl scale deployment &lt;deployment-name&gt; --replicas=5
+</code>
+  </pre>
+
+  <h3 style="color: #ff8f00; margin-top: 28px; margin-bottom: 14px; border-bottom: 3px solid #ffb300; padding-bottom: 8px;">
+    💡 Best Practices
+  </h3>
+  <ul style="color: #856404;">
+    <li style="margin-bottom: 10px;"><strong>Use namespaces:</strong> Manage resources cleanly and avoid conflicts by organizing with namespaces.</li>
+    <li style="margin-bottom: 10px;"><strong>Prefer declarative management:</strong> Use <code>kubectl apply</code> with manifests stored in version control instead of imperative commands.</li>
+    <li style="margin-bottom: 10px;"><strong>Use context switching:</strong> Manage multiple clusters and users by switching contexts using <code>kubectl config use-context</code>.</li>
+    <li style="margin-bottom: 10px;"><strong>Leverage labels and selectors:</strong> Organize and select resources efficiently using labels.</li>
+    <li style="margin-bottom: 10px;"><strong>Enable auto-completion:</strong> Use shell completion scripts to speed up command typing and reduce errors.</li>
+  </ul>
+
+  <h3 style="color: #ffb300; margin-top: 28px;">
+    🔗 Learn More
+  </h3>
+  <ul style="color: #856404; margin-top: 0; padding-left: 20px;">
+    <li><a href="https://kubernetes.io/docs/reference/kubectl/overview/" target="_blank" style="color:#ff8f00; text-decoration:none;">Official kubectl Documentation</a></li>
+    <li><a href="https://kubernetes.io/docs/tasks/tools/" target="_blank" style="color:#ff8f00; text-decoration:none;">Install & Configure kubectl</a></li>
+    <li><a href="https://kubernetes.io/docs/concepts/overview/kubernetes-api/" target="_blank" style="color:#ff8f00; text-decoration:none;">Kubernetes API Concepts</a></li>
+  </ul>
+
+</div>
+` },
+                { id: "rancher", title: "Rancher", type: "optional",description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #e8f5e9; border-radius: 14px; padding: 28px 32px; box-shadow: 0 8px 24px rgba(46, 125, 50, 0.15); color: #2e7d32;">
+
+  <h2 style="color: #1b5e20; border-left: 6px solid #388e3c; padding-left: 16px; margin-bottom: 24px; font-weight: 700;">
+    🐄 Rancher: Kubernetes Management Platform
+  </h2>
+
+  <p style="font-size: 16px; line-height: 1.75;">
+    <strong>Rancher</strong> is an open-source container management platform designed to simplify deploying, managing, and securing Kubernetes clusters anywhere — on-premises, in the cloud, or at the edge. It provides a user-friendly UI and tools to manage multiple Kubernetes clusters from a single pane of glass.
+  </p>
+
+  <h3 style="color: #388e3c; margin-top: 32px; margin-bottom: 16px; border-bottom: 3px solid #1b5e20; padding-bottom: 8px;">
+    🚀 Key Features
+  </h3>
+  <ul style="background: #c8e6c9; border-radius: 10px; padding: 18px 26px; color: #1b5e20; font-weight: 600;">
+    <li style="margin-bottom: 12px;"><strong>Multi-Cluster Management:</strong> Manage multiple Kubernetes clusters regardless of cloud provider or infrastructure.</li>
+    <li style="margin-bottom: 12px;"><strong>Centralized Authentication & RBAC:</strong> Integrate with LDAP, Active Directory, and other identity providers with fine-grained access controls.</li>
+    <li style="margin-bottom: 12px;"><strong>App Catalog:</strong> Deploy and manage Helm charts and applications easily.</li>
+    <li style="margin-bottom: 12px;"><strong>Built-in Monitoring & Alerting:</strong> Integrated tools to monitor cluster health and send alerts.</li>
+    <li style="margin-bottom: 12px;"><strong>Cluster Provisioning:</strong> Create Kubernetes clusters on various cloud providers or custom infrastructure.</li>
+  </ul>
+
+  <h3 style="color: #388e3c; margin-top: 32px; margin-bottom: 16px; border-bottom: 3px solid #1b5e20; padding-bottom: 8px;">
+    🔧 How Rancher Works
+  </h3>
+  <p>
+    Rancher runs as a control plane that interacts with Kubernetes clusters through agents deployed on each cluster. It abstracts cluster management complexity, enabling users to:
+  </p>
+  <ul style="background: #dcedc8; border-radius: 10px; padding: 18px 26px; color: #33691e; font-weight: 600;">
+    <li style="margin-bottom: 12px;">Provision new clusters on cloud or on-prem infrastructure.</li>
+    <li style="margin-bottom: 12px;">Manage user permissions and access centrally.</li>
+    <li style="margin-bottom: 12px;">Deploy applications with ease using Helm charts.</li>
+    <li style="margin-bottom: 12px;">Monitor cluster and application health in real time.</li>
+  </ul>
+
+  <h3 style="color: #388e3c; margin-top: 32px; margin-bottom: 16px; border-bottom: 3px solid #1b5e20; padding-bottom: 8px;">
+    💡 Best Practices
+  </h3>
+  <ul style="color: #33691e;">
+    <li style="margin-bottom: 12px;"><strong>Use centralized authentication:</strong> Integrate with your organization's identity provider for consistent access control.</li>
+    <li style="margin-bottom: 12px;"><strong>Isolate workloads:</strong> Use namespaces and projects within Rancher to segment environments and teams.</li>
+    <li style="margin-bottom: 12px;"><strong>Automate cluster backups:</strong> Regularly back up cluster state and Rancher configurations.</li>
+    <li style="margin-bottom: 12px;"><strong>Monitor proactively:</strong> Use Rancher's built-in monitoring and alerting to catch issues early.</li>
+    <li style="margin-bottom: 12px;"><strong>Keep Rancher updated:</strong> Regularly upgrade Rancher to benefit from security patches and new features.</li>
+  </ul>
+
+  <h3 style="color: #1b5e20; margin-top: 30px; margin-bottom: 12px;">
+    🔗 Learn More
+  </h3>
+  <ul style="color: #33691e; margin-top: 0; padding-left: 20px;">
+    <li><a href="https://rancher.com/" target="_blank" style="color:#388e3c; text-decoration:none;">Official Rancher Website</a></li>
+    <li><a href="https://rancher.com/docs/" target="_blank" style="color:#388e3c; text-decoration:none;">Rancher Documentation</a></li>
+    <li><a href="https://github.com/rancher/rancher" target="_blank" style="color:#388e3c; text-decoration:none;">Rancher GitHub Repository</a></li>
+  </ul>
+
+</div>
+` },
+                { id: "k9s", title: "K9s", type: "must-know",description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #e3f2fd; border-radius: 14px; padding: 28px 32px; box-shadow: 0 8px 24px rgba(25, 118, 210, 0.15); color: #1565c0;">
+
+  <h2 style="color: #0d47a1; border-left: 6px solid #1976d2; padding-left: 16px; margin-bottom: 24px; font-weight: 700;">
+    🐾 K9s: Kubernetes CLI Dashboard
+  </h2>
+
+  <p style="font-size: 16px; line-height: 1.75;">
+    <strong>K9s</strong> is a powerful open-source terminal-based UI tool that helps developers and operators manage and navigate Kubernetes clusters efficiently. It provides a fast and interactive way to observe cluster resources, pods, logs, and perform common tasks without leaving the command line.
+  </p>
+
+  <h3 style="color: #1976d2; margin-top: 32px; margin-bottom: 16px; border-bottom: 3px solid #0d47a1; padding-bottom: 8px;">
+    🚀 Key Features
+  </h3>
+  <ul style="background: #bbdefb; border-radius: 10px; padding: 18px 26px; color: #0d47a1; font-weight: 600;">
+    <li style="margin-bottom: 12px;"><strong>Real-time cluster monitoring:</strong> View pods, deployments, services, and other Kubernetes resources live.</li>
+    <li style="margin-bottom: 12px;"><strong>Interactive navigation:</strong> Quickly switch between namespaces, resource views, and drill down into details.</li>
+    <li style="margin-bottom: 12px;"><strong>Pod logs & terminal access:</strong> Stream logs or open shell sessions into pods directly from the UI.</li>
+    <li style="margin-bottom: 12px;"><strong>Resource filtering & sorting:</strong> Easily filter and sort resources to find what you need fast.</li>
+    <li style="margin-bottom: 12px;"><strong>Customizable key bindings:</strong> Tailor keyboard shortcuts for your workflow efficiency.</li>
+  </ul>
+
+  <h3 style="color: #1976d2; margin-top: 32px; margin-bottom: 16px; border-bottom: 3px solid #0d47a1; padding-bottom: 8px;">
+    🔧 How K9s Works
+  </h3>
+  <p>
+    K9s connects to your Kubernetes cluster via your current kubeconfig and dynamically fetches cluster resources. It renders these resources in a terminal-friendly dashboard and allows live interaction, making it easier to manage pods, deployments, services, and more without manually running kubectl commands.
+  </p>
+
+  <h3 style="color: #1976d2; margin-top: 32px; margin-bottom: 16px; border-bottom: 3px solid #0d47a1; padding-bottom: 8px;">
+    💡 Best Practices
+  </h3>
+  <ul style="color: #0d47a1;">
+    <li style="margin-bottom: 12px;"><strong>Keep kubeconfig updated:</strong> Ensure your kubeconfig file is current and points to the correct clusters.</li>
+    <li style="margin-bottom: 12px;"><strong>Learn key bindings:</strong> Master K9s shortcuts for quick navigation and operations.</li>
+    <li style="margin-bottom: 12px;"><strong>Use resource filters:</strong> Filter namespaces and resource types to focus on relevant workloads.</li>
+    <li style="margin-bottom: 12px;"><strong>Streamline troubleshooting:</strong> Use the logs and pod shell features to debug issues efficiently.</li>
+    <li style="margin-bottom: 12px;"><strong>Regularly update K9s:</strong> Keep your K9s client updated to leverage new features and bug fixes.</li>
+  </ul>
+
+  <h3 style="color: #0d47a1; margin-top: 30px; margin-bottom: 12px;">
+    🔗 Learn More
+  </h3>
+  <ul style="color: #0d47a1; margin-top: 0; padding-left: 20px;">
+    <li><a href="https://k9scli.io/" target="_blank" style="color:#1976d2; text-decoration:none;">Official K9s Website</a></li>
+    <li><a href="https://github.com/derailed/k9s" target="_blank" style="color:#1976d2; text-decoration:none;">K9s GitHub Repository</a></li>
+  </ul>
+
+</div>
+` },
               ]
             },
           ]
@@ -4571,11 +7137,335 @@ app.Use(async (context, next) =>
           id: "other",
           title: "Other",
           children: [
-            { id: "net-aspire", title: ".NET Aspire", type: "good-to-know" },
-            { id: "orleans", title: "Orleans", type: "optional" },
-            { id: "proto-actor", title: "Proto.Actor", type: "optional" },
-            { id: "dapr", title: "Dapr", type: "optional" },
-            { id: "akka-net", title: "Akka.NET", type: "optional" },
+            { id: "net-aspire", title: ".NET Aspire", type: "good-to-know",
+              description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f3e5f5; border-radius: 14px; padding: 28px 32px; box-shadow: 0 8px 24px rgba(123, 31, 162, 0.15); color: #6a1b9a;">
+
+  <h2 style="color: #4a148c; border-left: 6px solid #8e24aa; padding-left: 16px; margin-bottom: 24px; font-weight: 700;">
+    🌐 .NET Aspire: Cloud-Native .NET Applications
+  </h2>
+
+  <p style="font-size: 16px; line-height: 1.75;">
+    <strong>.NET Aspire</strong> is a new opinionated stack introduced with .NET 8 that streamlines building, running, and deploying cloud-native distributed applications. It offers a developer-friendly experience by combining <strong>project templates, diagnostics, environment configuration, and orchestration</strong> tools.
+  </p>
+
+  <h3 style="color: #8e24aa; margin-top: 32px; margin-bottom: 16px; border-bottom: 3px solid #6a1b9a; padding-bottom: 8px;">
+    🚀 Key Features
+  </h3>
+  <ul style="background: #e1bee7; border-radius: 10px; padding: 18px 26px; color: #4a148c; font-weight: 600;">
+    <li style="margin-bottom: 12px;"><strong>Orchestration:</strong> Easily spin up multiple .NET services (APIs, workers, UI) with dependencies (DB, cache, message brokers).</li>
+    <li style="margin-bottom: 12px;"><strong>Component Model:</strong> Define reusable service components (like PostgreSQL, Redis) using clear configuration.</li>
+    <li style="margin-bottom: 12px;"><strong>Service Discovery:</strong> Aspire handles dynamic ports, naming, and inter-service communication out-of-the-box.</li>
+    <li style="margin-bottom: 12px;"><strong>Dashboard:</strong> A built-in web UI helps visualize service status, logs, health, and dependencies.</li>
+    <li style="margin-bottom: 12px;"><strong>Environment Integration:</strong> Aspire is environment-aware (local/dev/prod), supporting containerized and cloud deployments.</li>
+  </ul>
+
+  <h3 style="color: #8e24aa; margin-top: 32px; margin-bottom: 16px; border-bottom: 3px solid #6a1b9a; padding-bottom: 8px;">
+    🔧 Common Use Case Example
+  </h3>
+  <p style="margin-bottom: 12px;">
+    Imagine you are building a system with a Web API, a background worker, a PostgreSQL DB, and Redis cache. With .NET Aspire:
+  </p>
+  <ul style="color: #4a148c;">
+    <li>You create a <code>*.aspire</code> orchestration project.</li>
+    <li>Add services and reference them as components (e.g. <b>postgres, redis</b>).</li>
+    <li>Run them all together with <b> dotnet run </b> and observe the state via the dashboard.</li>
+  </ul>
+
+  <h3 style="color: #8e24aa; margin-top: 30px; margin-bottom: 16px;">
+    💡 Best Practices
+  </h3>
+  <ul style="color: #4a148c;">
+    <li style="margin-bottom: 12px;"><strong>Use Aspire early in microservices:</strong> It simplifies orchestration and communication without Docker overhead.</li>
+    <li style="margin-bottom: 12px;"><strong>Combine with Dapr or Steeltoe:</strong> Aspire is composable, and works well with distributed runtime tools.</li>
+    <li style="margin-bottom: 12px;"><strong>Use environment variables:</strong> Externalize secrets and config per environment for better portability.</li>
+    <li style="margin-bottom: 12px;"><strong>Use Aspire Dashboard:</strong> It is extremely helpful in debugging startup or connectivity issues across services.</li>
+  </ul>
+
+  <h3 style="color: #6a1b9a; margin-top: 30px; margin-bottom: 12px;">
+    📚 Resources
+  </h3>
+  <ul style="color: #4a148c; padding-left: 20px;">
+    <li><a href="https://learn.microsoft.com/en-us/dotnet/aspire/" target="_blank" style="color:#8e24aa; text-decoration:none;">.NET Aspire Docs</a></li>
+    <li><a href="https://github.com/dotnet/aspire" target="_blank" style="color:#8e24aa; text-decoration:none;">GitHub Repository</a></li>
+    <li><a href="https://devblogs.microsoft.com/dotnet/introducing-dotnet-aspire/" target="_blank" style="color:#8e24aa; text-decoration:none;">Intro Blog Post</a></li>
+  </ul>
+
+</div>
+` },
+            { id: "orleans", title: "Orleans", type: "optional",
+              description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #e8f5e9; border-radius: 14px; padding: 28px 32px; box-shadow: 0 8px 24px rgba(56, 142, 60, 0.15); color: #2e7d32;">
+
+  <h2 style="color: #1b5e20; border-left: 6px solid #43a047; padding-left: 16px; margin-bottom: 24px; font-weight: 700;">
+    🌾 Orleans: Virtual Actor Model for .NET
+  </h2>
+
+  <p style="font-size: 16px; line-height: 1.75;">
+    <strong>Microsoft Orleans</strong> is a cross-platform framework that brings the **Virtual Actor Model** to .NET, making it easier to build scalable, distributed, and fault-tolerant applications such as real-time systems, IoT backends, gaming servers, and cloud-native services.
+  </p>
+
+  <h3 style="color: #43a047; margin-top: 32px; margin-bottom: 16px; border-bottom: 3px solid #2e7d32; padding-bottom: 8px;">
+    🚀 Core Concepts
+  </h3>
+  <ul style="background: #c8e6c9; border-radius: 10px; padding: 18px 26px; color: #1b5e20; font-weight: 600;">
+    <li style="margin-bottom: 12px;"><strong>Grains:</strong> Logical units of state and behavior. Each grain is like a lightweight actor that can be called remotely and exists virtually.</li>
+    <li style="margin-bottom: 12px;"><strong>Virtual Actors:</strong> Orleans actors are automatically activated on demand and deactivated when idle. No need for manual lifecycle management.</li>
+    <li style="margin-bottom: 12px;"><strong>Persistence:</strong> Grains can persist their state to a backend like Redis, Azure Table Storage, or SQL Server.</li>
+    <li style="margin-bottom: 12px;"><strong>Remoting:</strong> Orleans handles all remote communication transparently via grain interfaces.</li>
+    <li style="margin-bottom: 12px;"><strong>Fault-tolerance:</strong> Built-in retries, state recovery, and cluster failover support.</li>
+  </ul>
+
+  <h3 style="color: #43a047; margin-top: 32px; margin-bottom: 16px; border-bottom: 3px solid #2e7d32; padding-bottom: 8px;">
+    🛠 Example Use Cases
+  </h3>
+  <ul style="color: #1b5e20;">
+    <li style="margin-bottom: 12px;">Massively multiplayer online games (MMOs)</li>
+    <li style="margin-bottom: 12px;">IoT device coordination systems</li>
+    <li style="margin-bottom: 12px;">Real-time collaborative apps (chat, whiteboard)</li>
+    <li style="margin-bottom: 12px;">Stream processing and event-driven systems</li>
+  </ul>
+
+  <h3 style="color: #43a047; margin-top: 30px; margin-bottom: 16px;">
+    💡 Best Practices
+  </h3>
+  <ul style="color: #1b5e20;">
+    <li style="margin-bottom: 12px;"><strong>Design grains around domain logic:</strong> Avoid leaking infrastructure logic into your grains.</li>
+    <li style="margin-bottom: 12px;"><strong>Keep grains small & stateless when possible:</strong> This improves scaling and performance.</li>
+    <li style="margin-bottom: 12px;"><strong>Use reminders & timers wisely:</strong> For periodic grain operations and long-running processes.</li>
+    <li style="margin-bottom: 12px;"><strong>Partition data with consistent hashing:</strong> Ensures even distribution across silo nodes.</li>
+    <li style="margin-bottom: 12px;"><strong>Persist grain state asynchronously:</strong> Avoid blocking operations that can reduce throughput.</li>
+  </ul>
+
+  <h3 style="color: #2e7d32; margin-top: 30px; margin-bottom: 12px;">
+    📦 Orleans in Microservices
+  </h3>
+  <p>
+    Orleans can be used as a standalone distributed runtime, or integrated into microservices. It handles state management, scalability, and messaging — making it a great fit for domain-driven systems where each entity (user, device, tenant) has its own actor.
+  </p>
+
+  <h3 style="color: #1b5e20; margin-top: 30px; margin-bottom: 12px;">
+    🔗 Resources
+  </h3>
+  <ul style="color: #1b5e20; padding-left: 20px;">
+    <li><a href="https://dotnet.github.io/orleans/" target="_blank" style="color:#388e3c; text-decoration:none;">Official Orleans Website</a></li>
+    <li><a href="https://github.com/dotnet/orleans" target="_blank" style="color:#388e3c; text-decoration:none;">GitHub Repository</a></li>
+    <li><a href="https://learn.microsoft.com/en-us/dotnet/orleans/" target="_blank" style="color:#388e3c; text-decoration:none;">Microsoft Docs</a></li>
+  </ul>
+
+</div>
+` },
+            { id: "proto-actor", title: "Proto.Actor", type: "optional",
+              description: `<div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#e3f2fd; border-radius:14px; padding:28px 32px; box-shadow:0 8px 24px rgba(33, 150, 243, 0.2); color:#0d47a1;">
+
+  <h2 style="color:#1565c0; border-left:6px solid #42a5f5; padding-left:16px; margin-bottom:24px; font-weight:700;">
+    🎭 Proto.Actor: Fast & Portable Actor Framework
+  </h2>
+
+  <p style="font-size:16px; line-height:1.75;">
+    <strong>Proto.Actor</strong> is a cross-platform, high-performance <em>Actor Model</em> framework for building concurrent and distributed systems. Inspired by Erlang and Akka, it enables building applications based on lightweight, isolated, and message-driven actors.
+  </p>
+
+  <h3 style="color:#1976d2; margin-top:32px; margin-bottom:16px; border-bottom:3px solid #0d47a1; padding-bottom:8px;">
+    🧩 Key Features
+  </h3>
+  <ul style="background:#bbdefb; border-radius:10px; padding:18px 26px; color:#0d47a1; font-weight:600;">
+    <li style="margin-bottom:12px;"><strong>High Concurrency:</strong> Handles millions of actors efficiently using .NET’s async features and a custom scheduler.</li>
+    <li style="margin-bottom:12px;"><strong>Message Passing:</strong> Actors interact through messages, reducing shared state and race conditions.</li>
+    <li style="margin-bottom:12px;"><strong>Cross-Platform:</strong> Runs on .NET, Go, JavaScript, and more.</li>
+    <li style="margin-bottom:12px;"><strong>Clustering & Remote Actors:</strong> Enables distribution across nodes with built-in remote communication.</li>
+    <li style="margin-bottom:12px;"><strong>Persistence Support:</strong> Integrate persistence for stateful actors (e.g., event sourcing or snapshots).</li>
+  </ul>
+
+  <h3 style="color:#1976d2; margin-top:32px; margin-bottom:16px;">
+    ✏️ Basic Actor Example
+  </h3>
+
+  <pre style="background:#e1f5fe; border-radius:10px; padding:18px; overflow-x:auto; color:#01579b;"><code>// Define a message
+public class Greet { public string Name { get; set; } }
+
+// Create an actor
+public class GreetingActor : IActor {
+    public Task ReceiveAsync(IContext context) {
+        if (context.Message is Greet greet)
+            Console.WriteLine($"Hello, {greet.Name}!");
+        return Task.CompletedTask;
+    }
+}
+
+// Spawning the actor
+var props = Props.FromProducer(() => new GreetingActor());
+var pid = Actor.Spawn(props);
+
+// Sending a message
+pid.Tell(new Greet { Name = "Proto.Actor" });</code></pre>
+
+  <h3 style="color:#1976d2; margin-top:30px; margin-bottom:12px;">
+    🧠 Best Practices
+  </h3>
+  <ul style="color:#0d47a1;">
+    <li style="margin-bottom:10px;"><strong>Keep actors small and focused:</strong> Each actor should have a single responsibility.</li>
+    <li style="margin-bottom:10px;"><strong>Avoid blocking operations:</strong> Use asynchronous methods to prevent performance bottlenecks.</li>
+    <li style="margin-bottom:10px;"><strong>Use supervision:</strong> Actors can monitor and restart child actors on failure.</li>
+    <li style="margin-bottom:10px;"><strong>Isolate side effects:</strong> Ensure external I/O or logic is encapsulated safely within actors.</li>
+  </ul>
+
+  <h3 style="color:#1976d2; margin-top:30px; margin-bottom:12px;">
+    🔗 Resources
+  </h3>
+  <ul style="color:#0d47a1;">
+    <li><a href="https://proto.actor/docs/" target="_blank" style="color:#1565c0; text-decoration:none;">Official Documentation</a></li>
+    <li><a href="https://github.com/asynkronit/protoactor-dotnet" target="_blank" style="color:#1565c0; text-decoration:none;">GitHub Repository</a></li>
+    <li><a href="https://proto.actor" target="_blank" style="color:#1565c0; text-decoration:none;">Proto.Actor Homepage</a></li>
+  </ul>
+
+</div>
+` },
+            { id: "dapr", title: "Dapr", type: "optional",
+              description: `<div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f3e5f5; border-radius:14px; padding:28px 32px; box-shadow:0 8px 24px rgba(123, 31, 162, 0.2); color:#4a148c;">
+
+  <h2 style="color:#6a1b9a; border-left:6px solid #ab47bc; padding-left:16px; margin-bottom:24px; font-weight:700;">
+    🔄 Dapr: Distributed Application Runtime
+  </h2>
+
+  <p style="font-size:16px; line-height:1.75;">
+    <strong>Dapr (Distributed Application Runtime)</strong> is a portable, event-driven runtime that simplifies building microservices. It provides a set of building blocks for cloud-native apps, making distributed systems easier to develop, secure, and operate—regardless of language, framework, or hosting environment.
+  </p>
+
+  <h3 style="color:#8e24aa; margin-top:32px; margin-bottom:16px; border-bottom:3px solid #4a148c; padding-bottom:8px;">
+    ⚙️ Core Building Blocks
+  </h3>
+  <ul style="background:#e1bee7; border-radius:10px; padding:18px 26px; color:#4a148c; font-weight:600;">
+    <li style="margin-bottom:12px;"><strong>Service Invocation:</strong> Built-in HTTP/gRPC calls between services with automatic service discovery.</li>
+    <li style="margin-bottom:12px;"><strong>State Management:</strong> Simplified persistence across Redis, CosmosDB, DynamoDB, etc.</li>
+    <li style="margin-bottom:12px;"><strong>Pub/Sub Messaging:</strong> Event-driven communication with Kafka, NATS, Redis Streams, and more.</li>
+    <li style="margin-bottom:12px;"><strong>Bindings:</strong> Trigger input/output from external systems (e.g., queues, file systems).</li>
+    <li style="margin-bottom:12px;"><strong>Actors:</strong> Virtual actor model for concurrency and state encapsulation.</li>
+    <li style="margin-bottom:12px;"><strong>Secrets Management:</strong> Unified API to access secrets from providers like Azure Key Vault, HashiCorp Vault.</li>
+  </ul>
+
+  <h3 style="color:#8e24aa; margin-top:30px; margin-bottom:16px;">
+    ✨ Example: State Management with HTTP
+  </h3>
+
+  <pre style="background:#f3e5f5; border-radius:10px; padding:16px; overflow-x:auto; color:#4a148c;"><code>POST http://localhost:3500/v1.0/state/statestore
+Content-Type: application/json
+
+[
+  {
+    "key": "order-123",
+    "value": {
+      "product": "Keyboard",
+      "quantity": 2
+    }
+  }
+]</code></pre>
+
+  <h3 style="color:#8e24aa; margin-top:30px; margin-bottom:12px;">
+    🧠 Best Practices
+  </h3>
+  <ul style="color:#4a148c;">
+    <li style="margin-bottom:10px;"><strong>Use Dapr sidecar mode:</strong> It works as a separate process per service, improving separation of concerns.</li>
+    <li style="margin-bottom:10px;"><strong>Leverage building blocks individually:</strong> Use only what you need; no tight coupling to all features.</li>
+    <li style="margin-bottom:10px;"><strong>Secure communication:</strong> Run with mTLS enabled for service-to-service encryption.</li>
+    <li style="margin-bottom:10px;"><strong>Combine with service mesh:</strong> Can work with Istio, Linkerd for observability and traffic control.</li>
+  </ul>
+
+  <h3 style="color:#6a1b9a; margin-top:30px; margin-bottom:12px;">
+    📦 Use Cases
+  </h3>
+  <ul style="color:#4a148c;">
+    <li style="margin-bottom:10px;">Resilient microservice-to-microservice communication</li>
+    <li style="margin-bottom:10px;">Event-driven architectures</li>
+    <li style="margin-bottom:10px;">Distributed stateful services with actor model</li>
+    <li style="margin-bottom:10px;">Polyglot cloud-native applications</li>
+  </ul>
+
+  <h3 style="color:#6a1b9a; margin-top:30px; margin-bottom:12px;">
+    🔗 Resources
+  </h3>
+  <ul style="color:#4a148c;">
+    <li><a href="https://dapr.io" target="_blank" style="color:#6a1b9a; text-decoration:none;">Dapr Official Website</a></li>
+    <li><a href="https://github.com/dapr/dapr" target="_blank" style="color:#6a1b9a; text-decoration:none;">GitHub Repository</a></li>
+    <li><a href="https://docs.dapr.io" target="_blank" style="color:#6a1b9a; text-decoration:none;">Documentation</a></li>
+  </ul>
+
+</div>
+` },
+            { id: "akka-net", title: "Akka.NET", type: "optional",
+              description: `<div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#ede7f6; border-radius:14px; padding:28px 32px; box-shadow:0 8px 24px rgba(103, 58, 183, 0.2); color:#311b92;">
+
+  <h2 style="color:#4527a0; border-left:6px solid #7e57c2; padding-left:16px; margin-bottom:24px; font-weight:700;">
+    🎬 Akka.NET – Actor Model for Distributed .NET Apps
+  </h2>
+
+  <p style="font-size:16px; line-height:1.75;">
+    <strong>Akka.NET</strong> is a powerful toolkit and runtime for building concurrent, fault-tolerant, distributed, and event-driven applications using the <em>Actor Model</em>. Inspired by the original Akka framework in Scala/Java, it brings reactive programming principles into the .NET ecosystem.
+  </p>
+
+  <h3 style="color:#5e35b1; margin-top:32px; margin-bottom:16px; border-bottom:3px solid #311b92; padding-bottom:8px;">
+    🚀 Key Capabilities
+  </h3>
+  <ul style="background:#d1c4e9; border-radius:10px; padding:18px 26px; color:#311b92; font-weight:600;">
+    <li style="margin-bottom:12px;"><strong>Actor-based Concurrency:</strong> Each actor is an isolated, self-contained unit of computation.</li>
+    <li style="margin-bottom:12px;"><strong>Message-driven Architecture:</strong> Communication happens asynchronously through immutable messages.</li>
+    <li style="margin-bottom:12px;"><strong>Supervision Trees:</strong> Parent actors supervise their children and can handle faults gracefully.</li>
+    <li style="margin-bottom:12px;"><strong>Akka.Cluster:</strong> Enables distributed computing with node discovery and remote actors.</li>
+    <li style="margin-bottom:12px;"><strong>Persistence:</strong> Event-sourced actors for durable state and replayability.</li>
+    <li style="margin-bottom:12px;"><strong>Streams & Routers:</strong> Built-in routing strategies and reactive stream support.</li>
+  </ul>
+
+  <h3 style="color:#5e35b1; margin-top:32px; margin-bottom:16px;">
+    ✏️ Basic Actor Example
+  </h3>
+
+  <pre style="background:#ede7f6; border-radius:10px; padding:16px; overflow-x:auto; color:#311b92;"><code>public class GreetingActor : ReceiveActor
+{
+    public GreetingActor()
+    {
+        Receive<string>(name => Console.WriteLine($"Hello, {name}!"));
+    }
+}
+
+// Create actor system
+var system = ActorSystem.Create("hello-system");
+
+// Create actor
+var greeter = system.ActorOf(Props.Create(() => new GreetingActor()), "greeter");
+
+// Send message
+greeter.Tell("Akka.NET");</code></pre>
+
+  <h3 style="color:#5e35b1; margin-top:30px; margin-bottom:12px;">
+    🧠 Best Practices
+  </h3>
+  <ul style="color:#311b92;">
+    <li style="margin-bottom:10px;"><strong>Prefer immutability:</strong> Always send immutable messages to avoid side effects.</li>
+    <li style="margin-bottom:10px;"><strong>Supervision:</strong> Use supervision strategies to manage actor failures.</li>
+    <li style="margin-bottom:10px;"><strong>Actor hierarchy:</strong> Design clear actor hierarchies for responsibility and isolation.</li>
+    <li style="margin-bottom:10px;"><strong>Monitoring:</strong> Use logging, health checks, and Akka.Monitoring for observability.</li>
+    <li style="margin-bottom:10px;"><strong>Cluster sharding:</strong> For distributed data & actor routing across multiple nodes.</li>
+  </ul>
+
+  <h3 style="color:#4527a0; margin-top:30px; margin-bottom:12px;">
+    📌 Use Cases
+  </h3>
+  <ul style="color:#311b92;">
+    <li>High-load web servers</li>
+    <li>IoT and telemetry data processing</li>
+    <li>Gaming backends with real-time state</li>
+    <li>Financial systems with strong fault tolerance</li>
+  </ul>
+
+  <h3 style="color:#4527a0; margin-top:30px; margin-bottom:12px;">
+    🔗 Resources
+  </h3>
+  <ul style="color:#311b92;">
+    <li><a href="https://getakka.net/" target="_blank" style="color:#5e35b1; text-decoration:none;">Official Website</a></li>
+    <li><a href="https://github.com/akkadotnet/akka.net" target="_blank" style="color:#5e35b1; text-decoration:none;">GitHub Repository</a></li>
+    <li><a href="https://getakka.net/articles/" target="_blank" style="color:#5e35b1; text-decoration:none;">Docs & Articles</a></li>
+  </ul>
+
+</div>
+` },
           ]
         },
       ]
@@ -4593,9 +7483,9 @@ app.Use(async (context, next) =>
               id: "frameworks",
               title: "Frameworks",
               children: [
-                { id: "xunit", title: "xUnit", type: "must-know" },
-                { id: "nunit", title: "NUnit", type: "good-to-know" },
-                { id: "mstest", title: "MSTest", type: "optional" },
+                { id: "xunit", title: "xUnit", type: "must-know",description: `` },
+                { id: "nunit", title: "NUnit", type: "good-to-know",description: `` },
+                { id: "mstest", title: "MSTest", type: "optional",description: `` },
               ]
             },
             {
