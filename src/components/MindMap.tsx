@@ -8,6 +8,15 @@ type Branch = {
 };
 
 export default function MindMap({ data }: { data: Branch[] }) {
+  // 🔁 Tüm çocuklara direction bilgisini recursive olarak ekle
+  function assignDirection(node: any, direction: "left" | "right") {
+    return {
+      ...node,
+      direction,
+      children: node.children?.map((child: any) => assignDirection(child, direction)) || [],
+    };
+  }
+
   return (
     <div className="relative flex flex-col items-center py-16 bg-gradient-to-b from-sky-50 to-white min-h-screen">
       {/* Omurga */}
@@ -15,21 +24,25 @@ export default function MindMap({ data }: { data: Branch[] }) {
       <div className="flex flex-col gap-24 w-full z-10">
         {data.map((branch) => {
           const isLeft = branch.direction === "left";
+          const branchWithDirection = assignDirection(branch, branch.direction); // ✅ Direction bilgisi yayılıyor
+
           return (
             <div key={branch.id} className="relative flex w-full items-center">
               {/* Sol taraf */}
               <div className={`flex w-1/2 ${isLeft ? "justify-end" : "justify-end invisible"}`}>
                 {isLeft && (
-                  <BranchColumn align="right" branch={branch} />
+                  <BranchColumn align="right" branch={branchWithDirection} />
                 )}
               </div>
+
               {/* Omurga noktası */}
               <div className="w-0 flex flex-col items-center">
                 <div className="w-6 h-6 bg-gradient-to-br from-sky-400 to-sky-600 rounded-full border-4 border-white shadow-lg z-10" />
               </div>
+
               {/* Sağ taraf */}
               <div className={`flex w-1/2 ${!isLeft ? "justify-start" : "justify-start invisible"}`}>
-                {!isLeft && <BranchColumn align="left" branch={branch} />}
+                {!isLeft && <BranchColumn align="left" branch={branchWithDirection} />}
               </div>
             </div>
           );
@@ -62,17 +75,16 @@ function BranchColumn({ align, branch }: BranchColumnProps) {
       </div>
 
       {/* Alt dallar */}
-      <RenderChildren children={branch.children} align={align} />
+      <RenderChildren children={branch.children} />
     </div>
   );
 }
 
 type RenderChildrenProps = {
   children: any[];
-  align: "left" | "right";
 };
 
-function RenderChildren({ children, align }: RenderChildrenProps) {
+function RenderChildren({ children }: RenderChildrenProps) {
   return (
     <div className="relative flex flex-col gap-4">
       {children.map((child) => (

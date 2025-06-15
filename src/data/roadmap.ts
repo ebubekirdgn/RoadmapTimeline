@@ -54,8 +54,7 @@ git merge main # Merge changes</code></pre><h3 style='color:#8b5cf6'>🧰 Platfo
       title: "C#",
       direction: "left", // Indicates it branches to the left
       children: [
-        { id: "csharp-basics", title: "Learn the basics of C# 13", type: "must-know",
-          description: `
+        { id: "csharp-basics", title: "Learn the basics of C# 13", type: "must-know",description: `
          <div style='font-family:sans-serif;line-height:1.6;background:#fefefe;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'><h2 style='color:#3b82f6'>💻 Learn the Basics of C# 13</h2><p><strong>C# 13</strong> is the latest version of Microsoft's powerful object-oriented language, packed with features that improve performance, readability, and developer productivity.</p><h3 style='color:#10b981'>🔤 Language Fundamentals</h3><ul style='list-style:disc;padding-left:1.2rem'><li><strong>Variables & Types:</strong> <code>int</code>, <code>string</code>, <code>bool</code>, <code>float</code>, etc.</li><li><strong>Conditionals:</strong> <code>if</code>, <code>switch</code>, <code>match</code></li><li><strong>Loops:</strong> <code>for</code>, <code>foreach</code>, <code>while</code></li><li><strong>OOP:</strong> Classes, Objects, Inheritance, Interfaces</li></ul><pre style='background:#f3f4f6;padding:1rem;border-radius:0.75rem;overflow-x:auto'><code>// Simple method in C# 13
 int Add(int a, int b) => a + b;</code></pre>
 
@@ -238,8 +237,7 @@ if (isValid)
       title: "SQL Fundamentals",
       direction: "right",
       children: [
-        { id: "fundamentals", title: "Fundamentals about database design and SQL Syntax", type: "must-know"
-          ,description: `<div style="font-family:sans-serif;line-height:1.6;background:#fefefe;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+        { id: "fundamentals", title: "Fundamentals about database design and SQL Syntax", type: "must-know" ,description: `<div style="font-family:sans-serif;line-height:1.6;background:#fefefe;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)">
   <h2 style="color:#2563eb">🗄️ Fundamentals of Database Design & SQL Syntax</h2>
   <p><strong>Database design</strong> is the process of structuring data to ensure efficiency, integrity, and scalability. SQL (Structured Query Language) is the standard language used to communicate with relational databases.</p>
 
@@ -297,8 +295,7 @@ DELETE FROM Customers WHERE CustomerID = 1;
   </ul>
 </div>
 `  },
-        { id: "stored-procedure", title: "Stored Procedures", type: "must-know",
-          description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefefe; padding:1.5rem; border-radius:1rem; border:1px solid #e5e7eb; box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+        { id: "stored-procedure", title: "Stored Procedures", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefefe; padding:1.5rem; border-radius:1rem; border:1px solid #e5e7eb; box-shadow:0 4px 12px rgba(0,0,0,0.05)">
   <h2 style="color:#2563eb">🔧 Stored Procedures</h2>
   <p><strong>Stored Procedures</strong> are precompiled SQL code stored in the database that can be executed repeatedly. They encapsulate complex operations, improve performance, and enhance security.</p>
 
@@ -1349,7 +1346,7 @@ public class Ostrich : Bird
   </ul>
 </div>
 ` },
-        { id: "interface-segregation", title: "Interface Segregation Principle (ISP)", type: "good-to-know",
+        { id: "interface-segregation", title: "Interface Segregation Principle (ISP)", type: "must-know",
           description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff4f6; padding:1.5rem; border-radius:1rem; border:1px solid #fca5a5; box-shadow:0 4px 15px rgba(251, 113, 133, 0.3)">
   <h2 style="color:#ef4444">📐 Interface Segregation Principle (ISP)</h2>
   <p>The <strong>Interface Segregation Principle</strong> states that clients should not be forced to depend on interfaces they do not use. In other words, larger interfaces should be split into smaller, more specific ones so that clients only need to know about the methods that are relevant to them.</p>
@@ -1417,7 +1414,7 @@ public class MultiFunctionPrinter : IPrinter, IScanner, IFax
   </ul>
 </div>
 ` },
-        { id: "dependency-inversion", title: "Dependency Inversion Principle (DIP)", type: "good-to-know",
+        { id: "dependency-inversion", title: "Dependency Inversion Principle (DIP)", type: "must-know",
           description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:1.5rem; border-radius:1rem; border:1px solid #38bdf8; box-shadow:0 4px 15px rgba(56, 189, 248, 0.3)">
   <h2 style="color:#0284c7">🔌 Dependency Inversion Principle (DIP)</h2>
   <p><strong>Dependency Inversion Principle</strong> states that:</p>
@@ -1506,6 +1503,7 @@ public class UserService
         {
           "id": "ef-core",
           "title": "Entity Framework Core",
+          "type": "must-know",
           "description": `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #60a5fa; box-shadow:0 4px 15px rgba(96, 165, 250, 0.3)">
   <h2 style="color:#2563eb">📦 Entity Framework Core (EF Core)</h2>
   <p><strong>EF Core</strong> is a modern, lightweight, extensible, and cross-platform Object-Relational Mapper (ORM) for .NET. It enables developers to work with a database using .NET objects, eliminating most of the data-access code.</p>
@@ -1665,7 +1663,7 @@ dotnet ef database update
   </ul>
 </div>
 ` },
-            { "id": "change-tracker", "title": "Change Tracker API", "type": "good-to-know",
+            { "id": "change-tracker", "title": "Change Tracker API", "type": "must-know",
               description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdfa; padding:1.5rem; border-radius:1rem; border:1px solid #22c55e; box-shadow:0 4px 15px rgba(34, 197, 94, 0.3)">
   <h2 style="color:#16a34a">🔄 Entity Framework Core - Change Tracker API</h2>
   <p><strong>Change Tracker</strong> is a powerful feature of EF Core that keeps track of all changes made to entities during the lifetime of a <code>DbContext</code>. It enables EF Core to detect what data has been added, modified, or deleted, and generates the appropriate SQL commands when you call <code>SaveChanges()</code>.</p>
@@ -1724,7 +1722,7 @@ foreach (var entry in context.ChangeTracker.Entries())
   </ul>
 </div>
 ` },
-            { "id": "loading-strategies", "title": "Lazy Loading, Eager Loading, Explicit Loading", "type": "good-to-know",
+            { "id": "loading-strategies", "title": "Lazy Loading, Eager Loading, Explicit Loading", "type": "must-know",
               description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff7f3; padding:1.5rem; border-radius:1rem; border:1px solid #fb923c; box-shadow:0 4px 15px rgba(251, 146, 60, 0.3)">
   <h2 style="color:#c2410c">📦 Entity Framework Core - Loading Related Data</h2>
   <p>EF Core provides three main strategies to load related data (navigation properties): <strong>Lazy Loading</strong>, <strong>Eager Loading</strong>, and <strong>Explicit Loading</strong>. Choosing the right approach is essential for performance and correctness.</p>
@@ -1778,7 +1776,7 @@ var posts = blog.Posts;</code></pre>
   </ul>
 </div>
 ` },
-            { "id": "inheritance-mapping", "title": "TPH, TPC, TPT", "type": "optional",
+            { "id": "inheritance-mapping", "title": "TPH, TPC, TPT", "type": "must-know",
               description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #3b82f6; box-shadow:0 4px 15px rgba(59, 130, 246, 0.3)">
   <h2 style="color:#1e40af">📚 EF Core Inheritance Mapping Strategies</h2>
   <p>When modeling inheritance in EF Core, you can choose how to map your class hierarchy to the database tables. The main strategies are:</p>
@@ -1856,7 +1854,7 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
   </ul>
 </div>
 ` },
-            { "id": "bulk-operations", "title": "Bulk Insert/Update APIs", "type": "optional",
+            { "id": "bulk-operations", "title": "Bulk Insert/Update APIs", "type": "must-know",
               description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef6ff; padding:1.5rem; border-radius:1rem; border:1px solid #a78bfa; box-shadow:0 4px 15px rgba(167, 139, 250, 0.3)">
   <h2 style="color:#7c3aed">🚀 Bulk Insert/Update in Entity Framework Core</h2>
   <p>
@@ -1916,7 +1914,7 @@ context.BulkUpdate(products);
   </ul>
 </div>
 ` },
-            { "id": "interceptors", "title": "Interceptors", "type": "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #3b82f6; box-shadow:0 4px 15px rgba(59, 130, 246, 0.3)">
+            { "id": "interceptors", "title": "Interceptors", "type": "good-to-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #3b82f6; box-shadow:0 4px 15px rgba(59, 130, 246, 0.3)">
   <h2 style="color:#1e40af">🛡️ EF Core Interceptors</h2>
   <p>
     Interceptors in EF Core allow you to intercept and customize low-level database operations such as command execution, connection opening, and saving changes.
@@ -2025,6 +2023,7 @@ optionsBuilder.AddInterceptors(new CommandInterceptor());
         {
           id: "relational",
           title: "Relational",
+          type: "must-know",
           description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef9f0; padding:1.5rem; border-radius:1rem; border:1px solid #f59e0b; box-shadow:0 4px 15px rgba(245, 158, 11, 0.3)">
   <h2 style="color:#b45309">🗄️ Relational Databases (RDBMS)</h2>
   <p>
@@ -2430,7 +2429,7 @@ GET /indexes/products/search?q=lptop</code></pre>
   </ul>
 </div>
 `  },
-            { id: "manticoresearch", title: "ManticoreSearch", type: "optional",
+            { id: "manticoresearch", title: "ManticoreSearch", type: "good-to-know",
               description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff7ed; padding:1.5rem; border-radius:1rem; border:1px solid #f97316; box-shadow:0 4px 15px rgba(249, 115, 22, 0.3)">
   <h2 style="color:#c2410c">🔥 Manticore Search - High-Performance Open Source Search Engine</h2>
   <p>
@@ -2532,6 +2531,7 @@ GET /library/_search
         {
           id: "nosql",
           title: "NoSQL",
+          type: "good-to-know",
           description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff9f0; padding:1.5rem; border-radius:1rem; border:1px solid #d97706; box-shadow:0 4px 15px rgba(217, 119, 6, 0.3)">
   <h2 style="color:#b45309">🚀 NoSQL Databases - Flexible & Scalable Data Storage</h2>
   <p>
@@ -2704,7 +2704,7 @@ SUBSCRIBE notifications
   </ul>
 </div>
 ` },
-                { id: "mongodb", title: "MongoDB", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34, 197, 94, 0.3)">
+                { id: "mongodb", title: "MongoDB", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34, 197, 94, 0.3)">
   <h2 style="color:#15803d; margin-bottom:1rem;">🍃 MongoDB - NoSQL Document Database</h2>
   <p>
     MongoDB is a leading NoSQL, document-oriented database designed for high performance, scalability, and flexibility. It stores data in JSON-like BSON documents which allow complex nested structures.
@@ -3118,7 +3118,7 @@ az webapp up --name my-dotnet-app \
 </div>
 `,
               children: [
-                { id: "azure-cosmosdb", title: "Azure CosmosDB", type: "good-to-know",
+                { id: "azure-cosmosdb", title: "Azure CosmosDB", type: "must-know",
                   description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfdf5; padding:2rem; border-radius:1rem; border:2px solid #10b981; box-shadow:0 6px 20px rgba(16, 185, 129, 0.15)">
   <h2 style="color:#065f46; margin-bottom:1rem;">🪐 Azure Cosmos DB – Global, Scalable NoSQL for .NET</h2>
   <p>
@@ -3302,6 +3302,7 @@ if (_cache.TryGetValue("user_1", out User cachedUser))
         { 
           id: "distributed-cache",
           title: "Distributed Cache",
+          type: "must-know",
           description: `<div style="font-family:sans-serif; line-height:1.6; background:#eff6ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
   <h2 style="color:#1d4ed8;">🌍 Distributed Caching in ASP.NET Core</h2>
   <p>
@@ -3706,6 +3707,7 @@ public class CacheService
         {
           id: "application-level-caching",
           title: "Application-Level",
+          type: "good-to-know",
           description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:2rem; border-radius:1rem; border:2px solid #0284c7; box-shadow:0 6px 20px rgba(2,132,199,0.2)">
   <h2 style="color:#0369a1;">⚡ Application-Level Caching in ASP.NET Core</h2>
   <p>
@@ -3987,7 +3989,7 @@ public IActionResult GetData()
   </ul>
 </div>
 `,
-                  type: "optional"
+                  type: "good-to-know"
                 },
               ]
             },
@@ -4109,7 +4111,7 @@ var products = await dbContext.Products
   </ul>
 </div>
 `,
-              type: "optional"
+              type: "good-to-know"
             }
           ]
         },
@@ -4184,7 +4186,7 @@ public class HomeController : Controller
   </ul>
 </div>
 ` },
-        { id: "nlog", title: "NLog", type: "good-to-know",
+        { id: "nlog", title: "NLog", type: "optional",
           description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width:700px; margin:auto; padding:2rem; background:#fff8e1; border-radius:12px; border:1.5px solid #fbc02d; box-shadow: 0 4px 15px rgba(251, 192, 45, 0.3); color:#5d4037;">
   <h2 style="color:#f9a825; margin-bottom:0.6rem;">📝 NLog - Flexible Logging for .NET</h2>
   <p style="font-size:1rem; line-height:1.5; margin-bottom:1.2rem;">
@@ -4359,7 +4361,7 @@ function sendMessage(user, message) {
   </ul>
 </div>
 `  },
-        { id: "web-sockets", title: "Web Sockets", type: "good-to-know",
+        { id: "web-sockets", title: "Web Sockets", type: "optional",
           description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width:720px; margin:auto; padding:2rem; background:#f0f4c3; border-radius:14px; border:2px solid #afb42b; box-shadow: 0 5px 20px rgba(171, 180, 0, 0.3); color:#827717; line-height:1.6;">
   <h2 style="color:#c0ca33; margin-bottom:1rem;">🔌 WebSockets - Full-Duplex Communication Protocol</h2>
 
@@ -4457,6 +4459,7 @@ app.Use(async (context, next) =>
         {
           id: "rest",
           title: "REST",
+          type: "must-know",
           description: `<div style="font-family:'Segoe UI', Tahoma, sans-serif; max-width:720px; background:#e3f2fd; border:2px solid #64b5f6; border-radius:12px; padding:1.5rem; box-shadow:0 5px 15px rgba(33,150,243,0.2); color:#0d47a1; line-height:1.7;">
   <h2 style="color:#1976d2;">🌐 REST Fundamentals - Must Know for API Communication</h2>
 
@@ -5292,7 +5295,7 @@ builder.Services.AddHostedService<MyBackgroundService>();
   </ul>
 </div>
 ` },
-        { id: "hangfire", title: "HangFire", type: "good-to-know",
+        { id: "hangfire", title: "HangFire", type: "must-know",
           description: `<div style="background:#fff3e0; border-left:6px solid #fb8c00; padding:20px 25px; margin-bottom:25px; border-radius:8px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#e65100;">
   <h2 style="color:#ef6c00; margin-bottom:12px;">⏰ Hangfire - Background Job Processing</h2>
   <p>
@@ -5704,6 +5707,7 @@ services.AddAutoMapper(typeof(UserProfile));</code>
         {
           id: "message-broker",
           title: "Message broker",
+          type: "must-know",
           description: `<div style="background:#f0f4c3; border-left:6px solid #c0ca33; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#33691e;">
   <h2 style="color:#9ccc65; margin-bottom:15px;">🧩 Microservices & Message Brokers</h2>
 
@@ -5768,7 +5772,7 @@ services.AddAutoMapper(typeof(UserProfile));</code>
 </div>
 `,
           children: [
-            { id: "rabbitmq", title: "RabbitMQ", type: "good-to-know",
+            { id: "rabbitmq", title: "RabbitMQ", type: "must-know",
               description: `<div style="background:#e3f2fd; border-left:6px solid #2196f3; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#0d47a1;">
   <h2 style="color:#1976d2; margin-bottom:15px;">🐇 RabbitMQ: Robust Message Broker for Distributed Systems</h2>
 
@@ -6018,6 +6022,7 @@ Console.WriteLine($"Received: {message}");
         {
           id: "message-bus",
           title: "Message-Bus",
+          type: "must-know",
           description: `<div style="background:#eef6f9; border-left:6px solid #007acc; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#1a1a1a;">
   <h2 style="color:#005a9e; margin-bottom:15px;">📬 Message Bus: Decoupled Communication Backbone</h2>
 
@@ -6310,6 +6315,7 @@ bus.PubSub.Publish(new OrderPlaced
         {
           id: "api-gateway",
           title: "API Gateway",
+          type: "good-to-know",
           description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #222; border-radius: 10px; padding: 25px 30px; margin-bottom: 30px;">
 
   <h2 style="color: #007acc; border-left: 6px solid #007acc; padding-left: 10px; margin-bottom: 20px;">
@@ -6473,7 +6479,7 @@ app.Run();
 
 </div>
 ` },
-            { id: "yarp", title: "YARP", type: "good-to-know",
+            { id: "yarp", title: "YARP", type: "must-know",
               description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1e1e1e; background: #e6f7fa; border-radius: 12px; padding: 28px 32px; box-shadow: 0 5px 15px rgba(0, 150, 136, 0.15);">
 
   <h2 style="color: #009688; border-left: 6px solid #00796b; padding-left: 14px; margin-bottom: 20px; font-weight: 700;">
@@ -6952,7 +6958,7 @@ spec:
 ` ,
               type: "must-know",
               children: [
-                { id: "kubectl", title: "Kubectl", type: "good-to-know",
+                { id: "kubectl", title: "Kubectl", type: "must-know",
                   description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff8e1; border-radius: 12px; padding: 24px 28px; box-shadow: 0 6px 18px rgba(255, 193, 7, 0.3); color: #665800;">
 
   <h2 style="color: #ffb300; border-left: 6px solid #ff8f00; padding-left: 14px; margin-bottom: 20px; font-weight: 700;">
@@ -7024,7 +7030,7 @@ kubectl scale deployment &lt;deployment-name&gt; --replicas=5
 
 </div>
 ` },
-                { id: "rancher", title: "Rancher", type: "optional",description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #e8f5e9; border-radius: 14px; padding: 28px 32px; box-shadow: 0 8px 24px rgba(46, 125, 50, 0.15); color: #2e7d32;">
+                { id: "rancher", title: "Rancher", type: "must-know",description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #e8f5e9; border-radius: 14px; padding: 28px 32px; box-shadow: 0 8px 24px rgba(46, 125, 50, 0.15); color: #2e7d32;">
 
   <h2 style="color: #1b5e20; border-left: 6px solid #388e3c; padding-left: 16px; margin-bottom: 24px; font-weight: 700;">
     🐄 Rancher: Kubernetes Management Platform
@@ -7080,7 +7086,7 @@ kubectl scale deployment &lt;deployment-name&gt; --replicas=5
 
 </div>
 ` },
-                { id: "k9s", title: "K9s", type: "must-know",description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #e3f2fd; border-radius: 14px; padding: 28px 32px; box-shadow: 0 8px 24px rgba(25, 118, 210, 0.15); color: #1565c0;">
+                { id: "k9s", title: "K9s", type: "optional",description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #e3f2fd; border-radius: 14px; padding: 28px 32px; box-shadow: 0 8px 24px rgba(25, 118, 210, 0.15); color: #1565c0;">
 
   <h2 style="color: #0d47a1; border-left: 6px solid #1976d2; padding-left: 16px; margin-bottom: 24px; font-weight: 700;">
     🐾 K9s: Kubernetes CLI Dashboard
@@ -7192,7 +7198,7 @@ kubectl scale deployment &lt;deployment-name&gt; --replicas=5
 
 </div>
 ` },
-            { id: "orleans", title: "Orleans", type: "optional",
+            { id: "orleans", title: "Orleans", type: "good-to-know",
               description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #e8f5e9; border-radius: 14px; padding: 28px 32px; box-shadow: 0 8px 24px rgba(56, 142, 60, 0.15); color: #2e7d32;">
 
   <h2 style="color: #1b5e20; border-left: 6px solid #43a047; padding-left: 16px; margin-bottom: 24px; font-weight: 700;">
@@ -7478,6 +7484,7 @@ greeter.Tell("Akka.NET");</code></pre>
         {
           id: "unit-testing",
           title: "Unit Testing",
+          type: "must-know",
           children: [
             {
               id: "frameworks",
@@ -7493,13 +7500,14 @@ greeter.Tell("Akka.NET");</code></pre>
               title: "Mocking",
               children: [
                 { id: "moq", title: "Moq", type: "must-know" },
-                { id: "nsubstitute", title: "NSubstitute", type: "good-to-know" },
+                { id: "nsubstitute", title: "NSubstitute", type: "optional" },
                 { id: "fakereasy", title: "FakeItEasy", type: "optional" },
               ]
             },
             {
               id: "assertion",
               title: "Assertion",
+              type: "must-know",
               children: [
                 { id: "fluentassertions", title: "FluentAssertions", type: "must-know" },
               ]
@@ -7507,9 +7515,10 @@ greeter.Tell("Akka.NET");</code></pre>
             {
               id: "fake-data-generators",
               title: "Fake Data Generators",
+              type: "must-know",
               children: [
-                { id: "autofixture", title: "AutoFixture", type: "good-to-know" },
-                { id: "bogus", title: "Bogus", type: "optional" },
+                { id: "autofixture", title: "AutoFixture", type: "must-know" },
+                { id: "bogus", title: "Bogus", type: "good-to-know" },
               ]
             },
           ]
@@ -7517,6 +7526,7 @@ greeter.Tell("Akka.NET");</code></pre>
         {
           id: "integration-testing",
           title: "Integration Testing",
+          type: "must-know",
           children: [
             { id: "webapplicationfactory", title: "WebApplicationFactory", type: "must-know" },
             { id: "test-containers", title: "Test Containers", type: "must-know" },
@@ -7527,32 +7537,36 @@ greeter.Tell("Akka.NET");</code></pre>
         {
           id: "snapshot-testing",
           title: "Snapshot Testing",
+          type: "good-to-know",
           children: [
-            { id: "verify", title: "Verify", type: "good-to-know" },
+            { id: "verify", title: "Verify", type: "must-know" },
           ]
         },
         {
           id: "behavior-testing",
           title: "Behavior Testing",
+          type: "optional",
           children: [
-            { id: "specflow", title: "SpecFlow", type: "good-to-know" },
+            { id: "specflow", title: "SpecFlow", type: "must-know" },
           ]
         },
         {
           id: "e2e-testing",
           title: "E2E Testing",
+          type: "optional",
           children: [
-            { id: "playwright", title: "Playwright", type: "good-to-know" },
-            { id: "puppeteer-sharp", title: "Puppeteer-Sharp", type: "optional" },
+            { id: "playwright", title: "Playwright", type: "must-know" },
+            { id: "puppeteer-sharp", title: "Puppeteer-Sharp", type: "good-to-know" },
             { id: "selenium", title: "Selenium", type: "optional" },
           ]
         },
         {
           id: "performance-testing",
           title: "Performance Testing",
+          type: "good-to-know",
           children: [
-            { id: "k6", title: "K6", type: "good-to-know" },
-            { id: "jmeter", title: "JMeter", type: "optional" },
+            { id: "k6", title: "K6", type: "must-know" },
+            { id: "jmeter", title: "JMeter", type: "good-to-know" },
             { id: "crank", title: "Crank", type: "optional" },
             { id: "bombardier", title: "Bombardier", type: "optional" },
           ]
@@ -7560,6 +7574,7 @@ greeter.Tell("Akka.NET");</code></pre>
         {
           id: "architecture-testing",
           title: "Architecture Testing",
+          type: "good-to-know",
           children: [
             { id: "archunitnet", title: "ArchUnitNET", type: "good-to-know" },
             { id: "netarchtest", title: "NetArchTest", type: "optional" },
@@ -7596,19 +7611,20 @@ greeter.Tell("Akka.NET");</code></pre>
         {
           id: "monitoring",
           title: "Monitoring",
+          type: "must-know",
           children: [
             {
               id: "on-premises-monitoring",
               title: "On-Premises",
               children: [
-                { id: "prometheus-grafana", title: "Prometheus/Grafana", type: "optional" },
+                { id: "prometheus-grafana", title: "Prometheus/Grafana", type: "must-know" },
               ]
             },
             {
               id: "cloud-monitoring",
               title: "Cloud",
               children: [
-                { id: "datadog-mon", title: "Datadog", type: "optional" },
+                { id: "datadog-mon", title: "Datadog", type: "must-know"  },
               ]
             },
           ]
@@ -7616,13 +7632,14 @@ greeter.Tell("Akka.NET");</code></pre>
         {
           id: "logging",
           title: "Logging",
+          type: "must-know",
           children: [
             {
               id: "on-premises-logging",
               title: "On-Premises",
               children: [
-                { id: "elk-stack", title: "ELK Stack", type: "good-to-know" },
-                { id: "seq", title: "Seq", type: "must-know" },
+                { id: "elk-stack", title: "ELK Stack", type: "must-know" },
+                { id: "seq", title: "Seq", type: "good-to-know" },
                 { id: "sentry", title: "Sentry.io", type: "optional" },
               ]
             },
@@ -7630,7 +7647,7 @@ greeter.Tell("Akka.NET");</code></pre>
               id: "cloud-logging",
               title: "Cloud",
               children: [
-                { id: "datadog-log", title: "Datadog", type: "optional" },
+                { id: "datadog-log", title: "Datadog", type: "must-know" },
                 { id: "sentry-io-log", title: "Sentry.io", type: "optional" },
               ]
             },
@@ -7639,6 +7656,7 @@ greeter.Tell("Akka.NET");</code></pre>
         {
           id: "tracing",
           title: "Tracing",
+          type: "must-know",
           children: [
             {
               id: "on-premises-tracing",
@@ -7647,9 +7665,9 @@ greeter.Tell("Akka.NET");</code></pre>
                 {
                   id: "opentelemetry",
                   title: "OpenTelemetry (OTel)",
-                  type: "good-to-know",
+                  type: "must-know",
                   children: [
-                    { id: "jaeger", title: "Jaeger", type: "optional" },
+                    { id: "jaeger", title: "Jaeger", type: "must-know" },
                     { id: "zipkin", title: "Zipkin", type: "optional" },
                   ]
                 },
@@ -7661,7 +7679,7 @@ greeter.Tell("Akka.NET");</code></pre>
               id: "cloud-tracing",
               title: "Cloud",
               children: [
-                { id: "datadog-trace", title: "Datadog", type: "optional" },
+                { id: "datadog-trace", title: "Datadog", type: "must-know" },
                 { id: "sentry-io-trace", title: "Sentry.io", type: "optional" },
               ]
             },
@@ -7671,12 +7689,13 @@ greeter.Tell("Akka.NET");</code></pre>
         {
           id: "alerting",
           title: "Alerting",
+          type: "must-know",
           children: [
             {
               id: "on-premises-alerting",
               title: "On-Premises",
               children: [
-                { id: "zabbix", title: "Zabbix", type: "good-to-know" },
+                { id: "zabbix", title: "Zabbix", type: "must-know" },
                 { id: "alertmanager", title: "Alertmanager", type: "optional" },
 
               ]
@@ -7685,7 +7704,7 @@ greeter.Tell("Akka.NET");</code></pre>
               id: "cloud-alerting",
               title: "Cloud",
               children: [
-                { id: "datadog-alert", title: "Datadog", type: "optional" },
+                { id: "datadog-alert", title: "Datadog", type: "must-know" },
               ]
             },
 
@@ -7701,6 +7720,7 @@ greeter.Tell("Akka.NET");</code></pre>
         {
           id: "template-engines",
           title: "Template Engines",
+          type: "good-to-know",
           children: [
             { id: "razor", title: "Razor", type: "must-know" },
             { id: "scriban", title: "Scriban", type: "optional" },
@@ -7710,19 +7730,20 @@ greeter.Tell("Akka.NET");</code></pre>
         {
           id: "frameworks-client",
           title: "Frameworks",
+          type: "must-know",
           children: [
             {
               id: "blazor",
               title: "Blazor",
               type: "must-know",
               children: [
-                { id: "blazor-wasm", title: "Blazor WASM", type: "good-to-know" },
+                { id: "blazor-wasm", title: "Blazor WASM", type: "must-know" },
                 { id: "blazor-server-side", title: "Blazor Server-Side", type: "must-know" },
-                { id: "blazor-hybrid", title: "Blazor Hybrid", type: "optional" },
+                { id: "blazor-hybrid", title: "Blazor Hybrid", type: "must-know" },
               ]
             },
 
-            { id: "net-maui", title: ".NET MAUI", type: "optional" },
+            { id: "net-maui", title: ".NET MAUI", type: "good-to-know" },
           ]
         },
       ]
@@ -7747,8 +7768,8 @@ greeter.Tell("Akka.NET");</code></pre>
       title: "AI / LLMs",
       direction: "right",
       children: [
-        { id: "semantic-kernel", title: "Semantic Kernel", type: "good-to-know" },
-        { id: "openai-net", title: "OpenAI .NET", type: "optional" },
+        { id: "semantic-kernel", title: "Semantic Kernel", type: "must-know" },
+        { id: "openai-net", title: "OpenAI .NET", type: "must-know" },
       ]
     },
     {
