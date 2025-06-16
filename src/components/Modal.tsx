@@ -1,6 +1,7 @@
 "use client";
 
 import { ReactNode, useEffect } from "react";
+import ReactDOM from "react-dom";
 
 interface ModalProps {
   isOpen: boolean;
@@ -34,12 +35,20 @@ export default function Modal({
 
   if (!isOpen) return null;
 
-  return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-center justify-center p-4">
-      <div className="bg-white rounded-xl p-6 w-full max-w-2xl mx-auto relative max-h-[90vh] overflow-y-auto z-[10000]">
+  // Modal içeriği portal ile body altına render ediliyor:
+  return ReactDOM.createPortal(
+    <div
+      className="fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-center justify-center p-4"
+      onClick={onClose} // Overlay tıklamasında kapat
+    >
+      <div
+        className="bg-white rounded-xl p-6 w-full max-w-2xl mx-auto relative max-h-[90vh] overflow-y-auto z-[10000]"
+        onClick={(e) => e.stopPropagation()} // Modal içi tıklamayı yakala, kapatmayı engelle
+      >
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors duration-200"
+          aria-label="Close modal"
         >
           <svg
             className="w-6 h-6"
@@ -58,6 +67,7 @@ export default function Modal({
         <h2 className="text-2xl font-bold mb-4">{title}</h2>
         <div className="pr-8">{children}</div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

@@ -16,8 +16,8 @@ export default function Home() {
       </header>
 
       <section className="mx-auto w-full max-w-none bg-white/10 backdrop-blur-md rounded-3xl shadow-lg p-8 sm:p-12">
-  <MindMap data={roadmapData.mainBranches} />
-</section>
+        <MindMap data={roadmapData.mainBranches} />
+      </section>
 
       <footer className="mt-20 text-gray-400 text-sm select-none">
         © {new Date().getFullYear()} Your Name. All rights reserved.
