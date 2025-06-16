@@ -14,6 +14,8 @@ type Node = {
   children?: Node[];
 };
 
+const MotionDiv = motion.div;
+
 export default function MindMapNode({ node }: { node: Node }) {
   const [open, setOpen] = useState(false);
 
@@ -24,16 +26,17 @@ export default function MindMapNode({ node }: { node: Node }) {
   }[node.type || "optional"];
 
   const hasChildren = node.children && node.children.length > 0;
+  const isLeft = node.direction === "left";
 
   return (
-    <motion.div
+    <MotionDiv
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="relative flex flex-col items-start text-sm text-gray-900 dark:text-white"
+      className={`relative flex flex-col items-start text-sm text-gray-900 dark:text-white `}
     >
-      {/* Ana düğüm */}
-      <div className="relative group">
+      {/* Ana Düğme */}
+      <div className={`relative group ${isLeft ? "self-end" : ""}`}>
         <button
           onClick={() => setOpen(true)}
           className={`flex items-center gap-2 px-4 py-2 rounded-full border ${badgeColor} text-white hover:scale-105 transition-all duration-300 shadow`}
@@ -44,7 +47,11 @@ export default function MindMapNode({ node }: { node: Node }) {
 
         {/* Tooltip */}
         {node.description && (
-          <div className="absolute hidden group-hover:block left-full ml-2 top-1/2 -translate-y-1/2 bg-gray-800 text-white text-xs rounded px-2 py-1 max-w-xs z-10">
+          <div
+            className={`absolute hidden ${
+              isLeft ? "right-full mr-2" : "left-full ml-2"
+            } top-1/2 -translate-y-1/2 bg-gray-800 text-white text-xs rounded px-2 py-1 max-w-xs z-10`}
+          >
             {node.description.slice(0, 60)}...
           </div>
         )}
@@ -52,8 +59,12 @@ export default function MindMapNode({ node }: { node: Node }) {
         {/* Modal */}
         <Modal isOpen={open} onClose={() => setOpen(false)} title={node.title}>
           <div className="space-y-4 text-base">
-            <p><strong>ID:</strong> {node.id}</p>
-            <p><strong>Tür:</strong> {node.type || "Bilinmiyor"}</p>
+            <p>
+              <strong>ID:</strong> {node.id}
+            </p>
+            <p>
+              <strong>Tür:</strong> {node.type || "Bilinmiyor"}
+            </p>
             <div
               className="prose max-w-none text-gray-800 dark:text-gray-200"
               dangerouslySetInnerHTML={{ __html: node.description || "" }}
@@ -88,16 +99,31 @@ export default function MindMapNode({ node }: { node: Node }) {
         </Modal>
       </div>
 
-      {/* Çocuk düğümler */}
+      {/* Alt Dallar */}
       {hasChildren && (
-        <div className="mt-4 pl-6 border-l-2 border-sky-400 relative">
-          {node.children!.map((child, index) => (
-            <div key={child.id} className="relative ml-4 py-2 before:absolute before:top-1/2 before:left-[-1.5rem] before:w-6 before:h-px before:bg-sky-400 before:-translate-y-1/2">
+        <div
+          className={`mt-4 relative ${
+            isLeft
+              ? "pr-6 border-r-2 border-sky-400"
+              : "pl-6 border-l-2 border-sky-400"
+          }`}
+        >
+          {node.children!.map((child) => (
+            <div
+              key={child.id}
+              className={`relative py-2 ${
+                isLeft ? "mr-4" : "ml-4"
+              } before:absolute before:top-1/2 ${
+                isLeft
+                  ? "before:right-[-1.5rem]"
+                  : "before:left-[-1.5rem]"
+              } before:w-6 before:h-px before:bg-sky-400 before:-translate-y-1/2`}
+            >
               <MindMapNode node={child} />
             </div>
           ))}
         </div>
       )}
-    </motion.div>
+    </MotionDiv>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 
 interface ModalProps {
   isOpen: boolean;
@@ -9,7 +9,29 @@ interface ModalProps {
   title: string;
 }
 
-export default function Modal({ isOpen, onClose, children, title }: ModalProps) {
+export default function Modal({
+  isOpen,
+  onClose,
+  children,
+  title,
+}: ModalProps) {
+  // ESC tuşuyla kapatma
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return (
@@ -34,9 +56,7 @@ export default function Modal({ isOpen, onClose, children, title }: ModalProps) 
           </svg>
         </button>
         <h2 className="text-2xl font-bold mb-4">{title}</h2>
-        <div className="pr-8">
-          {children}
-        </div>
+        <div className="pr-8">{children}</div>
       </div>
     </div>
   );
