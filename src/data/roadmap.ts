@@ -7480,45 +7480,1019 @@ greeter.Tell("Akka.NET");</code></pre>
       id: "testing",
       title: "Testing",
       direction: "right",
+      
       children: [
         {
           id: "unit-testing",
           title: "Unit Testing",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfdf5; padding:2rem; border-radius:1rem; border:2px solid #10b981; box-shadow:0 6px 20px rgba(16,185,129,0.2)">
+  <h2 style="color:#059669;">🧪 Introduction to Unit Testing</h2>
+  <p>
+    <strong>Unit Testing</strong> is the practice of testing individual units of code (usually functions or methods) in isolation to ensure they behave as expected.
+    It helps catch bugs early, improves code quality, and makes refactoring safer.
+  </p>
+
+  <h3 style="color:#047857;">💡 Why Unit Testing Matters</h3>
+  <ul>
+    <li>🔍 Ensures each piece of code works correctly in isolation</li>
+    <li>🛡️ Acts as a safety net when refactoring or adding features</li>
+    <li>🚀 Helps detect bugs early in the development process</li>
+    <li>📦 Promotes modular, loosely coupled code</li>
+    <li>🧠 Encourages better design and documentation</li>
+  </ul>
+
+  <h3 style="color:#047857;">🔧 Core Concepts</h3>
+  <ul>
+    <li>🧩 <strong>Unit</strong>: Smallest testable part of code, typically a function or method</li>
+    <li>🧪 <strong>Test Case</strong>: A single scenario that validates a unit’s behavior</li>
+    <li>🔗 <strong>Mocking</strong>: Simulating dependencies to isolate the unit</li>
+    <li>🚦 <strong>Assertions</strong>: Statements that check if actual output matches expected result</li>
+  </ul>
+
+  <h3 style="color:#059669;">💻 Example: Unit Test in JavaScript (Jest)</h3>
+  <pre style="background:#d1fae5; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+// math.js
+export function add(a, b) {
+  return a + b;
+}
+
+// math.test.js
+import { add } from './math';
+
+test('adds 2 + 3 to equal 5', () => {
+  expect(add(2, 3)).toBe(5);
+});
+  </pre>
+
+  <h3 style="color:#047857;">✅ Best Practices</h3>
+  <ul>
+    <li>📦 Test small, independent units — keep them isolated from external systems</li>
+    <li>🔄 Run tests automatically (e.g., during pre-commit or CI)</li>
+    <li>🧪 Use meaningful test names that describe the behavior being tested</li>
+    <li>🧱 Follow AAA pattern: Arrange, Act, Assert</li>
+    <li>🧼 Keep test code clean and readable — it's just as important as production code</li>
+    <li>🔍 Use mocks/stubs for external dependencies (e.g., APIs, databases)</li>
+    <li>📉 Don't over-test trivial code — focus on logic-heavy components</li>
+  </ul>
+
+  <h3 style="color:#059669;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://jestjs.io/docs/getting-started" target="_blank" style="color:#10b981;">Jest Documentation</a></li>
+    <li><a href="https://martinfowler.com/bliki/UnitTest.html" target="_blank" style="color:#10b981;">Martin Fowler on Unit Testing</a></li>
+    <li><a href="https://xunit.net/docs/getting-started/netfx/visual-studio" target="_blank" style="color:#10b981;">xUnit for .NET</a></li>
+  </ul>
+</div>`
+,
           type: "must-know",
           children: [
             {
               id: "frameworks",
               title: "Frameworks",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
+  <h2 style="color:#16a34a;">🧰 Testing Frameworks Overview</h2>
+  <p>
+    <strong>Testing Frameworks</strong> are tools that provide the structure and utilities needed to write, run, and manage tests efficiently.
+    They help automate assertions, handle test lifecycles, provide reporting, and integrate with CI/CD pipelines.
+  </p>
+
+  <h3 style="color:#15803d;">💡 Why Use a Testing Framework?</h3>
+  <ul>
+    <li>✅ Standardized structure for writing tests</li>
+    <li>🛠️ Built-in assertions, setup/teardown hooks, and mocking utilities</li>
+    <li>📈 Detailed test reporting and coverage analysis</li>
+    <li>🚀 Seamless integration with CI/CD and dev tools</li>
+    <li>🔁 Support for running thousands of tests automatically</li>
+  </ul>
+
+  <h3 style="color:#15803d;">📦 Popular Testing Frameworks</h3>
+  <ul>
+    <li><strong>🔵 JavaScript:</strong> <code>Jest</code>, <code>Mocha</code>, <code>Vitest</code>, <code>Playwright</code></li>
+    <li><strong>🟣 .NET:</strong> <code>xUnit</code>, <code>nUnit</code>, <code>MSTest</code></li>
+    <li><strong>🐍 Python:</strong> <code>pytest</code>, <code>unittest</code></li>
+    <li><strong>☕ Java:</strong> <code>JUnit</code>, <code>TestNG</code></li>
+    <li><strong>🐘 PHP:</strong> <code>Pest</code>, <code>PHPUnit</code></li>
+  </ul>
+
+  <h3 style="color:#16a34a;">💻 Example: Jest (JavaScript)</h3>
+  <pre style="background:#dcfce7; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+// greet.js
+export function greet(name) {
+  return \`Hello, \${name}!\`;
+}
+
+// greet.test.js
+import { greet } from './greet';
+
+test('greets user correctly', () => {
+  expect(greet('Alice')).toBe('Hello, Alice!');
+});
+  </pre>
+
+  <h3 style="color:#15803d;">✅ Best Practices</h3>
+  <ul>
+    <li>📂 Organize test files with the same structure as your codebase</li>
+    <li>🧪 Choose the right framework based on language and project size</li>
+    <li>🔍 Use descriptive names for test cases (what & when)</li>
+    <li>⚙️ Use setup/teardown methods to manage test environments</li>
+    <li>📊 Integrate code coverage tools (e.g., Istanbul, Coverlet)</li>
+    <li>🧵 Keep tests isolated and deterministic (same result every run)</li>
+  </ul>
+
+  <h3 style="color:#16a34a;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://jestjs.io/" target="_blank" style="color:#22c55e;">Jest Documentation</a></li>
+    <li><a href="https://xunit.net/" target="_blank" style="color:#22c55e;">xUnit for .NET</a></li>
+    <li><a href="https://docs.pytest.org/en/stable/" target="_blank" style="color:#22c55e;">pytest for Python</a></li>
+    <li><a href="https://junit.org/junit5/docs/current/user-guide/" target="_blank" style="color:#22c55e;">JUnit 5 Guide</a></li>
+  </ul>
+</div>`
+,
               children: [
-                { id: "xunit", title: "xUnit", type: "must-know",description: `` },
-                { id: "nunit", title: "NUnit", type: "good-to-know",description: `` },
-                { id: "mstest", title: "MSTest", type: "optional",description: `` },
+                { id: "xunit", title: "xUnit", type: "must-know",
+                  description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef2f2; padding:2rem; border-radius:1rem; border:2px solid #ef4444; box-shadow:0 6px 20px rgba(239,68,68,0.2)">
+  <h2 style="color:#dc2626;">🧪 Unit Testing with xUnit in .NET</h2>
+  <p>
+    <strong>xUnit</strong> is a popular and extensible testing framework for .NET applications. It’s part of the "xUnit family" of testing tools and is the recommended framework for .NET Core and .NET 6/7/8 projects.
+  </p>
+
+  <h3 style="color:#b91c1c;">💡 Why Use xUnit?</h3>
+  <ul>
+    <li>📦 Built-in support in .NET SDK and Visual Studio</li>
+    <li>⚡ Fast and lightweight test execution</li>
+    <li>🧩 Supports dependency injection out-of-the-box</li>
+    <li>🔁 Clean test lifecycle with constructor/dispose support</li>
+    <li>🔍 Clear syntax and conventions — no unnecessary attributes</li>
+  </ul>
+
+  <h3 style="color:#b91c1c;">🧱 Structure of an xUnit Test</h3>
+  <ul>
+    <li><code>[Fact]</code> - Defines a single, no-parameter test</li>
+    <li><code>[Theory]</code> - Allows parameterized tests</li>
+    <li><code>Assert.Equal</code>, <code>Assert.True</code> - Assertions to check results</li>
+    <li><code>IClassFixture</code> - Shared setup for integration tests</li>
+  </ul>
+
+  <h3 style="color:#dc2626;">💻 Example: Simple Test with [Fact]</h3>
+  <pre style="background:#fee2e2; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+// MathService.cs
+public class MathService
+{
+    public int Add(int a, int b) => a + b;
+}
+
+// MathServiceTests.cs
+public class MathServiceTests
+{
+    [Fact]
+    public void Add_ReturnsCorrectSum()
+    {
+        var service = new MathService();
+        var result = service.Add(2, 3);
+        Assert.Equal(5, result);
+    }
+}
+  </pre>
+
+  <h3 style="color:#b91c1c;">💻 Example: Data-Driven Test with [Theory]</h3>
+  <pre style="background:#fee2e2; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+[Theory]
+[InlineData(2, 3, 5)]
+[InlineData(-1, 1, 0)]
+[InlineData(0, 0, 0)]
+public void Add_WorksForMultipleInputs(int a, int b, int expected)
+{
+    var service = new MathService();
+    var result = service.Add(a, b);
+    Assert.Equal(expected, result);
+}
+  </pre>
+
+  <h3 style="color:#b91c1c;">✅ Best Practices</h3>
+  <ul>
+    <li>🧪 Use <code>[Fact]</code> for fixed test cases, <code>[Theory]</code> for variable inputs</li>
+    <li>📂 Organize tests in folders mirroring the project structure</li>
+    <li>♻️ Keep tests isolated — no shared state unless intentional via fixtures</li>
+    <li>🔍 Test one behavior per test — avoid multiple asserts if possible</li>
+    <li>🧼 Keep test names descriptive and consistent: <code>MethodName_State_ExpectedBehavior</code></li>
+    <li>⚙️ Integrate with CI/CD using <code>dotnet test</code></li>
+  </ul>
+
+  <h3 style="color:#dc2626;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://xunit.net/" target="_blank" style="color:#ef4444;">Official xUnit Website</a></li>
+    <li><a href="https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-dotnet-test" target="_blank" style="color:#ef4444;">Microsoft Guide: Unit Testing with dotnet test</a></li>
+  </ul>
+</div>`
+ },
+                { id: "nunit", title: "NUnit", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
+  <h2 style="color:#0284c7;">🧪 Unit Testing with NUnit in .NET</h2>
+  <p>
+    <strong>NUnit</strong> is one of the oldest and most widely-used unit testing frameworks in the .NET ecosystem.
+    It offers a rich set of features, flexible test case definitions, and deep IDE integrations for Visual Studio, Rider, and others.
+  </p>
+
+  <h3 style="color:#0369a1;">💡 Why Use NUnit?</h3>
+  <ul>
+    <li>🧱 Mature and stable — widely adopted in enterprise environments</li>
+    <li>⚙️ Highly flexible test attributes and setup options</li>
+    <li>🧪 Supports parameterized, sequential, and combinatorial tests</li>
+    <li>🧹 Clean separation of setup and teardown logic</li>
+    <li>🔌 Integrates well with CI/CD and test runners</li>
+  </ul>
+
+  <h3 style="color:#0369a1;">🧱 Key Attributes</h3>
+  <ul>
+    <li><code>[Test]</code> – Marks a test method</li>
+    <li><code>[TestCase]</code> – Parameterized test input</li>
+    <li><code>[SetUp]</code> / <code>[TearDown]</code> – Runs before/after each test</li>
+    <li><code>[OneTimeSetUp]</code> / <code>[OneTimeTearDown]</code> – Class-level setup/cleanup</li>
+    <li><code>[TestFixture]</code> – Optional, defines a test class</li>
+  </ul>
+
+  <h3 style="color:#0284c7;">💻 Example: Simple Test</h3>
+  <pre style="background:#e0f2fe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+// Calculator.cs
+public class Calculator
+{
+    public int Multiply(int a, int b) => a * b;
+}
+
+// CalculatorTests.cs
+using NUnit.Framework;
+
+[TestFixture]
+public class CalculatorTests
+{
+    private Calculator calc;
+
+    [SetUp]
+    public void Init()
+    {
+        calc = new Calculator();
+    }
+
+    [Test]
+    public void Multiply_ReturnsCorrectProduct()
+    {
+        var result = calc.Multiply(3, 4);
+        Assert.AreEqual(12, result);
+    }
+}
+  </pre>
+
+  <h3 style="color:#0369a1;">💻 Example: Parameterized Tests</h3>
+  <pre style="background:#e0f2fe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+[TestCase(2, 3, 6)]
+[TestCase(0, 5, 0)]
+[TestCase(-1, 3, -3)]
+public void Multiply_WorksCorrectly(int a, int b, int expected)
+{
+    var result = calc.Multiply(a, b);
+    Assert.AreEqual(expected, result);
+}
+  </pre>
+
+  <h3 style="color:#0369a1;">✅ Best Practices</h3>
+  <ul>
+    <li>🧪 Use <code>[TestCase]</code> for clean and reusable test logic</li>
+    <li>📂 Organize test files to mirror your production code structure</li>
+    <li>🧼 Avoid shared state between tests unless controlled with fixtures</li>
+    <li>🧪 Use <code>SetUp</code>/<code>TearDown</code> for repeated setup logic</li>
+    <li>🧵 Keep tests small, descriptive, and isolated</li>
+    <li>⚙️ Integrate with CI using <code>dotnet test</code> or NUnit Console Runner</li>
+  </ul>
+
+  <h3 style="color:#0284c7;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://nunit.org/" target="_blank" style="color:#0ea5e9;">Official NUnit Website</a></li>
+    <li><a href="https://docs.nunit.org/articles/nunit/writing-tests/attributes.html" target="_blank" style="color:#0ea5e9;">NUnit Attribute Reference</a></li>
+    <li><a href="https://learn.microsoft.com/en-us/dotnet/core/testing/" target="_blank" style="color:#0ea5e9;">.NET Testing Documentation</a></li>
+  </ul>
+</div>`
+                 },
+                { id: "mstest", title: "MSTest", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:2rem; border-radius:1rem; border:2px solid #eab308; box-shadow:0 6px 20px rgba(234,179,8,0.2)">
+  <h2 style="color:#ca8a04;">🧪 Unit Testing with MSTest</h2>
+  <p>
+    <strong>MSTest</strong> is the official test framework developed by Microsoft. It comes built-in with Visual Studio and offers deep integration with the .NET testing ecosystem, especially for enterprise-grade projects using Azure DevOps.
+  </p>
+
+  <h3 style="color:#a16207;">💡 Why Use MSTest?</h3>
+  <ul>
+    <li>🏢 Native support in Visual Studio — no need for extra setup</li>
+    <li>🔄 Seamless integration with Azure DevOps pipelines</li>
+    <li>⚙️ Attributes are similar to other frameworks like NUnit and xUnit</li>
+    <li>📈 Built-in test explorer, code coverage, and diagnostics</li>
+    <li>🧪 Suitable for integration, load, and UI tests as well</li>
+  </ul>
+
+  <h3 style="color:#a16207;">🧱 Key Attributes</h3>
+  <ul>
+    <li><code>[TestClass]</code> – Marks a class that contains tests</li>
+    <li><code>[TestMethod]</code> – Denotes an individual test</li>
+    <li><code>[TestInitialize]</code> / <code>[TestCleanup]</code> – Run before/after each test</li>
+    <li><code>[ClassInitialize]</code> / <code>[ClassCleanup]</code> – Run once per class</li>
+    <li><code>[DataTestMethod]</code> & <code>[DataRow]</code> – For parameterized testing</li>
+  </ul>
+
+  <h3 style="color:#ca8a04;">💻 Example: Basic Test</h3>
+  <pre style="background:#fef9c3; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+// Calculator.cs
+public class Calculator
+{
+    public int Add(int a, int b) => a + b;
+}
+
+// CalculatorTests.cs
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+[TestClass]
+public class CalculatorTests
+{
+    private Calculator calc;
+
+    [TestInitialize]
+    public void SetUp()
+    {
+        calc = new Calculator();
+    }
+
+    [TestMethod]
+    public void Add_ReturnsCorrectSum()
+    {
+        var result = calc.Add(5, 7);
+        Assert.AreEqual(12, result);
+    }
+}
+  </pre>
+
+  <h3 style="color:#a16207;">💻 Example: Data-Driven Test</h3>
+  <pre style="background:#fef9c3; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+[DataTestMethod]
+[DataRow(1, 2, 3)]
+[DataRow(-1, 1, 0)]
+[DataRow(0, 0, 0)]
+public void Add_WorksForMultipleInputs(int a, int b, int expected)
+{
+    var result = calc.Add(a, b);
+    Assert.AreEqual(expected, result);
+}
+  </pre>
+
+  <h3 style="color:#a16207;">✅ Best Practices</h3>
+  <ul>
+    <li>🧪 Keep <code>[TestMethod]</code>s focused and descriptive</li>
+    <li>⚙️ Use <code>[TestInitialize]</code> to eliminate repetitive setup logic</li>
+    <li>📂 Organize test projects separately using <code>.Tests</code> suffix</li>
+    <li>🔐 Avoid relying on external systems; mock them when necessary</li>
+    <li>🚀 Use <code>[DataTestMethod]</code> with <code>[DataRow]</code> to test multiple inputs efficiently</li>
+    <li>📊 Use Visual Studio's "Code Coverage" and "Test Explorer" tools</li>
+  </ul>
+
+  <h3 style="color:#ca8a04;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-mstest" target="_blank" style="color:#eab308;">MSTest Docs (Microsoft)</a></li>
+    <li><a href="https://github.com/microsoft/testfx" target="_blank" style="color:#eab308;">MSTest GitHub (TestFramework)</a></li>
+  </ul>
+</div>`
+                 },
               ]
             },
             {
               id: "mocking",
               title: "Mocking",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:2rem; border-radius:1rem; border:2px solid #eab308; box-shadow:0 6px 20px rgba(234,179,8,0.2)">
+  <h2 style="color:#ca8a04;">🧪 Mocking in Unit Tests</h2>
+  <p>
+    <strong>Mocking</strong> is the practice of replacing real objects or services with controlled substitutes (mocks) during testing. It allows you to isolate the unit under test and simulate different behaviors (like success, failure, delays, etc.) from dependencies.
+  </p>
+
+  <h3 style="color:#a16207;">💡 Why Use Mocks?</h3>
+  <ul>
+    <li>🔄 Isolate tests from external systems (e.g., databases, APIs)</li>
+    <li>🎯 Focus tests on the logic of your own code</li>
+    <li>🛠 Simulate edge cases and errors without changing real systems</li>
+    <li>🚀 Speed up test execution by avoiding slow resources</li>
+    <li>🔍 Verify interactions like method calls, arguments, and frequency</li>
+  </ul>
+
+  <h3 style="color:#a16207;">🔧 Popular Mocking Libraries</h3>
+  <ul>
+    <li><strong>Moq</strong> – Most popular and user-friendly mocking framework in .NET</li>
+    <li><strong>NSubstitute</strong> – More natural, readable syntax for some developers</li>
+    <li><strong>FakeItEasy</strong> – Friendly syntax and great integration with test frameworks</li>
+  </ul>
+
+  <h3 style="color:#ca8a04;">💻 Example with Moq</h3>
+  <pre style="background:#fef9c3; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+// IEmailService.cs
+public interface IEmailService
+{
+    void Send(string to, string message);
+}
+
+// NotificationService.cs
+public class NotificationService
+{
+    private readonly IEmailService _email;
+
+    public NotificationService(IEmailService email)
+    {
+        _email = email;
+    }
+
+    public void Notify(string user, string msg)
+    {
+        if (!string.IsNullOrWhiteSpace(user))
+            _email.Send(user, msg);
+    }
+}
+
+// NotificationServiceTests.cs
+using Moq;
+using Xunit;
+
+public class NotificationServiceTests
+{
+    [Fact]
+    public void Notify_SendsEmail_WhenUserIsValid()
+    {
+        var mockEmail = new Mock<IEmailService>();
+        var service = new NotificationService(mockEmail.Object);
+
+        service.Notify("user@example.com", "Hello!");
+
+        mockEmail.Verify(e => e.Send("user@example.com", "Hello!"), Times.Once);
+    }
+}
+  </pre>
+
+  <h3 style="color:#a16207;">✅ Best Practices</h3>
+  <ul>
+    <li>🎯 Mock only external dependencies (like DBs, services, APIs)</li>
+    <li>✅ Use <code>Verify()</code> to confirm expected method calls</li>
+    <li>🔁 Return fake data using <code>Setup(...).Returns(...)</code></li>
+    <li>🧹 Reset mocks between tests to avoid side effects</li>
+    <li>🚫 Avoid mocking your own logic — test that directly</li>
+    <li>🧪 Use interfaces or abstract classes to enable mocking easily</li>
+  </ul>
+
+  <h3 style="color:#ca8a04;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://github.com/moq/moq4" target="_blank" style="color:#eab308;">Moq GitHub Repo</a></li>
+    <li><a href="https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-moq" target="_blank" style="color:#eab308;">Microsoft Docs: Mocking with Moq</a></li>
+  </ul>
+</div>`
+,
               children: [
-                { id: "moq", title: "Moq", type: "must-know" },
-                { id: "nsubstitute", title: "NSubstitute", type: "optional" },
-                { id: "fakereasy", title: "FakeItEasy", type: "optional" },
+                { id: "moq", title: "Moq", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfdf5; padding:2rem; border-radius:1rem; border:2px solid #10b981; box-shadow:0 6px 20px rgba(16,185,129,0.2)">
+  <h2 style="color:#059669;">🧰 Moq – Mocking Framework for .NET</h2>
+  <p>
+    <strong>Moq</strong> is a popular and lightweight .NET mocking library that allows you to create mock objects and define their behavior during unit tests. It helps isolate the code under test by replacing dependencies with fake implementations.
+  </p>
+
+  <h3 style="color:#047857;">💡 Why Use Moq?</h3>
+  <ul>
+    <li>✅ Clean, readable syntax using lambda expressions</li>
+    <li>⚡ Supports verifying method calls, arguments, and call count</li>
+    <li>🔄 Useful for TDD and testing services with external dependencies</li>
+    <li>🧪 Works with any test framework: xUnit, NUnit, MSTest</li>
+    <li>📦 Available via NuGet: <code>Install-Package Moq</code></li>
+  </ul>
+
+  <h3 style="color:#047857;">💻 Basic Example</h3>
+  <pre style="background:#d1fae5; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+// Service interface to mock
+public interface IEmailSender
+{
+    void Send(string to, string message);
+}
+
+// System under test
+public class Notifier
+{
+    private readonly IEmailSender _email;
+
+    public Notifier(IEmailSender email)
+    {
+        _email = email;
+    }
+
+    public void Alert(string user, string msg)
+    {
+        if (!string.IsNullOrWhiteSpace(user))
+            _email.Send(user, msg);
+    }
+}
+  </pre>
+
+  <h4 style="color:#047857;">🧪 Test with Moq</h4>
+  <pre style="background:#d1fae5; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using Moq;
+using Xunit;
+
+public class NotifierTests
+{
+    [Fact]
+    public void Alert_CallsSend_WhenUserIsValid()
+    {
+        var mockEmail = new Mock<IEmailSender>();
+        var notifier = new Notifier(mockEmail.Object);
+
+        notifier.Alert("admin@domain.com", "System down");
+
+        mockEmail.Verify(x => x.Send("admin@domain.com", "System down"), Times.Once);
+    }
+}
+  </pre>
+
+  <h3 style="color:#047857;">🛠 Common Usage</h3>
+  <ul>
+    <li><code>mock.Setup(x => x.Method()).Returns(...)</code> – Define behavior</li>
+    <li><code>mock.Verify(...)</code> – Check if method was called</li>
+    <li><code>mock.SetupSequence(...)</code> – Chain responses</li>
+    <li><code>mock.Object</code> – Pass the fake to your system under test</li>
+    <li>🎯 Works best with interfaces or virtual methods</li>
+  </ul>
+
+  <h3 style="color:#047857;">✅ Best Practices</h3>
+  <ul>
+    <li>🧽 Reset mocks between tests to avoid state leakage</li>
+    <li>🧩 Use Moq for external services, APIs, or databases — not internal logic</li>
+    <li>🔍 Keep verification focused and specific</li>
+    <li>🧪 Favor behavior verification (what should happen), not state (what changed)</li>
+    <li>📂 Organize mocks with builders or factories for large test suites</li>
+  </ul>
+
+  <h3 style="color:#059669;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://github.com/moq/moq4" target="_blank" style="color:#10b981;">Moq GitHub</a></li>
+    <li><a href="https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-moq" target="_blank" style="color:#10b981;">Moq in Microsoft Docs</a></li>
+    <li><a href="https://www.nuget.org/packages/Moq/" target="_blank" style="color:#10b981;">Moq NuGet Package</a></li>
+  </ul>
+</div>`
+                 },
+                { id: "nsubstitute", title: "NSubstitute", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
+  <h2 style="color:#16a34a;">🔧 NSubstitute – Friendly Mocking for .NET</h2>
+  <p>
+    <strong>NSubstitute</strong> is a modern .NET mocking framework designed to be intuitive and developer-friendly. It uses a clean, natural syntax to create test doubles for interfaces and virtual methods, making unit tests easy to read and maintain.
+  </p>
+
+  <h3 style="color:#15803d;">💡 Why Choose NSubstitute?</h3>
+  <ul>
+    <li>✨ Very readable, expressive syntax</li>
+    <li>🔁 Automatic substitution of interfaces and abstract classes</li>
+    <li>🔍 Easily verify method calls and arguments</li>
+    <li>🧪 Works with xUnit, NUnit, MSTest, and more</li>
+    <li>📦 NuGet package: <code>Install-Package NSubstitute</code></li>
+  </ul>
+
+  <h3 style="color:#15803d;">💻 Example: Basic Usage</h3>
+  <pre style="background:#dcfce7; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+// Service interface
+public interface ILogger
+{
+void Log(string message);
+}
+
+// System under test
+public class AuditService
+{
+private readonly ILogger _logger;
+
+public AuditService(ILogger logger)
+{
+_logger = logger;
+}
+
+public void Record(string action)
+{
+if (!string.IsNullOrEmpty(action))
+_logger.Log($"Action: {action}");
+}
+}
+  </pre>
+
+  <h4 style="color:#15803d;">🧪 Test with NSubstitute</h4>
+  <pre style="background:#dcfce7; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using NSubstitute;
+using Xunit;
+
+public class AuditServiceTests
+{
+[Fact]
+public void Record_LogsAction()
+{
+var logger = Substitute.For<ILogger>();
+var audit = new AuditService(logger);
+
+audit.Record("Login");
+
+logger.Received(1).Log("Action: Login");
+}
+}
+  </pre>
+
+  <h3 style="color:#15803d;">🛠 Core Features</h3>
+  <ul>
+    <li><code>Substitute.For&lt;T&gt;()</code> – Create a mock instance</li>
+    <li><code>Received()</code> – Verify method calls</li>
+    <li><code>Returns(...)</code> – Define return values for methods</li>
+    <li><code>Throws(...)</code> – Simulate exceptions</li>
+    <li><code>DidNotReceive()</code> – Confirm a method was not called</li>
+  </ul>
+
+  <h3 style="color:#15803d;">✅ Best Practices</h3>
+  <ul>
+    <li>🧩 Mock only external dependencies, not business logic</li>
+    <li>🔎 Use <code>Received()</code> to verify important interactions</li>
+    <li>🧪 Prefer behavior-based testing over state-based</li>
+    <li>🔒 Use interfaces or virtual methods to enable substituting</li>
+    <li>🧽 Clean up or reset state if running multiple tests</li>
+  </ul>
+
+  <h3 style="color:#16a34a;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://nsubstitute.github.io/" target="_blank" style="color:#22c55e;">NSubstitute Official Docs</a></li>
+    <li><a href="https://github.com/nsubstitute/NSubstitute" target="_blank" style="color:#22c55e;">GitHub: NSubstitute</a></li>
+  </ul>
+</div>`
+ },
+                { id: "fakereasy", title: "FakeItEasy", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef6ff; padding:2rem; border-radius:1rem; border:2px solid #a78bfa; box-shadow:0 6px 20px rgba(167,139,250,0.2)">
+  <h2 style="color:#7c3aed;">🎭 FakeItEasy – Simple and Intuitive Mocking for .NET</h2>
+  <p>
+    <strong>FakeItEasy</strong> is a friendly mocking framework for .NET that emphasizes simplicity and ease of use. It allows developers to create mocks, stubs, and fakes with minimal setup, helping to write readable and maintainable unit tests.
+  </p>
+
+  <h3 style="color:#6d28d9;">💡 Why Use FakeItEasy?</h3>
+  <ul>
+    <li>🧩 Simple, clean syntax that's easy to understand</li>
+    <li>🔄 Supports mocking interfaces, classes, and delegates</li>
+    <li>🔍 Verifies calls and argument matching flexibly</li>
+    <li>🧪 Compatible with popular test frameworks like xUnit, NUnit, MSTest</li>
+    <li>📦 Install via NuGet: <code>Install-Package FakeItEasy</code></li>
+  </ul>
+
+  <h3 style="color:#6d28d9;">💻 Example: Basic Mocking</h3>
+  <pre style="background:#ede9fe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+  // Service interface
+  public interface ILogger
+  {
+  void Log(string message);
+  }
+
+  // System under test
+  public class AuditService
+  {
+  private readonly ILogger _logger;
+
+  public AuditService(ILogger logger)
+  {
+  _logger = logger;
+  }
+
+  public void Record(string action)
+  {
+  if (!string.IsNullOrEmpty(action))
+  _logger.Log($"Action: {action}");
+  }
+  }
+  </pre>
+
+  <h4 style="color:#6d28d9;">🧪 Test with FakeItEasy</h4>
+  <pre style="background:#ede9fe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+  using FakeItEasy;
+  using Xunit;
+
+  public class AuditServiceTests
+  {
+  [Fact]
+  public void Record_LogsAction()
+  {
+  var logger = A.Fake<ILogger>();
+  var audit = new AuditService(logger);
+
+  audit.Record("Login");
+
+  A.CallTo(() => logger.Log("Action: Login")).MustHaveHappenedOnceExactly();
+  }
+  }
+  </pre>
+
+  <h3 style="color:#6d28d9;">🔧 Core Features</h3>
+  <ul>
+    <li><code>A.Fake&lt;T&gt;()</code> – Create fake objects</li>
+    <li><code>A.CallTo(...)</code> – Setup and verify calls</li>
+    <li><code>MustHaveHappenedOnceExactly()</code> – Precise call count verification</li>
+    <li><code>Returns(...)</code> – Setup return values</li>
+    <li><code>Throws(...)</code> – Simulate exceptions</li>
+  </ul>
+
+  <h3 style="color:#6d28d9;">✅ Best Practices</h3>
+  <ul>
+    <li>🧩 Mock external dependencies, not the system under test</li>
+    <li>🔍 Use clear and descriptive call verifications</li>
+    <li>🧪 Keep tests focused on behavior, not implementation</li>
+    <li>🔒 Use interfaces or virtual members for mocking</li>
+    <li>🧹 Reset fakes if sharing state across tests</li>
+  </ul>
+
+  <h3 style="color:#7c3aed;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://fakeiteasy.github.io/" target="_blank" style="color:#a78bfa;">FakeItEasy Official Documentation</a></li>
+    <li><a href="https://github.com/FakeItEasy/FakeItEasy" target="_blank" style="color:#a78bfa;">GitHub: FakeItEasy</a></li>
+  </ul>
+  </div>`
+                 },
               ]
             },
             {
               id: "assertion",
               title: "Assertion",
               type: "must-know",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+	<h2 style="color:#2563eb;">✅ Assertion in Testing</h2>
+	<p>
+		<strong>Assertion</strong> is the process of verifying that a condition holds true during testing. It confirms that the code behaves as expected by comparing actual results with expected values.
+	</p>
+
+	<h3 style="color:#1e40af;">💡 Why Are Assertions Important?</h3>
+	<ul>
+		<li>✔️ Ensure code correctness and expected behavior</li>
+		<li>🔍 Help detect bugs and regressions early</li>
+		<li>🧪 Make tests reliable and meaningful</li>
+		<li>🛠️ Provide clear feedback when tests fail</li>
+	</ul>
+
+	<h3 style="color:#1e40af;">💻 Example: Simple Assertion with xUnit</h3>
+	<pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+[Fact]
+public void Sum_TwoNumbers_ReturnsCorrectResult()
+{
+	var result = Calculator.Add(2, 3);
+	Assert.Equal(5, result);
+}
+	</pre>
+
+	<h3 style="color:#1e40af;">🔧 Key Features of Assertions</h3>
+	<ul>
+		<li>✔️ Support for various data types and conditions</li>
+		<li>✔️ Provide clear error messages on failure</li>
+		<li>✔️ Can be simple (equality) or complex (exceptions, timing)</li>
+		<li>✔️ Integral part of unit, integration, and end-to-end tests</li>
+	</ul>
+
+	<h3 style="color:#2563eb;">✅ Best Practices</h3>
+	<ul>
+		<li>📝 Use meaningful assertion messages to clarify intent</li>
+		<li>⚡ Keep assertions focused and relevant to the test case</li>
+		<li>🧹 Avoid side effects inside assertions</li>
+		<li>🔍 Test one thing at a time per assertion</li>
+	</ul>
+
+	<h3 style="color:#2563eb;">📚 Learn More</h3>
+	<ul>
+		<li><a href="https://xunit.net/docs/assertions" target="_blank" style="color:#3b82f6;">xUnit Assertions Documentation</a></li>
+		<li><a href="https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices" target="_blank" style="color:#3b82f6;">Microsoft Unit Testing Best Practices</a></li>
+	</ul>
+</div>`
+,
               children: [
-                { id: "fluentassertions", title: "FluentAssertions", type: "must-know" },
-              ]
+                { id: "fluentassertions", title: "FluentAssertions", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#eef6ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+    <h2 style="color:#2563eb;">🎯 FluentAssertions – Okunaklı ve Anlaşılır Doğrulamalar</h2>
+    <p>
+      <strong>FluentAssertions</strong>, .NET için geliştirilmiş bir doğrulama (assertion) kütüphanesidir. Testlerinizi daha okunabilir, anlaması kolay ve doğal dil benzeri bir şekilde yazmanızı sağlar.
+    </p>
+  
+    <h3 style="color:#1e40af;">💡 Neden FluentAssertions Kullanılır?</h3>
+    <ul>
+      <li>📖 Testlerin okunabilirliğini artırır</li>
+      <li>🔗 Zincirlenebilir, akıcı ve doğal dil benzeri sözdizimi sunar</li>
+      <li>🧩 Karmaşık doğrulamaları basitleştirir</li>
+      <li>🛠 xUnit, NUnit, MSTest gibi test frameworkleri ile uyumludur</li>
+    </ul>
+  
+    <h3 style="color:#1e40af;">💻 Örnek: FluentAssertions ile Basit Doğrulama</h3>
+    <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+  using FluentAssertions;
+  using Xunit;
+  
+  public class CalculatorTests
+  {
+  [Fact]
+  public void Add_ShouldReturnSum()
+  {
+  var calculator = new Calculator();
+  
+  int result = calculator.Add(2, 3);
+  
+  result.Should().Be(5);
+  }
+  }
+    </pre>
+  
+    <h3 style="color:#1e40af;">🛠 Yaygın FluentAssertions Kullanımları</h3>
+    <ul>
+      <li><code>result.Should().Be(expected)</code> – Değerin beklenenle eşit olduğunu doğrular</li>
+      <li><code>obj.Should().NotBeNull()</code> – Nesnenin null olmadığını kontrol eder</li>
+      <li><code>collection.Should().Contain(item)</code> – Koleksiyonun belirli öğeyi içerdiğini doğrular</li>
+      <li><code>action.Should().Throw&lt;ExceptionType&gt;()</code> – İlgili istisnanın fırlatıldığını kontrol eder</li>
+      <li><code>stringValue.Should().StartWith("prefix")</code> – Stringin belirli bir önek ile başladığını doğrular</li>
+    </ul>
+  
+    <h3 style="color:#1e40af;">✅ En İyi Uygulamalar</h3>
+    <ul>
+      <li>📝 Anlamlı ve açık doğrulamalar yazın</li>
+      <li>⚡ FluentAssertions’un zincirleme yapısından faydalanarak kodunuzu sadeleştirin</li>
+      <li>🔍 Karmaşık doğrulamaları parçalara bölerek testlerinizi anlaşılır kılın</li>
+      <li>🧪 Test senaryolarında her zaman gerekli doğrulamaları yapın</li>
+    </ul>
+  
+    <h3 style="color:#2563eb;">📚 Daha Fazla Öğrenmek İçin</h3>
+    <ul>
+      <li><a href="https://fluentassertions.com/" target="_blank" style="color:#3b82f6;">FluentAssertions Resmi Sitesi</a></li>
+      <li><a href="https://github.com/fluentassertions/fluentassertions" target="_blank" style="color:#3b82f6;">GitHub: FluentAssertions</a></li>
+    </ul>
+  </div>`
+                 },
+              ] 
             },
             {
               id: "fake-data-generators",
               title: "Fake Data Generators",
               type: "must-know",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff7ed; padding:2rem; border-radius:1rem; border:2px solid #f97316; box-shadow:0 6px 20px rgba(249,115,22,0.2)">
+  <h2 style="color:#c2410c;">🎲 Fake Data Generators – Test ve Geliştirme İçin Sahte Veri Üretimi</h2>
+  <p>
+    <strong>Fake Data Generators</strong>, uygulama geliştirme ve test süreçlerinde gerçekçi ancak rastgele sahte veriler oluşturmak için kullanılan araçlardır. Gerçek veriye benzer ama anonim verilerle çalışmanızı sağlar.
+  </p>
+
+  <h3 style="color:#9a3412;">💡 Neden Sahte Veri Kullanılır?</h3>
+  <ul>
+    <li>🧪 Test ortamında gerçek veriye zarar vermeden denemeler yapmak</li>
+    <li>🔒 Gizlilik ve güvenlik nedeniyle gerçek veriyi kullanamama durumları</li>
+    <li>🚀 Performans testleri ve uygulama yüklemelerinde çeşitli senaryolar oluşturmak</li>
+    <li>⚙️ Otomasyon ve entegrasyon testlerinde dinamik ve rastgele veri sağlamak</li>
+  </ul>
+
+  <h3 style="color:#9a3412;">💻 Örnek: C# için Bogus Kütüphanesi ile Sahte Veri Üretimi</h3>
+  <pre style="background:#fed7aa; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using Bogus;
+
+public class User
+{
+public string FirstName { get; set; }
+public string LastName { get; set; }
+public string Email { get; set; }
+}
+
+var faker = new Faker<User>()
+.RuleFor(u => u.FirstName, f => f.Name.FirstName())
+.RuleFor(u => u.LastName, f => f.Name.LastName())
+.RuleFor(u => u.Email, f => f.Internet.Email());
+
+var fakeUser = faker.Generate();
+
+Console.WriteLine($"Name: {fakeUser.FirstName} {fakeUser.LastName}, Email: {fakeUser.Email}");
+  </pre>
+
+  <h3 style="color:#9a3412;">🔧 Popüler Sahte Veri Üretici Kütüphaneler</h3>
+  <ul>
+    <li><strong>Bogus</strong> (.NET için) – Gerçekçi ve detaylı sahte veri oluşturur</li>
+    <li><strong>Faker.js</strong> (JavaScript/TypeScript için) – Çok çeşitli veri tipleri destekler</li>
+    <li><strong>FakeItEasy</strong> (Mocking ve veri üretiminde kullanılır)</li>
+    <li><strong>Python Faker</strong> – Python projelerinde yaygın olarak kullanılır</li>
+  </ul>
+
+  <h3 style="color:#9a3412;">✅ En İyi Uygulamalar</h3>
+  <ul>
+    <li>🧹 Test verilerini düzenli olarak temizleyin ve kontrol edin</li>
+    <li>🔄 Üretilen sahte verilerin anlamlı ve tutarlı olmasına dikkat edin</li>
+    <li>🛡️ Gizlilik gerektiren veriler için gerçek veriyi kullanmayın</li>
+    <li>📦 Sahte verileri otomatik testlerinizde kullanarak test kapsamını artırın</li>
+  </ul>
+
+  <h3 style="color:#c2410c;">📚 Daha Fazla Öğrenmek İçin</h3>
+  <ul>
+    <li><a href="https://github.com/bchavez/Bogus" target="_blank" style="color:#f97316;">Bogus GitHub Repository</a></li>
+    <li><a href="https://fakerjs.dev/" target="_blank" style="color:#f97316;">Faker.js Resmi Sitesi</a></li>
+    <li><a href="https://faker.readthedocs.io/en/master/" target="_blank" style="color:#f97316;">Python Faker Documentation</a></li>
+  </ul>
+</div>`,
               children: [
-                { id: "autofixture", title: "AutoFixture", type: "must-know" },
-                { id: "bogus", title: "Bogus", type: "good-to-know" },
+                { id: "autofixture", title: "AutoFixture", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#eff6ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+  <h2 style="color:#2563eb;">⚙️ AutoFixture – Otomatik Test Veri Üretimi için .NET Kütüphanesi</h2>
+  <p>
+    <strong>AutoFixture</strong>, .NET dünyasında test yazarken karmaşık nesneleri otomatik olarak oluşturmayı kolaylaştıran güçlü bir araçtır.
+    Test kodunda manuel veri yaratma ihtiyacını azaltarak daha temiz ve bakımı kolay testler yazmanıza yardımcı olur.
+  </p>
+
+  <h3 style="color:#1e40af;">💡 AutoFixture Neden Kullanılır?</h3>
+  <ul>
+    <li>🧩 Karmaşık nesne grafikleri için otomatik veri üretimi</li>
+    <li>⌛ Test hazırlık süresini kısaltır, boilerplate kodu azaltır</li>
+    <li>🔄 Farklı test senaryoları için çeşitli rastgele veriler sağlar</li>
+    <li>🔌 Diğer test framework’leri ve mocking kütüphaneleri ile kolay entegrasyon</li>
+  </ul>
+
+  <h3 style="color:#1e40af;">💻 Örnek: AutoFixture ile Kullanıcı Nesnesi Oluşturma</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using AutoFixture;
+
+public class User
+{
+  public string FirstName { get; set; }
+  public string LastName { get; set; }
+  public int Age { get; set; }
+}
+
+var fixture = new Fixture();
+var user = fixture.Create<User>();
+
+Console.WriteLine($"Name: {user.FirstName} {user.LastName}, Age: {user.Age}");
+  </pre>
+
+  <h3 style="color:#1e40af;">🔧 Öne Çıkan Özellikler</h3>
+  <ul>
+    <li>📦 Kompleks tiplerin otomatik oluşturulması</li>
+    <li>🔄 Özelleştirilebilir nesne üretimi ve yapılandırma</li>
+    <li>⚙️ Testlerde tekrar eden veri oluşturma işlemlerini azaltır</li>
+    <li>🧩 xUnit, NUnit, MSTest gibi framework’lerle uyumlu</li>
+  </ul>
+
+  <h3 style="color:#1e40af;">✅ En İyi Uygulamalar</h3>
+  <ul>
+    <li>📝 Test senaryolarını sade tutmak için AutoFixture’dan faydalanın</li>
+    <li>🔧 Özelleştirilmiş veri üretimi için <code>Customize</code> metodlarını kullanın</li>
+    <li>📚 Resmi dokümantasyonu takip ederek gelişmiş kullanımları öğrenin</li>
+    <li>🧹 Test sonrasında oluşturulan verileri izole ve temiz tutun</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">📚 Daha Fazla Kaynak</h3>
+  <ul>
+    <li><a href="https://github.com/AutoFixture/AutoFixture" target="_blank" style="color:#3b82f6;">AutoFixture GitHub Repository</a></li>
+    <li><a href="https://github.com/AutoFixture/AutoFixture/wiki" target="_blank" style="color:#3b82f6;">AutoFixture Wiki & Documentation</a></li>
+  </ul>
+</div>`
+                 },
+                { id: "bogus", title: "Bogus", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
+  <h2 style="color:#15803d;">🎲 Bogus – .NET için Güçlü Sahte Veri Üreticisi</h2>
+  <p>
+    <strong>Bogus</strong>, .NET ortamında test ve geliştirme süreçlerinde gerçekçi sahte veriler oluşturmak için kullanılan popüler bir kütüphanedir.
+    Karmaşık nesneler ve çeşitli veri tipleri için esnek sahte veri senaryoları sağlar.
+  </p>
+
+  <h3 style="color:#166534;">💡 Neden Bogus Kullanılır?</h3>
+  <ul>
+    <li>🧪 Gerçekçi ve çeşitli sahte veriler üretmek için kolay API</li>
+    <li>⚙️ Karmaşık nesne grafikleri oluşturmayı destekler</li>
+    <li>🚀 Test otomasyonu ve veri doldurma işlemlerinde zaman kazandırır</li>
+    <li>🔄 Kültüre özgü (locale) veri üretimi yapabilir</li>
+  </ul>
+
+  <h3 style="color:#166534;">💻 Örnek: Kullanıcı Nesnesi için Sahte Veri Oluşturma</h3>
+  <pre style="background:#dcfce7; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using Bogus;
+
+public class User
+{
+  public string FirstName { get; set; }
+  public string LastName { get; set; }
+  public string Email { get; set; }
+}
+
+var faker = new Faker<User>()
+    .RuleFor(u => u.FirstName, f => f.Name.FirstName())
+    .RuleFor(u => u.LastName, f => f.Name.LastName())
+    .RuleFor(u => u.Email, f => f.Internet.Email());
+
+var fakeUser = faker.Generate();
+
+Console.WriteLine($"Name: {fakeUser.FirstName} {fakeUser.LastName}, Email: {fakeUser.Email}");
+  </pre>
+
+  <h3 style="color:#166534;">🔧 Öne Çıkan Özellikler</h3>
+  <ul>
+    <li>📦 Çok çeşitli sahte veri tipleri (isim, adres, telefon, finans, tarih vb.)</li>
+    <li>🌍 Kültüre özgü sahte veri oluşturma (locale destekleri)</li>
+    <li>🔗 Zincirlenebilir kurallar ile esnek veri senaryoları</li>
+    <li>🚀 Performanslı ve kolay kullanımlı API</li>
+  </ul>
+
+  <h3 style="color:#166534;">✅ En İyi Uygulamalar</h3>
+  <ul>
+    <li>📝 Sahte verilerin test senaryolarında tutarlı ve anlamlı olmasına dikkat edin</li>
+    <li>🔄 Karmaşık nesneler için birden çok <code>RuleFor</code> kuralı tanımlayın</li>
+    <li>🧹 Test sonrası sahte verileri temizleyin veya izole edin</li>
+    <li>📚 Resmi dökümantasyonu takip ederek yeni özellikleri keşfedin</li>
+  </ul>
+
+  <h3 style="color:#15803d;">📚 Daha Fazla Kaynak</h3>
+  <ul>
+    <li><a href="https://github.com/bchavez/Bogus" target="_blank" style="color:#22c55e;">Bogus GitHub Repository</a></li>
+    <li><a href="https://github.com/bchavez/Bogus/wiki" target="_blank" style="color:#22c55e;">Bogus Wiki & Documentation</a></li>
+  </ul>
+</div>`
+                 },
               ]
             },
           ]
@@ -7526,58 +8500,1456 @@ greeter.Tell("Akka.NET");</code></pre>
         {
           id: "integration-testing",
           title: "Integration Testing",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#eef2ff; padding:2rem; border-radius:1rem; border:2px solid #6366f1; box-shadow:0 6px 20px rgba(99,102,241,0.2)">
+  <h2 style="color:#4f46e5;">🔗 Integration Testing – Sistem Bileşenlerinin Birlikte Çalışmasını Doğrulama</h2>
+  <p>
+    <strong>Entegrasyon testi</strong>, farklı modüllerin, servislerin veya sistem bileşenlerinin birlikte doğru çalışıp çalışmadığını kontrol eden bir test türüdür.
+    Birim testlerinin aksine, entegrasyon testleri birden fazla bileşenin etkileşimini test eder.
+  </p>
+
+  <h3 style="color:#4338ca;">💡 Neden Entegrasyon Testi Yapılır?</h3>
+  <ul>
+    <li>🔍 Farklı modüller arasındaki iletişimin doğru ve sorunsuz olduğunu doğrulamak</li>
+    <li>⚙️ Gerçek ortam benzeri durumlarda sistemin beklenen şekilde çalıştığını görmek</li>
+    <li>🛡️ Olası entegrasyon sorunlarını erken aşamada yakalamak</li>
+    <li>🔄 Veri akışı ve servis çağrılarının doğruluğunu test etmek</li>
+  </ul>
+
+  <h3 style="color:#4338ca;">💻 Örnek: .NET Core Web API için Basit Entegrasyon Testi</h3>
+  <pre style="background:#e0e7ff; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using Microsoft.AspNetCore.Mvc.Testing;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Xunit;
+
+public class MyApiIntegrationTests : IClassFixture<WebApplicationFactory&lt;Program&gt;>
+{
+  readonly HttpClient _client;
+
+  public MyApiIntegrationTests(WebApplicationFactory&lt;Program&gt; factory)
+  {
+    _client = factory.CreateClient();
+  }
+
+  [Fact]
+  public async Task Get_Endpoint_ReturnsSuccess()
+  {
+    var response = await _client.GetAsync("/api/values");
+    response.EnsureSuccessStatusCode();
+
+    var content = await response.Content.ReadAsStringAsync();
+    Assert.Contains("expectedValue", content);
+  }
+}
+  </pre>
+
+  <h3 style="color:#4338ca;">🔧 Öne Çıkan Özellikler</h3>
+  <ul>
+    <li>✅ Gerçek sistem bileşenleri ve altyapı ile test</li>
+    <li>🔄 API, veri tabanı, servisler arası etkileşim kontrolü</li>
+    <li>🧪 Genellikle daha yavaş ve kapsamlıdır</li>
+    <li>🧹 Test ortamlarının izole ve temiz olması önemlidir</li>
+  </ul>
+
+  <h3 style="color:#4f46e5;">✅ En İyi Uygulamalar</h3>
+  <ul>
+    <li>📝 Testlerinizin bağımsız ve tekrar çalışabilir olmasına dikkat edin</li>
+    <li>⚙️ Test ortamlarını gerçek sistemlere olabildiğince yakın kurun</li>
+    <li>🧹 Testten sonra veritabanı ve servisleri temizleyin veya resetleyin</li>
+    <li>📊 Entegrasyon testlerini birim testlerle dengeli kullanın</li>
+    <li>🔐 Gizli bilgileri ve API anahtarlarını güvenli şekilde yönetin</li>
+  </ul>
+
+  <h3 style="color:#4f46e5;">📚 Daha Fazla Kaynak</h3>
+  <ul>
+    <li><a href="https://docs.microsoft.com/en-us/aspnet/core/test/integration-tests" target="_blank" style="color:#6366f1;">Microsoft Docs – ASP.NET Core Integration Testing</a></li>
+    <li><a href="https://xunit.net/docs/shared-context" target="_blank" style="color:#6366f1;">xUnit.net Shared Context & Integration Tests</a></li>
+  </ul>
+</div>`
+,
           type: "must-know",
           children: [
-            { id: "webapplicationfactory", title: "WebApplicationFactory", type: "must-know" },
-            { id: "test-containers", title: "Test Containers", type: "must-know" },
-            { id: "dotnet-aspire", title: ".NET Aspire", type: "good-to-know" },
-            { id: "respawn", title: "Respawn", type: "optional" },
+            { id: "webapplicationfactory", title: "WebApplicationFactory", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
+  <h2 style="color:#0284c7;">🏭 WebApplicationFactory – ASP.NET Core Entegrasyon Testleri İçin Test Sunucusu</h2>
+  <p>
+    <strong>WebApplicationFactory&lt;TEntryPoint&gt;</strong>, ASP.NET Core uygulamalarını entegrasyon testlerinde gerçek bir test sunucusu gibi başlatmanızı sağlayan bir yardımcı sınıftır.
+    Bu sayede HTTP isteklerini gerçek uygulama üzerinde test edebilirsiniz.
+  </p>
+
+  <h3 style="color:#0369a1;">💡 Neden WebApplicationFactory Kullanılır?</h3>
+  <ul>
+    <li>🧪 Gerçek uygulama ortamını taklit ederek HTTP tabanlı entegrasyon testleri yapmak</li>
+    <li>🔄 Servisleri, middleware’leri ve pipeline’ı tam olarak test etmek</li>
+    <li>⚙️ Test ortamında uygulamayı kolayca konfigüre etmek</li>
+    <li>📦 Test sırasında gerçek bağımlılıkları veya test çiftlerini (mock, stub) kullanmak</li>
+  </ul>
+
+  <h3 style="color:#0369a1;">💻 Örnek: WebApplicationFactory ile Basit API Testi</h3>
+  <pre style="background:#e0f2fe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using Microsoft.AspNetCore.Mvc.Testing;
+using System.Net.Http;
+using System.Threading.Tasks;
+using Xunit;
+
+public class ApiTests : IClassFixture&lt;WebApplicationFactory&lt;Program&gt;&gt;
+{
+readonly HttpClient _client;
+
+public ApiTests(WebApplicationFactory&lt;Program&gt; factory)
+{
+  _client = factory.CreateClient();
+}
+
+[Fact]
+public async Task Get_HomePage_ReturnsSuccess()
+{
+  var response = await _client.GetAsync("/");
+  response.EnsureSuccessStatusCode();
+  }
+}
+  </pre>
+
+  <h3 style="color:#0369a1;">🔧 Öne Çıkan Özellikler</h3>
+  <ul>
+    <li>✅ ASP.NET Core uygulamasının tam pipeline’ını başlatır</li>
+    <li>🔄 HTTP isteklerini gerçek uygulama üzerinde test eder</li>
+    <li>⚙️ Testler sırasında servislerin konfigürasyonunu özelleştirebilir</li>
+    <li>🧹 Test izolasyonu ve temizlik için uygun yapı sağlar</li>
+  </ul>
+
+  <h3 style="color:#0284c7;">✅ En İyi Uygulamalar</h3>
+  <ul>
+    <li>📝 Testlerin bağımsız ve tekrar çalışabilir olmasına özen gösterin</li>
+    <li>🔧 Gerektiğinde <code>ConfigureWebHost</code> metodu ile test ortamını özelleştirin</li>
+    <li>🔒 Test verilerini ve gizli bilgileri güvenli şekilde yönetin</li>
+    <li>🧹 Testlerden sonra gerekli temizlik işlemlerini yapmayı unutmayın</li>
+  </ul>
+
+  <h3 style="color:#0284c7;">📚 Daha Fazla Kaynak</h3>
+  <ul>
+    <li><a href="https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests" target="_blank" style="color:#0ea5e9;">Microsoft Docs – Integration Testing in ASP.NET Core</a></li>
+    <li><a href="https://xunit.net/docs/shared-context" target="_blank" style="color:#0ea5e9;">xUnit.net Shared Context & Test Fixtures</a></li>
+  </ul>
+</div>`
+             },
+            { id: "test-containers", title: "Test Containers", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
+  <h2 style="color:#15803d;">🐳 Testcontainers – Entegrasyon Testleri İçin Dinamik Container Yönetimi</h2>
+  <p>
+    <strong>Testcontainers</strong>, testler sırasında Docker container'ları dinamik olarak oluşturup yöneten, 
+    altyapı bağımlılıklarını (örneğin veri tabanı, mesajlaşma sistemi) gerçek ortamda test etmeye yarayan bir kütüphanedir.
+  </p>
+
+  <h3 style="color:#166534;">💡 Neden Testcontainers Kullanılır?</h3>
+  <ul>
+    <li>🧪 Gerçek bağımlılıkları container içinde izole ederek test etmek</li>
+    <li>⚙️ Test ortamını kodla yönetmek, setup/teardown otomatikleştirmek</li>
+    <li>🌍 Taşınabilir ve tutarlı test ortamları oluşturmak</li>
+    <li>🔄 Testlerin birbirinden bağımsız ve tekrarlanabilir olmasını sağlamak</li>
+  </ul>
+
+  <h3 style="color:#166534;">💻 Örnek: PostgreSQL Container ile Testcontainers Kullanımı</h3>
+  <pre style="background:#dcfce7; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using System;
+using System.Threading.Tasks;
+using DotNet.Testcontainers.Builders;
+using DotNet.Testcontainers.Containers;
+using Xunit;
+
+public class PostgreSqlTests
+{
+  private readonly PostgreSqlTestcontainer _postgresqlContainer;
+
+  public PostgreSqlTests()
+  {
+    _postgresqlContainer = new TestcontainersBuilder&lt;PostgreSqlTestcontainer&gt;()
+      .WithDatabase(new PostgreSqlTestcontainerConfiguration
+      {
+        Database = "testdb",
+        Username = "postgres",
+        Password = "password"
+      })
+      .Build();
+  }
+
+  [Fact]
+  public async Task RunDatabaseTest()
+  {
+    await _postgresqlContainer.StartAsync();
+
+    // Test kodlarınız burada çalışır...
+
+    await _postgresqlContainer.StopAsync();
+  }
+}
+  </pre>
+
+  <h3 style="color:#166534;">🔧 Öne Çıkan Özellikler</h3>
+  <ul>
+    <li>✅ Docker container’ları kod ile kolayca yönetme</li>
+    <li>🔄 Bağımlılıkları izole edip gerçekçi test ortamları sağlama</li>
+    <li>🧹 Test sonrası otomatik cleanup</li>
+    <li>🌐 Çoklu container ve network desteği</li>
+  </ul>
+
+  <h3 style="color:#15803d;">✅ En İyi Uygulamalar</h3>
+  <ul>
+    <li>📝 Testlerin bağımsız ve izole olmasına dikkat edin</li>
+    <li>⚙️ Container konfigürasyonlarını merkezi ve okunabilir tutun</li>
+    <li>🧹 Test sonrası containerları mutlaka durdurup temizleyin</li>
+    <li>🔐 Gizli bilgileri ve şifreleri güvenli şekilde yönetin</li>
+  </ul>
+
+  <h3 style="color:#15803d;">📚 Daha Fazla Kaynak</h3>
+  <ul>
+    <li><a href="https://dotnet.testcontainers.org/" target="_blank" style="color:#22c55e;">Testcontainers .NET Resmi Dokümantasyonu</a></li>
+    <li><a href="https://www.testcontainers.org/" target="_blank" style="color:#22c55e;">Testcontainers Genel Dokümantasyonu</a></li>
+  </ul>
+</div>`
+             },
+            { id: "dotnet-aspire", title: ".NET Aspire", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+<h2 style="color:#2563eb;">🌐 Introduction to .NET ASP.NET Core</h2>
+<p>
+  <strong>ASP.NET Core</strong> is a modern, open-source, and cross-platform framework developed by Microsoft for building high-performance web applications, APIs, and microservices. It is designed to be lightweight, modular, and flexible — enabling developers to build scalable and maintainable web solutions that can run on Windows, Linux, and macOS.
+</p>
+
+<h3 style="color:#1e40af;">💡 Why Use ASP.NET Core?</h3>
+<ul>
+  <li>🚀 High performance with a minimal footprint</li>
+  <li>⚙️ Cross-platform support for diverse environments</li>
+  <li>🔧 Built-in dependency injection for cleaner, testable code</li>
+  <li>🔒 Advanced security features including authentication & authorization</li>
+  <li>📦 Modular middleware pipeline for flexible request handling</li>
+  <li>🌍 Strong ecosystem with integration for modern frontends, databases, and cloud</li>
+</ul>
+
+<h3 style="color:#1e40af;">🔍 Real-World Scenario: Building a RESTful API for a Bookstore</h3>
+<p>Imagine you want to create a backend service for an online bookstore. You need endpoints to manage books, including listing, adding, updating, and deleting them.</p>
+
+<h4 style="color:#2563eb;">Example: Simple BooksController</h4>
+<pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+
+namespace BookStore.Api.Controllers
+{
+public record Book(int Id, string Title, string Author);
+
+[ApiController]
+[Route("api/[controller]")]
+public class BooksController : ControllerBase
+{
+  private static readonly List&lt;Book&gt; Books = new()
+  {
+    new Book(1, "Clean Code", "Robert C. Martin"),
+    new Book(2, "The Pragmatic Programmer", "Andrew Hunt")
+  };
+
+  [HttpGet]
+  public IEnumerable&lt;Book&gt; GetBooks() => Books;
+
+  [HttpGet("{id}")]
+  public ActionResult&lt;Book&gt; GetBook(int id)
+  {
+    var book = Books.Find(b => b.Id == id);
+    if (book == null) return NotFound();
+    return book;
+  }
+
+  [HttpPost]
+  public IActionResult AddBook(Book newBook)
+  {
+    Books.Add(newBook);
+    return CreatedAtAction(nameof(GetBook), new { id = newBook.Id }, newBook);
+  }
+}
+}
+</pre>
+
+<h3 style="color:#1e40af;">🔧 Core Features Explained</h3>
+<ul>
+  <li>📦 <strong>Middleware Pipeline:</strong> Requests pass through customizable middleware components (logging, authentication, routing, etc.) allowing fine-grained control.</li>
+  <li>🔄 <strong>Dependency Injection:</strong> Built-in DI container helps manage service lifetimes and promotes loose coupling.</li>
+  <li>🔒 <strong>Security:</strong> Supports authentication schemes like JWT, OAuth, and integrates with Identity providers.</li>
+  <li>📊 <strong>Configuration & Logging:</strong> Flexible configuration sources (JSON, environment variables, secrets) and structured logging support.</li>
+  <li>🧪 <strong>Testing:</strong> Designed for easy unit and integration testing with tools like xUnit, Moq, and TestServer.</li>
+</ul>
+
+<h3 style="color:#2563eb;">✅ Best Practices for ASP.NET Core Development</h3>
+<ul>
+  <li>📝 Keep controllers slim; move business logic to services</li>
+  <li>⚙️ Use dependency injection to manage dependencies</li>
+  <li>🔒 Secure APIs using proper authentication and authorization</li>
+  <li>🚀 Optimize startup performance by minimizing middleware and enabling response caching</li>
+  <li>🧪 Write automated tests for critical business paths</li>
+  <li>📦 Use configuration providers and secrets management to separate config from code</li>
+  <li>📈 Monitor applications in production with logging and telemetry</li>
+</ul>
+
+<h3 style="color:#2563eb;">📚 Learn More</h3>
+<ul>
+  <li><a href="https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-7.0" target="_blank" style="color:#3b82f6;">Official ASP.NET Core Documentation</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/aspnet/core/tutorials/first-web-api" target="_blank" style="color:#3b82f6;">Build Your First ASP.NET Core Web API</a></li>
+  <li><a href="https://dotnet.microsoft.com/en-us/learn/aspnet" target="_blank" style="color:#3b82f6;">.NET Learn Platform for ASP.NET Core</a></li>
+</ul>
+</div>`
+             },
+            { id: "respawn", title: "Respawn", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
+<h2 style="color:#0284c7;">🧹 Database Reset & Test Data Cleanup with Respawn</h2>
+<p>
+  <strong>Respawn</strong> is a simple and efficient library designed to reset your database to a clean state between integration or end-to-end tests. It helps maintain consistent test environments by removing data from tables while respecting foreign key constraints.
+</p>
+
+<h3 style="color:#0369a1;">💡 Why Use Respawn?</h3>
+<ul>
+  <li>⚡ Quickly reset database state without dropping and recreating schemas</li>
+  <li>🔄 Supports complex relational databases by handling foreign key constraints gracefully</li>
+  <li>🧪 Ensures reliable and repeatable integration and functional tests</li>
+  <li>🛠️ Works with multiple database providers such as SQL Server, PostgreSQL, MySQL, and SQLite</li>
+</ul>
+
+<h3 style="color:#0369a1;">🔍 Real-World Scenario: Integration Testing an ASP.NET Core API</h3>
+<p>
+  Imagine you have an ASP.NET Core Web API that interacts heavily with a SQL Server database. For your integration tests, you want to ensure that every test starts with a clean database state to avoid flaky tests caused by leftover data.
+</p>
+<p>
+  Instead of dropping and recreating the entire database (which is slow), you use <code>Respawn</code> to efficiently delete data from all tables between tests.
+</p>
+
+<h4 style="color:#0284c7;">Example: Using Respawn in xUnit Integration Tests</h4>
+<pre style="background:#e0f2fe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using Respawn;
+using System.Threading.Tasks;
+using Xunit;
+
+public class DatabaseFixture
+{
+  private static Checkpoint _checkpoint = new Checkpoint
+  {
+    // You can exclude tables if needed, e.g. migration history tables
+    TablesToIgnore = new[] { "__EFMigrationsHistory" }
+  };
+
+  public async Task ResetDatabaseAsync(string connectionString)
+  {
+    await _checkpoint.Reset(connectionString);
+  }
+}
+
+public class MyIntegrationTests : IClassFixture&lt;DatabaseFixture&gt;
+{
+  private readonly DatabaseFixture _fixture;
+  private readonly string _connectionString = "Server=localhost;Database=TestDb;Trusted_Connection=True;";
+
+  public MyIntegrationTests(DatabaseFixture fixture)
+  {
+    _fixture = fixture;
+  }
+
+  [Fact]
+  public async Task Test_SomeDatabaseOperation()
+  {
+    // Arrange
+    await _fixture.ResetDatabaseAsync(_connectionString);
+    
+    // Act
+    // Call API or service that modifies DB here
+    
+    // Assert
+    // Verify the expected state
+  }
+}
+</pre>
+
+<h3 style="color:#0369a1;">✅ Best Practices</h3>
+<ul>
+  <li>🧹 Use Respawn to reset database state between tests instead of recreating the whole database for faster test runs</li>
+  <li>⚠️ Be sure to exclude tables you want to preserve (like migration history) in the checkpoint configuration</li>
+  <li>🔄 Run Respawn reset in a setup/teardown step in your test framework (e.g., xUnit's IAsyncLifetime or NUnit's setup methods)</li>
+  <li>🔐 Keep your test database isolated from development and production to avoid accidental data loss</li>
+  <li>🧪 Combine Respawn with transactional test patterns when possible for even faster cleanup</li>
+</ul>
+
+<h3 style="color:#0284c7;">📚 Learn More</h3>
+<ul>
+  <li><a href="https://github.com/jbogard/Respawn" target="_blank" style="color:#0ea5e9;">Respawn GitHub Repository</a></li>
+  <li><a href="https://andrewlock.net/integration-testing-asp-net-core-with-a-real-database/" target="_blank" style="color:#0ea5e9;">Integration Testing ASP.NET Core with a Real Database (Blog)</a></li>
+</ul>
+</div>`
+             },
           ]
         },
         {
           id: "snapshot-testing",
           title: "Snapshot Testing",
           type: "good-to-know",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:2rem; border-radius:1rem; border:2px solid #eab308; box-shadow:0 6px 20px rgba(234,179,8,0.2)">
+	<h2 style="color:#ca8a04;">📸 Snapshot Testing</h2>
+	<p>
+		<strong>Snapshot testing</strong> is a technique used to capture and store the output of a component, function, or UI at a specific point in time and then compare future outputs against this saved snapshot to detect unintended changes.
+	</p>
+
+	<h3 style="color:#a16207;">💡 Why Use Snapshot Testing?</h3>
+	<ul>
+		<li>⚡ Quickly detect unexpected changes in UI or serialized output</li>
+		<li>🧪 Simplifies testing of complex components or objects</li>
+		<li>🛠️ Reduces the need to write detailed manual assertions for output structure</li>
+		<li>🚀 Speeds up regression testing by automating output verification</li>
+	</ul>
+
+	<h3 style="color:#a16207;">🔍 Real-World Scenario: Testing a React Component</h3>
+	<p>
+		Say you have a React button component. You want to ensure that its rendered output doesn't change unexpectedly when you modify related code.
+	</p>
+
+	<h4 style="color:#ca8a04;">Example: Snapshot Testing with Jest and React Testing Library</h4>
+	<pre style="background:#fef9c3; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+import React from 'react';
+import { render } from '@testing-library/react';
+import Button from './Button';
+
+test('Button renders correctly', () => {
+  const { asFragment } = render(&lt;Button label="Click me" /&gt;);
+  expect(asFragment()).toMatchSnapshot();
+});
+	</pre>
+
+	<h3 style="color:#a16207;">✅ Best Practices</h3>
+	<ul>
+		<li>📝 Review snapshots carefully before committing to avoid capturing incorrect states</li>
+		<li>🚀 Use snapshots for stable UI or outputs, avoid using for rapidly changing or highly dynamic content</li>
+		<li>🔄 Update snapshots intentionally after verifying changes using <code>jest --updateSnapshot</code></li>
+		<li>🛠️ Combine snapshot tests with traditional assertions to check specific behavior</li>
+		<li>📂 Organize snapshots clearly in your project structure (usually alongside test files)</li>
+	</ul>
+
+	<h3 style="color:#ca8a04;">📚 Learn More</h3>
+	<ul>
+		<li><a href="https://jestjs.io/docs/snapshot-testing" target="_blank" style="color:#eab308;">Jest Snapshot Testing Documentation</a></li>
+		<li><a href="https://testing-library.com/docs/react-testing-library/intro/" target="_blank" style="color:#eab308;">React Testing Library</a></li>
+	</ul>
+</div>`
+,
           children: [
-            { id: "verify", title: "Verify", type: "must-know" },
+            { id: "verify", title: "Verify", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
+<h2 style="color:#0284c7;">✅ Verification in Unit Testing</h2>
+<p>
+  <strong>Verification</strong> is the process of checking that certain interactions or method calls happened during the execution of the code under test. It is commonly used in conjunction with mocks or substitutes to ensure that the system behaves as expected.
+</p>
+
+<h3 style="color:#0369a1;">💡 Why Use Verification?</h3>
+<ul>
+  <li>🔍 Ensure that specific methods or services were called with expected arguments</li>
+  <li>🛠️ Validate side effects and interactions in isolation</li>
+  <li>⚡ Increase confidence that your unit tests cover expected behaviors</li>
+</ul>
+
+<h3 style="color:#0369a1;">🔍 Real-World Scenario: Verifying Logger Calls with NSubstitute</h3>
+<p>
+  Imagine you have a service that logs important actions. You want to verify that when a method runs, the logger's <code>Log</code> method is called with the correct message.
+</p>
+
+<h4 style="color:#0284c7;">Example: Verification Using NSubstitute</h4>
+<pre style="background:#e0f2fe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+// Service interface
+public interface ILogger
+{
+  void Log(string message);
+}
+
+// System under test
+public class AuditService
+{
+  private readonly ILogger _logger;
+
+  public AuditService(ILogger logger)
+  {
+    _logger = logger;
+  }
+
+  public void Record(string action)
+  {
+    if (!string.IsNullOrEmpty(action))
+      _logger.Log($"Action: {action}");
+  }
+}
+
+// Test method
+[Fact]
+public void Record_ShouldCallLog_WhenActionIsNotEmpty()
+{
+  // Arrange
+  var logger = Substitute.For<ILogger>();
+  var service = new AuditService(logger);
+  string action = "UserLogin";
+
+  // Act
+  service.Record(action);
+
+  // Assert (Verification)
+  logger.Received(1).Log($"Action: {action}");
+}
+</pre>
+
+<h3 style="color:#0369a1;">✅ Best Practices</h3>
+<ul>
+  <li>🛡️ Only verify interactions that are essential to the behavior being tested</li>
+  <li>🔄 Avoid over-verifying — focus on the “what” rather than the “how” when possible</li>
+  <li>⚙️ Use clear, descriptive names for mocked dependencies to improve test readability</li>
+  <li>📝 Combine verification with assertion on outcomes for robust tests</li>
+</ul>
+
+<h3 style="color:#0284c7;">📚 Learn More</h3>
+<ul>
+  <li><a href="https://nsubstitute.github.io/help/received_calls/" target="_blank" style="color:#0ea5e9;">NSubstitute Verification Documentation</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices" target="_blank" style="color:#0ea5e9;">Unit Testing Best Practices (.NET)</a></li>
+</ul>
+</div>`
+             },
           ]
         },
         {
           id: "behavior-testing",
           title: "Behavior Testing",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:2rem; border-radius:1rem; border:2px solid #eab308; box-shadow:0 6px 20px rgba(234,179,8,0.2)">
+  <h2 style="color:#ca8a04;">🎭 Behavior Testing (BDD)</h2>
+  <p>
+    <strong>Behavior Testing</strong>, often called <em>Behavior-Driven Development (BDD)</em>, is a testing approach focused on verifying the behavior of an application from the end-user’s perspective.
+    Instead of testing implementation details, it tests the expected outcomes and interactions based on business requirements.
+  </p>
+
+  <h3 style="color:#a16207;">💡 Why Use Behavior Testing?</h3>
+  <ul>
+    <li>📝 Encourages collaboration between developers, testers, and business stakeholders</li>
+    <li>🔍 Improves clarity of requirements by expressing them as examples</li>
+    <li>🚀 Helps create living documentation that reflects actual system behavior</li>
+    <li>🛠️ Tests focus on “what” the system should do, not “how” it does it</li>
+  </ul>
+
+  <h3 style="color:#a16207;">🔍 Real-World Scenario: User Login Feature</h3>
+  <p>
+    You want to test that a user can successfully log in with valid credentials and see an error message when credentials are invalid.
+  </p>
+
+  <h4 style="color:#ca8a04;">Example: BDD with SpecFlow (C#)</h4>
+  <pre style="background:#fef9c3; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+Feature: User Login
+
+  Scenario: Successful login with valid credentials
+    Given the user is on the login page
+    When the user enters valid credentials
+    Then the user should be redirected to the dashboard
+
+  Scenario: Failed login with invalid credentials
+    Given the user is on the login page
+    When the user enters invalid credentials
+    Then an error message should be displayed
+  </pre>
+
+  <h4 style="color:#a16207;">Example: Step Definitions in C#</h4>
+  <pre style="background:#fef9c3; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+[Binding]
+public class LoginSteps
+{
+  [Given("the user is on the login page")]
+  public void GivenUserOnLoginPage()
+  {
+      // Navigate to login page
+  }
+
+  [When("the user enters valid credentials")]
+  public void WhenUserEntersValidCredentials()
+  {
+      // Input valid username and password
+  }
+
+  [When("the user enters invalid credentials")]
+  public void WhenUserEntersInvalidCredentials()
+  {
+      // Input invalid username and password
+  }
+
+  [Then("the user should be redirected to the dashboard")]
+  public void ThenRedirectToDashboard()
+  {
+      // Assert navigation to dashboard
+  }
+
+  [Then("an error message should be displayed")]
+  public void ThenErrorMessageDisplayed()
+  {
+      // Assert error message is visible
+  }
+}
+  </pre>
+
+  <h3 style="color:#a16207;">✅ Best Practices</h3>
+  <ul>
+    <li>🤝 Collaborate early between business, QA, and dev teams to define clear scenarios</li>
+    <li>📝 Write scenarios in a simple, business-readable language (e.g., Gherkin)</li>
+    <li>⚡ Keep scenarios focused and concise, testing one behavior at a time</li>
+    <li>🔄 Automate scenarios as part of CI/CD pipelines</li>
+    <li>📚 Use BDD tools like SpecFlow (.NET), Cucumber (Java, JS), or Behave (Python)</li>
+  </ul>
+
+  <h3 style="color:#ca8a04;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://specflow.org/" target="_blank" style="color:#eab308;">SpecFlow Official Site</a></li>
+    <li><a href="https://cucumber.io/docs/bdd/" target="_blank" style="color:#eab308;">Introduction to BDD with Cucumber</a></li>
+    <li><a href="https://docs.microsoft.com/en-us/dotnet/core/testing/specflow" target="_blank" style="color:#eab308;">SpecFlow Documentation (Microsoft)</a></li>
+  </ul>
+</div>
+`
+,
           type: "optional",
           children: [
-            { id: "specflow", title: "SpecFlow", type: "must-know" },
+            { id: "specflow", title: "SpecFlow", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:2rem; border-radius:1rem; border:2px solid #eab308; box-shadow:0 6px 20px rgba(234,179,8,0.2)">
+<h2 style="color:#ca8a04;">🔹 SpecFlow: Behavior-Driven Development (BDD) Framework for .NET</h2>
+<p>
+  <strong>SpecFlow</strong> is a popular BDD framework for .NET that enables writing human-readable tests using the Gherkin language.
+  It helps bridge the gap between technical and non-technical team members by describing system behavior through examples.
+</p>
+
+<h3 style="color:#a16207;">💡 Why Use SpecFlow?</h3>
+<ul>
+  <li>📝 Write executable specifications in plain English (Gherkin)</li>
+  <li>🤝 Facilitates collaboration between developers, testers, and business analysts</li>
+  <li>🚀 Integrates seamlessly with popular test runners like NUnit, MSTest, and xUnit</li>
+  <li>🔄 Supports automation of acceptance criteria as part of your CI/CD pipeline</li>
+</ul>
+
+<h3 style="color:#a16207;">🔍 Core Concepts</h3>
+<ul>
+  <li><strong>Feature Files:</strong> Written in Gherkin language describing features and scenarios</li>
+  <li><strong>Step Definitions:</strong> Bind Gherkin steps to code implementations</li>
+  <li><strong>Hooks:</strong> Setup and teardown actions around scenarios</li>
+</ul>
+
+<h3 style="color:#ca8a04;">💻 Example: Login Feature (Gherkin)</h3>
+<pre style="background:#fef9c3; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+Feature: User Login
+
+Scenario: Successful login with valid credentials
+  Given the user is on the login page
+  When the user enters valid username and password
+  Then the user should be redirected to the dashboard
+
+Scenario: Failed login with invalid credentials
+  Given the user is on the login page
+  When the user enters invalid username or password
+  Then an error message should be displayed
+</pre>
+
+<h3 style="color:#a16207;">💻 Example: Step Definitions in C#</h3>
+<pre style="background:#fef9c3; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+[Binding]
+public class LoginSteps
+{
+[Given("the user is on the login page")]
+public void GivenUserOnLoginPage()
+{
+  // Navigate to login page logic
+}
+
+[When("the user enters valid username and password")]
+public void WhenUserEntersValidCredentials()
+{
+  // Input valid credentials logic
+}
+
+[When("the user enters invalid username or password")]
+public void WhenUserEntersInvalidCredentials()
+{
+  // Input invalid credentials logic
+}
+
+[Then("the user should be redirected to the dashboard")]
+public void ThenUserIsRedirected()
+{
+  // Assert navigation to dashboard
+}
+
+[Then("an error message should be displayed")]
+public void ThenErrorMessageIsDisplayed()
+{
+  // Assert error message visibility
+}
+}
+</pre>
+
+<h3 style="color:#a16207;">✅ Best Practices</h3>
+<ul>
+  <li>📄 Keep feature files concise and focused on behavior, not implementation</li>
+  <li>🧩 Reuse step definitions to avoid duplication</li>
+  <li>🔄 Integrate SpecFlow tests into CI/CD pipelines for automated validation</li>
+  <li>🛠️ Use hooks for setup/teardown to keep tests clean and maintainable</li>
+  <li>👥 Collaborate with stakeholders to ensure scenarios cover real user behaviors</li>
+</ul>
+
+<h3 style="color:#ca8a04;">📚 Learn More</h3>
+<ul>
+  <li><a href="https://specflow.org/" target="_blank" style="color:#eab308;">SpecFlow Official Website</a></li>
+  <li><a href="https://docs.specflow.org/en/latest/" target="_blank" style="color:#eab308;">SpecFlow Documentation</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/dotnet/core/testing/specflow" target="_blank" style="color:#eab308;">Using SpecFlow with .NET</a></li>
+</ul>
+</div>
+`
+             },
           ]
         },
         {
           id: "e2e-testing",
           title: "E2E Testing",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:2rem; border-radius:1rem; border:2px solid #eab308; box-shadow:0 6px 20px rgba(234,179,8,0.2)">
+  <h2 style="color:#ca8a04;">🚀 End-to-End (E2E) Testing</h2>
+  <p>
+    <strong>End-to-End testing</strong> is a type of software testing that validates the entire application flow from start to finish,
+    ensuring all integrated components work together as expected in a real user environment.
+  </p>
+
+  <h3 style="color:#a16207;">💡 Why E2E Testing?</h3>
+  <ul>
+    <li>🔍 Verifies the full user journey across UI, backend, and external services</li>
+    <li>🛡️ Detects integration issues and regressions early</li>
+    <li>🤖 Simulates real user behavior for confidence in releases</li>
+    <li>📈 Improves software quality and reduces production bugs</li>
+  </ul>
+
+  <h3 style="color:#a16207;">🔧 Popular Tools for E2E Testing</h3>
+  <ul>
+    <li>✅ <strong>Cypress</strong>: Modern, fast, and developer-friendly testing framework for web applications</li>
+    <li>✅ <strong>Playwright</strong>: Supports multiple browsers and powerful automation capabilities</li>
+    <li>✅ <strong>Selenium</strong>: Classic browser automation tool with wide language and platform support</li>
+  </ul>
+
+  <h3 style="color:#ca8a04;">💻 Example: Cypress Test for a Login Flow</h3>
+  <pre style="background:#fef9c3; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+describe('Login Page', () =&gt; {
+  beforeEach(() =&gt; {
+    cy.visit('/login');
+  });
+
+  it('should allow user to login with valid credentials', () =&gt; {
+    cy.get('input[name="username"]').type('testuser');
+    cy.get('input[name="password"]').type('Password123!');
+    cy.get('button[type="submit"]').click();
+
+    cy.url().should('include', '/dashboard');
+    cy.contains('Welcome, testuser');
+  });
+
+  it('should show error message with invalid credentials', () =&gt; {
+    cy.get('input[name="username"]').type('wronguser');
+    cy.get('input[name="password"]').type('wrongpass');
+    cy.get('button[type="submit"]').click();
+
+    cy.contains('Invalid username or password').should('be.visible');
+  });
+});
+  </pre>
+
+  <h3 style="color:#a16207;">✅ Best Practices</h3>
+  <ul>
+    <li>🧩 Keep E2E tests focused on critical user flows, avoid excessive detail</li>
+    <li>⚡ Run E2E tests in CI/CD pipelines to catch issues before production</li>
+    <li>🔄 Use test data setup and teardown to keep tests isolated and repeatable</li>
+    <li>🛠️ Combine with unit and integration tests for comprehensive coverage</li>
+    <li>🚀 Use headless browser mode for faster test execution in CI environments</li>
+    <li>📝 Write clear, maintainable test scripts with meaningful assertions</li>
+  </ul>
+
+  <h3 style="color:#ca8a04;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://www.cypress.io/" target="_blank" style="color:#eab308;">Cypress Official Website</a></li>
+    <li><a href="https://playwright.dev/" target="_blank" style="color:#eab308;">Playwright Official Website</a></li>
+    <li><a href="https://www.selenium.dev/" target="_blank" style="color:#eab308;">Selenium Official Website</a></li>
+  </ul>
+</div>
+`,
           type: "optional",
           children: [
-            { id: "playwright", title: "Playwright", type: "must-know" },
-            { id: "puppeteer-sharp", title: "Puppeteer-Sharp", type: "good-to-know" },
-            { id: "selenium", title: "Selenium", type: "optional" },
+            { id: "playwright", title: "Playwright", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
+<h2 style="color:#0284c7;">🎭 Playwright: Modern Cross-Browser Automation & Testing</h2>
+<p>
+  <strong>Playwright</strong> is a powerful, open-source automation framework developed by Microsoft that enables end-to-end testing across multiple browsers including Chromium, Firefox, and WebKit.
+  It allows developers and testers to write reliable, fast, and scalable tests simulating real user interactions in web applications.
+</p>
+
+<h3 style="color:#0369a1;">💡 Why Choose Playwright?</h3>
+<ul>
+  <li>🌐 Cross-browser testing support out of the box (Chrome, Firefox, Safari)</li>
+  <li>⚡ Auto-waiting and smart selectors improve test stability</li>
+  <li>🤖 Powerful API for interacting with page elements, network, dialogs, and more</li>
+  <li>🛠️ Supports headless and headed browser testing</li>
+  <li>📦 Easy integration with CI/CD pipelines and other testing frameworks</li>
+</ul>
+
+<h3 style="color:#0369a1;">🔧 Core Features</h3>
+<ul>
+  <li>✅ Browser contexts for isolated testing sessions</li>
+  <li>✅ Network interception and mocking</li>
+  <li>✅ Screenshot and video recording for debugging</li>
+  <li>✅ Multi-language support: JavaScript, TypeScript, Python, C#, Java</li>
+  <li>✅ Parallel test execution</li>
+</ul>
+
+<h3 style="color:#0284c7;">💻 Example: Basic Playwright Test (JavaScript)</h3>
+<pre style="background:#e0f2fe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+const { chromium } = require('playwright');
+
+(async () =&gt; {
+const browser = await chromium.launch();
+const page = await browser.newPage();
+
+await page.goto('https://example.com');
+await page.click('text=More information');
+await page.waitForSelector('h1');
+
+const title = await page.title();
+console.log('Page title:', title);
+
+await browser.close();
+})();
+</pre>
+
+<h3 style="color:#0369a1;">✅ Best Practices</h3>
+<ul>
+  <li>🧹 Use browser contexts to isolate tests and avoid state leakage</li>
+  <li>🕵️‍♂️ Utilize network mocking to simulate backend responses and speed tests</li>
+  <li>📸 Capture screenshots or videos on test failure for easier debugging</li>
+  <li>⚡ Run tests in parallel to reduce total test suite runtime</li>
+  <li>🔄 Integrate Playwright tests in CI pipelines to automate quality checks</li>
+  <li>📝 Write clear, maintainable selectors and avoid brittle element locators</li>
+</ul>
+
+<h3 style="color:#0284c7;">📚 Learn More</h3>
+<ul>
+  <li><a href="https://playwright.dev/" target="_blank" style="color:#0ea5e9;">Playwright Official Documentation</a></li>
+  <li><a href="https://playwright.dev/docs/intro" target="_blank" style="color:#0ea5e9;">Getting Started Guide</a></li>
+  <li><a href="https://github.com/microsoft/playwright" target="_blank" style="color:#0ea5e9;">Playwright GitHub Repository</a></li>
+</ul>
+</div>`
+             },
+            { id: "puppeteer-sharp", title: "Puppeteer-Sharp", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff7ed; padding:2rem; border-radius:1rem; border:2px solid #f97316; box-shadow:0 6px 20px rgba(249,115,22,0.2)">
+<h2 style="color:#c2410c;">🚀 Puppeteer-Sharp: Headless Chrome Automation for .NET</h2>
+<p>
+  <strong>Puppeteer-Sharp</strong> is a .NET port of the popular Node.js Puppeteer library that provides a high-level API to control Chromium-based browsers (Chrome, Edge) programmatically. 
+  It allows developers to automate browser tasks such as UI testing, web scraping, PDF generation, and more.
+</p>
+
+<h3 style="color:#ea580c;">💡 Why Use Puppeteer-Sharp?</h3>
+<ul>
+  <li>⚡ Headless browser automation with full control over Chromium</li>
+  <li>🖥️ Supports both headless and headed modes for flexibility</li>
+  <li>🔄 Automate complex user interactions, navigation, and page manipulation</li>
+  <li>📸 Capture screenshots, generate PDFs, and inspect DOM elements</li>
+  <li>🛠️ Integrates well with .NET applications and test frameworks</li>
+</ul>
+
+<h3 style="color:#ea580c;">🔧 Core Features</h3>
+<ul>
+  <li>✅ Launch and control Chromium browsers</li>
+  <li>✅ Navigate pages, fill forms, click elements, and take screenshots</li>
+  <li>✅ Support for intercepting network requests and mocking responses</li>
+  <li>✅ Generate PDFs from web pages</li>
+  <li>✅ Evaluate JavaScript within the page context</li>
+</ul>
+
+<h3 style="color:#c2410c;">💻 Example: Basic Puppeteer-Sharp Usage (.NET C#)</h3>
+<pre style="background:#ffedd5; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using PuppeteerSharp;
+
+public async Task RunAsync()
+{
+  // Download Chromium if needed
+  await new BrowserFetcher().DownloadAsync(BrowserFetcher.DefaultRevision);
+
+  using var browser = await Puppeteer.LaunchAsync(new LaunchOptions
+  {
+      Headless = true
+  });
+
+  using var page = await browser.NewPageAsync();
+  await page.GoToAsync("https://example.com");
+
+  // Take a screenshot
+  await page.ScreenshotAsync("example.png");
+
+  // Get the page title
+  var title = await page.GetTitleAsync();
+  Console.WriteLine($"Page title: {title}");
+}
+</pre>
+
+<h3 style="color:#ea580c;">✅ Best Practices</h3>
+<ul>
+  <li>🧹 Always dispose of browser and page instances properly to free resources</li>
+  <li>⚡ Use headless mode for faster automated tests unless UI debugging is needed</li>
+  <li>🔍 Use explicit waits or Playwright-like auto-waits to ensure elements are ready before interacting</li>
+  <li>📸 Capture screenshots or PDFs on test failures for easier diagnosis</li>
+  <li>🛠️ Integrate with test runners like xUnit or NUnit for end-to-end UI testing</li>
+  <li>🔒 Handle authentication, cookies, and sessions carefully for realistic tests</li>
+</ul>
+
+<h3 style="color:#c2410c;">📚 Learn More</h3>
+<ul>
+  <li><a href="https://github.com/hardkoded/puppeteer-sharp" target="_blank" style="color:#f97316;">Puppeteer-Sharp GitHub Repository</a></li>
+  <li><a href="https://www.puppeteersharp.com/" target="_blank" style="color:#f97316;">API Reference</a></li>
+</ul>
+</div>`
+             },
+            { id: "selenium", title: "Selenium", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+<h2 style="color:#2563eb;">🌐 Selenium: Web Browser Automation for Testing</h2>
+<p>
+  <strong>Selenium</strong> is one of the most popular open-source frameworks for automating web browsers. It enables developers and testers to simulate user interactions and automate testing workflows across multiple browsers and platforms.
+</p>
+
+<h3 style="color:#1e40af;">💡 Why Use Selenium?</h3>
+<ul>
+  <li>⚙️ Supports cross-browser testing: Chrome, Firefox, Edge, Safari, and more</li>
+  <li>🧩 Compatible with many programming languages including C#, Java, Python, and JavaScript</li>
+  <li>📦 Integrates well with testing frameworks like NUnit, xUnit, and MSTest</li>
+  <li>🔄 Supports parallel test execution and distributed testing with Selenium Grid</li>
+  <li>🌍 Large community and extensive documentation</li>
+</ul>
+
+<h3 style="color:#1e40af;">🔧 Core Features</h3>
+<ul>
+  <li>✅ Browser control and navigation</li>
+  <li>✅ Element location using CSS selectors, XPath, IDs, and more</li>
+  <li>✅ User action simulation: clicks, typing, drag-and-drop</li>
+  <li>✅ Handling alerts, pop-ups, frames, and windows</li>
+  <li>✅ Support for waits to synchronize tests with dynamic page content</li>
+</ul>
+
+<h3 style="color:#2563eb;">💻 Example: Selenium with C# (.NET) Basic Test</h3>
+<pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using OpenQA.Selenium;
+using OpenQA.Selenium.Chrome;
+
+public class SeleniumTest
+{
+  public void Run()
+  {
+      // Initialize the Chrome driver
+      using IWebDriver driver = new ChromeDriver();
+
+      // Navigate to website
+      driver.Navigate().GoToUrl("https://example.com");
+
+      // Find element and get its text
+      var heading = driver.FindElement(By.TagName("h1")).Text;
+      Console.WriteLine($"Page heading: {heading}");
+
+      // Click on a button (example)
+      // driver.FindElement(By.Id("submit")).Click();
+
+      // Close the browser
+      driver.Quit();
+  }
+}
+</pre>
+
+<h3 style="color:#1e40af;">✅ Best Practices</h3>
+<ul>
+  <li>⚡ Use explicit waits (<code>WebDriverWait</code>) instead of implicit waits for reliable test synchronization</li>
+  <li>🧹 Clean up browser instances after tests to avoid memory leaks</li>
+  <li>📦 Use Page Object Model (POM) design pattern for maintainable test code</li>
+  <li>🔄 Leverage Selenium Grid for parallel and cross-browser testing</li>
+  <li>🔒 Handle authentication, cookies, and sessions thoughtfully</li>
+  <li>📸 Capture screenshots on test failures for debugging</li>
+</ul>
+
+<h3 style="color:#2563eb;">📚 Learn More</h3>
+<ul>
+  <li><a href="https://www.selenium.dev/" target="_blank" style="color:#3b82f6;">Official Selenium Website</a></li>
+  <li><a href="https://selenium.dev/documentation/" target="_blank" style="color:#3b82f6;">Selenium Documentation</a></li>
+  <li><a href="https://github.com/SeleniumHQ/selenium" target="_blank" style="color:#3b82f6;">GitHub Repository</a></li>
+</ul>
+</div>`
+             },
           ]
         },
         {
           id: "performance-testing",
           title: "Performance Testing",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#e8f0fe; padding:2rem; border-radius:1rem; border:2px solid #2563eb; box-shadow:0 6px 20px rgba(37,99,235,0.2)">
+  <h2 style="color:#1e40af;">🚀 Performance Testing: Ensuring Application Speed, Stability & Scalability</h2>
+  <p>
+    <strong>Performance Testing</strong> is a crucial phase in software quality assurance focused on verifying that applications meet speed, responsiveness, and stability requirements under expected and peak workloads.
+    It ensures your system can handle real-world user demands without slowing down or crashing.
+  </p>
+
+  <h3 style="color:#1e3a8a;">💡 Why is Performance Testing Important?</h3>
+  <ul>
+    <li>🕒 Ensures fast response times, improving user satisfaction and retention</li>
+    <li>📊 Validates system scalability as the user base grows</li>
+    <li>⚠️ Detects bottlenecks before deployment to avoid downtime</li>
+    <li>🛡️ Confirms system stability under normal and extreme load</li>
+    <li>💵 Prevents revenue loss due to slow or unavailable services</li>
+  </ul>
+
+  <h3 style="color:#1e3a8a;">🔍 Types of Performance Testing</h3>
+  <ul>
+    <li><strong>Load Testing:</strong> Simulates expected user loads to verify the system’s behavior under typical conditions.</li>
+    <li><strong>Stress Testing:</strong> Pushes the system beyond limits to identify breaking points and recovery ability.</li>
+    <li><strong>Spike Testing:</strong> Tests system response to sudden, sharp increases in load.</li>
+    <li><strong>Endurance (Soak) Testing:</strong> Evaluates performance over extended periods to detect memory leaks or degradation.</li>
+    <li><strong>Scalability Testing:</strong> Assesses the system’s ability to scale up (e.g., adding users, data volume) smoothly.</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">💻 Real-World Scenario: E-Commerce Website During Sale Events</h3>
+  <p>
+    Imagine an e-commerce platform preparing for Black Friday sales. Performance testing ensures the website handles a sudden surge of thousands of users adding items to carts, browsing categories, and checking out without slowdowns or failures.
+    This requires simulating realistic user journeys with tools like <code>Apache JMeter</code> or <code>Locust</code>, measuring response times, error rates, and server health.
+  </p>
+
+  <h3 style="color:#2563eb;">💻 Example: Basic Apache JMeter Load Test Plan (XML Snippet)</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+<TestPlan>
+	<ThreadGroup>
+		<num_threads>200</num_threads> <!-- Simulate 200 users -->
+		<ramp_time>120</ramp_time>      <!-- Ramp up users over 2 minutes -->
+		<loop_count>20</loop_count>    <!-- Each user repeats 20 times -->
+	</ThreadGroup>
+	<HTTPSamplerProxy>
+		<domain>myecommerce.com</domain>
+		<path>/products</path>
+		<method>GET</method>
+	</HTTPSamplerProxy>
+</TestPlan>
+  </pre>
+
+  <h3 style="color:#1e3a8a;">✅ Best Practices for Performance Testing</h3>
+  <ul>
+    <li>📋 <strong>Define Clear Objectives:</strong> Establish performance goals such as max response time, throughput, and error rates based on business requirements.</li>
+    <li>🧪 <strong>Test Environment:</strong> Use an environment as close as possible to production to get realistic results.</li>
+    <li>⚙️ <strong>Use Realistic User Scenarios:</strong> Model user behavior accurately—consider login, browsing, searching, and checkout flows.</li>
+    <li>📈 <strong>Gradual Load Increase:</strong> Start with low loads and increase gradually to identify performance degradation points.</li>
+    <li>🛠️ <strong>Monitor System Metrics:</strong> Collect CPU, memory, disk I/O, and network usage data during tests to pinpoint bottlenecks.</li>
+    <li>🔄 <strong>Automate and Integrate:</strong> Incorporate performance tests into CI/CD pipelines to catch regressions early.</li>
+    <li>🔧 <strong>Tune and Optimize:</strong> Use test results to optimize code, database queries, caching, and infrastructure.</li>
+    <li>📝 <strong>Report Clearly:</strong> Present findings with clear metrics, graphs, and recommendations to stakeholders.</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">📚 Learn More & Tools</h3>
+  <ul>
+    <li><a href="https://jmeter.apache.org/" target="_blank" style="color:#2563eb;">Apache JMeter - Popular Open-Source Load Testing Tool</a></li>
+    <li><a href="https://locust.io/" target="_blank" style="color:#2563eb;">Locust - Easy-to-Use Python Load Testing Framework</a></li>
+    <li><a href="https://www.gatling.io/" target="_blank" style="color:#2563eb;">Gatling - High-Performance Load Testing Tool</a></li>
+    <li><a href="https://docs.microsoft.com/en-us/azure/architecture/best-practices/performance-testing" target="_blank" style="color:#2563eb;">Microsoft Azure Performance Testing Best Practices</a></li>
+  </ul>
+</div>
+`,
           type: "good-to-know",
           children: [
-            { id: "k6", title: "K6", type: "must-know" },
-            { id: "jmeter", title: "JMeter", type: "good-to-know" },
-            { id: "crank", title: "Crank", type: "optional" },
-            { id: "bombardier", title: "Bombardier", type: "optional" },
+            { id: "k6", title: "K6", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+  <h2 style="color:#2563eb;">🚀 K6 Performance Testing</h2>
+  <p>
+    <strong>K6</strong> is a modern, open-source load testing tool designed to help developers and QA engineers measure the performance and reliability of APIs, microservices, and websites. 
+    It uses JavaScript for scripting test scenarios, making it easy to create complex, reusable, and maintainable load tests.
+  </p>
+
+  <h3 style="color:#1d4ed8;">💡 Why Use K6?</h3>
+  <ul>
+    <li>⚡ Lightweight and efficient, capable of simulating thousands of virtual users with minimal resource consumption</li>
+    <li>📜 Uses JavaScript ES6 syntax for scripting, allowing familiar language and modular design</li>
+    <li>🌐 Supports HTTP/1.1, HTTP/2, and WebSocket protocols</li>
+    <li>📈 Real-time performance metrics and detailed reporting</li>
+    <li>🔄 Integrates seamlessly with CI/CD pipelines and popular monitoring tools like Grafana and InfluxDB</li>
+  </ul>
+
+  <h3 style="color:#1d4ed8;">🔧 Core Features</h3>
+  <ul>
+    <li>🧪 Virtual Users (VUs) simulate concurrent users performing defined actions</li>
+    <li>⏳ Configurable ramp-up and ramp-down stages to model realistic traffic patterns</li>
+    <li>📊 Thresholds enable defining pass/fail criteria for automated test validation</li>
+    <li>📤 Multiple output formats including JSON, CSV, and integrations with observability platforms</li>
+    <li>💻 Cross-platform CLI tool and cloud execution options</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">💻 Example: Simple Load Test Script</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+import http from 'k6/http';
+import { sleep, check } from 'k6';
+
+export let options = {
+    vus: 50,  // Virtual users
+    duration: '30s',  // Test duration
+};
+
+export default function () {
+    let res = http.get('https://test-api.example.com/products');
+    check(res, {
+        'status is 200': (r) => r.status === 200,
+        'response time < 500ms': (r) => r.timings.duration < 500,
+    });
+    sleep(1);
+}
+  </pre>
+
+  <h3 style="color:#1d4ed8;">✅ Best Practices</h3>
+  <ul>
+    <li>📝 Write modular and reusable test scripts using ES6 modules</li>
+    <li>⚡ Start with small load tests and gradually increase load to avoid overwhelming your system</li>
+    <li>📊 Use thresholds to automate pass/fail criteria and integrate results with monitoring dashboards</li>
+    <li>🔄 Integrate load testing into your CI/CD pipeline for continuous performance validation</li>
+    <li>📈 Monitor resource utilization on your system alongside load tests to identify bottlenecks</li>
+    <li>🌐 Test with realistic data and user scenarios to get actionable performance insights</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://k6.io/docs/" target="_blank" style="color:#3b82f6;">Official K6 Documentation</a></li>
+    <li><a href="https://k6.io/docs/examples/" target="_blank" style="color:#3b82f6;">K6 Example Scripts</a></li>
+    <li><a href="https://k6.io/blog/" target="_blank" style="color:#3b82f6;">K6 Blog & Community</a></li>
+  </ul>
+</div>` },
+            { id: "jmeter", title: "JMeter", type: "good-to-know",description : `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #2563eb; box-shadow:0 6px 20px rgba(37,99,235,0.2)">
+    <h2 style="color:#1e40af;">⚙️ Apache JMeter Performance Testing</h2>
+    <p>
+      <strong>Apache JMeter</strong> is a widely-used open-source load testing tool designed to measure the performance and scalability of web applications, APIs, databases, and more.
+      Originally developed for testing web servers, JMeter has evolved to support a wide variety of protocols and use cases, making it a versatile tool for performance engineers.
+    </p>
+
+    <h3 style="color:#1e40af;">💡 Why Choose JMeter?</h3>
+    <ul>
+      <li>🌍 Supports many protocols: HTTP/HTTPS, FTP, JDBC, JMS, SOAP, REST, TCP, and more</li>
+      <li>📈 Allows creation of complex load test plans with customizable thread groups and timers</li>
+      <li>🛠️ Provides rich GUI for test design and debugging</li>
+      <li>📊 Offers detailed reports and graphical results for performance analysis</li>
+      <li>🔄 Integrates well with CI/CD tools like Jenkins and other automation pipelines</li>
+      <li>⚙️ Highly extensible via plugins and scripting (Groovy, BeanShell)</li>
+    </ul>
+
+    <h3 style="color:#1e40af;">🔧 Core Concepts</h3>
+    <ul>
+      <li><strong>Thread Groups:</strong> Simulate concurrent users with configurable user count, ramp-up time, and loop count</li>
+      <li><strong>Samplers:</strong> Define requests to be sent, such as HTTP requests or JDBC queries</li>
+      <li><strong>Listeners:</strong> Collect and display test results and metrics in various formats</li>
+      <li><strong>Timers:</strong> Control the pacing of requests</li>
+      <li><strong>Assertions:</strong> Verify server responses meet expected criteria</li>
+    </ul>
+
+    <h3 style="color:#1e40af;">💻 Example: Basic HTTP Load Test</h3>
+    <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+&lt;TestPlan&gt;
+  &lt;ThreadGroup&gt;
+    &lt;num_threads&gt;100&lt;/num_threads&gt;        &lt;!-- Simulate 100 users --&gt;
+    &lt;ramp_time&gt;60&lt;/ramp_time&gt;            &lt;!-- Ramp-up over 60 seconds --&gt;
+    &lt;loop_count&gt;10&lt;/loop_count&gt;          &lt;!-- Each user sends 10 requests --&gt;
+  &lt;/ThreadGroup&gt;
+  &lt;HTTPSamplerProxy&gt;
+    &lt;domain&gt;example.com&lt;/domain&gt;
+    &lt;path&gt;/api/products&lt;/path&gt;
+    &lt;method&gt;GET&lt;/method&gt;
+  &lt;/HTTPSamplerProxy&gt;
+&lt;/TestPlan&gt;
+    </pre>
+
+    <h3 style="color:#1e40af;">✅ Best Practices</h3>
+    <ul>
+      <li>📝 Design test plans that mimic real user behavior for realistic load simulation</li>
+      <li>⚡ Start with lower loads and gradually increase to identify breaking points</li>
+      <li>📊 Use assertions to validate correctness of responses under load</li>
+      <li>📁 Modularize tests by using Test Fragments and Include Controllers for maintainability</li>
+      <li>🔄 Automate test execution in CI/CD pipelines for continuous performance monitoring</li>
+      <li>📈 Analyze results with listeners and external tools like Grafana for deeper insights</li>
+    </ul>
+
+    <h3 style="color:#1e40af;">📚 Learn More</h3>
+    <ul>
+      <li><a href="https://jmeter.apache.org/" target="_blank" style="color:#2563eb;">Official Apache JMeter Website</a></li>
+      <li><a href="https://jmeter.apache.org/usermanual/get-started.html" target="_blank" style="color:#2563eb;">Getting Started Guide</a></li>
+      <li><a href="https://jmeter.apache.org/usermanual/listeners.html" target="_blank" style="color:#2563eb;">Listeners and Reporting</a></li>
+    </ul>
+  </div>` },
+            { id: "crank", title: "Crank", type: "optional", description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff7ed; padding:2rem; border-radius:1rem; border:2px solid #f97316; box-shadow:0 6px 20px rgba(249,115,22,0.2)">
+<h2 style="color:#c2410c;">🚀 Crank Load Testing</h2>
+<p>
+  <strong>Crank</strong> is an open-source, distributed load testing tool designed to generate high-scale HTTP traffic from multiple machines with minimal resource consumption.
+  It’s ideal for testing performance and reliability of web services and APIs at scale, supporting cloud-native environments.
+</p>
+
+<h3 style="color:#ea580c;">💡 Why Use Crank?</h3>
+<ul>
+  <li>⚡ Lightweight and efficient with low CPU and memory footprint</li>
+  <li>🌐 Distributed architecture enables load generation from multiple nodes</li>
+  <li>🧰 Supports HTTP/1.1 and HTTP/2 protocols with TLS</li>
+  <li>📊 Provides detailed metrics and real-time monitoring</li>
+  <li>🔧 Simple configuration using YAML or command-line options</li>
+</ul>
+
+<h3 style="color:#ea580c;">🔧 Core Features</h3>
+<ul>
+  <li>✅ High concurrency with low overhead</li>
+  <li>🔄 Support for ramp-up and steady-state load profiles</li>
+  <li>📈 Real-time performance dashboards</li>
+  <li>🔐 Support for authentication, custom headers, and request bodies</li>
+  <li>🌍 Easy integration with CI/CD pipelines and cloud environments</li>
+</ul>
+
+<h3 style="color:#c2410c;">💻 Example: Simple HTTP Load Test</h3>
+<pre style="background:#ffedd5; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+crank --url https://api.example.com/products --duration 60s --concurrency 100 --ramp-up 30s
+</pre>
+
+<h3 style="color:#ea580c;">✅ Best Practices</h3>
+<ul>
+  <li>📝 Define realistic load patterns to simulate actual user behavior</li>
+  <li>🔍 Monitor system resources on both load generators and target servers</li>
+  <li>🚀 Gradually increase load to find bottlenecks and capacity limits</li>
+  <li>📊 Use Crank’s real-time metrics to analyze latency, throughput, and errors</li>
+  <li>🔄 Integrate Crank tests into automated pipelines for continuous performance validation</li>
+</ul>
+
+<h3 style="color:#c2410c;">📚 Learn More</h3>
+<ul>
+  <li><a href="https://github.com/microsoft/crank" target="_blank" style="color:#f97316;">Crank GitHub Repository</a></li>
+  <li><a href="https://github.com/microsoft/crank/blob/main/docs/README.md" target="_blank" style="color:#f97316;">Official Documentation</a></li>
+</ul>
+</div>` },
+            { id: "bombardier", title: "Bombardier", type: "optional", description: `<div style="font-family:sans-serif; line-height:1.6; background:#eff6ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+  <h2 style="color:#2563eb;">🚀 Bombardier Load Testing</h2>
+  <p>
+    <strong>Bombardier</strong> is a fast and simple HTTP benchmarking tool designed to test the performance and resilience of web servers and APIs by generating high concurrent traffic.
+    Written in Go, Bombardier is cross-platform and lightweight, perfect for quick load testing scenarios.
+  </p>
+
+  <h3 style="color:#1d4ed8;">💡 Why Use Bombardier?</h3>
+  <ul>
+    <li>⚡ Extremely fast with low resource consumption</li>
+    <li>📊 Provides detailed statistics like latency percentiles, requests per second, and transfer rates</li>
+    <li>🛠️ Simple command-line interface for quick setup</li>
+    <li>🌍 Supports HTTP/1.1, HTTP/2, and HTTPS protocols</li>
+    <li>🔧 Allows customization of headers, request methods, and body payloads</li>
+  </ul>
+
+  <h3 style="color:#1d4ed8;">🔧 Core Features</h3>
+  <ul>
+    <li>✅ High concurrency and request rate options</li>
+    <li>⏱️ Customizable duration and timeout settings</li>
+    <li>📈 Real-time progress and summary statistics</li>
+    <li>🔐 Support for TLS, HTTP/2, and custom certificates</li>
+    <li>🌐 Easy integration in CI/CD pipelines and automation scripts</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">💻 Example: Basic Load Test</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+bombardier -c 100 -d 30s https://api.example.com/products
+  </pre>
+
+  <h3 style="color:#1d4ed8;">✅ Best Practices</h3>
+  <ul>
+    <li>📝 Use realistic concurrency and duration values to simulate real user load</li>
+    <li>🔍 Monitor target system metrics during tests to correlate results</li>
+    <li>🚀 Gradually increase load to identify thresholds and bottlenecks</li>
+    <li>📊 Analyze latency distributions and error rates carefully</li>
+    <li>🔄 Automate Bombardier runs in your CI/CD pipeline for performance regression checks</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://github.com/codesenberg/bombardier" target="_blank" style="color:#3b82f6;">Bombardier GitHub Repository</a></li>
+    <li><a href="https://github.com/codesenberg/bombardier#usage" target="_blank" style="color:#3b82f6;">Usage Documentation</a></li>
+  </ul>
+</div>` },
           ]
         },
         {
           id: "architecture-testing",
           title: "Architecture Testing",
+          description: 
+        `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
+  <h2 style="color:#0284c7;">🏛️ Architecture Testing</h2>
+  <p>
+    <strong>Architecture Testing</strong> is a specialized testing practice focused on verifying that a software system's architecture complies with the intended design principles, constraints, and quality attributes.
+    It ensures that the system's components interact correctly, adhere to defined architectural rules, and maintain system integrity over time.
+  </p>
+
+  <h3 style="color:#0369a1;">💡 Why Architecture Testing?</h3>
+  <ul>
+    <li>🔍 Detect architectural violations early, preventing costly refactoring</li>
+    <li>🛡️ Enforce separation of concerns and modularity</li>
+    <li>📐 Maintain system scalability, maintainability, and performance</li>
+    <li>⚙️ Ensure consistency between codebase and architectural documentation</li>
+    <li>🚀 Facilitate smooth onboarding and evolution of the system</li>
+  </ul>
+
+  <h3 style="color:#0369a1;">🔧 Core Techniques</h3>
+  <ul>
+    <li>✅ Static code analysis to verify layering and dependencies</li>
+    <li>🧩 Dependency rules enforcement (e.g., allowed/forbidden references)</li>
+    <li>📏 Architectural constraint checking with tools like ArchUnit, NDepend</li>
+    <li>🛠️ Automated tests verifying component interactions and contracts</li>
+    <li>📝 Continuous validation integrated into CI pipelines</li>
+  </ul>
+
+  <h3 style="color:#0284c7;">💻 Example: Using ArchUnit in .NET</h3>
+  <pre style="background:#e0f2fe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using ArchUnitNET.Domain;
+using ArchUnitNET.Fluent;
+using ArchUnitNET.Loader;
+using Xunit;
+
+public class ArchitectureTests
+{
+  private static readonly Architecture architecture = new ArchLoader().LoadAssemblies(typeof(Program).Assembly).Build();
+
+  [Fact]
+  public void ServicesShouldNotDependOnControllers()
+  {
+      var services = Classes().That().ResideInNamespace("MyApp.Services");
+      var controllers = Classes().That().ResideInNamespace("MyApp.Controllers");
+
+      var rule = services.Should().NotDependOnAny(controllers);
+      rule.Check(architecture);
+  }
+}
+  </pre>
+
+  <h3 style="color:#0369a1;">✅ Best Practices</h3>
+  <ul>
+    <li>📝 Keep architectural rules clear, documented, and updated</li>
+    <li>🔄 Integrate architecture tests in automated CI workflows</li>
+    <li>🛑 Fail builds on architecture violations to enforce discipline</li>
+    <li>📊 Regularly review and refine architectural constraints</li>
+    <li>🤝 Collaborate closely with architects and developers</li>
+  </ul>
+
+  <h3 style="color:#0284c7;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://www.archunit.org/" target="_blank" style="color:#0ea5e9;">ArchUnit Official Website</a></li>
+    <li><a href="https://www.ndepend.com/" target="_blank" style="color:#0ea5e9;">NDepend - Architecture and Code Quality Tool</a></li>
+    <li><a href="https://martinfowler.com/articles/architecture-tests.html" target="_blank" style="color:#0ea5e9;">Martin Fowler on Architecture Tests</a></li>
+  </ul>
+</div>`,
           type: "good-to-know",
           children: [
-            { id: "archunitnet", title: "ArchUnitNET", type: "good-to-know" },
-            { id: "netarchtest", title: "NetArchTest", type: "optional" },
+            { id: "archunitnet", title: "ArchUnitNET", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+<h2 style="color:#2563eb;">🏗️ ArchUnitNET</h2>
+<p>
+  <strong>ArchUnitNET</strong> is a powerful architecture testing library for .NET projects that enables you to define and enforce architectural rules programmatically.
+  It helps maintain codebase consistency by detecting architectural violations early in the development cycle.
+</p>
+
+<h3 style="color:#1e40af;">💡 Why Use ArchUnitNET?</h3>
+<ul>
+  <li>🔍 Detect architectural violations automatically</li>
+  <li>🛡️ Enforce layered architecture and dependency rules</li>
+  <li>⚙️ Integrate architecture tests into CI/CD pipelines</li>
+  <li>📐 Keep your codebase maintainable and modular</li>
+</ul>
+
+<h3 style="color:#1e40af;">🔧 Core Features</h3>
+<ul>
+  <li>✅ Fluent API for defining architectural constraints</li>
+  <li>📦 Analyze assemblies, namespaces, classes, and methods</li>
+  <li>🧩 Support for layered architecture and dependency rules</li>
+  <li>🛠️ Integration with popular test frameworks like xUnit, NUnit, MSTest</li>
+  <li>📊 Reports and feedback on architectural rule violations</li>
+</ul>
+
+<h3 style="color:#2563eb;">💻 Example: Basic Architecture Rule</h3>
+<pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using ArchUnitNET.Domain;
+using ArchUnitNET.Fluent;
+using ArchUnitNET.Loader;
+using Xunit;
+
+public class ArchitectureTests
+{
+private static readonly Architecture architecture = new ArchLoader().LoadAssemblies(typeof(Program).Assembly).Build();
+
+[Fact]
+public void ServicesShouldNotDependOnControllers()
+{
+    var services = Classes().That().ResideInNamespace("MyApp.Services");
+    var controllers = Classes().That().ResideInNamespace("MyApp.Controllers");
+
+    var rule = services.Should().NotDependOnAny(controllers);
+    rule.Check(architecture);
+}
+}
+</pre>
+
+<h3 style="color:#1e40af;">✅ Best Practices</h3>
+<ul>
+  <li>📝 Define clear, maintainable architectural rules</li>
+  <li>🔄 Integrate architecture tests in your CI/CD workflow</li>
+  <li>🛑 Fail builds when architectural violations are detected</li>
+  <li>🤝 Collaborate with your team to update rules as architecture evolves</li>
+  <li>📚 Continuously monitor and improve architectural compliance</li>
+</ul>
+
+<h3 style="color:#2563eb;">📚 Learn More</h3>
+<ul>
+  <li><a href="https://github.com/ArchUnitNET/ArchUnitNET" target="_blank" style="color:#3b82f6;">ArchUnitNET GitHub Repository</a></li>
+  <li><a href="https://www.archunit.org/" target="_blank" style="color:#3b82f6;">ArchUnit (Java) Official Website</a></li>
+</ul>
+</div>` },
+            { id: "netarchtest", title: "NetArchTest", type: "optional",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#f9fafb; padding:2rem; border-radius:1rem; border:2px solid #4b5563; box-shadow:0 6px 20px rgba(75,85,99,0.2)">
+<h2 style="color:#374151;">🏗️ NetArchTest</h2>
+<p>
+  <strong>NetArchTest</strong> is a lightweight and flexible architecture testing library for .NET that helps developers enforce architectural rules by analyzing assemblies through fluent API queries.
+  It is designed to catch architectural violations early by integrating with your unit test suite.
+</p>
+
+<h3 style="color:#1f2937;">💡 Why Use NetArchTest?</h3>
+<ul>
+  <li>🔎 Easily define and check architectural constraints</li>
+  <li>⚙️ Seamlessly integrates with existing test frameworks (xUnit, NUnit, MSTest)</li>
+  <li>📐 Enforces clean layering and dependency rules</li>
+  <li>🚦 Helps maintain modular and maintainable codebases</li>
+</ul>
+
+<h3 style="color:#1f2937;">🔧 Core Features</h3>
+<ul>
+  <li>✅ Fluent API for assembly and type queries</li>
+  <li>📦 Checks namespaces, class names, dependencies, and attributes</li>
+  <li>🛠️ Supports custom rules and predicate definitions</li>
+  <li>🔍 Provides clear failure messages for rule violations</li>
+  <li>📈 Integrates into CI/CD pipelines for continuous enforcement</li>
+</ul>
+
+<h3 style="color:#374151;">💻 Example: Prevent Service Layer From Accessing Controllers</h3>
+<pre style="background:#f3f4f6; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using NetArchTest.Rules;
+using Xunit;
+
+public class ArchitectureTests
+{
+[Fact]
+public void ServicesShouldNotDependOnControllers()
+{
+    var result = Types.InAssembly(typeof(Program).Assembly)
+        .That()
+        .ResideInNamespace("MyApp.Services")
+        .ShouldNot()
+        .HaveDependencyOn("MyApp.Controllers")
+        .GetResult();
+
+    Assert.True(result.IsSuccessful, "Services should not depend on Controllers.");
+}
+}
+</pre>
+
+<h3 style="color:#1f2937;">✅ Best Practices</h3>
+<ul>
+  <li>📝 Keep architecture rules explicit and easy to understand</li>
+  <li>🔄 Run tests regularly to catch regressions early</li>
+  <li>⚠️ Use meaningful failure messages to facilitate debugging</li>
+  <li>📊 Integrate with CI/CD to enforce architecture continuously</li>
+  <li>🤝 Collaborate with team members to evolve rules as the project grows</li>
+</ul>
+
+<h3 style="color:#374151;">📚 Learn More</h3>
+<ul>
+  <li><a href="https://github.com/BenMorris/NetArchTest" target="_blank" style="color:#4b5563;">NetArchTest GitHub Repository</a></li>
+  <li><a href="https://github.com/BenMorris/NetArchTest/wiki" target="_blank" style="color:#4b5563;">NetArchTest Wiki & Documentation</a></li>
+</ul>
+</div>`
+             },
           ]
         },
       ]
@@ -8101,19 +10473,291 @@ steps:
           id: "monitoring",
           title: "Monitoring",
           type: "must-know",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#eff6ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+<h2 style="color:#2563eb;">📊 Monitoring</h2>
+<p>
+  <strong>Monitoring</strong> is the continuous process of collecting, analyzing, and displaying data from software applications, infrastructure, and systems to ensure performance, availability, and reliability.
+  It helps teams detect anomalies, track trends, and proactively respond to issues before they impact end users.
+</p>
+
+<h3 style="color:#1e40af;">💡 Why Monitoring Matters?</h3>
+<ul>
+  <li>🔍 Detect issues early to minimize downtime</li>
+  <li>📈 Understand system behavior under different loads</li>
+  <li>🚦 Optimize performance by identifying bottlenecks</li>
+  <li>🛡️ Improve security by monitoring unusual activity</li>
+  <li>📊 Provide transparency to stakeholders with dashboards and alerts</li>
+</ul>
+
+<h3 style="color:#1e40af;">🔧 Core Components</h3>
+<ul>
+  <li>📡 <strong>Metrics Collection:</strong> Gathering quantitative data like CPU usage, memory, request rates, and error counts.</li>
+  <li>📜 <strong>Logs:</strong> Capturing detailed event records and contextual information.</li>
+  <li>🔔 <strong>Alerts:</strong> Automated notifications triggered by threshold breaches or anomalies.</li>
+  <li>📉 <strong>Dashboards:</strong> Visual representations of system health and trends.</li>
+</ul>
+
+<h3 style="color:#2563eb;">💻 Example: Basic Application Metrics Monitoring with Prometheus</h3>
+<pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+# prometheus.yml snippet
+global:
+scrape_interval: 15s
+
+scrape_configs:
+- job_name: 'myapp'
+static_configs:
+  - targets: ['localhost:5000']
+</pre>
+
+<h3 style="color:#1e40af;">✅ Best Practices</h3>
+<ul>
+  <li>🧹 Keep metrics relevant and lightweight to avoid performance overhead</li>
+  <li>⚡ Define clear alert thresholds to reduce noise</li>
+  <li>🛠️ Combine metrics with logs and traces for full observability</li>
+  <li>📊 Use dashboards tailored for different roles (dev, ops, business)</li>
+  <li>🔄 Regularly review and refine monitoring setup as systems evolve</li>
+</ul>
+
+<h3 style="color:#2563eb;">📚 Learn More</h3>
+<ul>
+  <li><a href="https://prometheus.io/docs/introduction/overview/" target="_blank" style="color:#3b82f6;">Prometheus Monitoring Overview</a></li>
+  <li><a href="https://www.datadoghq.com/monitoring/" target="_blank" style="color:#3b82f6;">Datadog Monitoring Platform</a></li>
+  <li><a href="https://opentelemetry.io/docs/monitoring/" target="_blank" style="color:#3b82f6;">OpenTelemetry Monitoring Concepts</a></li>
+</ul>
+</div>`,
           children: [
             {
               id: "on-premises-monitoring",
               title: "On-Premises",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
+<h2 style="color:#0284c7;">🏢 On-Premises Monitoring</h2>
+<p>
+  <strong>On-Premises Monitoring</strong> refers to the practice of monitoring servers, applications, and infrastructure that are hosted locally within an organization's own data centers rather than in the cloud.
+  It involves deploying monitoring tools and agents inside the local network to collect real-time performance, availability, and health data.
+</p>
+
+<h3 style="color:#0369a1;">💡 Why On-Premises Monitoring?</h3>
+<ul>
+  <li>🔒 Greater control over data privacy and security</li>
+  <li>⚙️ Customization and integration with internal tools and legacy systems</li>
+  <li>🖥️ Useful for environments with limited or no cloud connectivity</li>
+  <li>📊 Immediate access to hardware-level metrics and local network performance</li>
+  <li>💰 Potentially lower long-term costs for large-scale infrastructures</li>
+</ul>
+
+<h3 style="color:#0369a1;">🔧 Common Tools & Techniques</h3>
+<ul>
+  <li>🖥️ <strong>Agent-based monitoring:</strong> Install agents on physical or virtual machines to collect CPU, memory, disk, and network metrics.</li>
+  <li>📜 <strong>Log aggregation:</strong> Collect logs locally using tools like ELK Stack (Elasticsearch, Logstash, Kibana) or Graylog.</li>
+  <li>📊 <strong>Dashboards & Alerts:</strong> Use tools such as Grafana or Zabbix to visualize metrics and trigger alerts.</li>
+  <li>🔄 <strong>Periodic health checks:</strong> Run scripts or probes to verify service availability and response times.</li>
+</ul>
+
+<h3 style="color:#0284c7;">💻 Example: Simple On-Prem Prometheus Setup</h3>
+<pre style="background:#d0ebff; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+global:
+scrape_interval: 15s
+
+scrape_configs:
+- job_name: 'local_servers'
+static_configs:
+  - targets: ['192.168.1.100:9100', '192.168.1.101:9100']
+</pre>
+
+<h3 style="color:#0369a1;">✅ Best Practices</h3>
+<ul>
+  <li>🔐 Secure monitoring agents and endpoints with proper network segmentation and access controls</li>
+  <li>🛠️ Regularly update monitoring tools to patch vulnerabilities</li>
+  <li>⚡ Optimize data retention policies to balance storage and historical analysis needs</li>
+  <li>📈 Combine on-prem monitoring with cloud monitoring if hybrid environments exist</li>
+  <li>🧩 Ensure monitoring integrates well with incident management and alerting workflows</li>
+</ul>
+
+<h3 style="color:#0284c7;">📚 Learn More</h3>
+<ul>
+  <li><a href="https://www.zabbix.com/documentation/current/manual/quickstart/on-premises" target="_blank" style="color:#0ea5e9;">Zabbix On-Premises Monitoring Guide</a></li>
+  <li><a href="https://prometheus.io/docs/prometheus/latest/getting_started/" target="_blank" style="color:#0ea5e9;">Prometheus Getting Started</a></li>
+  <li><a href="https://grafana.com/docs/grafana/latest/getting-started/" target="_blank" style="color:#0ea5e9;">Grafana Dashboards & Visualization</a></li>
+</ul>
+</div>`,
               children: [
-                { id: "prometheus-grafana", title: "Prometheus/Grafana", type: "must-know" },
+                { id: "prometheus-grafana", title: "Prometheus/Grafana", type: "must-know",
+                  description: `<div style="font-family:sans-serif; line-height:1.6; background:#e9f5ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+<h2 style="color:#2563eb;">📊 Monitoring with Prometheus & Grafana</h2>
+<p>
+  <strong>Prometheus</strong> is an open-source systems monitoring and alerting toolkit designed for reliability and scalability. It collects and stores metrics as time series data, pulling from configured targets at specified intervals.
+  <strong>Grafana</strong> complements Prometheus by providing rich, interactive dashboards and visualization capabilities that help teams understand metrics through graphs, charts, and alerts.
+</p>
+
+<h3 style="color:#1e40af;">💡 Why Use Prometheus & Grafana?</h3>
+<ul>
+  <li>⚡ Powerful multi-dimensional data model and flexible query language (PromQL)</li>
+  <li>📈 Highly customizable and visually appealing dashboards via Grafana</li>
+  <li>🔔 Built-in alerting with Prometheus Alertmanager integration</li>
+  <li>🛠️ Extensive ecosystem of exporters and integrations for infrastructure, apps, and services</li>
+  <li>🌐 Strong community support and cloud-native design</li>
+</ul>
+
+<h3 style="color:#1e40af;">🔧 Core Components</h3>
+<ul>
+  <li>📥 <strong>Prometheus Server:</strong> Scrapes metrics from instrumented jobs and stores them.</li>
+  <li>📤 <strong>Exporters:</strong> Collect metrics from third-party systems like node_exporter, blackbox_exporter, and more.</li>
+  <li>📊 <strong>Grafana:</strong> Visualizes the collected data with dashboards and graphs.</li>
+  <li>🔔 <strong>Alertmanager:</strong> Manages alerts sent by Prometheus, supporting routing, silencing, and notifications.</li>
+</ul>
+
+<h3 style="color:#2563eb;">💻 Example: Basic Prometheus Configuration</h3>
+<pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+global:
+scrape_interval: 15s
+evaluation_interval: 15s
+
+scrape_configs:
+- job_name: 'node_exporter'
+static_configs:
+  - targets: ['localhost:9100']
+</pre>
+
+<h3 style="color:#1e40af;">✅ Best Practices</h3>
+<ul>
+  <li>🔐 Secure Prometheus and Grafana with authentication and network policies</li>
+  <li>📊 Design meaningful dashboards tailored to different teams and roles</li>
+  <li>⚡ Use PromQL efficiently to avoid overloading the Prometheus server</li>
+  <li>🔔 Set up alert rules to proactively detect issues and integrate with incident management</li>
+  <li>🛠️ Leverage exporters to monitor all critical components in your infrastructure</li>
+  <li>📈 Regularly review and optimize scrape intervals and data retention for performance</li>
+</ul>
+
+<h3 style="color:#2563eb;">📚 Learn More</h3>
+<ul>
+  <li><a href="https://prometheus.io/docs/introduction/overview/" target="_blank" style="color:#3b82f6;">Prometheus Official Documentation</a></li>
+  <li><a href="https://grafana.com/docs/grafana/latest/" target="_blank" style="color:#3b82f6;">Grafana Documentation</a></li>
+  <li><a href="https://prometheus.io/docs/prometheus/latest/configuration/configuration/" target="_blank" style="color:#3b82f6;">Prometheus Configuration Guide</a></li>
+</ul>
+</div>`
+                 },
               ]
             },
             {
               id: "cloud-monitoring",
               title: "Cloud",
+              "description": `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
+<h2 style="color:#15803d;">☁️ Cloud Monitoring</h2>
+<p>
+  <strong>Cloud Monitoring</strong> involves tracking, analyzing, and managing the health, performance, and reliability of applications and infrastructure running in the cloud. Modern cloud providers offer built-in monitoring tools with powerful visualization, alerting, and observability features.
+</p>
+
+<h3 style="color:#166534;">🌐 Key Cloud Monitoring Providers</h3>
+<ul>
+  <li><strong>Azure Monitor</strong>: Native monitoring for Azure resources with integration to Log Analytics and Application Insights.</li>
+  <li><strong>AWS CloudWatch</strong>: Collects logs, metrics, and events across AWS services with dashboards and alarms.</li>
+  <li><strong>Google Cloud Operations Suite</strong> (formerly Stackdriver): Monitoring, logging, tracing, and profiling in GCP.</li>
+  <li><strong>Datadog / New Relic / Dynatrace</strong>: Cloud-agnostic third-party monitoring platforms with deep observability capabilities.</li>
+</ul>
+
+<h3 style="color:#166534;">⚙️ Typical Features</h3>
+<ul>
+  <li>📈 Real-time metrics collection and dashboarding</li>
+  <li>📊 Logs aggregation and search</li>
+  <li>🔔 Alerting and auto-remediation workflows</li>
+  <li>🌐 Distributed tracing and dependency mapping</li>
+  <li>📉 SLA, SLO, and error budget monitoring</li>
+</ul>
+
+<h3 style="color:#15803d;">💻 Example: AWS CloudWatch Alarm</h3>
+<pre style="background:#dcfce7; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+{
+  "AlarmName": "HighCPUAlarm",
+  "MetricName": "CPUUtilization",
+  "Namespace": "AWS/EC2",
+  "Statistic": "Average",
+  "Period": 300,
+  "EvaluationPeriods": 2,
+  "Threshold": 80,
+  "ComparisonOperator": "GreaterThanThreshold",
+  "Dimensions": 
+    [
+      {
+        "Name": "InstanceId",
+        "Value": "i-0123456789abcdef0"
+      }
+    ]
+}
+</pre>
+
+<h3 style="color:#166534;">✅ Best Practices</h3>
+<ul>
+  <li>🔍 Monitor critical KPIs like latency, error rate, and throughput (the RED method)</li>
+  <li>🧩 Use tagging and naming conventions to organize resources and metrics</li>
+  <li>📤 Send metrics to centralized observability platforms for cross-service visibility</li>
+  <li>🛡️ Set up automated alerts and incident escalation policies</li>
+  <li>📊 Implement dashboards for real-time and historical trend analysis</li>
+</ul>
+
+<h3 style="color:#15803d;">📚 Learn More</h3>
+<ul>
+  <li><a href="https://learn.microsoft.com/en-us/azure/azure-monitor/overview" target="_blank" style="color:#22c55e;">Azure Monitor Overview</a></li>
+  <li><a href="https://docs.aws.amazon.com/cloudwatch/" target="_blank" style="color:#22c55e;">AWS CloudWatch Docs</a></li>
+  <li><a href="https://cloud.google.com/products/operations" target="_blank" style="color:#22c55e;">Google Cloud Operations Suite</a></li>
+</ul>
+</div>`,
               children: [
-                { id: "datadog-mon", title: "Datadog", type: "must-know"  },
+                { id: "datadog-mon", title: "Datadog", type: "must-know",
+                  description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
+<h2 style="color:#0284c7;">📊 Datadog: Cloud Monitoring & Observability Platform</h2>
+<p>
+  <strong>Datadog</strong> is a cloud-native observability platform that provides monitoring, security, and analytics for infrastructure, applications, logs, and user experience. It is widely used by DevOps, SREs, and developers to ensure reliability, performance, and uptime across distributed systems.
+</p>
+
+<h3 style="color:#0369a1;">🧩 Core Features</h3>
+<ul>
+  <li>📈 Infrastructure & application performance monitoring (APM)</li>
+  <li>📄 Log management and full-text search</li>
+  <li>🌐 Distributed tracing and service maps</li>
+  <li>🔔 Alerting with anomaly detection and threshold rules</li>
+  <li>🛡️ Security monitoring & compliance dashboards</li>
+  <li>📊 Custom dashboards with real-time metrics</li>
+</ul>
+
+<h3 style="color:#0369a1;">🔌 Integrations</h3>
+<p>
+  Datadog supports 600+ out-of-the-box integrations including:
+  <strong>AWS, Azure, GCP, Docker, Kubernetes, PostgreSQL, Redis, Kafka, .NET, ASP.NET Core, IIS, and more.</strong>
+</p>
+
+<h3 style="color:#0284c7;">💻 Example: ASP.NET Core APM Setup</h3>
+<pre style="background:#e0f2fe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+// Install Datadog .NET Tracer
+dotnet add package Datadog.Trace
+
+// In Program.cs
+public class Program
+{
+  public static void Main(string[] args)
+  {
+      Datadog.Trace.ClrProfiler.Instrumentation.Initialize();
+      CreateHostBuilder(args).Build().Run();
+  }
+}
+</pre>
+
+<h3 style="color:#0369a1;">✅ Best Practices</h3>
+<ul>
+  <li>🧭 Use unified dashboards to correlate metrics, logs, and traces</li>
+  <li>🔒 Use role-based access control (RBAC) for secure visibility</li>
+  <li>📈 Define custom service-level indicators (SLIs) and error budgets</li>
+  <li>🚨 Set anomaly detection for early warnings on outliers</li>
+  <li>📦 Tag everything: services, environments, teams for scoped filtering</li>
+</ul>
+
+<h3 style="color:#0284c7;">📚 Learn More</h3>
+<ul>
+  <li><a href="https://docs.datadoghq.com/" target="_blank" style="color:#0ea5e9;">Datadog Documentation</a></li>
+  <li><a href="https://docs.datadoghq.com/tracing/setup_overview/" target="_blank" style="color:#0ea5e9;">Datadog APM Setup</a></li>
+  <li><a href="https://docs.datadoghq.com/logs/log_collection/" target="_blank" style="color:#0ea5e9;">Log Collection Guide</a></li>
+</ul>
+</div>`
+                 },
               ]
             },
           ]
@@ -8121,15 +10765,324 @@ steps:
         {
           id: "logging",
           title: "Logging",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef9c3; padding:2rem; border-radius:1rem; border:2px solid #eab308; box-shadow:0 6px 20px rgba(234,179,8,0.2)">
+<h2 style="color:#ca8a04;">📝 Logging in .NET Applications</h2>
+<p>
+  <strong>Logging</strong> is a fundamental aspect of observability, allowing developers and operations teams to understand application behavior, diagnose issues, and audit activities. In the .NET ecosystem, structured logging is encouraged for better filtering, querying, and correlation across distributed systems.
+</p>
+
+<h3 style="color:#a16207;">🔧 Core Concepts</h3>
+<ul>
+  <li>📄 Structured logs (e.g., JSON) enable efficient searching and filtering</li>
+  <li>🧵 Logs can include scopes, correlation IDs, and contextual metadata</li>
+  <li>📁 Log providers can target files, console, remote servers, or observability platforms</li>
+  <li>🕵️ Centralized logging helps correlate across microservices</li>
+</ul>
+
+<h3 style="color:#a16207;">🔌 Common Logging Providers</h3>
+<ul>
+  <li><strong>Microsoft.Extensions.Logging</strong> – Default abstraction in .NET Core</li>
+  <li><strong>Serilog</strong> – Rich structured logging with sinks like Seq, Elasticsearch, Console</li>
+  <li><strong>NLog</strong> – Configurable with flexible targets and rules</li>
+  <li><strong>Log4Net</strong> – Mature legacy logger for .NET Framework</li>
+</ul>
+
+<h3 style="color:#ca8a04;">💻 Example: Serilog Setup</h3>
+<pre style="background:#fefce8; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+// Install Serilog packages
+dotnet add package Serilog.AspNetCore
+dotnet add package Serilog.Sinks.Console
+
+// In Program.cs
+Log.Logger = new LoggerConfiguration()
+  .WriteTo.Console()
+  .Enrich.FromLogContext()
+  .CreateLogger();
+
+var builder = WebApplication.CreateBuilder(args);
+builder.Host.UseSerilog();
+
+var app = builder.Build();
+app.MapGet("/", () => {
+  Log.Information("Homepage visited");
+  return "Hello, World!";
+});
+app.Run();
+</pre>
+
+<h3 style="color:#a16207;">✅ Best Practices</h3>
+<ul>
+  <li>🔍 Use structured logging with key-value pairs</li>
+  <li>📛 Never log sensitive data (passwords, tokens)</li>
+  <li>🛠️ Configure log levels appropriately (Information, Warning, Error, Debug)</li>
+  <li>📦 Use correlation IDs for tracing logs across services</li>
+  <li>📊 Forward logs to centralized platforms (e.g., Seq, ELK, Datadog, Azure Monitor)</li>
+</ul>
+
+<h3 style="color:#ca8a04;">📚 Learn More</h3>
+<ul>
+  <li><a href="https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/" target="_blank" style="color:#eab308;">Microsoft Logging Docs</a></li>
+  <li><a href="https://serilog.net/" target="_blank" style="color:#eab308;">Serilog Official Site</a></li>
+  <li><a href="https://nlog-project.org/" target="_blank" style="color:#eab308;">NLog Documentation</a></li>
+</ul>
+</div>`,
           type: "must-know",
           children: [
             {
               id: "on-premises-logging",
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef9c3; padding:2rem; border-radius:1rem; border:2px solid #eab308; box-shadow:0 6px 20px rgba(234,179,8,0.2)">
+<h2 style="color:#ca8a04;">🏠 On-Premises Logging Solutions</h2>
+<p>
+  <strong>On-premises logging</strong> refers to the practice of collecting, storing, and analyzing log data within infrastructure that is fully managed in your own data center or private cloud — without relying on third-party cloud services.
+</p>
+
+<h3 style="color:#a16207;">💡 Why Choose On-Prem Logging?</h3>
+<ul>
+  <li>🔐 Full control over sensitive data (security, compliance)</li>
+  <li>🧱 Tailored to local network and resource constraints</li>
+  <li>🌐 Avoid vendor lock-in and cloud data egress costs</li>
+  <li>⚙️ Can be customized for domain-specific requirements</li>
+</ul>
+
+<h3 style="color:#a16207;">🧰 Popular On-Prem Logging Tools</h3>
+<ul>
+  <li><strong>Elastic Stack (ELK)</strong>: Elasticsearch, Logstash, and Kibana for centralized log indexing and visualization</li>
+  <li><strong>Graylog</strong>: A powerful log aggregator with alerting and analysis features</li>
+  <li><strong>Fluentd</strong>: Lightweight log collector and forwarder that integrates with many storage systems</li>
+  <li><strong>Seq</strong>: A structured log server with rich query support, ideal for .NET applications</li>
+  <li><strong>Loki + Grafana</strong>: A scalable log aggregation system optimized for Kubernetes and cloud-native apps</li>
+</ul>
+
+<h3 style="color:#ca8a04;">📦 Example: Running ELK Stack Locally via Docker</h3>
+<pre style="background:#fefce8; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+version: '3.7'
+services:
+elasticsearch:
+  image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
+  environment:
+    - discovery.type=single-node
+  ports:
+    - "9200:9200"
+
+logstash:
+  image: docker.elastic.co/logstash/logstash:8.13.4
+  ports:
+    - "5044:5044"
+
+kibana:
+  image: docker.elastic.co/kibana/kibana:8.13.4
+  ports:
+    - "5601:5601"
+</pre>
+
+<h3 style="color:#a16207;">✅ Best Practices</h3>
+<ul>
+  <li>🧩 Structure logs using JSON for easier querying and parsing</li>
+  <li>🔍 Include application, environment, and correlation metadata in logs</li>
+  <li>🛡️ Secure log access and encrypt data at rest and in transit</li>
+  <li>🧠 Define log retention policies to manage disk usage</li>
+  <li>📊 Set up dashboards and alerts for anomaly detection</li>
+  <li>⚙️ Use log shipping tools (e.g., Filebeat, Fluentd) for scalable ingestion</li>
+</ul>
+
+<h3 style="color:#ca8a04;">📚 Learn More</h3>
+<ul>
+  <li><a href="https://www.elastic.co/what-is/elk-stack" target="_blank" style="color:#eab308;">Elastic Stack Overview</a></li>
+  <li><a href="https://docs.graylog.org/" target="_blank" style="color:#eab308;">Graylog Documentation</a></li>
+  <li><a href="https://datalust.co/seq" target="_blank" style="color:#eab308;">Seq Structured Log Server</a></li>
+</ul>
+</div>`,
               title: "On-Premises",
               children: [
-                { id: "elk-stack", title: "ELK Stack", type: "must-know" },
-                { id: "seq", title: "Seq", type: "good-to-know" },
-                { id: "sentry", title: "Sentry.io", type: "optional" },
+                { id: "elk-stack", title: "ELK Stack", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfccb; padding:2rem; border-radius:1rem; border:2px solid #65a30d; box-shadow:0 6px 20px rgba(132,204,22,0.2)">
+<h2 style="color:#4d7c0f;">📦 ELK Stack (Elasticsearch, Logstash, Kibana)</h2>
+<p>
+  The <strong>ELK Stack</strong> is a powerful, open-source suite for centralized logging, real-time log analysis, and visualization. It is widely used in DevOps, SRE, and security operations to collect, index, and visualize log data from various systems and applications.
+</p>
+
+<h3 style="color:#4d7c0f;">📚 Components</h3>
+<ul>
+  <li><strong>Elasticsearch</strong> – A distributed search and analytics engine that stores and indexes logs.</li>
+  <li><strong>Logstash</strong> – A data processing pipeline that ingests, transforms, and forwards logs.</li>
+  <li><strong>Kibana</strong> – A visualization and dashboarding tool for querying and exploring log data.</li>
+</ul>
+
+<h3 style="color:#4d7c0f;">🛠️ Example Use Case</h3>
+<p>Imagine you are running a microservices-based e-commerce platform. Each service logs data (e.g., orders, payments, errors). ELK can collect these logs, make them searchable, and display real-time metrics on a dashboard.</p>
+
+<h3 style="color:#4d7c0f;">🚀 Quick Start (Docker Compose)</h3>
+<pre style="background:#f7fee7; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+version: '3'
+services:
+elasticsearch:
+  image: docker.elastic.co/elasticsearch/elasticsearch:8.13.4
+  environment:
+    - discovery.type=single-node
+  ports:
+    - "9200:9200"
+
+logstash:
+  image: docker.elastic.co/logstash/logstash:8.13.4
+  ports:
+    - "5044:5044"
+  volumes:
+    - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+
+kibana:
+  image: docker.elastic.co/kibana/kibana:8.13.4
+  ports:
+    - "5601:5601"
+</pre>
+
+<h3 style="color:#4d7c0f;">🔍 Sample Logstash Pipeline</h3>
+<pre style="background:#f0fdf4; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+input {
+  file {
+    path => "/var/log/myapp.log"
+    start_position => "beginning"
+  }
+}
+
+filter {
+  grok {
+    match => { "message" => "%{TIMESTAMP_ISO8601:timestamp} %{LOGLEVEL:level} %{GREEDYDATA:msg}" }
+  }
+}
+
+output {
+  elasticsearch {
+    hosts => ["http://elasticsearch:9200"]
+    index => "myapp-logs"
+  }
+}
+</pre>
+
+<h3 style="color:#4d7c0f;">✅ Best Practices</h3>
+<ul>
+  <li>🧱 Structure logs (e.g., JSON) for better parsing</li>
+  <li>🔒 Secure your stack with HTTPS and authentication</li>
+  <li>🧹 Rotate and expire old indices to manage storage</li>
+  <li>📊 Create dashboards to monitor error rates, response times, etc.</li>
+  <li>📁 Use Filebeat or Fluentd for scalable log shipping</li>
+</ul>
+
+<h3 style="color:#4d7c0f;">📚 Resources</h3>
+<ul>
+  <li><a href="https://www.elastic.co/what-is/elk-stack" target="_blank" style="color:#65a30d;">Elastic Official ELK Guide</a></li>
+  <li><a href="https://www.elastic.co/guide/en/logstash/current/index.html" target="_blank" style="color:#65a30d;">Logstash Documentation</a></li>
+  <li><a href="https://www.elastic.co/kibana" target="_blank" style="color:#65a30d;">Kibana Dashboards</a></li>
+</ul>
+</div>` },
+                { id: "seq", title: "Seq", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef3c7; padding:2rem; border-radius:1rem; border:2px solid #f59e0b; box-shadow:0 6px 20px rgba(249,115,22,0.15)">
+<h2 style="color:#d97706;">📋 Structured Logging with Seq</h2>
+<p>
+  <strong>Seq</strong> is a structured log server that specializes in collecting, indexing, and querying application logs — particularly from .NET applications. It turns log events into searchable, structured data and offers a clean, developer-friendly UI.
+</p>
+
+<h3 style="color:#b45309;">✨ Key Benefits</h3>
+<ul>
+  <li>🔍 Advanced full-text and structured query capabilities</li>
+  <li>📦 Easy integration with Serilog, NLog, and Microsoft.Extensions.Logging</li>
+  <li>💬 Support for rich, semantic logs (not just text)</li>
+  <li>📈 Real-time dashboards and alerting with custom signal rules</li>
+  <li>🔐 Self-hosted or managed cloud options available</li>
+</ul>
+
+<h3 style="color:#b45309;">⚙️ How It Works</h3>
+<p>Seq ingests log events (typically JSON-formatted) from applications and stores them in an internal event store. You can query logs using a SQL-like syntax and monitor systems in near-real-time.</p>
+
+<h3 style="color:#b45309;">💻 Example: Serilog Integration</h3>
+<pre style="background:#fef9c3; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+Log.Logger = new LoggerConfiguration()
+  .MinimumLevel.Information()
+  .WriteTo.Seq("http://localhost:5341")
+  .Enrich.FromLogContext()
+  .CreateLogger();
+
+builder.Host.UseSerilog();
+</pre>
+
+<h3 style="color:#b45309;">📊 Example Log Output</h3>
+<pre style="background:#fefce8; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+{
+"Timestamp": "2025-06-16T17:30:00Z",
+"Level": "Information",
+"MessageTemplate": "User {UserId} placed order {OrderId}",
+"Properties": {
+  "UserId": 42,
+  "OrderId": "ORD-98765"
+}
+}
+</pre>
+
+<h3 style="color:#d97706;">✅ Best Practices</h3>
+<ul>
+  <li>🧱 Use structured logging libraries like Serilog to get the most out of Seq</li>
+  <li>🔐 Protect Seq with authentication and HTTPS in production</li>
+  <li>🧹 Regularly archive or purge old logs to manage storage</li>
+  <li>📢 Set up alerts for important patterns (e.g., errors, downtime, retries)</li>
+  <li>🧩 Enrich logs with request IDs, user context, and environment info</li>
+</ul>
+
+<h3 style="color:#d97706;">📚 Learn More</h3>
+<ul>
+  <li><a href="https://datalust.co/seq" target="_blank" style="color:#f59e0b;">Seq Official Website</a></li>
+  <li><a href="https://docs.datalust.co/docs" target="_blank" style="color:#f59e0b;">Seq Documentation</a></li>
+  <li><a href="https://github.com/datalust/seq-tutorials" target="_blank" style="color:#f59e0b;">Seq Tutorials on GitHub</a></li>
+</ul>
+</div>` },
+                { id: "sentry", title: "Sentry.io", type: "optional", 
+                  "description": `<div style="font-family:sans-serif; line-height:1.6; background:#fef2f2; padding:2rem; border-radius:1rem; border:2px solid #ef4444; box-shadow:0 6px 20px rgba(239,68,68,0.2)">
+<h2 style="color:#b91c1c;">📝 Logging with Sentry.io</h2>
+<p>
+  <strong>Sentry.io</strong> is not just an error monitoring tool, but also a powerful logging platform that provides rich context and actionable insights for developers.
+  It captures logs tied to application errors, performance issues, and user behavior across distributed systems.
+</p>
+
+<h3 style="color:#b91c1c;">🔍 What Makes Sentry Different?</h3>
+<ul>
+  <li>⚙️ Automatically correlates logs with exceptions and stack traces</li>
+  <li>🧠 Uses breadcrumbs to show the sequence of log events before an error</li>
+  <li>📊 Includes environment, user, release, and performance data</li>
+  <li>📌 Integrates seamlessly with popular logging libraries like <code>Serilog</code>, <code>NLog</code>, and <code>Microsoft.Extensions.Logging</code></li>
+  <li>🔔 Alerting based on log-level, tags, and error frequency</li>
+</ul>
+
+<h3 style="color:#b91c1c;">🛠️ Example: Logging with Serilog + Sentry in ASP.NET Core</h3>
+<pre style="background:#fee2e2; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+// Program.cs
+Log.Logger = new LoggerConfiguration()
+  .WriteTo.Sentry(o =>
+  {
+      o.Dsn = "https://example@sentry.io/0";
+      o.MinimumBreadcrumbLevel = LogEventLevel.Debug;
+      o.MinimumEventLevel = LogEventLevel.Error;
+  })
+  .CreateLogger();
+
+builder.Host.UseSerilog();
+</pre>
+
+<h3 style="color:#b91c1c;">📘 Real-World Logging Use Case</h3>
+<p>
+  In a high-traffic web API, developers use Sentry to capture both handled and unhandled exceptions along with structured logs and HTTP context. When an error occurs in production, the team can quickly trace the problem using logs, breadcrumbs, and request metadata without needing to reproduce the issue locally.
+</p>
+
+<h3 style="color:#b91c1c;">✅ Best Practices</h3>
+<ul>
+  <li>🏷️ Use structured logging to attach metadata to each log event</li>
+  <li>🔐 Mask or strip PII before sending logs</li>
+  <li>📡 Filter noisy logs using log levels and tag filters</li>
+  <li>🧵 Correlate logs with user sessions using Sentry's scope/context</li>
+  <li>⚠️ Avoid sending verbose Debug logs to production</li>
+</ul>
+
+<h3 style="color:#b91c1c;">📚 Learn More</h3>
+<ul>
+  <li><a href="https://docs.sentry.io/platforms/dotnet/guides/aspnetcore/" target="_blank" style="color:#ef4444;">Sentry .NET Guide</a></li>
+  <li><a href="https://docs.sentry.io/platforms/dotnet/enriching-events/logging/" target="_blank" style="color:#ef4444;">Logging Integration Docs</a></li>
+</ul>
+</div>` },
               ]
             },
             {
