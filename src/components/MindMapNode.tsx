@@ -28,10 +28,6 @@ export default function MindMapNode({ node }: { node: Node }) {
 
   if (!isRight && !isLeft) return null;
 
-  // SVG bağlantı çizgisi için sabit ölçüler
-  const lineHeight = 60;
-  const lineWidth = 24;
-
   return (
     <div
       className={`relative flex flex-col ${
@@ -82,47 +78,18 @@ export default function MindMapNode({ node }: { node: Node }) {
         </div>
       </Modal>
 
-      {/* Çocuklar ve bağlantı çizgileri */}
+      {/* Çocuk düğümler */}
       {hasChildren && (
         <div
-          className={`mt-6 ${
-            isRight ? "ml-6 pl-6 border-l border-sky-300/60" : "mr-6 pr-6 border-r border-sky-300/60"
-          } relative`}
-          style={{ paddingTop: 12 }}
+          className={`mt-6 ${isRight ? "ml-6" : "mr-6"} relative`}
         >
-          {/** SVG Çizgiler */}
-          <svg
-            className="absolute top-0 left-0 w-10 h-full pointer-events-none"
-            fill="none"
-            stroke="#38bdf8" // tailwind sky-400
-            strokeWidth={2}
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            style={{ right: isLeft ? 0 : undefined, left: isRight ? 0 : undefined }}
-          >
-            {node.children!.map((_, idx) => {
-              const y = idx * lineHeight + 20;
-              if (isRight) {
-                // Sağ taraf için step çizgisi: dikey -> yatay
-                return (
-                  <g key={idx}>
-                    <path d={`M0 ${y} V${y + 20} H${lineWidth}`} />
-                    <circle cx={lineWidth} cy={y + 20} r={4} fill="#0ea5e9" />
-                  </g>
-                );
-              } else {
-                // Sol taraf için step çizgisi: yatay -> dikey
-                return (
-                  <g key={idx}>
-                    <path d={`M${lineWidth} ${y} H0 V${y + 20}`} />
-                    <circle cx={0} cy={y + 20} r={4} fill="#0ea5e9" />
-                  </g>
-                );
-              }
-            })}
-          </svg>
+          {/* Dikey çizgi (bağlantı) */}
+          <div
+            className={`absolute top-0 ${isRight ? "-left-3" : "-right-3"} h-full border-l-2 border-sky-300`}
+          />
 
-          <div className="flex flex-col gap-8 relative">
+          {/* Alt düğümler */}
+          <div className="flex flex-col gap-6">
             {node.children!.map((child) => (
               <div key={child.id} className={`${isRight ? "ml-6" : "mr-6"}`}>
                 <MindMapNode node={child} />
