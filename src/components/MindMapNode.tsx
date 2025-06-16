@@ -15,9 +15,9 @@ type Node = {
 };
 
 const badgeColor = {
-  "must-know": "bg-red-600",
-  "good-to-know": "bg-yellow-500",
-  "optional": "bg-gray-400",
+  "must-know": "bg-red-500",
+  "good-to-know": "bg-yellow-400",
+  optional: "bg-gray-400",
 };
 
 export default function MindMapNode({ node }: { node: Node }) {
@@ -26,8 +26,11 @@ export default function MindMapNode({ node }: { node: Node }) {
   const isLeft = node.direction === "left";
   const hasChildren = node.children && node.children.length > 0;
 
-  // Sadece sağ veya sol düğümleri işliyoruz (diğerlerini görmezden gel)
   if (!isRight && !isLeft) return null;
+
+  // SVG bağlantı çizgisi için sabit ölçüler
+  const lineHeight = 60;
+  const lineWidth = 24;
 
   return (
     <div
@@ -35,20 +38,23 @@ export default function MindMapNode({ node }: { node: Node }) {
         isRight ? "items-start" : "items-end"
       } w-full text-sm text-gray-900 dark:text-white`}
     >
-      {/* Ana Düğüm */}
+      {/* Ana düğüm */}
       <motion.div
         initial={{ opacity: 0, x: isRight ? -10 : 10 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.3 }}
-        className={`group flex items-center gap-3 ${
+        className={`group flex items-center gap-2 ${
           isRight ? "" : "flex-row-reverse"
         }`}
       >
-        <div className="flex items-center gap-2 px-4 py-2 rounded-full border shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-[1.02] bg-white dark:bg-gray-800">
+        <div
+          className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-300 dark:border-gray-600 bg-white/80 dark:bg-gray-900/60 shadow-sm hover:shadow-md backdrop-blur transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+          onClick={() => setOpen(true)}
+        >
           <span
-            className={`w-2.5 h-2.5 rounded-full ${badgeColor[node.type || "optional"]}`}
+            className={`w-2 h-2 rounded-full ${badgeColor[node.type || "optional"]}`}
           />
-          <button onClick={() => setOpen(true)}>{node.title}</button>
+          <span className="font-medium">{node.title}</span>
         </div>
       </motion.div>
 
@@ -56,7 +62,7 @@ export default function MindMapNode({ node }: { node: Node }) {
       <Modal isOpen={open} onClose={() => setOpen(false)} title={node.title}>
         <div className="space-y-4 text-base">
           <p><strong>ID:</strong> {node.id}</p>
-          <p><strong>Tür:</strong> {node.type || "Bilinmiyor"}</p>
+          <p><strong>Type:</strong> {node.type || "Unknown"}</p>
           <div
             className="prose max-w-none text-gray-800 dark:text-gray-200"
             dangerouslySetInnerHTML={{ __html: node.description || "" }}
@@ -69,42 +75,56 @@ export default function MindMapNode({ node }: { node: Node }) {
                 rel="noopener noreferrer"
                 className="text-sky-600 hover:text-sky-800 underline underline-offset-4 transition"
               >
-                Detaylı bilgi
+                Learn more
               </a>
             </p>
           )}
         </div>
       </Modal>
 
-      {/* Children */}
+      {/* Çocuklar ve bağlantı çizgileri */}
       {hasChildren && (
         <div
           className={`mt-6 ${
-            isRight ? "ml-6 pl-6 border-l-2" : "mr-6 pr-6 border-r-2"
-          } border-sky-400 relative`}
+            isRight ? "ml-6 pl-6 border-l border-sky-300/60" : "mr-6 pr-6 border-r border-sky-300/60"
+          } relative`}
+          style={{ paddingTop: 12 }}
         >
+          {/** SVG Çizgiler */}
           <svg
-            className={`absolute top-0 ${
-              isRight ? "left-0" : "right-0"
-            } w-6 h-full stroke-sky-400`}
+            className="absolute top-0 left-0 w-10 h-full pointer-events-none"
             fill="none"
+            stroke="#38bdf8" // tailwind sky-400
+            strokeWidth={2}
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={{ right: isLeft ? 0 : undefined, left: isRight ? 0 : undefined }}
           >
-            {node.children!.map((_, idx) => (
-              <path
-                key={idx}
-                d={
-                  isRight
-                    ? `M0 ${idx * 60 + 20} C12 ${idx * 60 + 20}, 12 ${idx * 60 + 40}, 24 ${idx * 60 + 40}`
-                    : `M24 ${idx * 60 + 20} C12 ${idx * 60 + 20}, 12 ${idx * 60 + 40}, 0 ${idx * 60 + 40}`
-                }
-                strokeWidth="2"
-              />
-            ))}
+            {node.children!.map((_, idx) => {
+              const y = idx * lineHeight + 20;
+              if (isRight) {
+                // Sağ taraf için step çizgisi: dikey -> yatay
+                return (
+                  <g key={idx}>
+                    <path d={`M0 ${y} V${y + 20} H${lineWidth}`} />
+                    <circle cx={lineWidth} cy={y + 20} r={4} fill="#0ea5e9" />
+                  </g>
+                );
+              } else {
+                // Sol taraf için step çizgisi: yatay -> dikey
+                return (
+                  <g key={idx}>
+                    <path d={`M${lineWidth} ${y} H0 V${y + 20}`} />
+                    <circle cx={0} cy={y + 20} r={4} fill="#0ea5e9" />
+                  </g>
+                );
+              }
+            })}
           </svg>
 
-          <div className="flex flex-col gap-8">
+          <div className="flex flex-col gap-8 relative">
             {node.children!.map((child) => (
-              <div key={child.id} className={isRight ? "ml-6" : "mr-6"}>
+              <div key={child.id} className={`${isRight ? "ml-6" : "mr-6"}`}>
                 <MindMapNode node={child} />
               </div>
             ))}
