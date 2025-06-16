@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 type Node = {
   id: string;
   title: string;
-  type?: string;
+  type?: "must-know" | "good-to-know" | "optional";
   link?: string;
   description?: string;
   direction?: "left" | "right";
