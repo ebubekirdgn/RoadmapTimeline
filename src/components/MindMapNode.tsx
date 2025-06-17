@@ -42,21 +42,21 @@ export default function MindMapNode({ node, isMobile = false }: { node: Node; is
     >
       {/* Ana düğüm */}
       <motion.div
-        initial={{ opacity: 0, x: isMobile ? 0 : isRight ? -10 : 10 }}
+        initial={{ opacity: 0, x: isMobile ? 0 : isRight ? -5 : 5 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.15 }}
         className={`group flex items-center gap-2 ${
           isMobile ? "" : isRight ? "" : "flex-row-reverse"
         }`}
       >
         <div
-          className={`flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-full border border-slate-300 dark:border-gray-600 bg-white/80 dark:bg-gray-900/60 shadow-sm hover:shadow-md backdrop-blur transition-all duration-300 hover:scale-[1.02] cursor-pointer ${
+          className={`flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-full border border-slate-300 dark:border-gray-600 bg-white/80 dark:bg-gray-900/60 shadow-sm hover:shadow-md backdrop-blur transition-all duration-200 hover:scale-[1.02] cursor-pointer ${
             badgeHoverColor[node.type || "optional"]
           }`}
           onClick={() => setOpen(true)}
         >
           <span
-            className={`w-2 h-2 rounded-full ${badgeColor[node.type || "optional"]} transition-colors duration-300`}
+            className={`w-2 h-2 rounded-full ${badgeColor[node.type || "optional"]} transition-colors duration-200`}
           />
           <span className="font-medium">{node.title}</span>
         </div>

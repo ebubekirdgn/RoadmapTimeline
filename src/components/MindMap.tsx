@@ -26,16 +26,11 @@ export default function MindMap({ data }: { data: Branch[] }) {
     <div className="relative flex flex-col items-center py-8 md:py-16 bg-gradient-to-b from-sky-50/50 to-white dark:from-gray-900 dark:to-gray-800 min-h-screen overflow-x-hidden">
       {/* Omurga - Mobilde gizle */}
       {!isMobile && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="absolute left-1/2 top-0 h-full w-1 bg-gradient-to-b from-sky-400 via-sky-600 to-sky-400 -translate-x-1/2 z-0 shadow-lg"
-        />
+        <div className="absolute left-1/2 top-0 h-full w-1 bg-gradient-to-b from-sky-400 via-sky-600 to-sky-400 -translate-x-1/2 z-0 shadow-lg" />
       )}
       
       <div className="flex flex-col gap-10 md:gap-20 w-full z-10 px-2 md:px-4">
-        <AnimatePresence>
+        <AnimatePresence initial={false}>
           {data.map((branch, index) => {
             const isLeft = branch.direction === "left";
             const branchWithDirection = assignDirection(branch, branch.direction);
@@ -43,10 +38,10 @@ export default function MindMap({ data }: { data: Branch[] }) {
             return (
               <motion.div
                 key={branch.id}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ delay: index * 0.05, duration: 0.2 }}
                 className="relative flex flex-col md:flex-row w-full items-start"
               >
                 {isMobile ? (
@@ -54,12 +49,7 @@ export default function MindMap({ data }: { data: Branch[] }) {
                   <div className="w-full">
                     {/* Omurga noktası - Mobil */}
                     <div className="w-full flex justify-center my-4">
-                      <motion.div
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        transition={{ delay: index * 0.15, type: "spring" }}
-                        className="w-6 h-6 bg-gradient-to-br from-sky-500 to-sky-700 rounded-full border-4 border-white dark:border-gray-800 shadow-xl z-10"
-                      />
+                      <div className="w-6 h-6 bg-gradient-to-br from-sky-500 to-sky-700 rounded-full border-4 border-white dark:border-gray-800 shadow-xl z-10" />
                     </div>
                     
                     <BranchColumn 
@@ -80,12 +70,7 @@ export default function MindMap({ data }: { data: Branch[] }) {
 
                     {/* Omurga noktası */}
                     <div className="w-0 flex flex-col items-center mt-10">
-                      <motion.div
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        transition={{ delay: index * 0.15, type: "spring" }}
-                        className="w-7 h-7 bg-gradient-to-br from-sky-500 to-sky-700 rounded-full border-4 border-white dark:border-gray-800 shadow-xl z-10"
-                      />
+                      <div className="w-7 h-7 bg-gradient-to-br from-sky-500 to-sky-700 rounded-full border-4 border-white dark:border-gray-800 shadow-xl z-10" />
                       {/* Omurgadan dala bağlantı çizgisi */}
                       <svg
                         className={`absolute top-5 ${
@@ -131,9 +116,9 @@ function BranchColumn({ align, branch, isMobile = false }: BranchColumnProps) {
     <div className={`${isMobile ? "mx-2" : isRight ? "mr-6 md:mr-12" : "ml-6 md:ml-12"} ${isMobile ? "items-center" : isRight ? "items-end" : "items-start"} flex flex-col`}>
       {/* Başlık */}
       <motion.div
-        initial={{ opacity: 0, x: isMobile ? 0 : isRight ? 60 : -60 }}
+        initial={{ opacity: 0, x: isMobile ? 0 : isRight ? 20 : -20 }}
         animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5, type: "spring" }}
+        transition={{ duration: 0.2 }}
         className="mb-4 md:mb-8 px-4 py-3 md:px-6 md:py-4 rounded-xl bg-white dark:bg-gray-700 text-gray-800 dark:text-white font-bold shadow-lg text-lg md:text-xl tracking-wide flex items-center gap-3 border-0 cursor-pointer hover:shadow-xl transition-shadow duration-300 border border-gray-100 dark:border-gray-600 hover:border-sky-200 dark:hover:border-sky-500 group"
       >
         <span className="inline-flex items-center justify-center w-8 h-8 md:w-9 md:h-9 rounded-full bg-sky-500 text-white shadow group-hover:bg-sky-600 transition-colors duration-300">

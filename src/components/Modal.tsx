@@ -43,14 +43,15 @@ export default function Modal({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
+        transition={{ duration: 0.15 }}
         className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[9999] flex items-center justify-center p-4"
         onClick={onClose}
       >
         <motion.div 
-          initial={{ y: 20, opacity: 0 }}
+          initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -20, opacity: 0 }}
-          transition={{ type: "spring", damping: 25 }}
+          exit={{ y: -10, opacity: 0 }}
+          transition={{ type: "tween", duration: 0.2 }}
           className="bg-white dark:bg-gray-800 rounded-2xl p-6 w-full max-w-2xl mx-auto relative max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-100 dark:border-gray-700"
           onClick={(e) => e.stopPropagation()}
         >
