@@ -16,11 +16,17 @@ type Node = {
 
 const badgeColor = {
   "must-know": "bg-red-500",
-  "good-to-know": "bg-yellow-400",
-  optional: "bg-gray-400",
+  "good-to-know": "bg-yellow-500",
+  optional: "bg-gray-500",
 };
 
-export default function MindMapNode({ node }: { node: Node }) {
+const badgeHoverColor = {
+  "must-know": "hover:bg-red-600",
+  "good-to-know": "hover:bg-yellow-600",
+  optional: "hover:bg-gray-600",
+};
+
+export default function MindMapNode({ node, isMobile = false }: { node: Node; isMobile?: boolean }) {
   const [open, setOpen] = useState(false);
   const isRight = node.direction === "right";
   const isLeft = node.direction === "left";
@@ -31,24 +37,26 @@ export default function MindMapNode({ node }: { node: Node }) {
   return (
     <div
       className={`relative flex flex-col ${
-        isRight ? "items-start" : "items-end"
+        isMobile ? "items-center" : isRight ? "items-start" : "items-end"
       } w-full text-sm text-gray-900 dark:text-white`}
     >
       {/* Ana düğüm */}
       <motion.div
-        initial={{ opacity: 0, x: isRight ? -10 : 10 }}
+        initial={{ opacity: 0, x: isMobile ? 0 : isRight ? -10 : 10 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.3 }}
         className={`group flex items-center gap-2 ${
-          isRight ? "" : "flex-row-reverse"
+          isMobile ? "" : isRight ? "" : "flex-row-reverse"
         }`}
       >
         <div
-          className="flex items-center gap-2 px-4 py-1.5 rounded-full border border-slate-300 dark:border-gray-600 bg-white/80 dark:bg-gray-900/60 shadow-sm hover:shadow-md backdrop-blur transition-all duration-300 hover:scale-[1.02] cursor-pointer"
+          className={`flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-full border border-slate-300 dark:border-gray-600 bg-white/80 dark:bg-gray-900/60 shadow-sm hover:shadow-md backdrop-blur transition-all duration-300 hover:scale-[1.02] cursor-pointer ${
+            badgeHoverColor[node.type || "optional"]
+          }`}
           onClick={() => setOpen(true)}
         >
           <span
-            className={`w-2 h-2 rounded-full ${badgeColor[node.type || "optional"]}`}
+            className={`w-2 h-2 rounded-full ${badgeColor[node.type || "optional"]} transition-colors duration-300`}
           />
           <span className="font-medium">{node.title}</span>
         </div>
@@ -57,8 +65,16 @@ export default function MindMapNode({ node }: { node: Node }) {
       {/* Modal */}
       <Modal isOpen={open} onClose={() => setOpen(false)} title={node.title}>
         <div className="space-y-4 text-base">
-          <p><strong>ID:</strong> {node.id}</p>
-          <p><strong>Type:</strong> {node.type || "Unknown"}</p>
+          {node.type && (
+            <p>
+              <strong>Type:</strong> 
+              <span className={`ml-2 px-2 py-1 rounded-md text-xs font-semibold uppercase ${
+                badgeColor[node.type]
+              } text-white`}>
+                {node.type}
+              </span>
+            </p>
+          )}
           <div
             className="prose max-w-none text-gray-800 dark:text-gray-200"
             dangerouslySetInnerHTML={{ __html: node.description || "" }}
@@ -69,7 +85,7 @@ export default function MindMapNode({ node }: { node: Node }) {
                 href={node.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sky-600 hover:text-sky-800 underline underline-offset-4 transition"
+                className="text-sky-600 hover:text-sky-800 dark:hover:text-sky-400 underline underline-offset-4 transition"
               >
                 Learn more
               </a>
@@ -81,18 +97,20 @@ export default function MindMapNode({ node }: { node: Node }) {
       {/* Çocuk düğümler */}
       {hasChildren && (
         <div
-          className={`mt-6 ${isRight ? "ml-6" : "mr-6"} relative`}
+          className={`mt-4 md:mt-6 ${isMobile ? "" : isRight ? "ml-4 md:ml-6" : "mr-4 md:mr-6"} relative`}
         >
-          {/* Dikey çizgi (bağlantı) */}
-          <div
-            className={`absolute top-0 ${isRight ? "-left-3" : "-right-3"} h-full border-l-2 border-sky-300`}
-          />
+          {/* Dikey çizgi (bağlantı) - Mobilde gizle */}
+          {!isMobile && (
+            <div
+              className={`absolute top-0 ${isRight ? "-left-3" : "-right-3"} h-full border-l-2 border-sky-300`}
+            />
+          )}
 
           {/* Alt düğümler */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4 md:gap-6">
             {node.children!.map((child) => (
-              <div key={child.id} className={`${isRight ? "ml-6" : "mr-6"}`}>
-                <MindMapNode node={child} />
+              <div key={child.id} className={`${isMobile ? "" : isRight ? "ml-4 md:ml-6" : "mr-4 md:mr-6"}`}>
+                <MindMapNode node={child} isMobile={isMobile} />
               </div>
             ))}
           </div>
