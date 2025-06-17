@@ -11164,28 +11164,340 @@ builder.Host.UseSerilog();
           title: "Template Engines",
           type: "good-to-know",
           children: [
-            { id: "razor", title: "Razor", type: "must-know" },
+            { id: "razor", title: "Razor", type: "must-know"         },
             { id: "scriban", title: "Scriban", type: "optional" },
-            { id: "fluid", title: "Fluid", type: "optional" },
+            { id: "fluid", title: "Fluid", type: "optional",
+              description: "<div style='font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #4ade80; box-shadow:0 6px 20px rgba(74,222,128,0.2)'>\n  <h2 style='color:#22c55e;'>💧 Fluid Framework</h2>\n  <p>\n    <strong>Fluid Framework</strong> is an open-source library developed by Microsoft that enables <em>real-time collaborative experiences</em> in web applications. It allows multiple users to simultaneously interact with shared data structures — like documents, forms, or diagrams — with seamless sync across clients.\n  </p>\n\n  <h3 style='color:#15803d;'>🚀 Key Capabilities</h3>\n  <ul>\n    <li>⚡ Real-time synchronization of shared data (e.g., text, lists, objects)</li>\n    <li>🧠 Conflict-free, distributed data structures (CRDTs) built-in</li>\n    <li>📦 Support for both client and server-side hosting models</li>\n    <li>🔄 Offline support with eventual consistency</li>\n    <li>🌐 Integration with Microsoft 365, Azure Fluid Relay, or custom servers</li>\n  </ul>\n\n  <h3 style='color:#15803d;'>🧪 Real-World Use Cases</h3>\n  <ul>\n    <li>✍️ Collaborative document editing (e.g., Word-like apps)</li>\n    <li>📊 Live dashboards with shared filters or state</li>\n    <li>📁 Shared whiteboards or design tools</li>\n    <li>🗳️ Multi-user form or survey inputs in real time</li>\n  </ul>\n\n  <h3 style='color:#15803d;'>🔧 Example (Shared Counter)</h3>\n  <pre style='background:#dcfce7; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;'>import { SharedMap } from \"fluid-framework\";\n\n// Create a shared object\nconst sharedMap = new SharedMap(dataStoreRuntime, id);\n\n// Set data\nsharedMap.set(\"counter\", 1);\n\n// Listen for changes\nsharedMap.on(\"valueChanged\", (changed) => {\n  const newValue = sharedMap.get(\"counter\");\n  console.log(\"Updated count:\", newValue);\n});</pre>\n\n  <h3 style='color:#15803d;'>✅ Best Practices</h3>\n  <ul>\n    <li>💡 Use Fluid for apps that need low-latency shared state</li>\n    <li>🧩 Build modular components using Fluid’s shared objects</li>\n    <li>🌍 Host Fluid services on Azure Relay or a custom server</li>\n    <li>🔐 Ensure access control and session handling in multi-user environments</li>\n    <li>🧪 Test sync scenarios with multiple clients to ensure consistency</li>\n  </ul>\n\n  <h3 style='color:#22c55e;'>📚 Learn More</h3>\n  <ul>\n    <li><a href='https://fluidframework.com' target='_blank' style='color:#4ade80;'>Official Fluid Framework Website</a></li>\n    <li><a href='https://github.com/microsoft/FluidFramework' target='_blank' style='color:#4ade80;'>GitHub Repository</a></li>\n  </ul>\n</div>"
+     },
           ]
         },
         {
           id: "frameworks-client",
           title: "Frameworks",
+          description: "<div style='font-family:sans-serif; line-height:1.6; background:#fef9c3; padding:2rem; border-radius:1rem; border:2px solid #facc15; box-shadow:0 6px 20px rgba(234,179,8,0.2)'>\n  <h2 style='color:#ca8a04;'>🖥️ Client-side Frameworks in .NET Ecosystem</h2>\n  <p>\n    In the .NET ecosystem, client-side frameworks enable developers to build rich, interactive, and performant user interfaces for web, desktop, and mobile platforms using C#, Razor, and .NET runtime capabilities. These frameworks allow developers to avoid JavaScript for most front-end needs, while still building modern UIs.\n  </p>\n\n  <h3 style='color:#92400e;'>Key Frameworks:</h3>\n  <ul>\n    <li><strong>Blazor WebAssembly:</strong> Run .NET code directly in the browser using WebAssembly. Great for SPA apps with offline support.</li>\n    <li><strong>Blazor Server:</strong> UI events are handled on the server via SignalR. Suitable for enterprise intranet apps with constant connectivity.</li>\n    <li><strong>.NET MAUI (Blazor Hybrid):</strong> Enables building native apps for iOS, Android, macOS, and Windows using Blazor UI components.</li>\n    <li><strong>Uno Platform:</strong> A cross-platform framework that brings UWP and WinUI apps to WebAssembly, Android, iOS, macOS, and Linux.</li>\n    <li><strong>Avalonia UI:</strong> XAML-based UI framework for cross-platform desktop apps in .NET. Supports Linux, Windows, macOS.</li>\n  </ul>\n\n  <h3 style='color:#92400e;'>Benefits</h3>\n  <ul>\n    <li>🧠 Full-stack development with C#</li>\n    <li>🔄 Code sharing between client and server</li>\n    <li>📦 Built-in support for DI, routing, state, and component model</li>\n    <li>🛠️ Access to modern dev tools and .NET ecosystem</li>\n  </ul>\n\n  <h3 style='color:#92400e;'>When to Use Client-side Frameworks</h3>\n  <ul>\n    <li>✅ Building SPA-style apps without relying heavily on JavaScript</li>\n    <li>✅ Need for a shared codebase between desktop, mobile, and web</li>\n    <li>✅ Targeting modern platforms and maximizing developer productivity in C#</li>\n  </ul>\n\n  <p>Client-side frameworks like Blazor and MAUI are central to the future of cross-platform .NET development. They empower teams to ship UIs faster and more reliably using a consistent tech stack.</p>\n</div>"
+,
           type: "must-know",
           children: [
             {
               id: "blazor",
               title: "Blazor",
+              description: `<div style=\"font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)\">\n  <h2 style=\"color:#2563eb;\">⚡ Blazor: Modern Web UI Framework with .NET</h2>\n  <p>\n    <strong>Blazor</strong> is a Microsoft framework for building interactive client-side web UIs using C# instead of JavaScript. It runs either on the server or directly in the browser via WebAssembly.\n  </p>\n\n  <h3 style=\"color:#1e40af;\">Hosting Models</h3>\n  <ul>\n    <li><strong>Blazor Server:</strong> UI logic executes on the server. The UI updates are sent over a SignalR connection, making the app lightweight but requiring a persistent connection.</li>\n    <li><strong>Blazor WebAssembly (WASM):</strong> The app runs fully in the browser via WebAssembly. This allows offline support and reduces server load but increases initial load size.</li>\n  </ul>\n\n  <h3 style=\"color:#2563eb;\">Why Choose Blazor?</h3>\n  <ul>\n    <li>✅ Write full-stack applications in C# with reusable components</li>\n    <li>✅ Share code and libraries between client and server</li>\n    <li>✅ Use Razor syntax for clean UI definitions</li>\n    <li>✅ Leverage .NET ecosystem and tooling, including dependency injection</li>\n    <li>✅ Supports progressive web apps (PWAs) and native integration via .NET MAUI</li>\n  </ul>\n\n  <h3 style=\"color:#1e40af;\">Simple Counter Component Example</h3>\n  <pre style=\"background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;\">\n@page \"/counter\"\n\n&lt;h3&gt;Counter Example&lt;/h3&gt;\n\n&lt;p&gt;Current count: @count&lt;/p&gt;\n\n&lt;button class=\\\"btn btn-primary\\\" @onclick=\\\"IncrementCount\\\"&gt;Click me&lt;/button&gt;\n\n@code {\n    private int count = 0;\n\n    private void IncrementCount()\n    {\n        count++;\n    }\n}\n  </pre>\n\n  <h3 style=\"color:#2563eb;\">Data Binding and Events</h3>\n  <p>Blazor supports two-way data binding and event handling seamlessly:</p>\n  <pre style=\"background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;\">\n@page \"/input-example\"\n\n&lt;h3&gt;Input Binding Example&lt;/h3&gt;\n\n&lt;input @bind=\\\"name\\\" placeholder=\\\"Enter your name\\\" /&gt;\n\n&lt;p&gt;Hello, @name!&lt;/p&gt;\n\n@code {\n    private string name = string.Empty;\n}\n  </pre>\n\n  <h3 style=\"color:#1e40af;\">Dependency Injection (DI) Example</h3>\n  <p>Inject services easily into components:</p>\n  <pre style=\"background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;\">\n@inject WeatherService WeatherService\n\n&lt;h3&gt;Weather Forecast&lt;/h3&gt;\n\n@if (forecasts == null)\n{\n    &lt;p&gt;Loading...&lt;/p&gt;\n}\nelse\n{\n    &lt;ul&gt;\n    @foreach (var forecast in forecasts)\n    {\n        &lt;li&gt;@forecast.Date.ToShortDateString(): @forecast.TemperatureC °C&lt;/li&gt;\n    }\n    &lt;/ul&gt;\n}\n\n@code {\n    private WeatherForecast[] forecasts;\n\n    protected override async Task OnInitializedAsync()\n    {\n        forecasts = await WeatherService.GetForecastAsync(DateTime.Now);\n    }\n}\n  </pre>\n\n  <h3 style=\"color:#2563eb;\">Real-World Use Cases</h3>\n  <ul>\n    <li>Enterprise dashboards with complex UI logic in C#</li>\n    <li>Internal apps where sharing code between client/server saves effort</li>\n    <li>Building PWAs for offline-first user experiences</li>\n    <li>Integrating with existing .NET backends seamlessly</li>\n  </ul>\n\n  <h3 style=\"color:#1e40af;\">Best Practices</h3>\n  <ul>\n    <li>📝 Organize components to maximize reuse and maintainability</li>\n    <li>⚡ Use asynchronous programming patterns to keep UI responsive</li>\n    <li>🔐 Secure data and API calls carefully, especially for Blazor WASM</li>\n    <li>📦 Lazy-load assemblies to improve initial app load times</li>\n    <li>🔄 Take advantage of state management patterns (e.g. Fluxor, Redux)</li>\n  </ul>\n\n  <h3 style=\"color:#2563eb;\">Learn More</h3>\n  <ul>\n    <li><a href=\"https://learn.microsoft.com/en-us/aspnet/core/blazor\" target=\"_blank\" style=\"color:#3b82f6;\">Official Microsoft Blazor Documentation</a></li>\n    <li><a href=\"https://blazor-university.com/\" target=\"_blank\" style=\"color:#3b82f6;\">Blazor University - Comprehensive Tutorials</a></li>\n  </ul>\n</div>`,
               type: "must-know",
               children: [
-                { id: "blazor-wasm", title: "Blazor WASM", type: "must-know" },
-                { id: "blazor-server-side", title: "Blazor Server-Side", type: "must-know" },
-                { id: "blazor-hybrid", title: "Blazor Hybrid", type: "must-know" },
+                { id: "blazor-wasm", title: "Blazor WASM", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
+  <h2 style="color:#0284c7;">🚀 Blazor WebAssembly (WASM): Full Client-Side .NET Apps in the Browser</h2>
+
+  <p>
+    <strong>Blazor WebAssembly</strong> is a client-side hosting model for Blazor apps where the entire app, including the .NET runtime, runs in the browser via WebAssembly.
+    This approach enables building rich interactive web applications fully in C# without needing server-side rendering or JavaScript frameworks.
+  </p>
+
+  <h3 style="color:#0369a1;">💡 Why Use Blazor WebAssembly?</h3>
+  <ul>
+    <li>🖥️ Runs entirely in the browser, eliminating server round trips for UI updates</li>
+    <li>📦 Deploy as static files, simplifying hosting and scaling</li>
+    <li>🔗 Full control over offline scenarios and client-side logic</li>
+    <li>🔄 Share code and components with Blazor Server or .NET MAUI apps</li>
+    <li>🚀 Great for progressive web apps (PWAs) with offline capabilities</li>
+  </ul>
+
+  <h3 style="color:#0369a1;">💻 Example: Basic Blazor WebAssembly Setup</h3>
+  <pre style="background:#bae6fd; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+// In Program.cs (Blazor WASM)
+var builder = WebAssemblyHostBuilder.CreateDefault(args);
+builder.RootComponents.Add<App>("#app");
+
+// Register services, for example HttpClient
+builder.Services.AddScoped(sp =&gt; new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+await builder.Build().RunAsync();
+
+// index.html
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;Blazor WASM App&lt;/title&gt;
+    &lt;base href="/" /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div id="app"&gt;&lt;/div&gt;
+    &lt;script src="_framework/blazor.webassembly.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+  </pre>
+
+  <h3 style="color:#0369a1;">💡 Real-World Use Cases</h3>
+  <ul>
+    <li>📱 Progressive Web Apps needing offline support and rich client UI</li>
+    <li>🌍 Public-facing websites wanting client-side interactivity with minimal server load</li>
+    <li>🔒 Apps where data privacy demands client-side processing</li>
+    <li>📦 Static sites hosted on CDN or serverless platforms</li>
+  </ul>
+
+  <h3 style="color:#0369a1;">✅ Best Practices</h3>
+  <ul>
+    <li>⚡ Optimize app size and startup time with lazy loading and trimming</li>
+    <li>🔐 Use secure API endpoints and authentication tokens for backend communication</li>
+    <li>📡 Handle network failures gracefully and provide offline fallback UI</li>
+    <li>🧩 Reuse components and share code with other .NET projects</li>
+    <li>🔄 Monitor performance and memory usage in client browsers</li>
+  </ul>
+
+  <h3 style="color:#0369a1;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/hosting-models#blazor-webassembly" target="_blank" style="color:#0284c7;">Blazor WebAssembly Hosting Model Docs</a></li>
+    <li><a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/tutorials/build-a-blazor-webassembly-app" target="_blank" style="color:#0284c7;">Official Blazor WASM Tutorial</a></li>
+    <li><a href="https://devblogs.microsoft.com/aspnet/blazor-webassembly-3-2-release/" target="_blank" style="color:#0284c7;">Microsoft Blog on Blazor WASM</a></li>
+  </ul>
+</div>
+` },
+                { id: "blazor-server-side", title: "Blazor Server-Side", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+  <h2 style="color:#1e40af;">⚡ Blazor Server-Side: Interactive Web UI with Real-Time Server Rendering</h2>
+
+  <p>
+    <strong>Blazor Server-Side</strong> is a hosting model for Blazor applications where the UI logic runs on the server while the client acts as a thin UI renderer.
+    User interactions are sent over a real-time <code>SignalR</code> connection, enabling rich interactivity with minimal client-side processing.
+  </p>
+
+  <h3 style="color:#2563eb;">💡 Why Choose Blazor Server-Side?</h3>
+  <ul>
+    <li>🚀 Fast initial load times since UI is rendered on the server</li>
+    <li>🌐 Full .NET runtime and server resources available for processing</li>
+    <li>🔄 Automatic UI updates via SignalR without full page reloads</li>
+    <li>🔒 Centralized security and data access on the server</li>
+    <li>⚙️ Easier to debug and deploy compared to WebAssembly apps</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">💻 Example: Basic Blazor Server Setup</h3>
+  <pre style="background:#bfdbfe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+// In Program.cs (minimal hosting model)
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddRazorPages();
+builder.Services.AddServerSideBlazor();
+
+var app = builder.Build();
+
+app.MapBlazorHub();
+app.MapFallbackToPage("/_Host");
+
+app.Run();
+
+// In _Host.cshtml (main host page)
+@page "/"
+@namespace YourApp.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    &lt;meta charset="utf-8" /&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
+    &lt;title&gt;Blazor Server App&lt;/title&gt;
+    &lt;link href="css/site.css" rel="stylesheet" /&gt;
+</head>
+<body>
+    &lt;app&gt;
+        &lt;component type="typeof(App)" render-mode="ServerPrerendered" /&gt;
+    &lt;/app&gt;
+
+    &lt;script src="_framework/blazor.server.js"&gt;&lt;/script&gt;
+</body>
+</html>
+  </pre>
+
+  <h3 style="color:#2563eb;">💡 Real-World Use Cases</h3>
+  <ul>
+    <li>📊 Enterprise internal apps with complex UI and heavy server-side logic</li>
+    <li>🔐 Apps requiring centralized control and sensitive data on server only</li>
+    <li>⚡ Real-time dashboards and monitoring systems with live updates</li>
+    <li>🛠️ Applications where SEO or fast initial load matters</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">✅ Best Practices</h3>
+  <ul>
+    <li>🔄 Use circuit management to handle user disconnects gracefully</li>
+    <li>📈 Scale SignalR connections properly for high concurrency</li>
+    <li>🔒 Secure SignalR endpoints and authenticate users rigorously</li>
+    <li>⚙️ Optimize component rendering to reduce unnecessary UI updates</li>
+    <li>🛠️ Use dependency injection to separate UI and data logic cleanly</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://learn.microsoft.com/en-us/aspnet/core/blazor/hosting-models#blazor-server" target="_blank" style="color:#1e40af;">Blazor Server Hosting Model Docs</a></li>
+    <li><a href="https://docs.microsoft.com/en-us/aspnet/core/blazor/tutorials/server-side" target="_blank" style="color:#1e40af;">Official Blazor Server Tutorial</a></li>
+    <li><a href="https://devblogs.microsoft.com/aspnet/blazor-server-apps-in-asp-net-core-3-0/" target="_blank" style="color:#1e40af;">Microsoft Blog on Blazor Server</a></li>
+  </ul>
+</div>
+` },
+                { id: "blazor-hybrid", title: "Blazor Hybrid", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#e8f0fe; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+  <h2 style="color:#1e40af;">🌐 Blazor Hybrid: Combining Web UI with Native Apps</h2>
+
+  <p>
+    <strong>Blazor Hybrid</strong> is an innovative approach that allows developers to build native desktop and mobile applications using <code>Blazor</code> components rendered with native UI controls.
+    It leverages the power of web technologies (Razor, C#, .NET) but hosts them inside native application containers like <code>.NET MAUI</code> or Windows desktop apps.
+  </p>
+
+  <h3 style="color:#2563eb;">💡 Why Blazor Hybrid?</h3>
+  <ul>
+    <li>⚡ Build rich, interactive UI with Blazor’s component model and C# instead of JavaScript</li>
+    <li>📱 Run your web UI directly inside native apps on Windows, macOS, Android, and iOS</li>
+    <li>🔄 Share code and UI components between web, mobile, and desktop projects</li>
+    <li>🔧 Access native device APIs and platform features seamlessly alongside web UI</li>
+    <li>🌍 Use existing Blazor skills to create cross-platform apps without rewriting UI in platform-specific languages</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">💻 Example: Basic Blazor Hybrid App Structure</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+// In .NET MAUI App.xaml.cs
+public partial class App : Application
+{
+    public App()
+    {
+        InitializeComponent();
+
+        MainPage = new MainPage();
+    }
+}
+
+// In MainPage.xaml.cs
+public partial class MainPage : ContentPage
+{
+    public MainPage()
+    {
+        InitializeComponent();
+
+        var blazorWebView = new BlazorWebView
+        {
+            HostPage = "wwwroot/index.html",
+            RootComponents =
+            {
+                new RootComponent { Selector = "#app", ComponentType = typeof(Main) }
+            }
+        };
+
+        Content = blazorWebView;
+    }
+}
+  </pre>
+
+  <h3 style="color:#2563eb;">💡 Real-World Use Cases</h3>
+  <ul>
+    <li>📊 Enterprise apps needing rich data visualization with reusable Blazor components</li>
+    <li>📱 Mobile apps that share UI and business logic with a Blazor web app</li>
+    <li>🔧 Internal tools requiring quick UI iteration while leveraging native OS features</li>
+    <li>🛠️ Cross-platform utilities combining native performance with web flexibility</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">✅ Best Practices</h3>
+  <ul>
+    <li>🔄 Maximize component reuse between Blazor Web and Blazor Hybrid apps</li>
+    <li>📱 Properly handle lifecycle events in native containers for resource management</li>
+    <li>🛠️ Use Dependency Injection to abstract platform-specific services</li>
+    <li>⚡ Take advantage of Hot Reload for faster development cycles</li>
+    <li>🔍 Profile performance both on the web and native side, especially for UI rendering</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://learn.microsoft.com/en-us/dotnet/maui/blazor/" target="_blank" style="color:#1e40af;">Microsoft .NET MAUI Blazor Hybrid Docs</a></li>
+    <li><a href="https://github.com/dotnet/maui-samples/tree/main/BlazorHybrid" target="_blank" style="color:#1e40af;">Official Blazor Hybrid Sample Repository</a></li>
+    <li><a href="https://devblogs.microsoft.com/dotnet/category/blazor/" target="_blank" style="color:#1e40af;">Blazor Blog Posts by Microsoft</a></li>
+  </ul>
+</div>
+` },
               ]
             },
 
-            { id: "net-maui", title: ".NET MAUI", type: "good-to-know" },
+            { id: "net-maui", title: ".NET MAUI", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f7fa; padding:2rem; border-radius:1rem; border:2px solid #00796b; box-shadow:0 6px 20px rgba(0,121,107,0.2)">
+  <h2 style="color:#004d40;">📱 .NET MAUI (Multi-platform App UI): Cross-Platform App Development Simplified</h2>
+  
+  <p>
+    <strong>.NET MAUI</strong> is a modern, open-source framework developed by Microsoft for building native, cross-platform applications using a single shared codebase in C# and XAML.
+    It targets Android, iOS, macOS, and Windows, allowing developers to create rich, performant apps with native UI controls and platform-specific features, without duplicating effort.
+  </p>
+
+  <h3 style="color:#00796b;">💡 Why Choose .NET MAUI?</h3>
+  <ul>
+    <li>🧩 Single project structure supports multiple platforms, simplifying development and deployment</li>
+    <li>🎨 Access to native UI controls and platform APIs, ensuring great user experience on every device</li>
+    <li>⚡ Performance close to native apps thanks to ahead-of-time (AOT) compilation on iOS and Android</li>
+    <li>🔄 Hot Reload for XAML and C# code, speeding up development by enabling real-time UI and logic updates</li>
+    <li>🛠️ Full integration with .NET ecosystem and tooling (Visual Studio, NuGet packages, etc.)</li>
+    <li>🌍 Support for MVU (Model-View-Update), MVVM, and other modern architectural patterns</li>
+  </ul>
+
+  <h3 style="color:#00796b;">💻 Example: Simple Cross-Platform Counter App</h3>
+  <pre style="background:#b2dfdb; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using Microsoft.Maui.Controls;
+
+public class CounterPage : ContentPage
+{
+    int count = 0;
+    Label countLabel;
+
+    public CounterPage()
+    {
+        countLabel = new Label
+        {
+            Text = "You clicked 0 times",
+            FontSize = 24,
+            HorizontalOptions = LayoutOptions.Center
+        };
+
+        var button = new Button
+        {
+            Text = "Click me",
+            HorizontalOptions = LayoutOptions.Center
+        };
+        button.Clicked += OnButtonClicked;
+
+        Content = new StackLayout
+        {
+            VerticalOptions = LayoutOptions.Center,
+            Children = { countLabel, button }
+        };
+    }
+
+    void OnButtonClicked(object sender, EventArgs e)
+    {
+        count++;
+        countLabel.Text = $"You clicked {count} times";
+    }
+}
+  </pre>
+
+  <h3 style="color:#00796b;">💡 Real-World Use Cases</h3>
+  <ul>
+    <li>📱 Enterprise apps requiring deployment to Android, iOS, Windows, and macOS without separate teams</li>
+    <li>🛒 E-commerce apps with consistent UI/UX across devices</li>
+    <li>🧭 Apps needing deep platform integration (GPS, camera, sensors) with unified business logic</li>
+    <li>🎮 Lightweight games or interactive apps leveraging native graphics performance</li>
+  </ul>
+
+  <h3 style="color:#00796b;">✅ Best Practices</h3>
+  <ul>
+    <li>🔧 Use MVVM architecture with data binding for maintainable, testable code</li>
+    <li>📱 Test UI and platform-specific behaviors on all target devices regularly</li>
+    <li>📦 Optimize app size by trimming unused assemblies and resources</li>
+    <li>⚡ Use Hot Reload and Live Visual Tree to accelerate UI development</li>
+    <li>🛠️ Leverage platform-specific APIs via dependency injection or partial classes to handle special cases</li>
+    <li>🔍 Profile performance on each platform to detect and fix bottlenecks early</li>
+  </ul>
+
+  <h3 style="color:#00796b;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://learn.microsoft.com/en-us/dotnet/maui/" target="_blank" style="color:#004d40;">Official .NET MAUI Documentation</a></li>
+    <li><a href="https://github.com/dotnet/maui" target="_blank" style="color:#004d40;">.NET MAUI GitHub Repository</a></li>
+    <li><a href="https://devblogs.microsoft.com/dotnet/tag/maui/" target="_blank" style="color:#004d40;">Microsoft .NET MAUI Blog Posts</a></li>
+  </ul>
+</div>
+` },
           ]
         },
       ]
@@ -11195,14 +11507,566 @@ builder.Host.UseSerilog();
       title: "Good to Know Libraries",
       direction: "left",
       children: [
-        { id: "scalar", title: "Scalar", type: "must-know" },
-        { id: "mediatr", title: "MediatR", type: "must-know" },
-        { id: "fluentvalidation", title: "FluentValidation", type: "must-know" },
-        { id: "polly", title: "Polly", type: "good-to-know" },
-        { id: "benchmark-net", title: "Benchmark.NET", type: "good-to-know" },
-        { id: "distributedlock", title: "DistributedLock", type: "good-to-know" },
-        { id: "nuke-build", title: "Nuke.Build", type: "optional" },
-        { id: "marten", title: "Marten", type: "optional" },
+        { id: "scalar", title: "Scalar", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#eef6ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+  <h2 style="color:#2563eb;">🤖 OpenAI Integration with <code>openai-net</code></h2>
+  <p>
+    <strong>openai-net</strong> is a powerful .NET client library for integrating OpenAI services like GPT models into your .NET applications easily.
+  </p>
+
+  <h3 style="color:#1e40af;">💡 Why Use openai-net?</h3>
+  <ul>
+    <li>🔗 Simple and fluent API design tailored for .NET developers</li>
+    <li>⚡ Supports GPT-4, GPT-3.5 Turbo, embeddings, and more</li>
+    <li>🔒 Built-in support for API key management and security</li>
+    <li>🚀 Asynchronous programming with Task-based methods</li>
+    <li>🔧 Flexible customization of requests and response handling</li>
+  </ul>
+
+  <h3 style="color:#1e40af;">💻 Example: Basic Chat Completion</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using OpenAI.Net;
+using OpenAI.Net.Models;
+
+var client = new OpenAIClient("your_api_key_here");
+var response = await client.Chat.Completions.CreateAsync(new ChatCompletionCreateRequest
+{
+    Model = "gpt-4",
+    Messages = new[]
+    {
+        new ChatMessage { Role = "user", Content = "Hello, how can I use openai-net?" }
+    }
+});
+
+Console.WriteLine(response.Choices[0].Message.Content);
+  </pre>
+
+  <h3 style="color:#1e40af;">✅ Best Practices</h3>
+  <ul>
+    <li>🔐 Store your OpenAI API key securely using environment variables or secure vaults</li>
+    <li>⚡ Use async methods to keep your app responsive</li>
+    <li>🔍 Handle API errors and rate limits gracefully</li>
+    <li>🧪 Test prompts thoroughly to optimize cost and relevance</li>
+    <li>📚 Consult official documentation and stay updated on new features</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://github.com/OkGoDoIt/OpenAI-API-dotnet" target="_blank" style="color:#3b82f6;">openai-net GitHub Repository</a></li>
+    <li><a href="https://platform.openai.com/docs" target="_blank" style="color:#3b82f6;">OpenAI API Documentation</a></li>
+  </ul>
+</div>
+` },
+        { id: "mediatr", title: "MediatR", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:2rem; border-radius:1rem; border:2px solid #0284c7; box-shadow:0 6px 20px rgba(2,132,199,0.2)">
+  <h2 style="color:#0369a1;">📦 MediatR - Simplifying In-Process Messaging in .NET</h2>
+  <p>
+    <strong>MediatR</strong> is a popular, lightweight library for .NET that implements the Mediator design pattern. It helps decouple application components by enabling in-process messaging — sending requests and publishing notifications — without explicit dependencies between sender and receiver.
+  </p>
+
+  <h3 style="color:#0284c7;">💡 Why Use MediatR?</h3>
+  <ul>
+    <li>🔗 Decouples components to improve maintainability and testability</li>
+    <li>🎯 Supports Command, Query, and Notification patterns cleanly</li>
+    <li>⚡ Simple, intuitive API for sending messages and handling responses</li>
+    <li>📚 Facilitates implementing CQRS (Command Query Responsibility Segregation) architectures</li>
+    <li>🛠️ Works seamlessly with dependency injection containers</li>
+  </ul>
+
+  <h3 style="color:#0284c7;">🚀 Core Concepts</h3>
+  <ul>
+    <li><strong>Requests:</strong> Commands or Queries that expect a response (via <code>IRequest&lt;TResponse&gt;</code> or <code>IRequest</code>).</li>
+    <li><strong>Handlers:</strong> Classes implementing <code>IRequestHandler&lt;TRequest, TResponse&gt;</code> to process requests.</li>
+    <li><strong>Notifications:</strong> Events published to multiple handlers (via <code>INotification</code> and <code>INotificationHandler&lt;TNotification&gt;</code>).</li>
+    <li><strong>Pipeline Behaviors:</strong> Middleware-like components that intercept requests for cross-cutting concerns (logging, validation, etc.).</li>
+  </ul>
+
+  <h3 style="color:#0284c7;">💻 Example: Simple Command & Handler</h3>
+  <pre style="background:#bfdbfe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+// Command
+public record CreateOrderCommand(string ProductId, int Quantity) : IRequest&lt;bool&gt;;
+
+// Handler
+public class CreateOrderHandler : IRequestHandler&lt;CreateOrderCommand, bool&gt;
+{
+    public async Task&lt;bool&gt; Handle(CreateOrderCommand request, CancellationToken cancellationToken)
+    {
+        // Business logic to create an order
+        Console.WriteLine($"Creating order for product {request.ProductId} with quantity {request.Quantity}");
+        await Task.Delay(500); // simulate async work
+        return true;
+    }
+}
+  </pre>
+
+  <h3 style="color:#0284c7;">💡 Sending Requests and Handling Responses</h3>
+  <pre style="background:#bfdbfe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+var mediator = serviceProvider.GetRequiredService&lt;IMediator&gt;();
+
+bool result = await mediator.Send(new CreateOrderCommand("ABC123", 10));
+Console.WriteLine($"Order created: {result}");
+  </pre>
+
+  <h3 style="color:#0284c7;">🔔 Notifications Example</h3>
+  <pre style="background:#bfdbfe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+// Notification
+public record OrderCreatedNotification(string OrderId) : INotification;
+
+// Handler
+public class SendConfirmationEmailHandler : INotificationHandler&lt;OrderCreatedNotification&gt;
+{
+    public Task Handle(OrderCreatedNotification notification, CancellationToken cancellationToken)
+    {
+        Console.WriteLine($"Sending confirmation email for order {notification.OrderId}");
+        return Task.CompletedTask;
+    }
+}
+  </pre>
+
+  <h3 style="color:#0284c7;">✅ Best Practices</h3>
+  <ul>
+    <li>📏 Keep handlers focused on single responsibilities</li>
+    <li>🔧 Use Pipeline Behaviors for cross-cutting concerns like logging, validation, and retry policies</li>
+    <li>🧪 Write unit tests for handlers separately, mocking <code>IMediator</code> in your business logic</li>
+    <li>⚙️ Register MediatR services and handlers with your DI container in startup</li>
+    <li>📚 Use meaningful request and notification names to clearly indicate intent</li>
+  </ul>
+
+  <h3 style="color:#0284c7;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://github.com/jbogard/MediatR" target="_blank" style="color:#2563eb;">MediatR GitHub Repository</a></li>
+    <li><a href="https://jimmybogard.com/mediatr-what-and-why/" target="_blank" style="color:#2563eb;">Introductory Article by Jimmy Bogard</a></li>
+    <li><a href="https://docs.microsoft.com/en-us/aspnet/core/fundamentals/mediator" target="_blank" style="color:#2563eb;">Microsoft Docs on Mediator Pattern</a></li>
+  </ul>
+</div>
+` },
+        { id: "fluentvalidation", title: "FluentValidation", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+  <h2 style="color:#1e40af;">🔍 FluentValidation - Elegant Validation Library for .NET</h2>
+  <p>
+    <strong>FluentValidation</strong> is a popular .NET library designed to help you define strongly-typed validation rules for your objects using a fluent interface. It promotes separation of concerns by moving validation logic outside your models or controllers, making code cleaner and more maintainable.
+  </p>
+
+  <h3 style="color:#2563eb;">💡 Why Use FluentValidation?</h3>
+  <ul>
+    <li>🧩 Clean, readable validation rules with a fluent API</li>
+    <li>🔄 Supports complex conditional validation and custom rules</li>
+    <li>🎯 Integrates smoothly with ASP.NET Core, MVC, and Blazor</li>
+    <li>🚀 Supports async validation</li>
+    <li>🛠️ Extensible with custom validators and localization support</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">💻 Example: Validating a User Registration Model</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+public class UserRegistration
+{
+    public string Username { get; set; }
+    public string Email { get; set; }
+    public string Password { get; set; }
+}
+
+public class UserRegistrationValidator : AbstractValidator&lt;UserRegistration&gt;
+{
+    public UserRegistrationValidator()
+    {
+        RuleFor(x =&gt; x.Username)
+            .NotEmpty().WithMessage("Username is required.")
+            .MinimumLength(3).WithMessage("Username must be at least 3 characters long.");
+
+        RuleFor(x =&gt; x.Email)
+            .NotEmpty().WithMessage("Email is required.")
+            .EmailAddress().WithMessage("Invalid email format.");
+
+        RuleFor(x =&gt; x.Password)
+            .NotEmpty().WithMessage("Password is required.")
+            .MinimumLength(6).WithMessage("Password must be at least 6 characters.");
+    }
+}
+  </pre>
+
+  <h3 style="color:#2563eb;">💡 How to Use in ASP.NET Core</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+// In Program.cs or Startup.cs
+builder.Services.AddControllers()
+    .AddFluentValidation(fv =&gt; fv.RegisterValidatorsFromAssemblyContaining&lt;UserRegistrationValidator&gt;());
+
+// In a controller action
+[HttpPost]
+public IActionResult Register(UserRegistration model)
+{
+    if (!ModelState.IsValid)
+    {
+        return BadRequest(ModelState);
+    }
+    // Proceed with registration
+    return Ok();
+}
+  </pre>
+
+  <h3 style="color:#2563eb;">✅ Best Practices</h3>
+  <ul>
+    <li>📏 Keep validation logic separate from business logic</li>
+    <li>🔧 Use custom validators for reusable validation logic</li>
+    <li>🌐 Leverage localization features for multilingual error messages</li>
+    <li>⚡ Utilize async rules for validations requiring database or external calls</li>
+    <li>🧪 Write unit tests for validators to ensure correctness</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://fluentvalidation.net/" target="_blank" style="color:#3b82f6;">Official FluentValidation Documentation</a></li>
+    <li><a href="https://github.com/FluentValidation/FluentValidation" target="_blank" style="color:#3b82f6;">GitHub Repository</a></li>
+  </ul>
+</div>
+` },
+        { id: "polly", title: "Polly", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #2563eb; box-shadow:0 6px 20px rgba(37,99,235,0.2)">
+  <h2 style="color:#1e40af;">🛡️ Polly - Resilience and Transient-Fault Handling Library for .NET</h2>
+  <p>
+    <strong>Polly</strong> is a powerful .NET library that helps you build resilient applications by providing sophisticated policies to handle transient faults such as network failures, timeouts, and exceptions. Polly enables you to express retry, circuit breaker, timeout, bulkhead isolation, and fallback policies in a fluent, thread-safe way.
+  </p>
+
+  <h3 style="color:#2563eb;">💡 Why Use Polly?</h3>
+  <ul>
+    <li>🔄 Automatically retry failed operations with customizable retry logic</li>
+    <li>⛔ Circuit Breaker prevents system overload by stopping calls to failing components</li>
+    <li>⏳ Timeout policies to prevent hanging operations</li>
+    <li>🚪 Fallbacks to provide alternative results when all else fails</li>
+    <li>🛡️ Bulkhead Isolation to limit concurrent executions and improve system stability</li>
+    <li>⚙️ Composable policies to combine multiple resilience strategies</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">💻 Example: Retry Policy with Exponential Backoff</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using Polly;
+using Polly.Retry;
+
+AsyncRetryPolicy retryPolicy = Policy
+    .Handle&lt;HttpRequestException&gt;()
+    .WaitAndRetryAsync(
+        retryCount: 3,
+        sleepDurationProvider: attempt =&gt; TimeSpan.FromSeconds(Math.Pow(2, attempt)),
+        onRetry: (exception, timespan, context) =&gt;
+        {
+            Console.WriteLine($"Retrying due to: {exception.Message}. Waiting {timespan.TotalSeconds}s before next retry.");
+        });
+
+await retryPolicy.ExecuteAsync(async () =&gt;
+{
+    // Your HTTP call or any operation that might fail transiently
+    await httpClient.GetAsync("https://example.com/api/data");
+});
+  </pre>
+
+  <h3 style="color:#2563eb;">💡 Combining Policies: Circuit Breaker + Retry</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+var circuitBreakerPolicy = Policy
+    .Handle&lt;HttpRequestException&gt;()
+    .CircuitBreakerAsync(
+        handledEventsAllowedBeforeBreaking: 2,
+        durationOfBreak: TimeSpan.FromSeconds(30),
+        onBreak: (ex, breakDelay) =&gt; Console.WriteLine($"Circuit broken! Break duration: {breakDelay.TotalSeconds}s"),
+        onReset: () =&gt; Console.WriteLine("Circuit reset."));
+
+var combinedPolicy = Policy.WrapAsync(retryPolicy, circuitBreakerPolicy);
+
+await combinedPolicy.ExecuteAsync(async () =&gt;
+{
+    await httpClient.GetAsync("https://example.com/api/data");
+});
+  </pre>
+
+  <h3 style="color:#2563eb;">✅ Best Practices</h3>
+  <ul>
+    <li>🛠️ Tailor retry counts and backoff strategies based on your system’s characteristics</li>
+    <li>📊 Monitor circuit breaker states to detect system health issues early</li>
+    <li>⚡ Use fallback policies to gracefully degrade functionality</li>
+    <li>🧪 Test your policies to ensure they behave correctly under failure conditions</li>
+    <li>📚 Combine multiple policies to cover different failure scenarios</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://github.com/App-vNext/Polly" target="_blank" style="color:#3b82f6;">Polly GitHub Repository</a></li>
+    <li><a href="https://github.com/App-vNext/Polly/wiki" target="_blank" style="color:#3b82f6;">Polly Wiki & Documentation</a></li>
+  </ul>
+</div>
+` },
+        { id: "benchmark-net", title: "Benchmark.NET", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f9fafb; padding:2rem; border-radius:1rem; border:2px solid #2563eb; box-shadow:0 6px 20px rgba(37,99,235,0.2)">
+  <h2 style="color:#1e40af;">⚡ BenchmarkDotNet - Powerful Benchmarking Library for .NET</h2>
+  <p>
+    <strong>BenchmarkDotNet</strong> is a popular, open-source .NET library designed to help developers measure and analyze the performance of their code with precision and ease. It automates benchmarking tasks like running tests multiple times, warming up, and providing detailed reports with statistics.
+  </p>
+
+  <h3 style="color:#2563eb;">💡 Why Use BenchmarkDotNet?</h3>
+  <ul>
+    <li>📊 Accurate, reliable, and reproducible performance measurements</li>
+    <li>🛠️ Easy to use with minimal setup</li>
+    <li>⚙️ Supports benchmarking synchronous and asynchronous methods</li>
+    <li>📈 Generates detailed reports including mean, median, standard deviation, and more</li>
+    <li>🔄 Supports different runtimes and platforms (e.g., .NET Framework, .NET Core, Mono)</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">💻 Example: Benchmarking a Simple String Concatenation</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
+
+public class StringConcatBenchmark
+{
+    private string str1 = "Hello";
+    private string str2 = "World";
+
+    [Benchmark]
+    public string UsingPlusOperator() =&gt;
+        str1 + " " + str2;
+
+    [Benchmark]
+    public string UsingStringConcat() =&gt;
+        string.Concat(str1, " ", str2);
+
+    [Benchmark]
+    public string UsingStringBuilder()
+    {
+        var sb = new System.Text.StringBuilder();
+        sb.Append(str1);
+        sb.Append(" ");
+        sb.Append(str2);
+        return sb.ToString();
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        BenchmarkRunner.Run&lt;StringConcatBenchmark&gt;();
+    }
+}
+  </pre>
+
+  <h3 style="color:#2563eb;">💡 Real-World Scenario</h3>
+  <p>
+    When optimizing critical sections of your application — for example, data processing loops, serialization routines, or algorithm implementations — BenchmarkDotNet helps you objectively compare different approaches and choose the best-performing solution.
+  </p>
+
+  <h3 style="color:#2563eb;">✅ Best Practices</h3>
+  <ul>
+    <li>🔧 Isolate benchmarks from unrelated code to get precise measurements</li>
+    <li>⏱️ Use warmup iterations to avoid JIT and cold start biases</li>
+    <li>📋 Run benchmarks on a stable machine to avoid interference</li>
+    <li>📊 Analyze multiple metrics like mean time, error, and memory allocations</li>
+    <li>🔄 Compare multiple implementations side-by-side to make informed optimization decisions</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://benchmarkdotnet.org/" target="_blank" style="color:#3b82f6;">Official BenchmarkDotNet Website</a></li>
+    <li><a href="https://github.com/dotnet/BenchmarkDotNet" target="_blank" style="color:#3b82f6;">GitHub Repository</a></li>
+  </ul>
+</div>
+` },
+        { id: "distributedlock", title: "DistributedLock", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f9fafb; padding:2rem; border-radius:1rem; border:2px solid #2563eb; box-shadow:0 6px 20px rgba(37,99,235,0.2)">
+  <h2 style="color:#1e40af;">🔒 Distributed Locking in .NET</h2>
+  <p>
+    Distributed locks help coordinate access to shared resources in distributed systems, preventing race conditions and ensuring consistency when multiple processes or services try to access or modify the same resource concurrently.
+  </p>
+
+  <h3 style="color:#2563eb;">💡 Why Use Distributed Locks?</h3>
+  <ul>
+    <li>🔗 Coordinate resource access across multiple nodes or instances</li>
+    <li>⏳ Prevent race conditions and data corruption</li>
+    <li>⚙️ Manage critical sections in distributed applications like microservices, cloud apps, or multi-server setups</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">💻 Example: Using <code>RedLock.net</code> with Redis</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using RedLockNet.SERedis;
+using RedLockNet.SERedis.Configuration;
+using StackExchange.Redis;
+
+var redisEndpoints = new List&lt;RedLockEndPoint&gt;()
+{
+    new RedLockEndPoint { EndPoint = DnsEndPoint.Parse("127.0.0.1:6379") }
+};
+
+using var redisMultiplexer = ConnectionMultiplexer.Connect("127.0.0.1:6379");
+using var redlockFactory = RedLockFactory.Create(redisMultiplexer);
+
+TimeSpan expiry = TimeSpan.FromSeconds(30);
+
+using (var redLock = redlockFactory.CreateLock("my-resource-key", expiry))
+{
+    if (redLock.IsAcquired)
+    {
+        // Critical section: safely access shared resource here
+        Console.WriteLine("Lock acquired! Performing work...");
+    }
+    else
+    {
+        Console.WriteLine("Could not acquire the lock.");
+    }
+}
+  </pre>
+
+  <h3 style="color:#2563eb;">💡 Real-World Use Cases</h3>
+  <ul>
+    <li>🔄 Preventing duplicate job execution in distributed background processing</li>
+    <li>📦 Coordinating inventory updates in e-commerce platforms with multiple servers</li>
+    <li>🗂️ Ensuring only one instance processes a batch of data at a time</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">✅ Best Practices</h3>
+  <ul>
+    <li>⏳ Use appropriate lock expiry to avoid deadlocks</li>
+    <li>🧪 Test failure scenarios (e.g., process crashes) to ensure lock release</li>
+    <li>🔐 Use consensus-based algorithms (like RedLock) if using multiple Redis nodes for higher reliability</li>
+    <li>📊 Monitor lock contention and adjust your system to minimize bottlenecks</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://github.com/michaeldye/RedLock.net" target="_blank" style="color:#3b82f6;">RedLock.net GitHub Repository</a></li>
+    <li><a href="https://redis.io/topics/distlock" target="_blank" style="color:#3b82f6;">Redis Distributed Locking Documentation</a></li>
+  </ul>
+</div>
+` },
+        { id: "nuke-build", title: "Nuke.Build", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0284c7; box-shadow:0 6px 20px rgba(2,132,199,0.2)">
+  <h2 style="color:#0369a1;">🛠️ Nuke Build: Modern Build Automation for .NET</h2>
+  <p>
+    <strong>NUKE</strong> is a cross-platform build automation system for .NET projects that lets you write build scripts in C# instead of traditional XML or DSLs. It integrates seamlessly with the .NET ecosystem, enabling powerful, type-safe, and maintainable build pipelines.
+  </p>
+
+  <h3 style="color:#0284c7;">💡 Why Choose NUKE?</h3>
+  <ul>
+    <li>⚡ Write build logic in C# with full IDE support (IntelliSense, debugging)</li>
+    <li>🔄 Cross-platform support (Windows, Linux, macOS)</li>
+    <li>🔗 Strong integration with MSBuild, .NET CLI, Git, Docker, and more</li>
+    <li>🛡️ Type-safe pipelines with dependencies and parallel execution</li>
+    <li>📦 Easy to extend with custom tasks and reusable components</li>
+  </ul>
+
+  <h3 style="color:#0284c7;">💻 Example: Basic Build Script</h3>
+  <pre style="background:#dbf4ff; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using Nuke.Common;
+using Nuke.Common.Tools.DotNet;
+using static Nuke.Common.Tools.DotNet.DotNetTasks;
+
+class Build : NukeBuild
+{
+    public static int Main() => Execute&lt;Build&gt;(x =&gt; x.Compile);
+
+    Target Clean =&gt; _ =&gt; _
+        .Executes(() =&gt; 
+        {
+            DotNetClean();
+        });
+
+    Target Restore =&gt; _ =&gt; _
+        .Executes(() =&gt; 
+        {
+            DotNetRestore();
+        });
+
+    Target Compile =&gt; _ =&gt; _
+        .DependsOn(Restore)
+        .Executes(() =&gt; 
+        {
+            DotNetBuild();
+        });
+}
+  </pre>
+
+  <h3 style="color:#0284c7;">💡 Real-World Scenarios</h3>
+  <ul>
+    <li>🔄 Automate complex multi-project builds with dependencies</li>
+    <li>🚀 Integrate deployment, testing, packaging, and versioning in build pipelines</li>
+    <li>🤝 Use in CI/CD pipelines for consistent, maintainable automation</li>
+  </ul>
+
+  <h3 style="color:#0284c7;">✅ Best Practices</h3>
+  <ul>
+    <li>📝 Keep build logic clear and modular with well-defined targets</li>
+    <li>⚙️ Leverage NUKE’s strong typing and IDE support to avoid errors</li>
+    <li>🔄 Use caching and incremental builds where possible to speed up pipelines</li>
+    <li>🛡️ Isolate external tool calls and manage environment variables carefully</li>
+  </ul>
+
+  <h3 style="color:#0284c7;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://nuke.build/" target="_blank" style="color:#0284c7;">Official NUKE Build Website</a></li>
+    <li><a href="https://github.com/nuke-build/nuke" target="_blank" style="color:#0284c7;">NUKE GitHub Repository</a></li>
+    <li><a href="https://nuke.build/docs/" target="_blank" style="color:#0284c7;">NUKE Documentation</a></li>
+  </ul>
+</div>
+` },
+        { id: "marten", title: "Marten", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #2563eb; box-shadow:0 6px 20px rgba(37,99,235,0.2)">
+  <h2 style="color:#1e40af;">📦 Marten: Modern .NET Document Database & Event Store on PostgreSQL</h2>
+  <p>
+    <strong>Marten</strong> is a powerful .NET library that turns PostgreSQL into a document database and event store, providing a flexible, scalable, and developer-friendly way to work with JSON documents and event sourcing in your .NET applications.
+  </p>
+
+  <h3 style="color:#2563eb;">💡 Why Marten?</h3>
+  <ul>
+    <li>🗄️ Stores JSON documents natively in PostgreSQL using advanced JSONB capabilities</li>
+    <li>🔄 Built-in support for Event Sourcing and CQRS patterns</li>
+    <li>⚡ High performance with ACID transactions and indexing</li>
+    <li>🔧 Supports LINQ queries over JSON documents</li>
+    <li>🧩 Works as a document database or event store, reducing infrastructure complexity</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">💻 Example: Basic Setup and Usage</h3>
+  <pre style="background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+using Marten;
+using System;
+
+// Define a document model
+public class User
+{
+    public Guid Id { get; set; }
+    public string Name { get; set; }
+}
+
+// Configure Marten with PostgreSQL connection
+var store = DocumentStore.For(options =>
+{
+    options.Connection("Host=localhost;Database=mydb;Username=postgres;Password=secret");
+    options.AutoCreateSchemaObjects = AutoCreate.All;
+});
+
+// Use Marten session to store and query documents
+using (var session = store.LightweightSession())
+{
+    var user = new User { Id = Guid.NewGuid(), Name = "Alice" };
+    session.Store(user);
+    session.SaveChanges();
+
+    // Query example
+    var users = session.Query<User>().Where(u => u.Name == "Alice").ToList();
+    Console.WriteLine($"Found {users.Count} user(s) named Alice");
+}
+  </pre>
+
+  <h3 style="color:#2563eb;">💡 Real-World Use Cases</h3>
+  <ul>
+    <li>📄 Document storage for flexible, evolving schemas without complex migrations</li>
+    <li>🕰️ Event Sourcing systems to track state changes over time</li>
+    <li>📈 Building CQRS architectures with clear separation of read/write models</li>
+    <li>⚡ High-performance applications requiring ACID compliance and PostgreSQL reliability</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">✅ Best Practices</h3>
+  <ul>
+    <li>🛠️ Use explicit document IDs (GUIDs) for consistency and scalability</li>
+    <li>📊 Leverage PostgreSQL JSONB indexing for optimized queries</li>
+    <li>🔄 Regularly review schema auto-creation settings for production safety</li>
+    <li>🧪 Write integration tests to validate document persistence and queries</li>
+  </ul>
+
+  <h3 style="color:#2563eb;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://martendb.io" target="_blank" style="color:#3b82f6;">Official Marten Website</a></li>
+    <li><a href="https://github.com/JasperFx/marten" target="_blank" style="color:#3b82f6;">Marten GitHub Repository</a></li>
+    <li><a href="https://martendb.io/documentation/" target="_blank" style="color:#3b82f6;">Marten Documentation</a></li>
+  </ul>
+</div>
+` },
       ]
     },
     {
@@ -11210,8 +12074,138 @@ builder.Host.UseSerilog();
       title: "AI / LLMs",
       direction: "right",
       children: [
-        { id: "semantic-kernel", title: "Semantic Kernel", type: "must-know" },
-        { id: "openai-net", title: "OpenAI .NET", type: "must-know" },
+        { id: "semantic-kernel", title: "Semantic Kernel", type: "must-know",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
+  <h2 style="color:#15803d;">🧠 Semantic Kernel: Building Intelligent AI Workflows in .NET</h2>
+
+  <p>
+    <strong>Semantic Kernel (SK)</strong> is Microsoft’s open-source orchestration SDK that enables developers to combine LLMs like OpenAI, Azure OpenAI, and HuggingFace with conventional programming logic in .NET, JavaScript, or Python. It brings together <strong>semantic reasoning</strong> (natural language prompts) with <strong>symbolic execution</strong> (traditional code), creating powerful AI-first apps.
+  </p>
+
+  <h3 style="color:#15803d;">🔍 Key Architectural Concepts</h3>
+  <ul>
+    <li>🧩 <strong>Skills:</strong> A logical group of functions (semantic or native) encapsulated for reuse.</li>
+    <li>🧠 <strong>Semantic Functions:</strong> Prompt templates interpreted by an LLM (e.g., summarizing text).</li>
+    <li>⚙️ <strong>Native Functions:</strong> Regular C# methods that are registered into the kernel.</li>
+    <li>📚 <strong>Memory:</strong> Short-term and long-term context handling via vector stores (e.g., Redis, Qdrant, ChromaDB).</li>
+    <li>🗓️ <strong>Planner:</strong> Uses natural language goals to create and execute function chains automatically.</li>
+    <li>📜 <strong>Prompt Templates:</strong> Use Handlebars-like syntax for dynamic and structured prompting.</li>
+  </ul>
+
+  <h3 style="color:#15803d;">🚀 Real-World Scenario: Customer Support Bot</h3>
+  <p>Imagine you're building an AI support assistant that takes user input, summarizes it, logs the conversation, and fetches context from prior conversations.</p>
+
+  <pre style="background:#dcfce7; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+var builder = Kernel.CreateBuilder();
+builder.AddOpenAIChatCompletion("gpt-4", "your-api-key");
+builder.Plugins.AddFromType&lt;LoggerSkill&gt;();
+builder.Services.AddMemoryStore(new VolatileMemoryStore()); // In-memory or vector DB
+
+var kernel = builder.Build();
+
+// Define semantic summarization function
+var summarize = kernel.CreateFunctionFromPrompt(
+  "Summarize this user message:\n{{$input}}");
+
+// Invoke flow
+var input = "Hi, my order hasn't arrived yet.";
+var result = await kernel.InvokeAsync(summarize, new() { ["input"] = input });
+
+// Log the summary with a native skill
+await kernel.InvokeAsync("LoggerSkill.Log", new() { ["message"] = result.GetValue&lt;string&gt;() });
+
+// Store in memory for later context
+await kernel.Memory.SaveReferenceAsync("chat", "user1", input);
+  </pre>
+
+  <h3 style="color:#15803d;">✅ Best Practices</h3>
+  <ul>
+    <li>📦 Group related functions into <strong>skills</strong> to maintain clean separation of concerns.</li>
+    <li>🧠 Use <strong>semantic memory</strong> for persistent context in long-running conversations.</li>
+    <li>🧪 Regularly <strong>test prompts</strong> using built-in tools or tools like PromptFlow.</li>
+    <li>🔁 Use <code>Planner</code> module to allow users to express goals in plain English and convert them to actions.</li>
+    <li>🔒 Protect LLM tokens and endpoints using <strong>secure secrets management</strong>.</li>
+    <li>📈 Log and monitor <strong>token usage</strong> and <strong>latency</strong> per function to optimize prompt engineering.</li>
+    <li>🔄 Prefer combining semantic + native functions in workflows for maximum reliability and explainability.</li>
+    <li>📚 Keep <strong>prompt templates</strong> modular, comment-rich, and version-controlled.</li>
+  </ul>
+
+  <h3 style="color:#15803d;">💼 Advanced Use Cases</h3>
+  <ul>
+    <li>🧾 AI Copilot in enterprise dashboards</li>
+    <li>📅 Natural language scheduling assistant</li>
+    <li>📧 Email summarization & classification</li>
+    <li>📊 Report generation from unstructured input</li>
+    <li>🤖 Multi-agent collaboration with autonomous planning</li>
+  </ul>
+
+  <h3 style="color:#15803d;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://github.com/microsoft/semantic-kernel" target="_blank" style="color:#22c55e;">Semantic Kernel on GitHub</a></li>
+    <li><a href="https://learn.microsoft.com/en-us/semantic-kernel/" target="_blank" style="color:#22c55e;">Microsoft Docs</a></li>
+    <li><a href="https://aka.ms/sk-samples" target="_blank" style="color:#22c55e;">Sample Scenarios</a></li>
+  </ul>
+</div>`
+         },
+        { id: "openai-net", title: "OpenAI .NET", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
+  <h2 style="color:#15803d;">🤖 OpenAI Integration with .NET using openai-net</h2>
+  <p>
+    <strong>openai-net</strong> is a popular .NET SDK that provides seamless access to OpenAI’s APIs (ChatGPT, DALL·E, Whisper, Embeddings, etc.). It helps developers build AI-powered apps in C# with minimal effort and strong type support.
+  </p>
+
+  <h3 style="color:#166534;">💡 Why Use openai-net?</h3>
+  <ul>
+    <li>✅ Easy and idiomatic C# access to OpenAI APIs</li>
+    <li>📦 Built-in support for Chat, Completions, Images, Embeddings, Files, Moderations, and more</li>
+    <li>🛠️ Works with ASP.NET Core, Console apps, Azure Functions</li>
+    <li>🔐 Supports secure API key configuration (via Secret Manager, Azure Key Vault, etc.)</li>
+  </ul>
+
+  <h3 style="color:#166534;">🚀 Getting Started</h3>
+  <pre style="background:#dcfce7; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;">
+dotnet add package OpenAI
+
+// In your service
+var api = new OpenAIClient("your-api-key");
+
+var chat = await api.ChatEndpoint.GetCompletionAsync(new ChatRequest()
+{
+    Messages = new List&lt;ChatMessage&gt;()
+    {
+        ChatMessage.FromSystem("You are a helpful assistant."),
+        ChatMessage.FromUser("What is the capital of France?")
+    }
+});
+
+Console.WriteLine(chat.FirstChoice.Message.Content);
+// Output: Paris
+  </pre>
+
+  <h3 style="color:#166534;">🔍 Real-World Use Cases</h3>
+  <ul>
+    <li>🧠 Smart FAQ bots or assistants inside ASP.NET MVC/Blazor apps</li>
+    <li>📄 Auto-summarization for enterprise documents</li>
+    <li>🖼️ Image generation tools using DALL·E for content platforms</li>
+    <li>🎧 Transcription services using Whisper API</li>
+    <li>🔍 Semantic search with Embeddings + Vector DBs</li>
+  </ul>
+
+  <h3 style="color:#15803d;">✅ Best Practices</h3>
+  <ul>
+    <li>🔒 Never hardcode API keys — use environment variables or secret managers</li>
+    <li>⏱️ Use streaming responses for real-time experiences (especially in chat)</li>
+    <li>📊 Log token usage & latency for cost monitoring</li>
+    <li>🧪 Retry on rate limits using Polly or Resilience Pipelines</li>
+    <li>💬 Use system messages to control tone, style, and persona of the assistant</li>
+  </ul>
+
+  <h3 style="color:#166534;">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://github.com/betalgo/openai" target="_blank" style="color:#22c55e;">openai-net GitHub Repository</a></li>
+    <li><a href="https://platform.openai.com/docs" target="_blank" style="color:#22c55e;">OpenAI API Documentation</a></li>
+  </ul>
+</div>
+`  },
       ]
     },
     {

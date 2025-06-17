@@ -16,7 +16,6 @@ export default function Modal({
   children,
   title,
 }: ModalProps) {
-  // ESC tuşuyla kapatma
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -35,19 +34,15 @@ export default function Modal({
 
   if (!isOpen) return null;
 
-  // Modal içeriği portal ile body altına render ediliyor:
   return ReactDOM.createPortal(
-    <div
-      className="fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-center justify-center p-4"
-      onClick={onClose} // Overlay tıklamasında kapat
-    >
-      <div
-        className="bg-white rounded-xl p-6 w-full max-w-2xl mx-auto relative max-h-[90vh] overflow-y-auto z-[10000]"
-        onClick={(e) => e.stopPropagation()} // Modal içi tıklamayı yakala, kapatmayı engelle
+    <div className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[9999] flex items-center justify-center p-4">
+      <div 
+        className="bg-white dark:bg-gray-800 rounded-2xl p-6 w-full max-w-2xl mx-auto relative max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-100 dark:border-gray-700"
+        onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors duration-200"
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors duration-200 p-1 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
           aria-label="Close modal"
         >
           <svg
@@ -64,8 +59,8 @@ export default function Modal({
             />
           </svg>
         </button>
-        <h2 className="text-2xl font-bold mb-4">{title}</h2>
-        <div className="pr-8">{children}</div>
+        <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">{title}</h2>
+        <div className="pr-8 text-gray-600 dark:text-gray-300">{children}</div>
       </div>
     </div>,
     document.body
