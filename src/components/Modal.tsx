@@ -3,6 +3,7 @@
 import { ReactNode, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
 
 interface ModalProps {
   isOpen: boolean;
@@ -11,12 +12,7 @@ interface ModalProps {
   title: string;
 }
 
-export default function Modal({
-  isOpen,
-  onClose,
-  children,
-  title,
-}: ModalProps) {
+function Modal({ isOpen, onClose, children, title }: ModalProps) {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -46,6 +42,7 @@ export default function Modal({
         transition={{ duration: 0.15 }}
         className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[9999] flex items-center justify-center p-4"
         onClick={onClose}
+        style={{ willChange: "opacity" }}
       >
         <motion.div 
           initial={{ y: 10, opacity: 0 }}
@@ -54,6 +51,7 @@ export default function Modal({
           transition={{ type: "tween", duration: 0.2 }}
           className="bg-white dark:bg-gray-800 rounded-2xl p-6 w-full max-w-2xl mx-auto relative max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-100 dark:border-gray-700"
           onClick={(e) => e.stopPropagation()}
+          style={{ willChange: "transform, opacity" }}
         >
           <button
             onClick={onClose}
@@ -82,3 +80,5 @@ export default function Modal({
     document.body
   );
 }
+
+export default React.memo(Modal);

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Modal from "./Modal";
 import { motion } from "framer-motion";
+import React from "react";
 
 type Node = {
   id: string;
@@ -26,7 +27,7 @@ const badgeHoverColor = {
   optional: "hover:bg-gray-600",
 };
 
-export default function MindMapNode({ node, isMobile = false }: { node: Node; isMobile?: boolean }) {
+function MindMapNode({ node, isMobile = false }: { node: Node; isMobile?: boolean }) {
   const [open, setOpen] = useState(false);
   const isRight = node.direction === "right";
   const isLeft = node.direction === "left";
@@ -40,7 +41,6 @@ export default function MindMapNode({ node, isMobile = false }: { node: Node; is
         isMobile ? "items-center" : isRight ? "items-start" : "items-end"
       } w-full text-sm text-gray-900 dark:text-white`}
     >
-      {/* Ana düğüm */}
       <motion.div
         initial={{ opacity: 0, x: isMobile ? 0 : isRight ? -5 : 5 }}
         animate={{ opacity: 1, x: 0 }}
@@ -48,6 +48,7 @@ export default function MindMapNode({ node, isMobile = false }: { node: Node; is
         className={`group flex items-center gap-2 ${
           isMobile ? "" : isRight ? "" : "flex-row-reverse"
         }`}
+        style={{ willChange: "transform, opacity" }}
       >
         <div
           className={`flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-full border border-slate-300 dark:border-gray-600 bg-white/80 dark:bg-gray-900/60 shadow-sm hover:shadow-md backdrop-blur transition-all duration-200 hover:scale-[1.02] cursor-pointer ${
@@ -62,7 +63,6 @@ export default function MindMapNode({ node, isMobile = false }: { node: Node; is
         </div>
       </motion.div>
 
-      {/* Modal */}
       <Modal isOpen={open} onClose={() => setOpen(false)} title={node.title}>
         <div className="space-y-4 text-base">
           {node.type && (
@@ -94,19 +94,15 @@ export default function MindMapNode({ node, isMobile = false }: { node: Node; is
         </div>
       </Modal>
 
-      {/* Çocuk düğümler */}
       {hasChildren && (
         <div
           className={`mt-4 md:mt-6 ${isMobile ? "" : isRight ? "ml-4 md:ml-6" : "mr-4 md:mr-6"} relative`}
         >
-          {/* Dikey çizgi (bağlantı) - Mobilde gizle */}
           {!isMobile && (
             <div
               className={`absolute top-0 ${isRight ? "-left-3" : "-right-3"} h-full border-l-2 border-sky-300`}
             />
           )}
-
-          {/* Alt düğümler */}
           <div className="flex flex-col gap-4 md:gap-6">
             {node.children!.map((child) => (
               <div key={child.id} className={`${isMobile ? "" : isRight ? "ml-4 md:ml-6" : "mr-4 md:mr-6"}`}>
@@ -119,3 +115,5 @@ export default function MindMapNode({ node, isMobile = false }: { node: Node; is
     </div>
   );
 }
+
+export default React.memo(MindMapNode);
