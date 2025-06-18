@@ -34,24 +34,14 @@ function Modal({ isOpen, onClose, children, title }: ModalProps) {
   if (!isOpen) return null;
 
   return ReactDOM.createPortal(
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.15 }}
+    isOpen ? (
+      <div
         className="fixed inset-0 bg-black/30 backdrop-blur-sm z-[9999] flex items-center justify-center p-4"
         onClick={onClose}
-        style={{ willChange: "opacity" }}
       >
-        <motion.div 
-          initial={{ y: 10, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -10, opacity: 0 }}
-          transition={{ type: "tween", duration: 0.2 }}
+        <div 
           className="bg-white dark:bg-gray-800 rounded-2xl p-6 w-full max-w-2xl mx-auto relative max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-100 dark:border-gray-700"
           onClick={(e) => e.stopPropagation()}
-          style={{ willChange: "transform, opacity" }}
         >
           <button
             onClick={onClose}
@@ -74,9 +64,9 @@ function Modal({ isOpen, onClose, children, title }: ModalProps) {
           </button>
           <h2 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">{title}</h2>
           <div className="pr-8 text-gray-600 dark:text-gray-300">{children}</div>
-        </motion.div>
-      </motion.div>
-    </AnimatePresence>,
+        </div>
+      </div>
+    ) : null,
     document.body
   );
 }
