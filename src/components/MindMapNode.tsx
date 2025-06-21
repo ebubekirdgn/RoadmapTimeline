@@ -32,6 +32,12 @@ const MindMapNode = ({ data }: MindMapNodeProps) => {
   const isLeft = direction === 'left';
   const isClickable = !isSpine;
 
+  // Truncate title if it's too long
+  const truncateTitle = (text: string, maxLength: number = 50) => {
+    if (text.length <= maxLength) return text;
+    return text.substring(0, maxLength) + '...';
+  };
+
   const handleNodeClick = () => {
     if (isClickable) {
       setModalOpen(true);
@@ -62,6 +68,9 @@ const MindMapNode = ({ data }: MindMapNodeProps) => {
     )
   }
 
+  const displayTitle = truncateTitle(title);
+  const showTooltip = title.length > 50;
+
   return (
     <>
       <div
@@ -72,15 +81,21 @@ const MindMapNode = ({ data }: MindMapNodeProps) => {
         }
         `}
         onClick={handleNodeClick}
-        style={{ padding: '12px 20px', minWidth: '240px', maxWidth: '320px' }}
+        style={{ 
+          padding: '12px 20px', 
+          width: '280px', // Fixed width
+          height: 'auto',
+          minHeight: '60px' // Minimum height
+        }}
+        title={showTooltip ? title : undefined} // Show tooltip if title is truncated
       >
         <div className="flex items-center justify-center gap-3">
-          <div className={`status-dot w-3 h-3 rounded-full ${badgeColor[type as keyof typeof badgeColor] || badgeColor.optional} transition-colors duration-300`}></div>
-          <div className="font-semibold text-lg text-gray-800 dark:text-gray-100 text-left flex-1">
-            {title}
+          <div className={`status-dot w-3 h-3 rounded-full ${badgeColor[type as keyof typeof badgeColor] || badgeColor.optional} transition-colors duration-300 flex-shrink-0`}></div>
+          <div className="font-semibold text-lg text-gray-800 dark:text-gray-100 text-left flex-1 line-clamp-2 leading-tight">
+            {displayTitle}
           </div>
            {childCount > 0 && 
-            <div className="text-xs font-bold text-gray-500 dark:text-gray-400 bg-gray-200/30 dark:bg-gray-700/50 rounded-full px-2 py-0.5">
+            <div className="text-xs font-bold text-gray-500 dark:text-gray-400 bg-gray-200/30 dark:bg-gray-700/50 rounded-full px-2 py-0.5 flex-shrink-0">
               {childCount}
             </div>
            }
