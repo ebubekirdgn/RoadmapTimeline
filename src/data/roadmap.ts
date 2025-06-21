@@ -3890,8 +3890,7 @@ public IActionResult GetProducts()
     <li><a href="https://learn.microsoft.com/en-us/aspnet/core/performance/caching/response" target="_blank" style="color:#b45309;">Microsoft Docs: Response Caching Middleware</a></li>
     <li><a href="https://andrewlock.net/using-response-caching-in-asp-net-core-to-improve-performance/" target="_blank" style="color:#b45309;">Andrew Lock: Using Response Caching in ASP.NET Core</a></li>
   </ul>
-</div>
-`,
+</div>`,
                   type: "must-know"
                 },
                 {
@@ -3957,8 +3956,7 @@ public IActionResult GetData()
     <li><a href="https://github.com/marvinpinto/aspnetcore-cache-headers" target="_blank" style="color:#01579b;">GitHub - Marvin.Cache.Headers</a></li>
     <li><a href="https://andrewlock.net/using-marvin-cache-headers-in-asp-net-core-to-control-http-caching-headers/" target="_blank" style="color:#01579b;">Andrew Lock: Using Marvin.Cache.Headers</a></li>
   </ul>
-</div>
-`,
+</div>`,
                   type: "good-to-know"
                 },
               ]
@@ -13490,7 +13488,6 @@ Console.WriteLine(chat.FirstChoice.Message.Content);
       id: "keep-learning",
       title: "Keep Learning :)",
       direction: "right",
-      children: [] // No children for this node
     }
   ]
 };
