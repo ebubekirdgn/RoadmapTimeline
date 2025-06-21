@@ -5319,6 +5319,55 @@ services.AddGraphQL(options => {
       id: "background-task-scheduler",
       title: "Background Task Scheduler",
       direction: "left",
+      description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>⏳ Background Task Scheduler</h2>
+  <p><strong>Background task schedulers</strong> are used to run operations asynchronously or on a scheduled basis. They are essential for running maintenance jobs, background workers, or delayed processing tasks in both web and backend systems.</p>
+
+  <h3 style='color:#10b981'>🛠️ Common Use Cases</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li>Sending emails or notifications after user actions.</li>
+    <li>Generating and sending periodic reports.</li>
+    <li>Cleaning up stale data in databases.</li>
+    <li>Calling external APIs or syncing data in intervals.</li>
+    <li>Processing jobs in queues (e.g., image resizing).</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>🚀 Popular Frameworks & Tools</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>Hangfire (.NET):</strong> Background jobs with retries, UI dashboard, and persistence.</li>
+    <li><strong>Quartz.NET:</strong> Advanced cron-like scheduling with complex job configurations.</li>
+    <li><strong>Celery (Python):</strong> Asynchronous task queue with broker (RabbitMQ, Redis).</li>
+    <li><strong>Sidekiq (Ruby):</strong> Fast background job processor using Redis.</li>
+    <li><strong>BullMQ / Agenda (Node.js):</strong> Task queues and schedulers based on Redis.</li>
+    <li><strong>Cloud-native:</strong> AWS EventBridge, Azure Functions TimerTrigger, Google Cloud Scheduler.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>🧾 Example: Hangfire Job</h3>
+  <pre style="background:#f3f4f6;padding:1rem;border-radius:0.5rem">
+RecurringJob.AddOrUpdate(
+  "daily-report",
+  () => reportService.GenerateDailyReport(),
+  Cron.Daily);
+  </pre>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li><strong>Use retry mechanisms:</strong> Handle transient errors gracefully.</li>
+    <li><strong>Ensure idempotency:</strong> Tasks should be safe to run multiple times.</li>
+    <li><strong>Monitor background jobs:</strong> Use dashboards or alerting on failures.</li>
+    <li><strong>Queue isolation:</strong> Separate critical vs non-critical job queues.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://www.hangfire.io/' target='_blank' style='color:#3b82f6'>Hangfire Documentation</a></li>
+    <li><a href='https://www.quartz-scheduler.net/' target='_blank' style='color:#3b82f6'>Quartz.NET Guide</a></li>
+    <li><a href='https://docs.celeryq.dev/en/stable/' target='_blank' style='color:#3b82f6'>Celery Docs</a></li>
+    <li><a href='https://docs.bullmq.io/' target='_blank' style='color:#3b82f6'>BullMQ Docs</a></li>
+    <li><a href='https://cloud.google.com/scheduler' target='_blank' style='color:#3b82f6'>Google Cloud Scheduler</a></li>
+  </ul>
+</div>
+`,
       children: [
         {
           id: "native-background-service", title: "Native BackgroundService", type: "must-know",
