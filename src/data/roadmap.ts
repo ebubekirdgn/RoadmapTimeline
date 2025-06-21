@@ -824,7 +824,7 @@ public IActionResult Index()
   </ul>
 </div>
 ` },
-        { id: "auth", title: "Authentication & Authorization (Identity, IdentityServer, OpenIddict, Auth0/OIDC, OWASP Top 10)", type: "must-know",
+        { id: "auth", title: "Authentication & Authorization (Identity, IdentityServer, OpenIddict, Auth0/OIDC)", type: "must-know",
           description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef9f9; padding:1.5rem; border-radius:1rem; border:1px solid #f87171; box-shadow:0 4px 15px rgba(248, 113, 113, 0.3)">
   <h2 style="color:#b91c1c">🔐 Authentication & Authorization in ASP.NET Core</h2>
   <p>Securing your app is critical. <strong>Authentication</strong> verifies user identity, while <strong>Authorization</strong> controls access based on permissions and roles.</p>
@@ -900,80 +900,7 @@ builder.Services.AddIdentityServer()
   </ul>
 </div>
 ` },
-        { id: "caching", title: "Caching (Output, Response, Hybrid)", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #93c5fd; box-shadow:0 4px 15px rgba(59, 130, 246, 0.2)">
-  <h2 style="color:#2563eb">⚡ Caching in ASP.NET Core</h2>
-  <p><strong>Caching</strong> improves performance by storing frequently accessed data temporarily, reducing the need for repeated processing or external calls.</p>
-
-  <h3 style="color:#0ea5e9">🔍 Types of Caching</h3>
-  <ul style="list-style:disc; padding-left:1.2rem">
-    <li><strong>Output Caching:</strong> Caches the entire response of a controller/action to quickly serve future requests.</li>
-    <li><strong>Response Caching:</strong> Controls HTTP response headers to enable client or proxy caching.</li>
-    <li><strong>Hybrid Caching:</strong> Combines server-side caching with client or proxy caching for optimal performance.</li>
-  </ul>
-
-  <h3 style="color:#3b82f6">🛠️ Output Caching Example</h3>
-  <p>Introduced in ASP.NET Core 7+, Output Caching stores the entire response.</p>
-  <pre style="background:#e0f2fe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>// Enable output caching middleware in Program.cs
-app.UseOutputCache();
-
-// Apply output cache attribute on controller/action
-[OutputCache(Duration = 60)]
-public IActionResult Index()
-{
-    return View();
-}
-</code></pre>
-
-  <h3 style="color:#3b82f6">🛠️ Response Caching Example</h3>
-  <p>Response caching sets cache headers to instruct browsers/proxies to cache responses.</p>
-  <pre style="background:#e0f2fe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>// Enable response caching middleware
-app.UseResponseCaching();
-
-// Controller action with caching headers
-[ResponseCache(Duration = 120, Location = ResponseCacheLocation.Client)]
-public IActionResult GetData()
-{
-    return Json(new { Time = DateTime.Now });
-}
-</code></pre>
-
-  <h3 style="color:#3b82f6">🛠️ Hybrid Caching Approach</h3>
-  <p>Combine server-side caching (e.g., IMemoryCache or IDistributedCache) with response caching headers.</p>
-  <pre style="background:#e0f2fe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>private readonly IMemoryCache _cache;
-
-public MyController(IMemoryCache cache)
-{
-    _cache = cache;
-}
-
-public IActionResult GetCachedData()
-{
-    if(!_cache.TryGetValue("cachedTime", out DateTime cachedTime))
-    {
-        cachedTime = DateTime.Now;
-        _cache.Set("cachedTime", cachedTime, TimeSpan.FromMinutes(5));
-    }
-    return Json(new { CachedTime = cachedTime });
-}
-</code></pre>
-
-  <h3 style="color:#ef4444">⚠️ Common Pitfalls</h3>
-  <ul>
-    <li>Caching sensitive or user-specific data publicly.</li>
-    <li>Not invalidating cache on data changes, leading to stale data.</li>
-    <li>Over-caching causing memory pressure on the server.</li>
-  </ul>
-
-  <h3 style="color:#2563eb">📚 Best Practices</h3>
-  <ul>
-    <li>Use appropriate caching duration balancing freshness and performance.</li>
-    <li>Prefer distributed cache (Redis, Memcached) for scalable applications.</li>
-    <li>Set cache headers correctly to avoid client-side caching issues.</li>
-    <li>Monitor cache hit/miss rates to optimize caching strategy.</li>
-    <li>Clear or refresh caches proactively when data updates.</li>
-  </ul>
-</div>
-` },
+  
         { id: "razor-pages", title: "Razor Pages", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff7ed; padding:1.5rem; border-radius:1rem; border:1px solid #fdba74; box-shadow:0 4px 15px rgba(251, 191, 36, 0.3)">
   <h2 style="color:#c2410c">📄 Razor Pages in ASP.NET Core</h2>
   <p><strong>Razor Pages</strong> is a page-focused framework for building dynamic, server-rendered web apps with clean separation of concerns.</p>
