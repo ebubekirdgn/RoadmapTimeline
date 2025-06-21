@@ -53,6 +53,7 @@ export default function CustomEdge({
       <BaseEdge
         path={edgePath}
         markerEnd={markerEnd}
+        className="animate-fade-in"
         style={{
           ...style,
           stroke: strokeColor,

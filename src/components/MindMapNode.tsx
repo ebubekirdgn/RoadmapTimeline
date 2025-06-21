@@ -40,8 +40,7 @@ const MindMapNode = ({ data }: MindMapNodeProps) => {
 
   if (isSpine) {
     return (
-      // Container is now plain, without any styling, to make the text float.
-      <div>
+      <div className="animate-fade-in-scale">
         <h1 className="text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-500 to-purple-500 dark:from-sky-300 dark:via-blue-400 dark:to-purple-400 tracking-tighter text-center drop-shadow-lg animate-gradient-text">
           {title}
         </h1>
@@ -66,7 +65,7 @@ const MindMapNode = ({ data }: MindMapNodeProps) => {
   return (
     <>
       <div
-        className={`mindmap-node group rounded-xl shadow-lg bg-white/50 dark:bg-gray-800/50 backdrop-blur-lg border border-white/20 dark:border-gray-700/30 transition-all duration-300 ease-in-out
+        className={`mindmap-node group rounded-xl shadow-lg bg-white/50 dark:bg-gray-800/50 backdrop-blur-lg border border-white/20 dark:border-gray-700/30 transition-all duration-300 ease-in-out animate-fade-in-scale
         ${isClickable 
           ? 'cursor-pointer hover:shadow-2xl hover:scale-105 hover:border-sky-400/50 dark:hover:border-sky-500/50 hover:shadow-sky-500/10' 
           : 'shadow-md'

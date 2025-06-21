@@ -60,6 +60,20 @@ body {
     }
   }
 
+  /* Add a subtle pulse animation to the grid background */
+  @keyframes pulse-grid {
+    0%, 100% {
+      background-size: 40px 40px;
+    }
+    50% {
+      background-size: 42px 42px;
+    }
+  }
+
+  .modern-grid-background {
+    animation: pulse-grid 10s ease-in-out infinite;
+  }
+
   .pulse-glow {
     animation: pulse-glow-animation 3s infinite ease-out;
   }

@@ -129,6 +129,7 @@ const convertToReactFlowData = (
       position: { x: initialX, y: branchY },
       data: {},
       type: "default",
+      className: 'animate-fade-in-scale',
       style: { 
         width: 8, 
         height: 8, 
@@ -146,6 +147,7 @@ const convertToReactFlowData = (
       source: lastSpineNodeId,
       target: spineNodeId,
       type: "straight", // Reverted from spineEdge
+      className: 'animate-fade-in',
       style: { 
         stroke: '#94a3b8', // slate-400
         strokeWidth: 2,
@@ -167,6 +169,7 @@ const convertToReactFlowData = (
       source: spineNodeId,
       target: branchId,
       type: "smoothstep",
+      className: 'animate-fade-in',
       style: { stroke: "#94a3b8", strokeWidth: 2 },
     });
 
