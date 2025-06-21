@@ -54,7 +54,8 @@ git merge main # Merge changes</code></pre><h3 style='color:#8b5cf6'>🧰 Platfo
       title: "C#",
       direction: "left", // Indicates it branches to the left
       children: [
-        { id: "csharp-basics", title: "Learn the basics of C# 13", type: "must-know",description: `
+        {
+          id: "csharp-basics", title: "Learn the basics of C# 13", type: "must-know", description: `
          <div style='font-family:sans-serif;line-height:1.6;background:#fefefe;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'><h2 style='color:#3b82f6'>💻 Learn the Basics of C# 13</h2><p><strong>C# 13</strong> is the latest version of Microsoft's powerful object-oriented language, packed with features that improve performance, readability, and developer productivity.</p><h3 style='color:#10b981'>🔤 Language Fundamentals</h3><ul style='list-style:disc;padding-left:1.2rem'><li><strong>Variables & Types:</strong> <code>int</code>, <code>string</code>, <code>bool</code>, <code>float</code>, etc.</li><li><strong>Conditionals:</strong> <code>if</code>, <code>switch</code>, <code>match</code></li><li><strong>Loops:</strong> <code>for</code>, <code>foreach</code>, <code>while</code></li><li><strong>OOP:</strong> Classes, Objects, Inheritance, Interfaces</li></ul><pre style='background:#f3f4f6;padding:1rem;border-radius:0.75rem;overflow-x:auto'><code>// Simple method in C# 13
 int Add(int a, int b) => a + b;</code></pre>
 
@@ -81,8 +82,9 @@ if (obj is int number and &gt; 40)
 
 <h3 style='color:#0ea5e9'>📚 Learn More</h3><ul><li><a href='https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-13' target='_blank' style='color:#3b82f6'>What's new in C# 13</a></li><li><a href='https://learn.microsoft.com/en-us/dotnet/csharp/' target='_blank' style='color:#3b82f6'>C# Documentation (Microsoft)</a></li><li><a href='https://dotnet.microsoft.com/en-us/learn/csharp' target='_blank' style='color:#3b82f6'>.NET Learn C# Portal</a></li></ul></div>
 `
-         },
-        { id: "dotnet9", title: "Learn .NET 9", type: "must-know",
+        },
+        {
+          id: "dotnet9", title: "Learn .NET 9", type: "must-know",
           description: `
          <div style="font-family:sans-serif;line-height:1.6;background:#fefefe;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)">
   <h2 style="color:#2563eb">🚀 Learn .NET 9</h2>
@@ -126,9 +128,10 @@ dotnet run
   </ul>
 </div>
 `
-         },
-        { id: "dotnet-cli", title: "Learn dotnet CLI", type: "must-know",
-           description: `<div style="font-family:sans-serif;line-height:1.6;background:#fefefe;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+        },
+        {
+          id: "dotnet-cli", title: "Learn dotnet CLI", type: "must-know",
+          description: `<div style="font-family:sans-serif;line-height:1.6;background:#fefefe;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)">
   <h2 style="color:#2563eb">⚙️ Learn .NET CLI</h2>
   <p>The <strong>.NET CLI</strong> (Command Line Interface) is a powerful tool to create, build, run, and publish .NET applications efficiently from the terminal.</p>
 
@@ -174,8 +177,9 @@ dotnet run
   </ul>
 </div>
 `
-         },
-        { id: "stylecop", title: "StyleCop rules", type: "must-know",
+        },
+        {
+          id: "stylecop", title: "StyleCop rules", type: "must-know",
           description: `<div style="font-family:sans-serif;line-height:1.6;background:#fefefe;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)">
   <h2 style="color:#2563eb">📏 StyleCop Rules</h2>
   <p><strong>StyleCop</strong> is a static code analysis tool that enforces consistent style and coding conventions in C# projects, helping teams maintain readable and maintainable codebases.</p>
@@ -237,7 +241,8 @@ if (isValid)
       title: "SQL Fundamentals",
       direction: "right",
       children: [
-        { id: "fundamentals", title: "Fundamentals about database design and SQL Syntax", type: "must-know" ,description: `<div style="font-family:sans-serif;line-height:1.6;background:#fefefe;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+        {
+          id: "fundamentals", title: "Fundamentals about database design and SQL Syntax", type: "must-know", description: `<div style="font-family:sans-serif;line-height:1.6;background:#fefefe;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)">
   <h2 style="color:#2563eb">🗄️ Fundamentals of Database Design & SQL Syntax</h2>
   <p><strong>Database design</strong> is the process of structuring data to ensure efficiency, integrity, and scalability. SQL (Structured Query Language) is the standard language used to communicate with relational databases.</p>
 
@@ -295,7 +300,8 @@ DELETE FROM Customers WHERE CustomerID = 1;
   </ul>
 </div>
 `  },
-        { id: "stored-procedure", title: "Stored Procedures", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefefe; padding:1.5rem; border-radius:1rem; border:1px solid #e5e7eb; box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+        {
+          id: "stored-procedure", title: "Stored Procedures", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefefe; padding:1.5rem; border-radius:1rem; border:1px solid #e5e7eb; box-shadow:0 4px 12px rgba(0,0,0,0.05)">
   <h2 style="color:#2563eb">🔧 Stored Procedures</h2>
   <p><strong>Stored Procedures</strong> are precompiled SQL code stored in the database that can be executed repeatedly. They encapsulate complex operations, improve performance, and enhance security.</p>
 
@@ -352,7 +358,8 @@ END;
 </div>
 
 `  },
-        { id: "constraints", title: "Constraints", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefefe; padding:1.5rem; border-radius:1rem; border:1px solid #e5e7eb; box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+        {
+          id: "constraints", title: "Constraints", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefefe; padding:1.5rem; border-radius:1rem; border:1px solid #e5e7eb; box-shadow:0 4px 12px rgba(0,0,0,0.05)">
   <h2 style="color:#2563eb">🔐 Database Constraints</h2>
   <p><strong>Constraints</strong> are rules applied to database tables to enforce data integrity and consistency. They ensure that the data adheres to business logic and prevents invalid entries.</p>
 
@@ -469,7 +476,8 @@ END;
       title: "ASP.NET Core Basics",
       direction: "left",
       children: [
-        { id: "mvc-api", title: "MVC & Minimal APIs", type: "must-know",
+        {
+          id: "mvc-api", title: "MVC & Minimal APIs", type: "must-know",
           description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefefe; padding:1.5rem; border-radius:1rem; border:1px solid #e5e7eb; box-shadow:0 4px 12px rgba(0,0,0,0.05)">
   <h2 style="color:#2563eb">🕸️ MVC & Minimal APIs in ASP.NET Core</h2>
   <p><strong>MVC (Model-View-Controller)</strong> and <strong>Minimal APIs</strong> are two approaches to building web APIs and web applications with ASP.NET Core.</p>
@@ -530,7 +538,8 @@ app.Run();
   </ul>
 </div>
 ` },
-        { id: "options-config", title: "Options & Configurations", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefefe; padding:1.5rem; border-radius:1rem; border:1px solid #e5e7eb; box-shadow:0 4px 12px rgba(0,0,0,0.05)">
+        {
+          id: "options-config", title: "Options & Configurations", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefefe; padding:1.5rem; border-radius:1rem; border:1px solid #e5e7eb; box-shadow:0 4px 12px rgba(0,0,0,0.05)">
   <h2 style="color:#2563eb">⚙️ Options & Configurations in ASP.NET Core</h2>
   <p><strong>Options and configuration</strong> are essential for managing application settings in a flexible and maintainable way. ASP.NET Core provides built-in support for hierarchical configuration sources and strongly-typed options.</p>
 
@@ -601,7 +610,8 @@ public class MyService
   </ul>
 </div>
 ` },
-        { id: "middlewares", title: "Middlewares", type: "must-know",
+        {
+          id: "middlewares", title: "Middlewares", type: "must-know",
           description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefefe; padding:1.5rem; border-radius:1rem; border:1px solid #e5e7eb; box-shadow:0 4px 12px rgba(0,0,0,0.05)">
   <h2 style="color:#2563eb">🔌 Middlewares in ASP.NET Core</h2>
   <p><strong>Middleware</strong> are software components that form a pipeline to handle HTTP requests and responses in ASP.NET Core applications. Each middleware can inspect, modify, or short-circuit the request/response process.</p>
@@ -662,7 +672,8 @@ app.UseMiddleware&lt;RequestLoggingMiddleware&gt;();
 </div>
 
 ` },
-        { id: "filter-attributes", title: "Filter & Attributes", type: "must-know",
+        {
+          id: "filter-attributes", title: "Filter & Attributes", type: "must-know",
           description: `<div style="font-family:sans-serif; line-height:1.6; background:#fffdfa; padding:1.5rem; border-radius:1rem; border:1px solid #e0e7ff; box-shadow:0 4px 15px rgba(96, 165, 250, 0.2)">
   <h2 style="color:#4f46e5">🎛️ Filters & Attributes in ASP.NET Core</h2>
   <p><strong>Filters</strong> let you run code at specific points in the MVC request pipeline. They are perfect for handling cross-cutting concerns like authorization, caching, error handling, and logging.</p>
@@ -752,7 +763,8 @@ public IActionResult Index()
   </ul>
 </div>
 ` },
-        { id: "background-tasks", title: "Background Tasks", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f9fafb; padding:1.5rem; border-radius:1rem; border:1px solid #cbd5e1; box-shadow:0 4px 15px rgba(148, 163, 184, 0.3)">
+        {
+          id: "background-tasks", title: "Background Tasks", type: "good-to-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f9fafb; padding:1.5rem; border-radius:1rem; border:1px solid #cbd5e1; box-shadow:0 4px 15px rgba(148, 163, 184, 0.3)">
   <h2 style="color:#2563eb">⚙️ Background Tasks in ASP.NET Core</h2>
   <p><strong>Background Tasks</strong> are operations that run asynchronously outside the main HTTP request pipeline, allowing you to perform long-running or periodic work without blocking user requests.</p>
 
@@ -824,7 +836,8 @@ public IActionResult Index()
   </ul>
 </div>
 ` },
-        { id: "auth", title: "Authentication & Authorization (Identity, IdentityServer, OpenIddict, Auth0/OIDC)", type: "must-know",
+        {
+          id: "auth", title: "Authentication & Authorization (Identity, IdentityServer, OpenIddict, Auth0/OIDC)", type: "must-know",
           description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef9f9; padding:1.5rem; border-radius:1rem; border:1px solid #f87171; box-shadow:0 4px 15px rgba(248, 113, 113, 0.3)">
   <h2 style="color:#b91c1c">🔐 Authentication & Authorization in ASP.NET Core</h2>
   <p>Securing your app is critical. <strong>Authentication</strong> verifies user identity, while <strong>Authorization</strong> controls access based on permissions and roles.</p>
@@ -900,8 +913,9 @@ builder.Services.AddIdentityServer()
   </ul>
 </div>
 ` },
-  
-        { id: "razor-pages", title: "Razor Pages", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff7ed; padding:1.5rem; border-radius:1rem; border:1px solid #fdba74; box-shadow:0 4px 15px rgba(251, 191, 36, 0.3)">
+
+        {
+          id: "razor-pages", title: "Razor Pages", type: "good-to-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff7ed; padding:1.5rem; border-radius:1rem; border:1px solid #fdba74; box-shadow:0 4px 15px rgba(251, 191, 36, 0.3)">
   <h2 style="color:#c2410c">📄 Razor Pages in ASP.NET Core</h2>
   <p><strong>Razor Pages</strong> is a page-focused framework for building dynamic, server-rendered web apps with clean separation of concerns.</p>
 
@@ -984,7 +998,8 @@ public class ContactForm
   </ul>
 </div>
 ` },
-        { id: "razor-components", title: "Razor Components", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfdf5; padding:1.5rem; border-radius:1rem; border:1px solid #6ee7b7; box-shadow:0 4px 15px rgba(34,197,94,0.3)">
+        {
+          id: "razor-components", title: "Razor Components", type: "optional", description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfdf5; padding:1.5rem; border-radius:1rem; border:1px solid #6ee7b7; box-shadow:0 4px 15px rgba(34,197,94,0.3)">
   <h2 style="color:#059669">⚛️ Razor Components (Blazor Components)</h2>
   <p><strong>Razor Components</strong> are reusable UI building blocks in Blazor for creating interactive web apps with C# instead of JavaScript.</p>
 
@@ -1048,7 +1063,8 @@ public class ContactForm
       title: "SOLID",
       direction: "right",
       children: [
-        { id: "single-responsibility", title: "Single Responsibility Principle (SRP)", type: "must-know",
+        {
+          id: "single-responsibility", title: "Single Responsibility Principle (SRP)", type: "must-know",
           description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #93c5fd; box-shadow:0 4px 15px rgba(59, 130, 246, 0.2)">
   <h2 style="color:#2563eb">📏 Single Responsibility Principle (SRP)</h2>
   <p>The <strong>Single Responsibility Principle</strong> is one of the five SOLID principles introduced by <em>Robert C. Martin</em> (commonly known as <strong>Uncle Bob</strong>).</p>
@@ -1123,7 +1139,8 @@ public class UserService
   </ul>
 </div>
 ` },
-        { id: "open-closed", title: "Open Closed Principle (OCP)", type: "must-know",
+        {
+          id: "open-closed", title: "Open Closed Principle (OCP)", type: "must-know",
           description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff7ed; padding:1.5rem; border-radius:1rem; border:1px solid #fdba74; box-shadow:0 4px 15px rgba(251, 146, 60, 0.3)">
   <h2 style="color:#ea580c">📐 Open/Closed Principle (OCP)</h2>
   <p>The <strong>Open/Closed Principle</strong> is another key SOLID principle formulated by <em>Robert C. Martin</em> (aka <strong>Uncle Bob</strong>):</p>
@@ -1196,7 +1213,8 @@ public class DiscountCalculator
   </ul>
 </div>
 ` },
-        { id: "liskov", title: "Liskov Substitution Principle (LSP)", type: "must-know",
+        {
+          id: "liskov", title: "Liskov Substitution Principle (LSP)", type: "must-know",
           description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fff4; padding:1.5rem; border-radius:1rem; border:1px solid #34d399; box-shadow:0 4px 15px rgba(52, 211, 153, 0.3)">
   <h2 style="color:#059669">🔄 Liskov Substitution Principle (LSP)</h2>
   <p>The <strong>Liskov Substitution Principle</strong> was introduced by Barbara Liskov and later incorporated into the SOLID principles by <em>Robert C. Martin</em> (Uncle Bob).</p>
@@ -1273,7 +1291,8 @@ public class Ostrich : Bird
   </ul>
 </div>
 ` },
-        { id: "interface-segregation", title: "Interface Segregation Principle (ISP)", type: "must-know",
+        {
+          id: "interface-segregation", title: "Interface Segregation Principle (ISP)", type: "must-know",
           description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff4f6; padding:1.5rem; border-radius:1rem; border:1px solid #fca5a5; box-shadow:0 4px 15px rgba(251, 113, 133, 0.3)">
   <h2 style="color:#ef4444">📐 Interface Segregation Principle (ISP)</h2>
   <p>The <strong>Interface Segregation Principle</strong> states that clients should not be forced to depend on interfaces they do not use. In other words, larger interfaces should be split into smaller, more specific ones so that clients only need to know about the methods that are relevant to them.</p>
@@ -1341,7 +1360,8 @@ public class MultiFunctionPrinter : IPrinter, IScanner, IFax
   </ul>
 </div>
 ` },
-        { id: "dependency-inversion", title: "Dependency Inversion Principle (DIP)", type: "must-know",
+        {
+          id: "dependency-inversion", title: "Dependency Inversion Principle (DIP)", type: "must-know",
           description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:1.5rem; border-radius:1rem; border:1px solid #38bdf8; box-shadow:0 4px 15px rgba(56, 189, 248, 0.3)">
   <h2 style="color:#0284c7">🔌 Dependency Inversion Principle (DIP)</h2>
   <p><strong>Dependency Inversion Principle</strong> states that:</p>
@@ -1487,7 +1507,8 @@ dotnet ef database update
 </div>
 `,
           "children": [
-            { "id": "ef-basics", "title": "Learn the basics of Entity Framework Core", "type": "must-know",
+            {
+              "id": "ef-basics", "title": "Learn the basics of Entity Framework Core", "type": "must-know",
               description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #60a5fa; box-shadow:0 4px 15px rgba(96, 165, 250, 0.3)">
   <h2 style="color:#2563eb">📚 Learn the Basics of Entity Framework Core</h2>
   <p><strong>Entity Framework Core (EF Core)</strong> is a lightweight, extensible, and cross-platform ORM for .NET that allows you to work with databases using .NET objects, minimizing manual SQL queries.</p>
@@ -1536,7 +1557,8 @@ var products = context.Products.Where(p =&gt; p.Price &gt; 1000).ToList();
   </ul>
 </div>
 ` },
-            { "id": "code-first", "title": "Code First + Migrations", "type": "must-know",
+            {
+              "id": "code-first", "title": "Code First + Migrations", "type": "must-know",
               description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef9f0; padding:1.5rem; border-radius:1rem; border:1px solid #facc15; box-shadow:0 4px 15px rgba(250, 204, 21, 0.3)">
   <h2 style="color:#ca8a04">🛠️ Entity Framework Core - Code First & Migrations</h2>
   <p><strong>Code First</strong> allows you to define your database schema using C# classes and then generate the database from these models.</p>
@@ -1590,7 +1612,8 @@ dotnet ef database update
   </ul>
 </div>
 ` },
-            { "id": "change-tracker", "title": "Change Tracker API", "type": "must-know",
+            {
+              "id": "change-tracker", "title": "Change Tracker API", "type": "must-know",
               description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdfa; padding:1.5rem; border-radius:1rem; border:1px solid #22c55e; box-shadow:0 4px 15px rgba(34, 197, 94, 0.3)">
   <h2 style="color:#16a34a">🔄 Entity Framework Core - Change Tracker API</h2>
   <p><strong>Change Tracker</strong> is a powerful feature of EF Core that keeps track of all changes made to entities during the lifetime of a <code>DbContext</code>. It enables EF Core to detect what data has been added, modified, or deleted, and generates the appropriate SQL commands when you call <code>SaveChanges()</code>.</p>
@@ -1649,7 +1672,8 @@ foreach (var entry in context.ChangeTracker.Entries())
   </ul>
 </div>
 ` },
-            { "id": "loading-strategies", "title": "Lazy Loading, Eager Loading, Explicit Loading", "type": "must-know",
+            {
+              "id": "loading-strategies", "title": "Lazy Loading, Eager Loading, Explicit Loading", "type": "must-know",
               description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff7f3; padding:1.5rem; border-radius:1rem; border:1px solid #fb923c; box-shadow:0 4px 15px rgba(251, 146, 60, 0.3)">
   <h2 style="color:#c2410c">📦 Entity Framework Core - Loading Related Data</h2>
   <p>EF Core provides three main strategies to load related data (navigation properties): <strong>Lazy Loading</strong>, <strong>Eager Loading</strong>, and <strong>Explicit Loading</strong>. Choosing the right approach is essential for performance and correctness.</p>
@@ -1703,7 +1727,8 @@ var posts = blog.Posts;</code></pre>
   </ul>
 </div>
 ` },
-            { "id": "inheritance-mapping", "title": "TPH, TPC, TPT", "type": "must-know",
+            {
+              "id": "inheritance-mapping", "title": "TPH, TPC, TPT", "type": "must-know",
               description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #3b82f6; box-shadow:0 4px 15px rgba(59, 130, 246, 0.3)">
   <h2 style="color:#1e40af">📚 EF Core Inheritance Mapping Strategies</h2>
   <p>When modeling inheritance in EF Core, you can choose how to map your class hierarchy to the database tables. The main strategies are:</p>
@@ -1781,7 +1806,8 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
   </ul>
 </div>
 ` },
-            { "id": "bulk-operations", "title": "Bulk Insert/Update APIs", "type": "must-know",
+            {
+              "id": "bulk-operations", "title": "Bulk Insert/Update APIs", "type": "must-know",
               description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef6ff; padding:1.5rem; border-radius:1rem; border:1px solid #a78bfa; box-shadow:0 4px 15px rgba(167, 139, 250, 0.3)">
   <h2 style="color:#7c3aed">🚀 Bulk Insert/Update in Entity Framework Core</h2>
   <p>
@@ -1841,7 +1867,8 @@ context.BulkUpdate(products);
   </ul>
 </div>
 ` },
-            { "id": "interceptors", "title": "Interceptors", "type": "good-to-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #3b82f6; box-shadow:0 4px 15px rgba(59, 130, 246, 0.3)">
+            {
+              "id": "interceptors", "title": "Interceptors", "type": "good-to-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #3b82f6; box-shadow:0 4px 15px rgba(59, 130, 246, 0.3)">
   <h2 style="color:#1e40af">🛡️ EF Core Interceptors</h2>
   <p>
     Interceptors in EF Core allow you to intercept and customize low-level database operations such as command execution, connection opening, and saving changes.
@@ -2006,7 +2033,8 @@ WHERE DepartmentId = 101;
 </div>
 ` ,
           children: [
-            { id: "sql-server", title: "SQL Server", type: "must-know" ,
+            {
+              id: "sql-server", title: "SQL Server", type: "must-know",
               description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #3b82f6; box-shadow:0 4px 15px rgba(59, 130, 246, 0.3)">
   <h2 style="color:#1e40af">🛢️ Microsoft SQL Server</h2>
   <p>
@@ -2058,7 +2086,8 @@ WHERE Name LIKE 'John%';</code></pre>
   </ul>
 </div>
 ` },
-            { id: "postgresql", title: "PostgreSQL", type: "good-to-know",
+            {
+              id: "postgresql", title: "PostgreSQL", type: "good-to-know",
               description: `<div style="font-family:sans-serif; line-height:1.6; background:#f7f9fc; padding:1.5rem; border-radius:1rem; border:1px solid #3b82f6; box-shadow:0 4px 15px rgba(59, 130, 246, 0.2)">
   <h2 style="color:#2563eb">🍃 PostgreSQL - Advanced Open Source RDBMS</h2>
   <p>
@@ -2109,7 +2138,8 @@ WHERE username LIKE 'john%';</code></pre>
   </ul>
 </div>
 `  },
-            { id: "mariadb", title: "MariaDB", type: "optional",
+            {
+              id: "mariadb", title: "MariaDB", type: "optional",
               description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff8f0; padding:1.5rem; border-radius:1rem; border:1px solid #f97316; box-shadow:0 4px 15px rgba(249, 115, 22, 0.3)">
   <h2 style="color:#c2410c">🔥 MariaDB - Open Source Relational Database</h2>
   <p>
@@ -2162,7 +2192,8 @@ WHERE department = 'HR';</code></pre>
   </ul>
 </div>
 `  },
-            { id: "mysql", title: "MySQL", type: "optional",
+            {
+              id: "mysql", title: "MySQL", type: "optional",
               description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #2563eb; box-shadow:0 4px 15px rgba(37, 99, 235, 0.3)">
   <h2 style="color:#1e40af">🐬 MySQL - Popular Open Source RDBMS</h2>
   <p>
@@ -2262,7 +2293,8 @@ function search(query, documents) {
 </div>
 ` ,
           children: [
-            { id: "elasticsearch", title: "Elasticsearch", type: "must-know",
+            {
+              id: "elasticsearch", title: "Elasticsearch", type: "must-know",
               description: `<div style="font-family:sans-serif; line-height:1.6; background:#f5f7fa; padding:1.5rem; border-radius:1rem; border:1px solid #0077b6; box-shadow:0 4px 15px rgba(0, 119, 182, 0.3)">
   <h2 style="color:#023e8a">⚡ Elasticsearch - Distributed Search & Analytics Engine</h2>
   <p>
@@ -2313,7 +2345,8 @@ GET /products/_search
   </ul>
 </div>
 `  },
-            { id: "meilisearch", title: "Meilisearch", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdfa; padding:1.5rem; border-radius:1rem; border:1px solid #10b981; box-shadow:0 4px 15px rgba(16, 185, 129, 0.3)">
+            {
+              id: "meilisearch", title: "Meilisearch", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdfa; padding:1.5rem; border-radius:1rem; border:1px solid #10b981; box-shadow:0 4px 15px rgba(16, 185, 129, 0.3)">
   <h2 style="color:#047857">⚡ Meilisearch - Fast & Relevant Open-Source Search Engine</h2>
   <p>
     Meilisearch is a blazing-fast, easy-to-use, open-source search engine optimized for instant, typo-tolerant, and highly relevant full-text search experiences.
@@ -2356,7 +2389,8 @@ GET /indexes/products/search?q=lptop</code></pre>
   </ul>
 </div>
 `  },
-            { id: "manticoresearch", title: "ManticoreSearch", type: "good-to-know",
+            {
+              id: "manticoresearch", title: "ManticoreSearch", type: "good-to-know",
               description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff7ed; padding:1.5rem; border-radius:1rem; border:1px solid #f97316; box-shadow:0 4px 15px rgba(249, 115, 22, 0.3)">
   <h2 style="color:#c2410c">🔥 Manticore Search - High-Performance Open Source Search Engine</h2>
   <p>
@@ -2403,8 +2437,9 @@ SELECT * FROM products WHERE MATCH('laptop SSD') LIMIT 10;</code></pre>
   </ul>
 </div>
 `  },
-            
-              { id: "opensearch", title: "OpenSearch", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f4ff; padding:1.5rem; border-radius:1rem; border:1px solid #3b82f6; box-shadow:0 4px 15px rgba(59, 130, 246, 0.3)">
+
+            {
+              id: "opensearch", title: "OpenSearch", type: "optional", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f4ff; padding:1.5rem; border-radius:1rem; border:1px solid #3b82f6; box-shadow:0 4px 15px rgba(59, 130, 246, 0.3)">
   <h2 style="color:#2563eb">🔎 OpenSearch - Open-Source Search & Analytics Suite</h2>
   <p>
     OpenSearch is a community-driven, open-source search and analytics suite derived from Elasticsearch 7.10.2 and Kibana 7.10.2. It offers powerful search, log analytics, and data visualization capabilities.
@@ -2552,7 +2587,8 @@ db.users.find({ age: { $gte: 25 } })</code></pre>
 </div>
 `,
               children: [
-                { id: "redis-onprem", title: "Redis", type: "must-know",
+                {
+                  id: "redis-onprem", title: "Redis", type: "must-know",
                   description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:2rem; border-radius:1rem; border:2px solid #0284c7; box-shadow:0 6px 20px rgba(2, 132, 199, 0.3)">
   <h2 style="color:#0369a1; margin-bottom:1rem;">⚡ Redis - Advanced In-Memory Data Structure Store</h2>
   <p>
@@ -2631,7 +2667,8 @@ SUBSCRIBE notifications
   </ul>
 </div>
 ` },
-                { id: "mongodb", title: "MongoDB", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34, 197, 94, 0.3)">
+                {
+                  id: "mongodb", title: "MongoDB", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34, 197, 94, 0.3)">
   <h2 style="color:#15803d; margin-bottom:1rem;">🍃 MongoDB - NoSQL Document Database</h2>
   <p>
     MongoDB is a leading NoSQL, document-oriented database designed for high performance, scalability, and flexibility. It stores data in JSON-like BSON documents which allow complex nested structures.
@@ -2709,7 +2746,8 @@ db.users.aggregate([
   </ul>
 </div>
 ` },
-                { id: "lite-db", title: "LiteDB", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:2rem; border-radius:1rem; border:2px solid #ca8a04; box-shadow:0 6px 20px rgba(202, 138, 4, 0.3)">
+                {
+                  id: "lite-db", title: "LiteDB", type: "optional", description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:2rem; border-radius:1rem; border:2px solid #ca8a04; box-shadow:0 6px 20px rgba(202, 138, 4, 0.3)">
   <h2 style="color:#854d0e; margin-bottom:1rem;">📦 LiteDB – Lightweight Embedded NoSQL Database for .NET</h2>
   <p>
     <strong>LiteDB</strong> is a lightweight, fast, serverless NoSQL database designed for .NET applications. It stores data in a single .db file and requires no installation or setup, making it ideal for local or embedded storage.
@@ -2774,7 +2812,8 @@ customers.Delete(customer.Id);
   </ul>
 </div>
 ` },
-                { id: "apache-cassandra", title: "Apache Cassandra", type: "optional",
+                {
+                  id: "apache-cassandra", title: "Apache Cassandra", type: "optional",
                   description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0284c7; box-shadow:0 6px 20px rgba(2, 132, 199, 0.2)">
   <h2 style="color:#075985; margin-bottom:1rem;">🌐 Apache Cassandra – Distributed NoSQL Database for Massive Scalability</h2>
   <p>
@@ -2851,7 +2890,8 @@ var rows = session.Execute("SELECT * FROM posts");
   </ul>
 </div>
 ` },
-                { id: "ravendb", title: "RavenDB", type: "optional" ,description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfdf5; padding:2rem; border-radius:1rem; border:2px solid #059669; box-shadow:0 6px 20px rgba(5, 150, 105, 0.2)">
+                {
+                  id: "ravendb", title: "RavenDB", type: "optional", description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfdf5; padding:2rem; border-radius:1rem; border:2px solid #059669; box-shadow:0 6px 20px rgba(5, 150, 105, 0.2)">
   <h2 style="color:#065f46; margin-bottom:1rem;">🕊️ RavenDB – Fully Transactional NoSQL Document Database for .NET</h2>
   <p>
     <strong>RavenDB</strong> is a high-performance, open-source <em>document database</em> built with .NET developers in mind. It supports ACID transactions, full-text search, and automatic indexing out-of-the-box. RavenDB is production-ready, scalable, and ideal for .NET applications.
@@ -2919,7 +2959,8 @@ using (var session = store.OpenSession())
   </ul>
 </div>
 `},
-                { id: "couchdb", title: "CouchDB", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:2rem; border-radius:1rem; border:2px solid #facc15; box-shadow:0 6px 20px rgba(234, 179, 8, 0.2)">
+                {
+                  id: "couchdb", title: "CouchDB", type: "optional", description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:2rem; border-radius:1rem; border:2px solid #facc15; box-shadow:0 6px 20px rgba(234, 179, 8, 0.2)">
   <h2 style="color:#92400e; margin-bottom:1rem;">🍵 CouchDB – RESTful NoSQL Database with Seamless Sync</h2>
   <p>
     <strong>Apache CouchDB</strong> is a document-oriented NoSQL database designed to be easy to use, with a focus on reliability and offline synchronization. It uses <code>JSON</code> to store data, <code>HTTP</code> for its API, and <code>MapReduce</code> for querying and indexing.
@@ -3045,7 +3086,8 @@ az webapp up --name my-dotnet-app \
 </div>
 `,
               children: [
-                { id: "azure-cosmosdb", title: "Azure CosmosDB", type: "must-know",
+                {
+                  id: "azure-cosmosdb", title: "Azure CosmosDB", type: "must-know",
                   description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfdf5; padding:2rem; border-radius:1rem; border:2px solid #10b981; box-shadow:0 6px 20px rgba(16, 185, 129, 0.15)">
   <h2 style="color:#065f46; margin-bottom:1rem;">🪐 Azure Cosmos DB – Global, Scalable NoSQL for .NET</h2>
   <p>
@@ -3097,7 +3139,8 @@ await container.Container.CreateItemAsync(user, new PartitionKey("u1"));
   </ul>
 </div>
 ` },
-                { id: "amazon-dynamodb", title: "Amazon DynamoDB", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
+                {
+                  id: "amazon-dynamodb", title: "Amazon DynamoDB", type: "optional", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
   <h2 style="color:#15803d; margin-bottom:1rem;">🟩 Amazon DynamoDB – Fast & Flexible NoSQL on AWS</h2>
   <p>
     <strong>Amazon DynamoDB</strong> is a fully managed NoSQL database service by AWS designed for single-digit millisecond performance at any scale. It's ideal for high-throughput apps and integrates well with ASP.NET Core via the AWS SDK.
@@ -3226,7 +3269,7 @@ if (_cache.TryGetValue("user_1", out User cachedUser))
 `,
           type: "must-know"
         },
-        { 
+        {
           id: "distributed-cache",
           title: "Distributed Cache",
           type: "must-know",
@@ -4048,8 +4091,59 @@ var products = await dbContext.Products
       id: "log-frameworks",
       title: "Log Frameworks",
       direction: "left",
+      description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>📝 Log Frameworks</h2>
+  <p><strong>Log frameworks</strong> are essential for recording and managing application runtime behavior. They help developers track events, diagnose issues, and monitor system health through structured, leveled logs.</p>
+
+  <h3 style='color:#10b981'>🧱 Core Features</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>Log levels:</strong> Trace, Debug, Info, Warning, Error, Fatal.</li>
+    <li><strong>Output targets:</strong> Console, files, databases, cloud services.</li>
+    <li><strong>Asynchronous logging:</strong> Improve performance and responsiveness.</li>
+    <li><strong>Structured logging:</strong> Use key-value pairs (e.g., JSON) for easier parsing.</li>
+    <li><strong>Filtering and enrichment:</strong> Customize logs with context (e.g., request ID).</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>🚀 Popular Logging Frameworks</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>Serilog (.NET):</strong> Rich structured logging with sinks and enrichers.</li>
+    <li><strong>Log4j (Java):</strong> Widely used, configurable with XML/YAML.</li>
+    <li><strong>SLF4J (Java):</strong> Logging façade that works with Logback, Log4j.</li>
+    <li><strong>Winston (Node.js):</strong> Powerful with transports, formats, and metadata.</li>
+    <li><strong>Python logging:</strong> Built-in standard library support for flexible configs.</li>
+    <li><strong>loguru (Python):</strong> Simpler and friendlier than built-in logging.</li>
+    <li><strong>Go log / zap:</strong> Lightweight and performant for Go apps.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>📦 Use Cases</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li>Debugging and error tracking in dev/staging environments.</li>
+    <li>Audit logs for security and compliance.</li>
+    <li>Performance monitoring via request/response times.</li>
+    <li>Cloud-native observability and integration with ELK, Datadog, etc.</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li><strong>Don’t log sensitive data:</strong> Mask or omit credentials and PII.</li>
+    <li><strong>Use correlation IDs:</strong> Link related logs across services.</li>
+    <li><strong>Set appropriate log levels:</strong> Avoid flooding production logs with debug output.</li>
+    <li><strong>Centralize logs:</strong> Use a log aggregator (e.g., Fluentd, Logstash).</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://serilog.net/' target='_blank' style='color:#3b82f6'>Serilog Documentation</a></li>
+    <li><a href='https://logging.apache.org/log4j/2.x/' target='_blank' style='color:#3b82f6'>Log4j 2 Docs</a></li>
+    <li><a href='https://www.slf4j.org/manual.html' target='_blank' style='color:#3b82f6'>SLF4J Guide</a></li>
+    <li><a href='https://github.com/winstonjs/winston' target='_blank' style='color:#3b82f6'>Winston GitHub</a></li>
+    <li><a href='https://docs.python.org/3/library/logging.html' target='_blank' style='color:#3b82f6'>Python Logging Module</a></li>
+  </ul>
+</div>
+`,
       children: [
-        { id: "serilog", title: "Serilog", type: "must-know",
+        {
+          id: "serilog", title: "Serilog", type: "must-know",
           description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width:700px; margin:auto; padding:1.8rem; background:#f0f8ff; border-radius:12px; border:1.5px solid #3a86ff; box-shadow: 0 4px 15px rgba(58, 134, 255, 0.2); color:#0d1b2a;">
   <h2 style="color:#3a86ff; margin-bottom:0.6rem;">📝 Serilog - Structured Logging for .NET</h2>
   <p style="font-size:1rem; line-height:1.5; margin-bottom:1.2rem;">
@@ -4113,7 +4207,8 @@ public class HomeController : Controller
   </ul>
 </div>
 ` },
-        { id: "nlog", title: "NLog", type: "optional",
+        {
+          id: "nlog", title: "NLog", type: "optional",
           description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width:700px; margin:auto; padding:2rem; background:#fff8e1; border-radius:12px; border:1.5px solid #fbc02d; box-shadow: 0 4px 15px rgba(251, 192, 45, 0.3); color:#5d4037;">
   <h2 style="color:#f9a825; margin-bottom:0.6rem;">📝 NLog - Flexible Logging for .NET</h2>
   <p style="font-size:1rem; line-height:1.5; margin-bottom:1.2rem;">
@@ -4194,7 +4289,8 @@ public class HomeController : Controller
       title: "Real Time Communication",
       direction: "left",
       children: [
-        { id: "signalr-core", title: "SignalR Core", type: "must-know",
+        {
+          id: "signalr-core", title: "SignalR Core", type: "must-know",
           description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width:720px; margin:auto; padding:2rem; background:#e3f2fd; border-radius:14px; border:2px solid #2196f3; box-shadow: 0 5px 20px rgba(33, 150, 243, 0.3); color:#0d47a1; line-height:1.6;">
   <h2 style="color:#1565c0; margin-bottom:1rem;">⚡ SignalR Core - Real-Time Communication Framework in ASP.NET Core</h2>
 
@@ -4288,7 +4384,8 @@ function sendMessage(user, message) {
   </ul>
 </div>
 `  },
-        { id: "web-sockets", title: "Web Sockets", type: "optional",
+        {
+          id: "web-sockets", title: "Web Sockets", type: "optional",
           description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width:720px; margin:auto; padding:2rem; background:#f0f4c3; border-radius:14px; border:2px solid #afb42b; box-shadow: 0 5px 20px rgba(171, 180, 0, 0.3); color:#827717; line-height:1.6;">
   <h2 style="color:#c0ca33; margin-bottom:1rem;">🔌 WebSockets - Full-Duplex Communication Protocol</h2>
 
@@ -4382,6 +4479,55 @@ app.Use(async (context, next) =>
       id: "api-clients-communications",
       title: "API Clients & Communications",
       direction: "right",
+      description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>🔌 API Clients & Communications</h2>
+  <p><strong>API Clients</strong> enable applications to interact with other systems, services, or components over a network using standard protocols such as HTTP or gRPC. They play a crucial role in microservices, frontend-backend interaction, and 3rd-party integrations.</p>
+
+  <h3 style='color:#10b981'>🔧 Communication Methods</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>REST:</strong> Resource-based API architecture using HTTP methods (GET, POST, etc.).</li>
+    <li><strong>GraphQL:</strong> Query-based API for flexible and efficient data fetching.</li>
+    <li><strong>gRPC:</strong> High-performance, binary protocol over HTTP/2, often used in microservices.</li>
+    <li><strong>WebSockets:</strong> Persistent, real-time, bi-directional communication.</li>
+    <li><strong>SOAP:</strong> XML-based protocol used in enterprise integrations.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>⚙️ Popular API Clients</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>Axios (JS):</strong> Promise-based HTTP client for the browser and Node.js.</li>
+    <li><strong>Fetch API (JS):</strong> Modern browser-native HTTP interface.</li>
+    <li><strong>HttpClient (.NET):</strong> Built-in and extensible HTTP client.</li>
+    <li><strong>Retrofit (Java):</strong> Type-safe REST client for Android and Java apps.</li>
+    <li><strong>Apollo Client:</strong> Advanced GraphQL client for JS/React apps.</li>
+    <li><strong>gRPC Stubs:</strong> Generated client code from proto files for efficient service calls.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>📦 Use Cases</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li>Connecting frontend apps to backend APIs</li>
+    <li>Microservices-to-microservices communication</li>
+    <li>Calling external APIs (e.g., payment, AI, analytics)</li>
+    <li>Streaming real-time data using sockets or events</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li><strong>Retry policies:</strong> Handle transient failures gracefully.</li>
+    <li><strong>Timeouts and circuit breakers:</strong> Avoid cascading service failures.</li>
+    <li><strong>Authentication:</strong> Secure APIs with OAuth, API keys, or JWT.</li>
+    <li><strong>Logging & tracing:</strong> Monitor request/response flows for debugging and performance.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://axios-http.com/' target='_blank' style='color:#3b82f6'>Axios Documentation</a></li>
+    <li><a href='https://learn.microsoft.com/en-us/dotnet/fundamentals/networking/http/httpclient' target='_blank' style='color:#3b82f6'>.NET HttpClient Guide</a></li>
+    <li><a href='https://grpc.io/docs/' target='_blank' style='color:#3b82f6'>gRPC Docs</a></li>
+    <li><a href='https://www.apollographql.com/docs/react/' target='_blank' style='color:#3b82f6'>Apollo GraphQL Client</a></li>
+    <li><a href='https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API' target='_blank' style='color:#3b82f6'>Fetch API - MDN</a></li>
+  </ul>
+</div>
+`,
       children: [
         {
           id: "rest",
@@ -4462,7 +4608,8 @@ DELETE  /api/products/42
 </div>
 `,
           children: [
-            { id: "gridify", title: "Gridify", type: "good-to-know",
+            {
+              id: "gridify", title: "Gridify", type: "good-to-know",
               description: `<h2>🔍 REST + Gridify (Smart Filtering, Paging, Sorting)</h2>
 <p><strong>Gridify</strong> is a lightweight .NET library that simplifies advanced filtering, sorting, and pagination over REST endpoints. It helps you avoid writing repetitive LINQ code and improves API usability.</p>
 
@@ -4526,7 +4673,8 @@ DELETE  /api/products/42
 <h3>📚 Docs</h3>
 <p>More info: <a href="https://github.com/alirezanet/Gridify" target="_blank">GitHub - Gridify</a></p>
 ` },
-            { id: "odata", title: "OData", type: "optional",description: `<h2>🌐 OData (Open Data Protocol) – Advanced Querying for REST APIs</h2>
+            {
+              id: "odata", title: "OData", type: "optional", description: `<h2>🌐 OData (Open Data Protocol) – Advanced Querying for REST APIs</h2>
 
 <p><strong>OData</strong> is a standardized protocol built on top of REST, enabling clients to query and manipulate data using rich query capabilities such as filtering, sorting, pagination, and data shaping directly through URL parameters. It is widely supported in .NET ecosystem and ideal for building flexible, scalable APIs.</p>
 
@@ -4662,7 +4810,8 @@ The <strong>Representation (Repr) Pattern</strong> means clients work with repre
 `,
               type: "optional",
               children: [
-                { id: "minimal-apis", title: "Minimal APIs", type: "must-know",
+                {
+                  id: "minimal-apis", title: "Minimal APIs", type: "must-know",
                   description: `<style>
   .section {
     background: #fff8e1;
@@ -4781,7 +4930,8 @@ record User(int Id, string Name);
   </ul>
 </div>
 ` },
-                { id: "ardalis-endpoints", title: "Ardalis.Endpoints", type: "optional",
+                {
+                  id: "ardalis-endpoints", title: "Ardalis.Endpoints", type: "optional",
                   description: `<div style="background:#e3f2fd; border-left:6px solid #1976d2; padding:20px 25px; margin-bottom:25px; border-radius:8px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#0d47a1;">
   <h2 style="color:#1565c0; margin-bottom:12px;">📦 Ardalis Endpoints</h2>
   <p>
@@ -4835,7 +4985,8 @@ record User(int Id, string Name);
   </ul>
 </div>
 ` },
-                { id: "fastendpoints", title: "FastEndpoints", type: "optional",description: `<div style="background:#e8f5e9; border-left:6px solid #388e3c; padding:20px 25px; margin-bottom:25px; border-radius:8px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#2e7d32;">
+                {
+                  id: "fastendpoints", title: "FastEndpoints", type: "optional", description: `<div style="background:#e8f5e9; border-left:6px solid #388e3c; padding:20px 25px; margin-bottom:25px; border-radius:8px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#2e7d32;">
   <h2 style="color:#2e7d32; margin-bottom:12px;">⚡ FastEndpoints</h2>
   <p>
     <strong>FastEndpoints</strong> is a modern, high-performance, and minimalistic framework built on top of ASP.NET Core.
@@ -5051,7 +5202,8 @@ mutation {
 </div>
 `,
           children: [
-            { id: "hotchocolate", title: "HotChocolate", type: "good-to-know",
+            {
+              id: "hotchocolate", title: "HotChocolate", type: "good-to-know",
               description: `<div style="background:#e8f5e9; border-left:6px solid #43a047; padding:20px 25px; margin-bottom:25px; border-radius:8px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#2e7d32;">
   <h2 style="color:#388e3c; margin-bottom:12px;">🍫 HotChocolate - Modern GraphQL Server for .NET</h2>
   <p>
@@ -5102,7 +5254,8 @@ public class Query
   </ul>
 </div>
 ` },
-            { id: "graphql-dotnet", title: "GraphQL.dotnet", type: "good-to-know",
+            {
+              id: "graphql-dotnet", title: "GraphQL.dotnet", type: "good-to-know",
               description: `<div style="background:#f3e5f5; border-left:6px solid #7b1fa2; padding:20px 25px; margin-bottom:25px; border-radius:8px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#4a148c;">
   <h2 style="color:#6a1b9a; margin-bottom:12px;">📦 GraphQL.NET - .NET implementation of GraphQL</h2>
   <p>
@@ -5167,7 +5320,8 @@ services.AddGraphQL(options => {
       title: "Background Task Scheduler",
       direction: "left",
       children: [
-        { id: "native-background-service", title: "Native BackgroundService", type: "must-know",
+        {
+          id: "native-background-service", title: "Native BackgroundService", type: "must-know",
           description: `<div style="background:#e3f2fd; border-left:6px solid #1976d2; padding:20px 25px; margin-bottom:25px; border-radius:8px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#0d47a1;">
   <h2 style="color:#1565c0; margin-bottom:12px;">⏳ Native Background Service in .NET Core</h2>
   <p>
@@ -5222,7 +5376,8 @@ builder.Services.AddHostedService<MyBackgroundService>();
   </ul>
 </div>
 ` },
-        { id: "hangfire", title: "HangFire", type: "must-know",
+        {
+          id: "hangfire", title: "HangFire", type: "must-know",
           description: `<div style="background:#fff3e0; border-left:6px solid #fb8c00; padding:20px 25px; margin-bottom:25px; border-radius:8px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#e65100;">
   <h2 style="color:#ef6c00; margin-bottom:12px;">⏰ Hangfire - Background Job Processing</h2>
   <p>
@@ -5286,7 +5441,8 @@ public class Program
   </ul>
 </div>
 ` },
-        { id: "quartz", title: "Quartz", type: "optional",
+        {
+          id: "quartz", title: "Quartz", type: "optional",
           description: `<div style="background:#e8f5e9; border-left:6px solid #43a047; padding:20px 25px; margin-bottom:25px; border-radius:8px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#2e7d32;">
   <h2 style="color:#388e3c; margin-bottom:12px;">⏳ Quartz.NET - Advanced Job Scheduling</h2>
   <p>
@@ -5353,7 +5509,8 @@ app.Run();
   </ul>
 </div>
 ` },
-        { id: "coravel", title: "Coravel", type: "optional",
+        {
+          id: "coravel", title: "Coravel", type: "optional",
           description: `<div style="background:#e3f2fd; border-left:6px solid #1976d2; padding:20px 25px; margin-bottom:25px; border-radius:8px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#0d47a1;">
   <h2 style="color:#1565c0; margin-bottom:12px;">⚡ Coravel - Simplified Background Tasks & Scheduling</h2>
   <p>
@@ -5422,7 +5579,8 @@ app.Run();
       title: "Object Mapping",
       direction: "right",
       children: [
-        { id: "manual-mapping", title: "Manual mapping", type: "must-know",
+        {
+          id: "manual-mapping", title: "Manual mapping", type: "must-know",
           description: `<div style="background:#fff8e1; border-left:6px solid #ffb300; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#5d4037;">
   <h2 style="color:#ff8f00; margin-bottom:15px;">🛠️ Manual Object Mapping in .NET - The Art of Explicit Transformation</h2>
   
@@ -5501,7 +5659,8 @@ private int CalculateAge(DateTime birthDate)
   </ul>
 </div>
 ` },
-        { id: "mappery", title: "Mapperly", type: "good-to-know",
+        {
+          id: "mappery", title: "Mapperly", type: "good-to-know",
           description: `<div style="background:#e3f2fd; border-left:6px solid #2196f3; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#0d47a1;">
   <h2 style="color:#1976d2; margin-bottom:15px;">🛠️ Mapperly: High-Performance Source-Generated Object Mapping for .NET</h2>
 
@@ -5560,7 +5719,8 @@ public partial class UserMapper
   </ul>
 </div>
 ` },
-        { id: "automapper", title: "AutoMapper", type: "good-to-know",
+        {
+          id: "automapper", title: "AutoMapper", type: "good-to-know",
           description: `<div style="background:#fff3e0; border-left:6px solid #fb8c00; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#bf360c;">
   <h2 style="color:#ef6c00; margin-bottom:15px;">🛠️ AutoMapper: Convention-Based Object-Object Mapper for .NET</h2>
 
@@ -5699,7 +5859,8 @@ services.AddAutoMapper(typeof(UserProfile));</code>
 </div>
 `,
           children: [
-            { id: "rabbitmq", title: "RabbitMQ", type: "must-know",
+            {
+              id: "rabbitmq", title: "RabbitMQ", type: "must-know",
               description: `<div style="background:#e3f2fd; border-left:6px solid #2196f3; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#0d47a1;">
   <h2 style="color:#1976d2; margin-bottom:15px;">🐇 RabbitMQ: Robust Message Broker for Distributed Systems</h2>
 
@@ -5763,7 +5924,8 @@ Console.WriteLine(" [x] Sent {0}", message);</code>
   </ul>
 </div>
 ` },
-            { id: "apache-kafka", title: "Apache Kafka", type: "good-to-know",
+            {
+              id: "apache-kafka", title: "Apache Kafka", type: "good-to-know",
               description: `<div style="background:#f3e5f5; border-left:6px solid #7b1fa2; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#4a148c;">
   <h2 style="color:#9c27b0; margin-bottom:15px;">🚀 Apache Kafka: Distributed Streaming Platform</h2>
 
@@ -5822,7 +5984,8 @@ catch (ProduceException&lt;Null, string&gt; e)
   </ul>
 </div>
 ` },
-            { id: "azure-service-bus", title: "Azure Service Bus", type: "optional",
+            {
+              id: "azure-service-bus", title: "Azure Service Bus", type: "optional",
               description: `<div style="background:#e0f7fa; border-left:6px solid #26a69a; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#004d40;">
   <h2 style="color:#00796b; margin-bottom:15px;">☁️ Azure Service Bus: Enterprise Message Broker for Cloud Apps</h2>
 
@@ -5889,7 +6052,8 @@ await processor.StartProcessingAsync();
   </ul>
 </div>
 ` },
-            { id: "amazon-sqs", title: "Amazon SQS", type: "optional",description: `<div style="background:#f0f8ff; border-left:6px solid #ff9900; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#333;"> <h2 style="color:#e67300; margin-bottom:15px;">🧰 Amazon SQS: Scalable and Fully Managed Message Queue Service</h2> <p> <strong>Amazon Simple Queue Service (SQS)</strong> is a fully managed, distributed message queuing service from AWS that enables decoupling of microservices, distributed systems, and serverless applications. It supports reliable, scalable, and secure asynchronous message queuing. </p> <h3 style="color:#e67300; margin-top:25px;">🔑 Key Features</h3> <ul style="background:#fff3e0; border-radius:8px; padding:15px 20px; color:#663300; font-weight:600;"> <li style="margin-bottom:10px;"><strong>Standard Queues:</strong> Unlimited throughput, at-least-once delivery, and best-effort ordering.</li> <li style="margin-bottom:10px;"><strong>FIFO Queues:</strong> Exactly-once processing and first-in-first-out delivery.</li> <li style="margin-bottom:10px;"><strong>Message Visibility Timeout:</strong> Controls how long a message is hidden after being received.</li> <li style="margin-bottom:10px;"><strong>Dead-Letter Queues (DLQ):</strong> Automatically isolate messages that can't be processed successfully.</li> <li style="margin-bottom:10px;"><strong>Long Polling:</strong> Reduce empty responses and cost by waiting for messages to arrive.</li> </ul> <h3 style="color:#e67300; margin-top:25px;">🚀 Basic Example: Sending and Receiving Messages (AWS SDK for .NET)</h3> <pre style="background:#ffe0b2; color:#663300; padding:20px; border-radius:10px; overflow-x:auto;"> <code>var sqsClient = new AmazonSQSClient(); var queueUrl = "https://sqs.us-east-1.amazonaws.com/123456789012/MyQueue";
+            {
+              id: "amazon-sqs", title: "Amazon SQS", type: "optional", description: `<div style="background:#f0f8ff; border-left:6px solid #ff9900; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#333;"> <h2 style="color:#e67300; margin-bottom:15px;">🧰 Amazon SQS: Scalable and Fully Managed Message Queue Service</h2> <p> <strong>Amazon Simple Queue Service (SQS)</strong> is a fully managed, distributed message queuing service from AWS that enables decoupling of microservices, distributed systems, and serverless applications. It supports reliable, scalable, and secure asynchronous message queuing. </p> <h3 style="color:#e67300; margin-top:25px;">🔑 Key Features</h3> <ul style="background:#fff3e0; border-radius:8px; padding:15px 20px; color:#663300; font-weight:600;"> <li style="margin-bottom:10px;"><strong>Standard Queues:</strong> Unlimited throughput, at-least-once delivery, and best-effort ordering.</li> <li style="margin-bottom:10px;"><strong>FIFO Queues:</strong> Exactly-once processing and first-in-first-out delivery.</li> <li style="margin-bottom:10px;"><strong>Message Visibility Timeout:</strong> Controls how long a message is hidden after being received.</li> <li style="margin-bottom:10px;"><strong>Dead-Letter Queues (DLQ):</strong> Automatically isolate messages that can't be processed successfully.</li> <li style="margin-bottom:10px;"><strong>Long Polling:</strong> Reduce empty responses and cost by waiting for messages to arrive.</li> </ul> <h3 style="color:#e67300; margin-top:25px;">🚀 Basic Example: Sending and Receiving Messages (AWS SDK for .NET)</h3> <pre style="background:#ffe0b2; color:#663300; padding:20px; border-radius:10px; overflow-x:auto;"> <code>var sqsClient = new AmazonSQSClient(); var queueUrl = "https://sqs.us-east-1.amazonaws.com/123456789012/MyQueue";
 // Send message
 var sendRequest = new SendMessageRequest
 {
@@ -5916,7 +6080,8 @@ await sqsClient.DeleteMessageAsync(queueUrl, message.ReceiptHandle);
 </pre>
 
 <h3 style="color:#e67300; margin-top:25px;">💡 Best Practices</h3> <ul style="color:#663300;"> <li style="margin-bottom:12px;">Use <strong>FIFO queues</strong> when order and exactly-once processing is required.</li> <li style="margin-bottom:12px;">Configure appropriate <strong>Visibility Timeout</strong> to avoid message duplication.</li> <li style="margin-bottom:12px;">Leverage <strong>Dead-Letter Queues</strong> to isolate problematic messages and analyze failures.</li> <li style="margin-bottom:12px;">Implement <strong>Long Polling</strong> to minimize API calls and reduce cost.</li> <li style="margin-bottom:12px;">Monitor queue length and message age metrics to detect backlogs and bottlenecks.</li> <li style="margin-bottom:12px;">Secure access with IAM policies and use encryption for sensitive data.</li> </ul> <h3 style="color:#e67300; margin-top:25px;">🔗 Learn More</h3> <ul style="color:#663300;"> <li><a href="https://aws.amazon.com/sqs/" target="_blank" style="color:#e67300; text-decoration:none;">Amazon SQS Official Site</a></li> <li><a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html" target="_blank" style="color:#e67300; text-decoration:none;">SQS Developer Guide</a></li> </ul> </div>` },
-            { id: "netmq", title: "NetMQ", type: "optional",
+            {
+              id: "netmq", title: "NetMQ", type: "optional",
               description: `<div style="background:#f3f4f6; border-left:6px solid #4a90e2; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#222;"> <h2 style="color:#2c6cdf; margin-bottom:15px;">⚡ NetMQ: High-Performance Messaging Library for .NET</h2> <p> <strong>NetMQ</strong> is a native .NET implementation of ZeroMQ, providing asynchronous, high-throughput, low-latency messaging patterns like pub/sub, request/reply, and push/pull. It enables building scalable and distributed applications with flexible socket communication. </p> <h3 style="color:#2c6cdf; margin-top:25px;">🔑 Key Features</h3> <ul style="background:#d6e4ff; border-radius:8px; padding:15px 20px; color:#1a3a8a; font-weight:600;"> <li style="margin-bottom:10px;"><strong>Multiple Messaging Patterns:</strong> Publish/Subscribe, Request/Reply, Push/Pull, and more.</li> <li style="margin-bottom:10px;"><strong>Cross-platform:</strong> Runs on Windows, Linux, macOS with .NET Core support.</li> <li style="margin-bottom:10px;"><strong>High Performance:</strong> Low-latency, asynchronous messaging suitable for real-time apps.</li> <li style="margin-bottom:10px;"><strong>Thread Safe:</strong> Supports concurrent use from multiple threads.</li> <li style="margin-bottom:10px;"><strong>No Broker Required:</strong> Peer-to-peer messaging without central server.</li> </ul> <h3 style="color:#2c6cdf; margin-top:25px;">🚀 Basic Example: Publisher and Subscriber</h3> <pre style="background:#bbd0ff; color:#1a3a8a; padding:20px; border-radius:10px; overflow-x:auto;"> <code>using NetMQ; using NetMQ.Sockets;
 // Publisher
 using (var pubSocket = new PublisherSocket())
@@ -6000,7 +6165,8 @@ Console.WriteLine(response); // Outputs: Pong </code> </pre>
 </div>
 `,
           children: [
-            { id: "masstransit", title: "MassTransit", type: "must-know",
+            {
+              id: "masstransit", title: "MassTransit", type: "must-know",
               description: `<div style="background:#f0f8ff; border-left:6px solid #0078d4; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#222;">
   <h2 style="color:#005a9e; margin-bottom:15px;">🚀 MassTransit: .NET Distributed Application Framework</h2>
 
@@ -6086,7 +6252,8 @@ public class SubmitOrderConsumer : IConsumer&lt;SubmitOrder&gt;
   </ul>
 </div>
 ` },
-            { id: "nservicebus", title: "NServiceBus", type: "good-to-know",
+            {
+              id: "nservicebus", title: "NServiceBus", type: "good-to-know",
               description: `<div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#222; border-radius:10px; padding:25px 30px; margin-bottom:30px;">
 
   <h2 style="color:#1e90ff; border-left:6px solid #1e90ff; padding-left:10px; margin-bottom:20px;">
@@ -6173,7 +6340,8 @@ await endpointInstance.Send(new PlaceOrder { OrderId = Guid.NewGuid(), OrderDate
 
 </div>
 ` },
-            { id: "realy-netq", title: "EasyNetMQ", type: "optional",
+            {
+              id: "realy-netq", title: "EasyNetMQ", type: "optional",
               description: `<div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#222; border-radius:10px; padding:25px 30px; margin-bottom:30px;">
 
   <h2 style="color:#005a9e; border-left:6px solid #005a9e; padding-left:10px; margin-bottom:20px;">
@@ -6312,7 +6480,8 @@ app.Run();
 </div>
 `,
           children: [
-            { id: "ocelot", title: "Ocelot", type: "must-know",
+            {
+              id: "ocelot", title: "Ocelot", type: "must-know",
               description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #222; background: #f0f8ff; border-radius: 12px; padding: 25px 30px; box-shadow: 0 4px 12px rgba(0,123,255,0.15);">
 
   <h2 style="color: #007bff; border-left: 6px solid #007bff; padding-left: 12px; margin-bottom: 20px;">
@@ -6406,7 +6575,8 @@ app.Run();
 
 </div>
 ` },
-            { id: "yarp", title: "YARP", type: "must-know",
+            {
+              id: "yarp", title: "YARP", type: "must-know",
               description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1e1e1e; background: #e6f7fa; border-radius: 12px; padding: 28px 32px; box-shadow: 0 5px 15px rgba(0, 150, 136, 0.15);">
 
   <h2 style="color: #009688; border-left: 6px solid #00796b; padding-left: 14px; margin-bottom: 20px; font-weight: 700;">
@@ -6572,7 +6742,8 @@ ENTRYPOINT ["dotnet", "MyApp.dll"]
 </div>
 `,
           children: [
-            { id: "docker", title: "Docker", type: "must-know",
+            {
+              id: "docker", title: "Docker", type: "must-know",
               description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff8f0; border-radius: 14px; padding: 30px 36px; box-shadow: 0 5px 20px rgba(255, 152, 0, 0.15); color: #bf5700;">
 
   <h2 style="color: #e65100; border-left: 8px solid #bf360c; padding-left: 18px; margin-bottom: 28px; font-weight: 700;">
@@ -6640,7 +6811,8 @@ ENTRYPOINT ["dotnet", "MyApp.dll"]
 
 </div>
 ` },
-            { id: "podman", title: "Podman", type: "optional",
+            {
+              id: "podman", title: "Podman", type: "optional",
               description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f3f9f9; border-radius: 14px; padding: 28px 32px; box-shadow: 0 6px 20px rgba(26, 115, 105, 0.15); color: #1a7369;">
 
   <h2 style="color: #13856f; border-left: 6px solid #0e5248; padding-left: 16px; margin-bottom: 24px; font-weight: 700;">
@@ -6885,7 +7057,8 @@ spec:
 ` ,
               type: "must-know",
               children: [
-                { id: "kubectl", title: "Kubectl", type: "must-know",
+                {
+                  id: "kubectl", title: "Kubectl", type: "must-know",
                   description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #fff8e1; border-radius: 12px; padding: 24px 28px; box-shadow: 0 6px 18px rgba(255, 193, 7, 0.3); color: #665800;">
 
   <h2 style="color: #ffb300; border-left: 6px solid #ff8f00; padding-left: 14px; margin-bottom: 20px; font-weight: 700;">
@@ -6957,7 +7130,8 @@ kubectl scale deployment &lt;deployment-name&gt; --replicas=5
 
 </div>
 ` },
-                { id: "rancher", title: "Rancher", type: "must-know",description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #e8f5e9; border-radius: 14px; padding: 28px 32px; box-shadow: 0 8px 24px rgba(46, 125, 50, 0.15); color: #2e7d32;">
+                {
+                  id: "rancher", title: "Rancher", type: "must-know", description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #e8f5e9; border-radius: 14px; padding: 28px 32px; box-shadow: 0 8px 24px rgba(46, 125, 50, 0.15); color: #2e7d32;">
 
   <h2 style="color: #1b5e20; border-left: 6px solid #388e3c; padding-left: 16px; margin-bottom: 24px; font-weight: 700;">
     🐄 Rancher: Kubernetes Management Platform
@@ -7013,7 +7187,8 @@ kubectl scale deployment &lt;deployment-name&gt; --replicas=5
 
 </div>
 ` },
-                { id: "k9s", title: "K9s", type: "optional",description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #e3f2fd; border-radius: 14px; padding: 28px 32px; box-shadow: 0 8px 24px rgba(25, 118, 210, 0.15); color: #1565c0;">
+                {
+                  id: "k9s", title: "K9s", type: "optional", description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #e3f2fd; border-radius: 14px; padding: 28px 32px; box-shadow: 0 8px 24px rgba(25, 118, 210, 0.15); color: #1565c0;">
 
   <h2 style="color: #0d47a1; border-left: 6px solid #1976d2; padding-left: 16px; margin-bottom: 24px; font-weight: 700;">
     🐾 K9s: Kubernetes CLI Dashboard
@@ -7070,7 +7245,8 @@ kubectl scale deployment &lt;deployment-name&gt; --replicas=5
           id: "other",
           title: "Other",
           children: [
-            { id: "net-aspire", title: ".NET Aspire", type: "good-to-know",
+            {
+              id: "net-aspire", title: ".NET Aspire", type: "good-to-know",
               description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f3e5f5; border-radius: 14px; padding: 28px 32px; box-shadow: 0 8px 24px rgba(123, 31, 162, 0.15); color: #6a1b9a;">
 
   <h2 style="color: #4a148c; border-left: 6px solid #8e24aa; padding-left: 16px; margin-bottom: 24px; font-weight: 700;">
@@ -7125,7 +7301,8 @@ kubectl scale deployment &lt;deployment-name&gt; --replicas=5
 
 </div>
 ` },
-            { id: "orleans", title: "Orleans", type: "good-to-know",
+            {
+              id: "orleans", title: "Orleans", type: "good-to-know",
               description: `<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #e8f5e9; border-radius: 14px; padding: 28px 32px; box-shadow: 0 8px 24px rgba(56, 142, 60, 0.15); color: #2e7d32;">
 
   <h2 style="color: #1b5e20; border-left: 6px solid #43a047; padding-left: 16px; margin-bottom: 24px; font-weight: 700;">
@@ -7186,7 +7363,8 @@ kubectl scale deployment &lt;deployment-name&gt; --replicas=5
 
 </div>
 ` },
-            { id: "proto-actor", title: "Proto.Actor", type: "optional",
+            {
+              id: "proto-actor", title: "Proto.Actor", type: "optional",
               description: `<div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#e3f2fd; border-radius:14px; padding:28px 32px; box-shadow:0 8px 24px rgba(33, 150, 243, 0.2); color:#0d47a1;">
 
   <h2 style="color:#1565c0; border-left:6px solid #42a5f5; padding-left:16px; margin-bottom:24px; font-weight:700;">
@@ -7252,7 +7430,8 @@ pid.Tell(new Greet { Name = "Proto.Actor" });</code></pre>
 
 </div>
 ` },
-            { id: "dapr", title: "Dapr", type: "optional",
+            {
+              id: "dapr", title: "Dapr", type: "optional",
               description: `<div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#f3e5f5; border-radius:14px; padding:28px 32px; box-shadow:0 8px 24px rgba(123, 31, 162, 0.2); color:#4a148c;">
 
   <h2 style="color:#6a1b9a; border-left:6px solid #ab47bc; padding-left:16px; margin-bottom:24px; font-weight:700;">
@@ -7323,7 +7502,8 @@ Content-Type: application/json
 
 </div>
 ` },
-            { id: "akka-net", title: "Akka.NET", type: "optional",
+            {
+              id: "akka-net", title: "Akka.NET", type: "optional",
               description: `<div style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background:#ede7f6; border-radius:14px; padding:28px 32px; box-shadow:0 8px 24px rgba(103, 58, 183, 0.2); color:#311b92;">
 
   <h2 style="color:#4527a0; border-left:6px solid #7e57c2; padding-left:16px; margin-bottom:24px; font-weight:700;">
@@ -7407,7 +7587,7 @@ greeter.Tell("Akka.NET");</code></pre>
       id: "testing",
       title: "Testing",
       direction: "right",
-      
+
       children: [
         {
           id: "unit-testing",
@@ -7469,7 +7649,7 @@ test('adds 2 + 3 to equal 5', () => {
     <li><a href="https://xunit.net/docs/getting-started/netfx/visual-studio" target="_blank" style="color:#10b981;">xUnit for .NET</a></li>
   </ul>
 </div>`
-,
+          ,
           type: "must-know",
           children: [
             {
@@ -7533,9 +7713,10 @@ test('greets user correctly', () => {
     <li><a href="https://junit.org/junit5/docs/current/user-guide/" target="_blank" style="color:#22c55e;">JUnit 5 Guide</a></li>
   </ul>
 </div>`
-,
+              ,
               children: [
-                { id: "xunit", title: "xUnit", type: "must-know",
+                {
+                  id: "xunit", title: "xUnit", type: "must-know",
                   description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef2f2; padding:2rem; border-radius:1rem; border:2px solid #ef4444; box-shadow:0 6px 20px rgba(239,68,68,0.2)">
   <h2 style="color:#dc2626;">🧪 Unit Testing with xUnit in .NET</h2>
   <p>
@@ -7610,8 +7791,9 @@ public void Add_WorksForMultipleInputs(int a, int b, int expected)
     <li><a href="https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-dotnet-test" target="_blank" style="color:#ef4444;">Microsoft Guide: Unit Testing with dotnet test</a></li>
   </ul>
 </div>`
- },
-                { id: "nunit", title: "NUnit", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
+                },
+                {
+                  id: "nunit", title: "NUnit", type: "good-to-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
   <h2 style="color:#0284c7;">🧪 Unit Testing with NUnit in .NET</h2>
   <p>
     <strong>NUnit</strong> is one of the oldest and most widely-used unit testing frameworks in the .NET ecosystem.
@@ -7696,8 +7878,9 @@ public void Multiply_WorksCorrectly(int a, int b, int expected)
     <li><a href="https://learn.microsoft.com/en-us/dotnet/core/testing/" target="_blank" style="color:#0ea5e9;">.NET Testing Documentation</a></li>
   </ul>
 </div>`
-                 },
-                { id: "mstest", title: "MSTest", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:2rem; border-radius:1rem; border:2px solid #eab308; box-shadow:0 6px 20px rgba(234,179,8,0.2)">
+                },
+                {
+                  id: "mstest", title: "MSTest", type: "optional", description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:2rem; border-radius:1rem; border:2px solid #eab308; box-shadow:0 6px 20px rgba(234,179,8,0.2)">
   <h2 style="color:#ca8a04;">🧪 Unit Testing with MSTest</h2>
   <p>
     <strong>MSTest</strong> is the official test framework developed by Microsoft. It comes built-in with Visual Studio and offers deep integration with the .NET testing ecosystem, especially for enterprise-grade projects using Azure DevOps.
@@ -7781,7 +7964,7 @@ public void Add_WorksForMultipleInputs(int a, int b, int expected)
     <li><a href="https://github.com/microsoft/testfx" target="_blank" style="color:#eab308;">MSTest GitHub (TestFramework)</a></li>
   </ul>
 </div>`
-                 },
+                },
               ]
             },
             {
@@ -7869,9 +8052,10 @@ public class NotificationServiceTests
     <li><a href="https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-with-moq" target="_blank" style="color:#eab308;">Microsoft Docs: Mocking with Moq</a></li>
   </ul>
 </div>`
-,
+              ,
               children: [
-                { id: "moq", title: "Moq", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfdf5; padding:2rem; border-radius:1rem; border:2px solid #10b981; box-shadow:0 6px 20px rgba(16,185,129,0.2)">
+                {
+                  id: "moq", title: "Moq", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfdf5; padding:2rem; border-radius:1rem; border:2px solid #10b981; box-shadow:0 6px 20px rgba(16,185,129,0.2)">
   <h2 style="color:#059669;">🧰 Moq – Mocking Framework for .NET</h2>
   <p>
     <strong>Moq</strong> is a popular and lightweight .NET mocking library that allows you to create mock objects and define their behavior during unit tests. It helps isolate the code under test by replacing dependencies with fake implementations.
@@ -7957,8 +8141,9 @@ public class NotifierTests
     <li><a href="https://www.nuget.org/packages/Moq/" target="_blank" style="color:#10b981;">Moq NuGet Package</a></li>
   </ul>
 </div>`
-                 },
-                { id: "nsubstitute", title: "NSubstitute", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
+                },
+                {
+                  id: "nsubstitute", title: "NSubstitute", type: "optional", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
   <h2 style="color:#16a34a;">🔧 NSubstitute – Friendly Mocking for .NET</h2>
   <p>
     <strong>NSubstitute</strong> is a modern .NET mocking framework designed to be intuitive and developer-friendly. It uses a clean, natural syntax to create test doubles for interfaces and virtual methods, making unit tests easy to read and maintain.
@@ -8043,8 +8228,9 @@ logger.Received(1).Log("Action: Login");
     <li><a href="https://github.com/nsubstitute/NSubstitute" target="_blank" style="color:#22c55e;">GitHub: NSubstitute</a></li>
   </ul>
 </div>`
- },
-                { id: "fakereasy", title: "FakeItEasy", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef6ff; padding:2rem; border-radius:1rem; border:2px solid #a78bfa; box-shadow:0 6px 20px rgba(167,139,250,0.2)">
+                },
+                {
+                  id: "fakereasy", title: "FakeItEasy", type: "optional", description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef6ff; padding:2rem; border-radius:1rem; border:2px solid #a78bfa; box-shadow:0 6px 20px rgba(167,139,250,0.2)">
   <h2 style="color:#7c3aed;">🎭 FakeItEasy – Simple and Intuitive Mocking for .NET</h2>
   <p>
     <strong>FakeItEasy</strong> is a friendly mocking framework for .NET that emphasizes simplicity and ease of use. It allows developers to create mocks, stubs, and fakes with minimal setup, helping to write readable and maintainable unit tests.
@@ -8129,7 +8315,7 @@ logger.Received(1).Log("Action: Login");
     <li><a href="https://github.com/FakeItEasy/FakeItEasy" target="_blank" style="color:#a78bfa;">GitHub: FakeItEasy</a></li>
   </ul>
   </div>`
-                 },
+                },
               ]
             },
             {
@@ -8182,9 +8368,10 @@ public void Sum_TwoNumbers_ReturnsCorrectResult()
 		<li><a href="https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices" target="_blank" style="color:#3b82f6;">Microsoft Unit Testing Best Practices</a></li>
 	</ul>
 </div>`
-,
+              ,
               children: [
-                { id: "fluentassertions", title: "FluentAssertions", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#eef6ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+                {
+                  id: "fluentassertions", title: "FluentAssertions", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#eef6ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
     <h2 style="color:#2563eb;">🎯 FluentAssertions – Okunaklı ve Anlaşılır Doğrulamalar</h2>
     <p>
       <strong>FluentAssertions</strong>, .NET için geliştirilmiş bir doğrulama (assertion) kütüphanesidir. Testlerinizi daha okunabilir, anlaması kolay ve doğal dil benzeri bir şekilde yazmanızı sağlar.
@@ -8240,8 +8427,8 @@ public void Sum_TwoNumbers_ReturnsCorrectResult()
       <li><a href="https://github.com/fluentassertions/fluentassertions" target="_blank" style="color:#3b82f6;">GitHub: FluentAssertions</a></li>
     </ul>
   </div>`
-                 },
-              ] 
+                },
+              ]
             },
             {
               id: "fake-data-generators",
@@ -8306,7 +8493,8 @@ Console.WriteLine($"Name: {fakeUser.FirstName} {fakeUser.LastName}, Email: {fake
   </ul>
 </div>`,
               children: [
-                { id: "autofixture", title: "AutoFixture", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#eff6ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+                {
+                  id: "autofixture", title: "AutoFixture", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#eff6ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
   <h2 style="color:#2563eb;">⚙️ AutoFixture – Otomatik Test Veri Üretimi için .NET Kütüphanesi</h2>
   <p>
     <strong>AutoFixture</strong>, .NET dünyasında test yazarken karmaşık nesneleri otomatik olarak oluşturmayı kolaylaştıran güçlü bir araçtır.
@@ -8360,8 +8548,9 @@ Console.WriteLine($"Name: {user.FirstName} {user.LastName}, Age: {user.Age}");
     <li><a href="https://github.com/AutoFixture/AutoFixture/wiki" target="_blank" style="color:#3b82f6;">AutoFixture Wiki & Documentation</a></li>
   </ul>
 </div>`
-                 },
-                { id: "bogus", title: "Bogus", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
+                },
+                {
+                  id: "bogus", title: "Bogus", type: "good-to-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
   <h2 style="color:#15803d;">🎲 Bogus – .NET için Güçlü Sahte Veri Üreticisi</h2>
   <p>
     <strong>Bogus</strong>, .NET ortamında test ve geliştirme süreçlerinde gerçekçi sahte veriler oluşturmak için kullanılan popüler bir kütüphanedir.
@@ -8419,7 +8608,7 @@ Console.WriteLine($"Name: {fakeUser.FirstName} {fakeUser.LastName}, Email: {fake
     <li><a href="https://github.com/bchavez/Bogus/wiki" target="_blank" style="color:#22c55e;">Bogus Wiki & Documentation</a></li>
   </ul>
 </div>`
-                 },
+                },
               ]
             },
           ]
@@ -8493,10 +8682,11 @@ public class MyApiIntegrationTests : IClassFixture<WebApplicationFactory&lt;Prog
     <li><a href="https://xunit.net/docs/shared-context" target="_blank" style="color:#6366f1;">xUnit.net Shared Context & Integration Tests</a></li>
   </ul>
 </div>`
-,
+          ,
           type: "must-know",
           children: [
-            { id: "webapplicationfactory", title: "WebApplicationFactory", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
+            {
+              id: "webapplicationfactory", title: "WebApplicationFactory", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
   <h2 style="color:#0284c7;">🏭 WebApplicationFactory – ASP.NET Core Entegrasyon Testleri İçin Test Sunucusu</h2>
   <p>
     <strong>WebApplicationFactory&lt;TEntryPoint&gt;</strong>, ASP.NET Core uygulamalarını entegrasyon testlerinde gerçek bir test sunucusu gibi başlatmanızı sağlayan bir yardımcı sınıftır.
@@ -8558,8 +8748,9 @@ public async Task Get_HomePage_ReturnsSuccess()
     <li><a href="https://xunit.net/docs/shared-context" target="_blank" style="color:#0ea5e9;">xUnit.net Shared Context & Test Fixtures</a></li>
   </ul>
 </div>`
-             },
-            { id: "test-containers", title: "Test Containers", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
+            },
+            {
+              id: "test-containers", title: "Test Containers", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
   <h2 style="color:#15803d;">🐳 Testcontainers – Entegrasyon Testleri İçin Dinamik Container Yönetimi</h2>
   <p>
     <strong>Testcontainers</strong>, testler sırasında Docker container'ları dinamik olarak oluşturup yöneten, 
@@ -8632,8 +8823,9 @@ public class PostgreSqlTests
     <li><a href="https://www.testcontainers.org/" target="_blank" style="color:#22c55e;">Testcontainers Genel Dokümantasyonu</a></li>
   </ul>
 </div>`
-             },
-            { id: "dotnet-aspire", title: ".NET Aspire", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+            },
+            {
+              id: "dotnet-aspire", title: ".NET Aspire", type: "good-to-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
 <h2 style="color:#2563eb;">🌐 Introduction to .NET ASP.NET Core</h2>
 <p>
   <strong>ASP.NET Core</strong> is a modern, open-source, and cross-platform framework developed by Microsoft for building high-performance web applications, APIs, and microservices. It is designed to be lightweight, modular, and flexible — enabling developers to build scalable and maintainable web solutions that can run on Windows, Linux, and macOS.
@@ -8719,8 +8911,9 @@ public class BooksController : ControllerBase
   <li><a href="https://dotnet.microsoft.com/en-us/learn/aspnet" target="_blank" style="color:#3b82f6;">.NET Learn Platform for ASP.NET Core</a></li>
 </ul>
 </div>`
-             },
-            { id: "respawn", title: "Respawn", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
+            },
+            {
+              id: "respawn", title: "Respawn", type: "optional", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
 <h2 style="color:#0284c7;">🧹 Database Reset & Test Data Cleanup with Respawn</h2>
 <p>
   <strong>Respawn</strong> is a simple and efficient library designed to reset your database to a clean state between integration or end-to-end tests. It helps maintain consistent test environments by removing data from tables while respecting foreign key constraints.
@@ -8802,7 +8995,7 @@ public class MyIntegrationTests : IClassFixture&lt;DatabaseFixture&gt;
   <li><a href="https://andrewlock.net/integration-testing-asp-net-core-with-a-real-database/" target="_blank" style="color:#0ea5e9;">Integration Testing ASP.NET Core with a Real Database (Blog)</a></li>
 </ul>
 </div>`
-             },
+            },
           ]
         },
         {
@@ -8855,9 +9048,10 @@ test('Button renders correctly', () => {
 		<li><a href="https://testing-library.com/docs/react-testing-library/intro/" target="_blank" style="color:#eab308;">React Testing Library</a></li>
 	</ul>
 </div>`
-,
+          ,
           children: [
-            { id: "verify", title: "Verify", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
+            {
+              id: "verify", title: "Verify", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
 <h2 style="color:#0284c7;">✅ Verification in Unit Testing</h2>
 <p>
   <strong>Verification</strong> is the process of checking that certain interactions or method calls happened during the execution of the code under test. It is commonly used in conjunction with mocks or substitutes to ensure that the system behaves as expected.
@@ -8931,7 +9125,7 @@ public void Record_ShouldCallLog_WhenActionIsNotEmpty()
   <li><a href="https://docs.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices" target="_blank" style="color:#0ea5e9;">Unit Testing Best Practices (.NET)</a></li>
 </ul>
 </div>`
-             },
+            },
           ]
         },
         {
@@ -9026,10 +9220,11 @@ public class LoginSteps
   </ul>
 </div>
 `
-,
+          ,
           type: "optional",
           children: [
-            { id: "specflow", title: "SpecFlow", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:2rem; border-radius:1rem; border:2px solid #eab308; box-shadow:0 6px 20px rgba(234,179,8,0.2)">
+            {
+              id: "specflow", title: "SpecFlow", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:2rem; border-radius:1rem; border:2px solid #eab308; box-shadow:0 6px 20px rgba(234,179,8,0.2)">
 <h2 style="color:#ca8a04;">🔹 SpecFlow: Behavior-Driven Development (BDD) Framework for .NET</h2>
 <p>
   <strong>SpecFlow</strong> is a popular BDD framework for .NET that enables writing human-readable tests using the Gherkin language.
@@ -9120,7 +9315,7 @@ public void ThenErrorMessageIsDisplayed()
 </ul>
 </div>
 `
-             },
+            },
           ]
         },
         {
@@ -9194,7 +9389,8 @@ describe('Login Page', () =&gt; {
 `,
           type: "optional",
           children: [
-            { id: "playwright", title: "Playwright", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
+            {
+              id: "playwright", title: "Playwright", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
 <h2 style="color:#0284c7;">🎭 Playwright: Modern Cross-Browser Automation & Testing</h2>
 <p>
   <strong>Playwright</strong> is a powerful, open-source automation framework developed by Microsoft that enables end-to-end testing across multiple browsers including Chromium, Firefox, and WebKit.
@@ -9255,8 +9451,9 @@ await browser.close();
   <li><a href="https://github.com/microsoft/playwright" target="_blank" style="color:#0ea5e9;">Playwright GitHub Repository</a></li>
 </ul>
 </div>`
-             },
-            { id: "puppeteer-sharp", title: "Puppeteer-Sharp", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff7ed; padding:2rem; border-radius:1rem; border:2px solid #f97316; box-shadow:0 6px 20px rgba(249,115,22,0.2)">
+            },
+            {
+              id: "puppeteer-sharp", title: "Puppeteer-Sharp", type: "good-to-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff7ed; padding:2rem; border-radius:1rem; border:2px solid #f97316; box-shadow:0 6px 20px rgba(249,115,22,0.2)">
 <h2 style="color:#c2410c;">🚀 Puppeteer-Sharp: Headless Chrome Automation for .NET</h2>
 <p>
   <strong>Puppeteer-Sharp</strong> is a .NET port of the popular Node.js Puppeteer library that provides a high-level API to control Chromium-based browsers (Chrome, Edge) programmatically. 
@@ -9323,8 +9520,9 @@ public async Task RunAsync()
   <li><a href="https://www.puppeteersharp.com/" target="_blank" style="color:#f97316;">API Reference</a></li>
 </ul>
 </div>`
-             },
-            { id: "selenium", title: "Selenium", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+            },
+            {
+              id: "selenium", title: "Selenium", type: "optional", description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
 <h2 style="color:#2563eb;">🌐 Selenium: Web Browser Automation for Testing</h2>
 <p>
   <strong>Selenium</strong> is one of the most popular open-source frameworks for automating web browsers. It enables developers and testers to simulate user interactions and automate testing workflows across multiple browsers and platforms.
@@ -9393,7 +9591,7 @@ public class SeleniumTest
   <li><a href="https://github.com/SeleniumHQ/selenium" target="_blank" style="color:#3b82f6;">GitHub Repository</a></li>
 </ul>
 </div>`
-             },
+            },
           ]
         },
         {
@@ -9469,7 +9667,8 @@ public class SeleniumTest
 `,
           type: "good-to-know",
           children: [
-            { id: "k6", title: "K6", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+            {
+              id: "k6", title: "K6", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
   <h2 style="color:#2563eb;">🚀 K6 Performance Testing</h2>
   <p>
     <strong>K6</strong> is a modern, open-source load testing tool designed to help developers and QA engineers measure the performance and reliability of APIs, microservices, and websites. 
@@ -9531,7 +9730,8 @@ export default function () {
     <li><a href="https://k6.io/blog/" target="_blank" style="color:#3b82f6;">K6 Blog & Community</a></li>
   </ul>
 </div>` },
-            { id: "jmeter", title: "JMeter", type: "good-to-know",description : `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #2563eb; box-shadow:0 6px 20px rgba(37,99,235,0.2)">
+            {
+              id: "jmeter", title: "JMeter", type: "good-to-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #2563eb; box-shadow:0 6px 20px rgba(37,99,235,0.2)">
     <h2 style="color:#1e40af;">⚙️ Apache JMeter Performance Testing</h2>
     <p>
       <strong>Apache JMeter</strong> is a widely-used open-source load testing tool designed to measure the performance and scalability of web applications, APIs, databases, and more.
@@ -9590,7 +9790,8 @@ export default function () {
       <li><a href="https://jmeter.apache.org/usermanual/listeners.html" target="_blank" style="color:#2563eb;">Listeners and Reporting</a></li>
     </ul>
   </div>` },
-            { id: "crank", title: "Crank", type: "optional", description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff7ed; padding:2rem; border-radius:1rem; border:2px solid #f97316; box-shadow:0 6px 20px rgba(249,115,22,0.2)">
+            {
+              id: "crank", title: "Crank", type: "optional", description: `<div style="font-family:sans-serif; line-height:1.6; background:#fff7ed; padding:2rem; border-radius:1rem; border:2px solid #f97316; box-shadow:0 6px 20px rgba(249,115,22,0.2)">
 <h2 style="color:#c2410c;">🚀 Crank Load Testing</h2>
 <p>
   <strong>Crank</strong> is an open-source, distributed load testing tool designed to generate high-scale HTTP traffic from multiple machines with minimal resource consumption.
@@ -9635,7 +9836,8 @@ crank --url https://api.example.com/products --duration 60s --concurrency 100 --
   <li><a href="https://github.com/microsoft/crank/blob/main/docs/README.md" target="_blank" style="color:#f97316;">Official Documentation</a></li>
 </ul>
 </div>` },
-            { id: "bombardier", title: "Bombardier", type: "optional", description: `<div style="font-family:sans-serif; line-height:1.6; background:#eff6ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+            {
+              id: "bombardier", title: "Bombardier", type: "optional", description: `<div style="font-family:sans-serif; line-height:1.6; background:#eff6ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
   <h2 style="color:#2563eb;">🚀 Bombardier Load Testing</h2>
   <p>
     <strong>Bombardier</strong> is a fast and simple HTTP benchmarking tool designed to test the performance and resilience of web servers and APIs by generating high concurrent traffic.
@@ -9685,8 +9887,8 @@ bombardier -c 100 -d 30s https://api.example.com/products
         {
           id: "architecture-testing",
           title: "Architecture Testing",
-          description: 
-        `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
+          description:
+            `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
   <h2 style="color:#0284c7;">🏛️ Architecture Testing</h2>
   <p>
     <strong>Architecture Testing</strong> is a specialized testing practice focused on verifying that a software system's architecture complies with the intended design principles, constraints, and quality attributes.
@@ -9752,7 +9954,8 @@ public class ArchitectureTests
 </div>`,
           type: "good-to-know",
           children: [
-            { id: "archunitnet", title: "ArchUnitNET", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+            {
+              id: "archunitnet", title: "ArchUnitNET", type: "good-to-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
 <h2 style="color:#2563eb;">🏗️ ArchUnitNET</h2>
 <p>
   <strong>ArchUnitNET</strong> is a powerful architecture testing library for .NET projects that enables you to define and enforce architectural rules programmatically.
@@ -9814,7 +10017,8 @@ public void ServicesShouldNotDependOnControllers()
   <li><a href="https://www.archunit.org/" target="_blank" style="color:#3b82f6;">ArchUnit (Java) Official Website</a></li>
 </ul>
 </div>` },
-            { id: "netarchtest", title: "NetArchTest", type: "optional",
+            {
+              id: "netarchtest", title: "NetArchTest", type: "optional",
               description: `<div style="font-family:sans-serif; line-height:1.6; background:#f9fafb; padding:2rem; border-radius:1rem; border:2px solid #4b5563; box-shadow:0 6px 20px rgba(75,85,99,0.2)">
 <h2 style="color:#374151;">🏗️ NetArchTest</h2>
 <p>
@@ -9876,7 +10080,7 @@ public void ServicesShouldNotDependOnControllers()
   <li><a href="https://github.com/BenMorris/NetArchTest/wiki" target="_blank" style="color:#4b5563;">NetArchTest Wiki & Documentation</a></li>
 </ul>
 </div>`
-             },
+            },
           ]
         },
       ]
@@ -9886,7 +10090,8 @@ public void ServicesShouldNotDependOnControllers()
       title: "Design Patterns",
       direction: "left",
       children: [
-        { id: "creational", title: "Creational", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
+        {
+          id: "creational", title: "Creational", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
   <h2 style="color:#16a34a;">🏗️ Creational Design Patterns</h2>
   <p>
     <strong>Creational Design Patterns</strong> control object creation mechanisms, increasing flexibility and reuse of existing code. They abstract the instantiation logic and help decouple client code from the concrete implementation.
@@ -9964,7 +10169,8 @@ public abstract class Shape
   </ul>
 </div>
 ` },
-        { id: "structural", title: "Structural", type: "must-know" ,description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfeff; padding:2rem; border-radius:1rem; border:2px solid #06b6d4; box-shadow:0 6px 20px rgba(6,182,212,0.2)">
+        {
+          id: "structural", title: "Structural", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfeff; padding:2rem; border-radius:1rem; border:2px solid #06b6d4; box-shadow:0 6px 20px rgba(6,182,212,0.2)">
   <h2 style="color:#0891b2;">🏛️ Structural Design Patterns</h2>
   <p>
     <strong>Structural Design Patterns</strong> focus on how classes and objects are composed to form larger structures while keeping these structures flexible and efficient. They help ensure that system components work together in a maintainable and scalable way.
@@ -10036,7 +10242,8 @@ public class SmsDecorator : INotifier
   </ul>
 </div>
 `},
-        { id: "behavioral", title: "Behavioral", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef9c3; padding:2rem; border-radius:1rem; border:2px solid #eab308; box-shadow:0 6px 20px rgba(234,179,8,0.2)">
+        {
+          id: "behavioral", title: "Behavioral", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef9c3; padding:2rem; border-radius:1rem; border:2px solid #eab308; box-shadow:0 6px 20px rgba(234,179,8,0.2)">
   <h2 style="color:#ca8a04;">🧠 Behavioral Design Patterns</h2>
   <p>
     <strong>Behavioral Design Patterns</strong> are concerned with how objects interact and communicate with each other. They define the responsibilities between objects and help control the flow of a program.
@@ -10122,7 +10329,8 @@ public class PayPalPayment : IPaymentStrategy
       title: "Continuous Integration & Delivery (Automation)",
       direction: "right",
       children: [
-        { id: "github-actions", title: "GitHub Actions", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
+        {
+          id: "github-actions", title: "GitHub Actions", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
   <h2 style="color:#16a34a;">🚀 Continuous Integration & Delivery with GitHub Actions</h2>
   <p>
     <strong>Continuous Integration (CI)</strong> is the practice of regularly merging code changes into a shared repository, followed by automated builds and tests.  
@@ -10194,7 +10402,8 @@ jobs:
   </ul>
 </div>
 ` },
-        { id: "azure-pipelines", title: "Azure Pipelines", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfdf5; padding:2rem; border-radius:1rem; border:2px solid #10b981; box-shadow:0 6px 20px rgba(16,185,129,0.2)">
+        {
+          id: "azure-pipelines", title: "Azure Pipelines", type: "good-to-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfdf5; padding:2rem; border-radius:1rem; border:2px solid #10b981; box-shadow:0 6px 20px rgba(16,185,129,0.2)">
   <h2 style="color:#059669;">⚙️ Continuous Integration & Delivery with Azure Pipelines</h2>
   <p>
     <strong>Azure Pipelines</strong> is a cloud-based CI/CD service provided by Azure DevOps that supports building, testing, and deploying code to any platform or cloud.
@@ -10262,7 +10471,8 @@ steps:
   </ul>
 </div>
 ` },
-        { id: "gitlab-ci-cd", title: "GitLab CI/CD", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:2rem; border-radius:1rem; border:2px solid #eab308; box-shadow:0 6px 20px rgba(234,179,8,0.2)">
+        {
+          id: "gitlab-ci-cd", title: "GitLab CI/CD", type: "optional", description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:2rem; border-radius:1rem; border:2px solid #eab308; box-shadow:0 6px 20px rgba(234,179,8,0.2)">
   <h2 style="color:#ca8a04;">🔧 Continuous Integration & Delivery with GitLab CI/CD</h2>
   <p>
     <strong>GitLab CI/CD</strong> is a built-in automation system within GitLab for defining, running, and monitoring Continuous Integration and Continuous Deployment pipelines.
@@ -10328,7 +10538,8 @@ test:
   </ul>
 </div>
 ` },
-        { id: "teamcity-ci-cd", title: "TeamCity CI/CD", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
+        {
+          id: "teamcity-ci-cd", title: "TeamCity CI/CD", type: "optional", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
   <h2 style="color:#0284c7;">🏗️ Continuous Integration & Delivery with TeamCity</h2>
   <p>
     <strong>TeamCity</strong> is a powerful, enterprise-grade CI/CD server developed by JetBrains. It supports building, testing, and deploying applications on a wide range of platforms, with deep integrations for popular tools and frameworks.
@@ -10508,7 +10719,8 @@ static_configs:
 </ul>
 </div>`,
               children: [
-                { id: "prometheus-grafana", title: "Prometheus/Grafana", type: "must-know",
+                {
+                  id: "prometheus-grafana", title: "Prometheus/Grafana", type: "must-know",
                   description: `<div style="font-family:sans-serif; line-height:1.6; background:#e9f5ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
 <h2 style="color:#2563eb;">📊 Monitoring with Prometheus & Grafana</h2>
 <p>
@@ -10562,7 +10774,7 @@ static_configs:
   <li><a href="https://prometheus.io/docs/prometheus/latest/configuration/configuration/" target="_blank" style="color:#3b82f6;">Prometheus Configuration Guide</a></li>
 </ul>
 </div>`
-                 },
+                },
               ]
             },
             {
@@ -10629,7 +10841,8 @@ static_configs:
 </ul>
 </div>`,
               children: [
-                { id: "datadog-mon", title: "Datadog", type: "must-know",
+                {
+                  id: "datadog-mon", title: "Datadog", type: "must-know",
                   description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
 <h2 style="color:#0284c7;">📊 Datadog: Cloud Monitoring & Observability Platform</h2>
 <p>
@@ -10684,7 +10897,7 @@ public class Program
   <li><a href="https://docs.datadoghq.com/logs/log_collection/" target="_blank" style="color:#0ea5e9;">Log Collection Guide</a></li>
 </ul>
 </div>`
-                 },
+                },
               ]
             },
           ]
@@ -10821,7 +11034,8 @@ kibana:
 </div>`,
               title: "On-Premises",
               children: [
-                { id: "elk-stack", title: "ELK Stack", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfccb; padding:2rem; border-radius:1rem; border:2px solid #65a30d; box-shadow:0 6px 20px rgba(132,204,22,0.2)">
+                {
+                  id: "elk-stack", title: "ELK Stack", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfccb; padding:2rem; border-radius:1rem; border:2px solid #65a30d; box-shadow:0 6px 20px rgba(132,204,22,0.2)">
 <h2 style="color:#4d7c0f;">📦 ELK Stack (Elasticsearch, Logstash, Kibana)</h2>
 <p>
   The <strong>ELK Stack</strong> is a powerful, open-source suite for centralized logging, real-time log analysis, and visualization. It is widely used in DevOps, SRE, and security operations to collect, index, and visualize log data from various systems and applications.
@@ -10900,7 +11114,8 @@ output {
   <li><a href="https://www.elastic.co/kibana" target="_blank" style="color:#65a30d;">Kibana Dashboards</a></li>
 </ul>
 </div>` },
-                { id: "seq", title: "Seq", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef3c7; padding:2rem; border-radius:1rem; border:2px solid #f59e0b; box-shadow:0 6px 20px rgba(249,115,22,0.15)">
+                {
+                  id: "seq", title: "Seq", type: "good-to-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef3c7; padding:2rem; border-radius:1rem; border:2px solid #f59e0b; box-shadow:0 6px 20px rgba(249,115,22,0.15)">
 <h2 style="color:#d97706;">📋 Structured Logging with Seq</h2>
 <p>
   <strong>Seq</strong> is a structured log server that specializes in collecting, indexing, and querying application logs — particularly from .NET applications. It turns log events into searchable, structured data and offers a clean, developer-friendly UI.
@@ -10958,8 +11173,9 @@ builder.Host.UseSerilog();
   <li><a href="https://github.com/datalust/seq-tutorials" target="_blank" style="color:#f59e0b;">Seq Tutorials on GitHub</a></li>
 </ul>
 </div>` },
-                { id: "sentry", title: "Sentry.io", type: "optional", 
-                  "description": `<div style="font-family:sans-serif; line-height:1.6; background:#fef2f2; padding:2rem; border-radius:1rem; border:2px solid #ef4444; box-shadow:0 6px 20px rgba(239,68,68,0.2)">
+                {
+                  id: "sentry", title: "Sentry.io", type: "optional",
+                  description: `<div style="font-family:sans-serif; line-height:1.6; background:#fef2f2; padding:2rem; border-radius:1rem; border:2px solid #ef4444; box-shadow:0 6px 20px rgba(239,68,68,0.2)">
 <h2 style="color:#b91c1c;">📝 Logging with Sentry.io</h2>
 <p>
   <strong>Sentry.io</strong> is not just an error monitoring tool, but also a powerful logging platform that provides rich context and actionable insights for developers.
@@ -11015,9 +11231,148 @@ builder.Host.UseSerilog();
             {
               id: "cloud-logging",
               title: "Cloud",
+              description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>🌩️ Cloud Logging</h2>
+  <p><strong>Cloud logging</strong> centralizes application and system logs in a managed cloud platform. It enables real-time search, visualization, alerts, and compliance-ready audit capabilities.</p>
+
+  <h3 style='color:#10b981'>☁️ Why Use Cloud Logging?</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>Instant setup:</strong> start logging immediately with no infrastructure to manage.</li>
+    <li><strong>Automatic scaling:</strong> handles growing log volumes across distributed systems.</li>
+    <li><strong>Security & compliance:</strong> encrypted storage, audit trails, and regional data residency.</li>
+    <li><strong>Cost-efficiency:</strong> no need for on-premise logging infrastructure.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>⚙️ Core Features</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>Real-time ingestion:</strong> fast and reliable log collection from various sources.</li>
+    <li><strong>Log-based metrics:</strong> transform log data into KPIs and alert thresholds.</li>
+    <li><strong>Alerting:</strong> set rules to detect issues based on log content.</li>
+    <li><strong>Routing & retention:</strong> control where logs go and how long they are kept.</li>
+    <li><strong>Audit logs:</strong> track access, configuration, and user activity for compliance.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>🚀 Use Cases</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li>Log ingestion from Kubernetes, VMs, or serverless apps</li>
+    <li>Error tracking and real-time incident alerts</li>
+    <li>Security auditing and compliance reporting</li>
+    <li>Advanced analysis with tools like BigQuery or Datadog</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li><strong>Define clear retention policies:</strong> avoid unnecessary storage costs.</li>
+    <li><strong>Structure logs:</strong> use JSON for easier parsing and querying.</li>
+    <li><strong>Separate log levels:</strong> group info, warning, and error logs accordingly.</li>
+    <li><strong>Visualize trends:</strong> integrate with dashboards and alert systems.</li>
+    <li><strong>Tag logs:</strong> add environment, service, region tags for filtering.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://cloud.google.com/logging/docs' target='_blank' style='color:#3b82f6'>Google Cloud Logging Documentation</a></li>
+    <li><a href='https://docs.aws.amazon.com/cloudwatch/index.html' target='_blank' style='color:#3b82f6'>AWS CloudWatch Logs</a></li>
+    <li><a href='https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview' target='_blank' style='color:#3b82f6'>Azure Monitor Logs</a></li>
+    <li><a href='https://www.datadoghq.com/product/log-management/' target='_blank' style='color:#3b82f6'>Datadog Log Management</a></li>
+  </ul>
+</div>
+`,
               children: [
-                { id: "datadog-log", title: "Datadog", type: "must-know" },
-                { id: "sentry-io-log", title: "Sentry.io", type: "optional" },
+                {
+                  id: "datadog-log", title: "Datadog", type: "must-know", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>📊 Logging & Monitoring with Datadog</h2>
+  <p><strong>Datadog</strong> is a cloud-based monitoring and analytics platform used for infrastructure, application performance, and log management. It provides real-time visibility into your entire tech stack.</p>
+
+  <h3 style='color:#10b981'>☁️ Why Cloud Logging Matters</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>Centralized Logs:</strong> All logs from distributed systems in one place.</li>
+    <li><strong>Scalability:</strong> Automatically handles large-scale environments.</li>
+    <li><strong>Real-Time Monitoring:</strong> Detect issues instantly with alerts and dashboards.</li>
+    <li><strong>Troubleshooting:</strong> Easily trace and debug application issues.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>🧰 Key Features of Datadog</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>Log Management:</strong> Ingest, filter, and search logs easily.</li>
+    <li><strong>Dashboards:</strong> Customizable visualizations of metrics & logs.</li>
+    <li><strong>APM (Application Performance Monitoring):</strong> Track latency, throughput, and errors.</li>
+    <li><strong>Integrations:</strong> Works with AWS, Azure, GCP, Kubernetes, and more.</li>
+    <li><strong>Alerting:</strong> Set thresholds and get notified via email, Slack, PagerDuty.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>📈 Use Cases</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li>Monitoring microservices and cloud-native apps</li>
+    <li>Analyzing user behavior or request patterns</li>
+    <li>Proactive error detection before customers notice</li>
+    <li>Audit and security logging for compliance</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li>Structure logs with JSON for better querying.</li>
+    <li>Use tags for context (env, service, region, etc.).</li>
+    <li>Set up retention policies to manage cost.</li>
+    <li>Use correlation IDs to trace logs across services.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://www.datadoghq.com/' target='_blank' style='color:#3b82f6'>Official Datadog Website</a></li>
+    <li><a href='https://docs.datadoghq.com/logs/' target='_blank' style='color:#3b82f6'>Datadog Logs Documentation</a></li>
+    <li><a href='https://www.youtube.com/watch?v=2K4jN3Y3P9U' target='_blank' style='color:#3b82f6'>Intro to Datadog (YouTube)</a></li>
+    <li><a href='https://www.udemy.com/course/datadog-complete-guide/' target='_blank' style='color:#3b82f6'>Udemy Course on Datadog</a></li>
+  </ul>
+</div>
+` },
+                {
+                  id: "sentry-io-log", title: "Sentry.io", type: "optional", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>🐞 Error Tracking & Logging with Sentry</h2>
+  <p><strong>Sentry.io</strong> is a powerful open-source error monitoring and performance tracking tool designed to help developers diagnose, fix, and optimize their code across every stack.</p>
+
+  <h3 style='color:#10b981'>☁️ Why Use Sentry in the Cloud</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>Real-Time Error Monitoring:</strong> Instantly catch bugs as they happen in production.</li>
+    <li><strong>Stack Traces & Context:</strong> See the exact line of code that caused the error.</li>
+    <li><strong>Issue Grouping:</strong> Automatically groups similar errors for better triaging.</li>
+    <li><strong>Cloud Native:</strong> Hosted solution for effortless scaling and management.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>🧰 Key Features of Sentry</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>Error Tracking:</strong> Capture exceptions with rich metadata and stack traces.</li>
+    <li><strong>Performance Monitoring:</strong> Measure slow transactions, page loads, API calls.</li>
+    <li><strong>Session Replay:</strong> Watch how users interacted before an error occurred.</li>
+    <li><strong>Alerts & Notifications:</strong> Custom rules via email, Slack, PagerDuty, etc.</li>
+    <li><strong>Integrations:</strong> Works with React, Vue, Node.js, Python, iOS, Android, and more.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>🚀 Use Cases</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li>Identify and fix uncaught exceptions in frontend or backend.</li>
+    <li>Monitor API latency and performance bottlenecks.</li>
+    <li>Understand how crashes affect users with user impact tracking.</li>
+    <li>Gain visibility into silent failures in production.</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li>Use source maps to get readable JavaScript stack traces.</li>
+    <li>Filter noisy or non-actionable logs (e.g., 404s or timeouts).</li>
+    <li>Tag errors with metadata like release version, user ID, etc.</li>
+    <li>Regularly triage and resolve issues to maintain code health.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://sentry.io/' target='_blank' style='color:#3b82f6'>Official Sentry Website</a></li>
+    <li><a href='https://docs.sentry.io/' target='_blank' style='color:#3b82f6'>Sentry Documentation</a></li>
+    <li><a href='https://www.youtube.com/watch?v=pemPp_YJgkE' target='_blank' style='color:#3b82f6'>Sentry Overview (YouTube)</a></li>
+    <li><a href='https://www.udemy.com/course/error-tracking-with-sentry/' target='_blank' style='color:#3b82f6'>Udemy: Error Tracking with Sentry</a></li>
+  </ul>
+</div>
+` },
               ]
             },
           ]
@@ -11026,30 +11381,442 @@ builder.Host.UseSerilog();
           id: "tracing",
           title: "Tracing",
           type: "must-know",
+          description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>🔍 Distributed Tracing</h2>
+  <p><strong>Tracing</strong> is the process of tracking the flow of a request or transaction across multiple services in a distributed system. It helps developers and DevOps teams understand where bottlenecks or failures occur in microservices architectures.</p>
+
+  <h3 style='color:#10b981'>🌐 Why Tracing Matters</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>End-to-End Visibility:</strong> See the full path a request takes across services.</li>
+    <li><strong>Performance Monitoring:</strong> Identify slow components or dependencies.</li>
+    <li><strong>Error Isolation:</strong> Pinpoint where and why failures happen.</li>
+    <li><strong>Better Debugging:</strong> Understand complex service interactions in production.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>🛠️ Key Concepts</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>Trace:</strong> A complete journey of a request through the system.</li>
+    <li><strong>Span:</strong> A single unit of work (e.g., a function call, API request).</li>
+    <li><strong>Trace ID:</strong> Unique identifier for a trace, shared across spans.</li>
+    <li><strong>Context Propagation:</strong> Passing trace metadata between services.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>⚙️ Tools for Tracing</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li><strong>OpenTelemetry:</strong> Open standard for tracing and telemetry.</li>
+    <li><strong>Jaeger:</strong> CNCF project for visualizing traces.</li>
+    <li><strong>Zipkin:</strong> Lightweight tracing system with a simple UI.</li>
+    <li><strong>Datadog APM:</strong> Full tracing with dashboards and alerting.</li>
+    <li><strong>Sentry Tracing:</strong> Integrates tracing with error monitoring.</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li>Instrument key functions and endpoints manually or via libraries.</li>
+    <li>Include custom tags (e.g., user ID, endpoint) for better filtering.</li>
+    <li>Minimize span overhead to avoid latency.</li>
+    <li>Visualize traces regularly to catch performance regressions early.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://opentelemetry.io/docs/' target='_blank' style='color:#3b82f6'>OpenTelemetry Docs</a></li>
+    <li><a href='https://www.jaegertracing.io/docs/' target='_blank' style='color:#3b82f6'>Jaeger Documentation</a></li>
+    <li><a href='https://zipkin.io/' target='_blank' style='color:#3b82f6'>Zipkin Official Site</a></li>
+    <li><a href='https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/traceparent' target='_blank' style='color:#3b82f6'>W3C Trace Context</a></li>
+  </ul>
+</div>
+`,
           children: [
             {
               id: "on-premises-tracing",
               title: "On-Premises",
+              description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>🏠 Tracing in On-Premises Environments</h2>
+  <p><strong>On-premises tracing</strong> refers to collecting and analyzing trace data within your own infrastructure, rather than using cloud-hosted platforms. It's ideal for organizations with strict data privacy, regulatory, or performance requirements.</p>
+
+  <h3 style='color:#10b981'>🔎 Why Use On-Prem Tracing?</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>Data Control:</strong> Full ownership and control over trace data.</li>
+    <li><strong>Security & Compliance:</strong> Ensures sensitive data doesn't leave internal networks.</li>
+    <li><strong>Custom Infrastructure:</strong> Tailor the tracing stack to match internal systems.</li>
+    <li><strong>Low-Latency Access:</strong> Faster access to data with local storage and queries.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>⚙️ Key Components</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>Instrumentation Libraries:</strong> Language-specific SDKs (OpenTelemetry, Zipkin, etc.).</li>
+    <li><strong>Trace Collectors:</strong> Receive and process incoming trace data.</li>
+    <li><strong>Storage Backend:</strong> Store trace data (e.g., Elasticsearch, Cassandra).</li>
+    <li><strong>UI & Dashboards:</strong> Visualize trace timelines and spans (e.g., Jaeger UI).</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>🛠 Recommended Tools</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li><strong>Jaeger:</strong> Full on-prem tracing suite from the CNCF ecosystem.</li>
+    <li><strong>Zipkin:</strong> Lightweight, simple on-prem deployment option.</li>
+    <li><strong>Grafana Tempo:</strong> Scalable distributed tracing backend integrated with Grafana.</li>
+    <li><strong>OpenTelemetry Collector:</strong> Centralized agent to receive and export traces.</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li>Deploy redundant tracing components to ensure reliability.</li>
+    <li>Ensure proper resource allocation for trace storage (disk, memory).</li>
+    <li>Use log correlation and span IDs to enhance debugging.</li>
+    <li>Rotate and archive trace data to manage volume and retention policies.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://www.jaegertracing.io/docs/' target='_blank' style='color:#3b82f6'>Jaeger Documentation</a></li>
+    <li><a href='https://zipkin.io/pages/quickstart.html' target='_blank' style='color:#3b82f6'>Zipkin Quickstart</a></li>
+    <li><a href='https://opentelemetry.io/docs/collector/' target='_blank' style='color:#3b82f6'>OpenTelemetry Collector Docs</a></li>
+    <li><a href='https://grafana.com/oss/tempo/' target='_blank' style='color:#3b82f6'>Grafana Tempo Overview</a></li>
+  </ul>
+</div>
+`,
               children: [
                 {
                   id: "opentelemetry",
                   title: "OpenTelemetry (OTel)",
+                  description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>🏗️ On-Premises Tracing with OpenTelemetry (OTel)</h2>
+  <p><strong>OpenTelemetry (OTel)</strong> is an open-source, vendor-neutral standard for observability. It supports tracing, metrics, and logs. Running OTel in an on-premises environment enables full control over telemetry data and infrastructure.</p>
+
+  <h3 style='color:#10b981'>🌐 Why Use OTel On-Prem?</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>Vendor Independence:</strong> No lock-in to commercial platforms.</li>
+    <li><strong>Full Control:</strong> Own the telemetry pipeline and data flow.</li>
+    <li><strong>Compliance:</strong> Keep observability data within secure environments.</li>
+    <li><strong>Customization:</strong> Tailor pipelines, exporters, and processors to fit your needs.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>🧰 Core Components of OTel</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>Instrumentation:</strong> SDKs for many languages (Node.js, Java, Python, etc.).</li>
+    <li><strong>OTel Collector:</strong> Central agent to receive, process, and export telemetry data.</li>
+    <li><strong>Receivers:</strong> Accept data (OTLP, Zipkin, Jaeger, Prometheus, etc.).</li>
+    <li><strong>Processors:</strong> Modify or filter data (e.g., batch, attributes).</li>
+    <li><strong>Exporters:</strong> Send data to storage or visualization tools (Jaeger, Zipkin, Tempo, etc.).</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>🏢 Typical On-Prem Setup</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li>Apps instrumented with OTel SDKs send trace data via OTLP.</li>
+    <li>OTel Collector receives and processes data.</li>
+    <li>Traces are exported to Jaeger, Zipkin, or Grafana Tempo deployed locally.</li>
+    <li>Data visualized through Jaeger UI or Grafana dashboards.</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li>Deploy Collectors close to services to reduce network overhead.</li>
+    <li>Use batching and retry processors to improve reliability.</li>
+    <li>Secure endpoints and configure authentication on the collector.</li>
+    <li>Continuously monitor resource usage of OTel components.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://opentelemetry.io/' target='_blank' style='color:#3b82f6'>OpenTelemetry Official Site</a></li>
+    <li><a href='https://opentelemetry.io/docs/collector/' target='_blank' style='color:#3b82f6'>OTel Collector Documentation</a></li>
+    <li><a href='https://opentelemetry.io/docs/concepts/architecture/' target='_blank' style='color:#3b82f6'>OTel Architecture Guide</a></li>
+    <li><a href='https://www.jaegertracing.io/docs/' target='_blank' style='color:#3b82f6'>Jaeger Docs (Integration with OTel)</a></li>
+  </ul>
+</div>
+`,
                   type: "must-know",
                   children: [
-                    { id: "jaeger", title: "Jaeger", type: "must-know" },
-                    { id: "zipkin", title: "Zipkin", type: "optional" },
+                    {
+                      id: "jaeger", title: "Jaeger", type: "must-know", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>🔗 Tracing On-Premises with OpenTelemetry + Jaeger</h2>
+  <p><strong>OpenTelemetry</strong> combined with <strong>Jaeger</strong> is a powerful, open-source tracing solution for on-premises environments. OpenTelemetry handles instrumentation and data collection, while Jaeger provides visualization, storage, and analysis of distributed traces.</p>
+
+  <h3 style='color:#10b981'>🏠 Why Use OTel + Jaeger On-Prem?</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>Vendor-Free Observability:</strong> Full control over trace data and deployment.</li>
+    <li><strong>Local Data Storage:</strong> Meet data sovereignty and compliance needs.</li>
+    <li><strong>Rich Trace Visualization:</strong> Understand request flows, latencies, and bottlenecks.</li>
+    <li><strong>Microservices Visibility:</strong> Ideal for distributed on-prem architectures.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>⚙️ Key Components</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>OpenTelemetry SDKs:</strong> Instrument applications to emit trace data (Java, Node.js, Go, etc.).</li>
+    <li><strong>OTel Collector:</strong> Central component to receive, process, and export trace data.</li>
+    <li><strong>Jaeger Collector & Agent:</strong> Accept trace data and forward it to Jaeger backend.</li>
+    <li><strong>Jaeger UI:</strong> Web interface to view trace timelines, spans, and services.</li>
+    <li><strong>Storage Backend:</strong> Elasticsearch, Cassandra, or local storage for trace persistence.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>📦 Deployment Flow</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li>Apps → OTel SDKs → OTLP Exporter → OTel Collector</li>
+    <li>OTel Collector → Jaeger Exporter → Jaeger Collector</li>
+    <li>Jaeger Collector → Storage Backend (e.g., Elasticsearch)</li>
+    <li>Jaeger UI pulls data from storage to visualize traces</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li>Use batching and retries in the OTel Collector for efficient export.</li>
+    <li>Enable span limits and sampling to reduce noise and volume.</li>
+    <li>Tag spans with service, environment, version metadata.</li>
+    <li>Secure collector and UI endpoints with TLS and access control.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://opentelemetry.io/docs/' target='_blank' style='color:#3b82f6'>OpenTelemetry Documentation</a></li>
+    <li><a href='https://www.jaegertracing.io/docs/' target='_blank' style='color:#3b82f6'>Jaeger Documentation</a></li>
+    <li><a href='https://opentelemetry.io/docs/collector/exporter/jaeger/' target='_blank' style='color:#3b82f6'>OTel Collector Jaeger Exporter</a></li>
+    <li><a href='https://github.com/open-telemetry/opentelemetry-collector-contrib' target='_blank' style='color:#3b82f6'>OTel Collector Contrib GitHub</a></li>
+  </ul>
+</div>
+` },
+                    {
+                      id: "zipkin", title: "Zipkin", type: "optional", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>🕵️ Tracing On-Premises with OpenTelemetry + Zipkin</h2>
+  <p><strong>Zipkin</strong> is a simple, efficient, and open-source distributed tracing system. When combined with <strong>OpenTelemetry (OTel)</strong>, it allows teams to collect, process, and visualize traces in self-hosted environments with full control and minimal overhead.</p>
+
+  <h3 style='color:#10b981'>🏠 Why Use OTel + Zipkin On-Prem?</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>Lightweight Deployment:</strong> Zipkin is fast and easy to run on local infrastructure.</li>
+    <li><strong>Vendor Independence:</strong> No reliance on commercial SaaS platforms.</li>
+    <li><strong>Privacy & Compliance:</strong> Keep all telemetry data inside secure internal networks.</li>
+    <li><strong>Quick Setup:</strong> Ideal for small teams or proof-of-concept tracing systems.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>⚙️ Core Architecture</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>OTel SDKs:</strong> Automatically or manually instrument your application code.</li>
+    <li><strong>OTel Collector:</strong> Receives OTLP-formatted trace data.</li>
+    <li><strong>Zipkin Exporter:</strong> Sends data from the collector to Zipkin in Zipkin format.</li>
+    <li><strong>Zipkin Server:</strong> Stores and visualizes trace data via web UI.</li>
+    <li><strong>Storage:</strong> In-memory by default, can use MySQL, Elasticsearch, Cassandra.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>🚀 Trace Pipeline Example</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li>Apps → OTel SDKs → OTLP → OTel Collector</li>
+    <li>OTel Collector → Zipkin Exporter → Zipkin Server</li>
+    <li>Zipkin UI → Visual trace data (latency, span depth, timing)</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li>Enable sampling to reduce trace volume and noise.</li>
+    <li>Tag traces with service name, request ID, environment, etc.</li>
+    <li>Use persistent storage for longer trace retention.</li>
+    <li>Deploy Zipkin with reverse proxy and authentication for secure access.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://zipkin.io/' target='_blank' style='color:#3b82f6'>Zipkin Official Site</a></li>
+    <li><a href='https://zipkin.io/pages/quickstart.html' target='_blank' style='color:#3b82f6'>Zipkin Quickstart Guide</a></li>
+    <li><a href='https://opentelemetry.io/docs/collector/exporter/zipkin/' target='_blank' style='color:#3b82f6'>OTel Zipkin Exporter Docs</a></li>
+    <li><a href='https://github.com/openzipkin/zipkin' target='_blank' style='color:#3b82f6'>Zipkin GitHub Repository</a></li>
+  </ul>
+</div>
+` },
                   ]
                 },
-                { id: "sentry-io-onprem-trace", title: "Sentry.io", type: "optional" },
+                {
+                  id: "sentry-io-onprem-trace", title: "Sentry.io", type: "optional", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>🏠 Tracing with Sentry (On-Premises)</h2>
+  <p><strong>Sentry</strong> provides performance monitoring and distributed tracing features, in addition to its core error tracking capabilities. Sentry can be deployed <strong>on-premises</strong> for teams that require local control, data privacy, or integration with internal infrastructure.</p>
+
+  <h3 style='color:#10b981'>🔎 Why Use Sentry On-Prem for Tracing?</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>Self-Hosting:</strong> Full control over data storage and privacy.</li>
+    <li><strong>Integrated Tracing & Errors:</strong> Correlate performance traces directly with error data.</li>
+    <li><strong>Security & Compliance:</strong> Keep trace data within internal networks for regulated environments.</li>
+    <li><strong>Customization:</strong> Adjust storage, retention, and integrations based on local requirements.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>🧰 Core Features of Sentry Tracing</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>Performance Tracing:</strong> Capture latency, transactions, spans across services.</li>
+    <li><strong>Transaction Sampling:</strong> Reduce load by capturing only relevant traces.</li>
+    <li><strong>Trace IDs:</strong> Unique identifiers link related spans and errors.</li>
+    <li><strong>Contextual Insights:</strong> View tags, breadcrumbs, and request metadata alongside traces.</li>
+    <li><strong>UI Dashboards:</strong> Visualize transaction timelines, bottlenecks, and throughput.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>🛠 On-Prem Setup Highlights</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li>Use the <strong>Sentry self-hosted Docker</strong> deployment to run locally.</li>
+    <li>Enable <code>performance monitoring</code> in project settings and SDKs.</li>
+    <li>Instrument your app with <strong>Sentry SDKs</strong> (JavaScript, Python, Node.js, etc.).</li>
+    <li>Use Relay for efficient ingestion and rate limiting.</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li>Apply transaction sampling to avoid overloading storage.</li>
+    <li>Use custom tags (user ID, endpoint) for filtering and grouping.</li>
+    <li>Keep your Sentry self-hosted stack updated for stability and security.</li>
+    <li>Integrate with other on-prem tools like Grafana or Prometheus for extended observability.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://develop.sentry.dev/self-hosted/' target='_blank' style='color:#3b82f6'>Sentry Self-Hosted Docs</a></li>
+    <li><a href='https://docs.sentry.io/product/performance/' target='_blank' style='color:#3b82f6'>Performance Monitoring Guide</a></li>
+    <li><a href='https://docs.sentry.io/platforms/javascript/performance/instrumentation/' target='_blank' style='color:#3b82f6'>SDK Tracing Instrumentation</a></li>
+    <li><a href='https://github.com/getsentry/self-hosted' target='_blank' style='color:#3b82f6'>GitHub - Sentry Self-Hosted</a></li>
+  </ul>
+</div>
+` },
               ]
             },
 
             {
               id: "cloud-tracing",
               title: "Cloud",
+              description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>☁️ Tracing in the Cloud</h2>
+  <p><strong>Cloud tracing</strong> is the process of monitoring and visualizing request flows across distributed systems deployed on cloud platforms. It allows DevOps and developers to gain deep insights into application performance, dependencies, and bottlenecks without managing the infrastructure themselves.</p>
+
+  <h3 style='color:#10b981'>🌐 Why Cloud Tracing?</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>Managed Services:</strong> No need to deploy or maintain tracing infrastructure.</li>
+    <li><strong>Auto-Scaling:</strong> Seamlessly handles large trace volumes from dynamic cloud workloads.</li>
+    <li><strong>Integration:</strong> Easily connects with cloud-native tools and services.</li>
+    <li><strong>Global Visibility:</strong> Trace requests across multiple regions or availability zones.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>⚙️ Key Cloud Tracing Platforms</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>AWS X-Ray:</strong> Traces requests across AWS services and Lambda functions.</li>
+    <li><strong>Google Cloud Trace:</strong> Collects latency data from apps running in GCP.</li>
+    <li><strong>Azure Monitor Application Insights:</strong> Tracks distributed traces in Azure-hosted apps.</li>
+    <li><strong>Datadog APM:</strong> Full-featured tracing with dashboards, alerting, and logs.</li>
+    <li><strong>Sentry Tracing (Cloud):</strong> Lightweight integration with frontend and backend stacks.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>🚀 Use Cases</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li>Track slow database queries or API calls across microservices.</li>
+    <li>Identify the root cause of latency spikes in production.</li>
+    <li>Correlate traces with logs and metrics for full-stack observability.</li>
+    <li>Monitor cold starts or retries in serverless environments.</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li>Instrument critical services and endpoints with trace context.</li>
+    <li>Enable sampling to balance performance and data volume.</li>
+    <li>Tag traces with metadata (env, service, region) for filtering.</li>
+    <li>Correlate trace IDs across logs and metrics for troubleshooting.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://docs.aws.amazon.com/xray/' target='_blank' style='color:#3b82f6'>AWS X-Ray Documentation</a></li>
+    <li><a href='https://cloud.google.com/trace/docs' target='_blank' style='color:#3b82f6'>Google Cloud Trace Docs</a></li>
+    <li><a href='https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview' target='_blank' style='color:#3b82f6'>Azure Application Insights</a></li>
+    <li><a href='https://docs.datadoghq.com/tracing/' target='_blank' style='color:#3b82f6'>Datadog Tracing Docs</a></li>
+    <li><a href='https://docs.sentry.io/product/performance/' target='_blank' style='color:#3b82f6'>Sentry Performance Monitoring</a></li>
+  </ul>
+</div>
+`,
               children: [
-                { id: "datadog-trace", title: "Datadog", type: "must-know" },
-                { id: "sentry-io-trace", title: "Sentry.io", type: "optional" },
+                {
+                  id: "datadog-trace", title: "Datadog", type: "must-know", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>📈 Tracing in the Cloud with Datadog APM</h2>
+  <p><strong>Datadog APM (Application Performance Monitoring)</strong> is a powerful cloud-based platform for distributed tracing, performance monitoring, and full-stack observability. It provides deep visibility into application behavior across services, containers, and infrastructure.</p>
+
+  <h3 style='color:#10b981'>☁️ Why Use Datadog for Cloud Tracing?</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>End-to-End Tracing:</strong> Follow requests from frontend to backend to database.</li>
+    <li><strong>Automatic Instrumentation:</strong> Supports many languages with minimal setup.</li>
+    <li><strong>Correlated Observability:</strong> Unified traces, logs, metrics, and alerts in one place.</li>
+    <li><strong>Scalable Cloud Service:</strong> Built for high-traffic, cloud-native apps.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>⚙️ Key Features</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>Distributed Tracing:</strong> View complete trace timelines and service maps.</li>
+    <li><strong>Root Cause Analysis:</strong> Pinpoint slow services, errors, and bottlenecks.</li>
+    <li><strong>Service Overviews:</strong> Visual dashboards for latency, throughput, error rates.</li>
+    <li><strong>Trace Search & Analytics:</strong> Filter and aggregate traces using tags.</li>
+    <li><strong>Integrations:</strong> Works with Kubernetes, AWS, Azure, GCP, Docker, and more.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>🚀 Typical Use Cases</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li>Monitor performance of microservices in production.</li>
+    <li>Detect slow queries or API endpoints affecting user experience.</li>
+    <li>Correlate errors with traces for faster debugging.</li>
+    <li>Visualize dependencies and trace propagation across services.</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li>Tag spans with key metadata (env, service, version, region).</li>
+    <li>Use trace sampling to balance detail vs cost.</li>
+    <li>Leverage monitors and anomaly detection for proactive alerting.</li>
+    <li>Instrument all critical services and gateways consistently.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://docs.datadoghq.com/tracing/' target='_blank' style='color:#3b82f6'>Datadog APM Documentation</a></li>
+    <li><a href='https://docs.datadoghq.com/tracing/trace_search_and_analytics/' target='_blank' style='color:#3b82f6'>Trace Search & Analytics</a></li>
+    <li><a href='https://www.datadoghq.com/product/apm/' target='_blank' style='color:#3b82f6'>Datadog APM Product Page</a></li>
+    <li><a href='https://docs.datadoghq.com/tracing/setup/' target='_blank' style='color:#3b82f6'>Setup Instructions for Supported Languages</a></li>
+  </ul>
+</div>
+` },
+                { id: "sentry-io-trace", title: "Sentry.io", type: "optional", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>🐞 Cloud Tracing with Sentry Performance</h2>
+  <p><strong>Sentry</strong>, hata izleme aracı olarak bilinse de Cloud ortamlarında güçlü bir <strong>Performance Monitoring & Tracing</strong> yeteneğine sahiptir. Uygulama performansını izler, hataların etkisini ölçer ve dağıtık sistemlerdeki gecikmeleri (latency) net bir şekilde görselleştirir :contentReference[oaicite:1]{index=1}.</p>
+
+  <h3 style='color:#10b981'>☁️ Neden Cloud Tracing (Sentry)?</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>Dağıtık Performans Verisi:</strong> Microservisler, veritabanları ve üçüncü parti servisler üzerinde uçtan uca izleme sağlar :contentReference[oaicite:2]{index=2}.</li>
+    <li><strong>Error & Trace Korelasyonu:</strong> Hata ve tracing verilerini ilişkilendirerek root cause analizini hızlandırır :contentReference[oaicite:3]{index=3}.</li>
+    <li><strong>Insights ve Trace Explorer:</strong> Yüksek seviyede performans metriği sağlar; detaylı Trace Explorer ile alt uçlara inme imkânı sunar :contentReference[oaicite:4]{index=4}.</li>
+    <li><strong>OpenTelemetry Desteği:</strong> OTel SDK’larını Sentry’ye kolayca entegre edebilirsiniz :contentReference[oaicite:5]{index=5}.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>⚙️ Temel Özellikler</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>Transaction & Spans:</strong> İstek, işlem ve fonksiyon bazlı detaylı izleme yakalar :contentReference[oaicite:6]{index=6}.</li>
+    <li><strong>Trace Sampling:</strong> tracesSampleRate ya da tracesSampler kullanılarak gönderilecek trace oranı kontrol edilebilir :contentReference[oaicite:7]{index=7}.</li>
+    <li><strong>Performance Insights:</strong> Örn. yavaş sorgular, N+1 problemleri gibi performans sorunlarını otomatik belirler :contentReference[oaicite:8]{index=8}.</li>
+    <li><strong>Trace Explorer:</strong> Trace’leri filtreleyerek p95, p99 gibi gecikme metriklerini inceleme imkânı sunar :contentReference[oaicite:9]{index=9}.</li>
+    <li><strong>UI'De Görselleştirme:</strong> Transaction detayları, span süreleri ve metadata etiketleri net grafiklerle sunulur :contentReference[oaicite:10]{index=10}.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>🚀 Kullanım Senaryoları</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li>Production ortamında uçtan uca performans analizi</li>
+    <li>Hata ve yavaşlık sorunlarını birlikte inceleyerek hızla çözme</li>
+    <li>Özellikle frontend / backend / API süreçlerinde detaylı izleme</li>
+    <li>Ölçeklendirme sonrası performans regresyonlarını tespit etme</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ En İyi Uygulamalar</h3>
+  <ul>
+    <li><strong>Sampling Oranı Belirleme:</strong> Yüksek trafikte aşırı veri üretiminden kaçınmak için doğru oran belirleyin :contentReference[oaicite:11]{index=11}.</li>
+    <li><strong>Metadata Etiketleme:</strong> service, environment, öncelik gibi etiketlerle izlenebilirliği artırın.</li>
+    <li><strong>Sentry SDK ve OTel:</strong> Mevcut uygulamalara kolay entegre edilir; OTel ile birlikte kullanarak uyumluluğu artırın :contentReference[oaicite:12]{index=12}.</li>
+    <li><strong>Trace & Error Korrelasyonu:</strong> Performans sorunlarını hata verileriyle birleştirerek sorunun kaynağına daha hızlı ulaşılır.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Daha Fazla Öğren</h3>
+  <ul>
+    <li><a href='https://sentry.io/product/tracing/' target='_blank' style='color:#3b82f6'>Sentry Tracing Özellikleri</a></li>
+    <li><a href='https://docs.sentry.io/concepts/key-terms/tracing/' target='_blank' style='color:#3b82f6'>Tracing Kavramları ve Kullanım Dökümantasyonu</a></li>
+    <li><a href='https://docs.sentry.io/product/sentry-basics/performance-monitoring/' target='_blank' style='color:#3b82f6'>Performance Monitoring Rehberi</a></li>
+    <li><a href='https://develop.sentry.dev/sdk/telemetry/traces/' target='_blank' style='color:#3b82f6'>Sentry SDK ile Tracing Konfigürasyonu</a></li>
+  </ul>
+</div>
+` },
               ]
             },
 
@@ -11059,21 +11826,301 @@ builder.Host.UseSerilog();
           id: "alerting",
           title: "Alerting",
           type: "must-know",
+          description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>🚨 Alerting</h2>
+  <p><strong>Alerting</strong> is the process of notifying system operators or developers when specific thresholds or conditions are met in an application or infrastructure. It's a critical part of observability and incident response.</p>
+
+  <h3 style='color:#10b981'>📡 Why Alerting Matters</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>Proactive Monitoring:</strong> Detect issues before they impact users.</li>
+    <li><strong>Reduce Downtime:</strong> Immediate notifications help resolve incidents faster.</li>
+    <li><strong>Service Reliability:</strong> Keeps SLAs and uptime targets in check.</li>
+    <li><strong>Operational Awareness:</strong> Informs the right teams at the right time.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>⚙️ Core Components</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>Metrics-Based Alerts:</strong> Triggered by CPU, memory, latency, etc.</li>
+    <li><strong>Log-Based Alerts:</strong> Triggered by specific log patterns or error counts.</li>
+    <li><strong>Tracing & Anomaly Detection:</strong> Alerts on abnormal behaviors in traces or distributed services.</li>
+    <li><strong>Thresholds & Rules:</strong> Define conditions (e.g., 95% CPU for 5 minutes).</li>
+    <li><strong>Notification Channels:</strong> Email, Slack, SMS, PagerDuty, etc.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>🚀 Use Cases</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li>Alert when API error rate exceeds 5% over 10 minutes.</li>
+    <li>Notify on memory leaks or container crashes.</li>
+    <li>Watch for database query spikes or slowdowns.</li>
+    <li>Monitor Kubernetes pod failures or autoscaling events.</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li><strong>Avoid alert fatigue:</strong> Use actionable, high-signal alerts only.</li>
+    <li><strong>Group alerts:</strong> Aggregate similar events to reduce noise.</li>
+    <li><strong>Include context:</strong> Add links to dashboards and logs in alerts.</li>
+    <li><strong>Use escalation policies:</strong> Define alert severity levels and response paths.</li>
+    <li><strong>Test alerts regularly:</strong> Simulate conditions to verify reliability.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://sre.google/sre-book/monitoring-distributed-systems/' target='_blank' style='color:#3b82f6'>Google SRE Book: Monitoring Distributed Systems</a></li>
+    <li><a href='https://prometheus.io/docs/alerting/latest/overview/' target='_blank' style='color:#3b82f6'>Prometheus Alerting Docs</a></li>
+    <li><a href='https://grafana.com/docs/grafana/latest/alerting/' target='_blank' style='color:#3b82f6'>Grafana Alerting</a></li>
+    <li><a href='https://docs.datadoghq.com/monitors/' target='_blank' style='color:#3b82f6'>Datadog Monitors (Alerting)</a></li>
+  </ul>
+</div>
+`,
           children: [
             {
               id: "on-premises-alerting",
               title: "On-Premises",
+              description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>🏠 Alerting – On-Premises</h2>
+  <p><strong>On-premises alerting</strong> involves configuring monitoring systems within local data centers or self-hosted environments to detect failures, anomalies, or performance issues. It provides full control over alert rules, routing, and integrations without relying on external cloud services.</p>
+
+  <h3 style='color:#10b981'>🔍 Why It's Important</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>Full ownership:</strong> All data and logic remain on internal infrastructure.</li>
+    <li><strong>No internet dependency:</strong> Alerts continue functioning during external outages.</li>
+    <li><strong>Custom integrations:</strong> Easily tie into local systems or legacy tools.</li>
+    <li><strong>Regulatory compliance:</strong> Keeps sensitive environments isolated.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>⚙️ Key Tools & Components</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>Prometheus Alertmanager:</strong> Handles alert dispatching, silencing, grouping.</li>
+    <li><strong>Grafana Alerting:</strong> Built-in alert engine tied to on-prem dashboards.</li>
+    <li><strong>ELK Stack (Elasticsearch, Logstash, Kibana):</strong> Log-based alerts via watchers or custom scripts.</li>
+    <li><strong>Checkmk / Zabbix / Nagios:</strong> Traditional infrastructure and network alerting tools.</li>
+    <li><strong>Notification hooks:</strong> Email, SMS, Slack, webhooks, custom shell scripts.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>🚀 Use Cases</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li>Detect failed backups or replication lag</li>
+    <li>Monitor disk space, CPU load, memory usage</li>
+    <li>Trigger alerts for service downtime or degraded health</li>
+    <li>Integrate with on-site paging or call systems</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li><strong>Build redundancy:</strong> Ensure alerting continues even if one node fails.</li>
+    <li><strong>Document alert rules:</strong> Keep alert logic versioned and accessible.</li>
+    <li><strong>Test regularly:</strong> Simulate incidents to verify alerts and responses.</li>
+    <li><strong>Prioritize by severity:</strong> Avoid flooding teams with low-priority noise.</li>
+    <li><strong>Use labels and grouping:</strong> Combine related alerts for clarity.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://prometheus.io/docs/alerting/latest/alertmanager/' target='_blank' style='color:#3b82f6'>Prometheus Alertmanager Documentation</a></li>
+    <li><a href='https://grafana.com/docs/grafana/latest/alerting/' target='_blank' style='color:#3b82f6'>Grafana On-Prem Alerting</a></li>
+    <li><a href='https://checkmk.com/product' target='_blank' style='color:#3b82f6'>Checkmk Monitoring</a></li>
+    <li><a href='https://www.zabbix.com/documentation/current/manual/config/notifications' target='_blank' style='color:#3b82f6'>Zabbix Alerting Guide</a></li>
+  </ul>
+</div>
+`,
               children: [
-                { id: "zabbix", title: "Zabbix", type: "must-know" },
-                { id: "alertmanager", title: "Alertmanager", type: "optional" },
+                { id: "zabbix", title: "Zabbix", type: "must-know", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>📟 Alerting – On-Premises – Zabbix</h2>
+  <p><strong>Zabbix</strong> is a powerful open-source monitoring and alerting solution for on-premises environments. It provides real-time monitoring, flexible alert rules, and detailed notifications for hosts, services, and infrastructure components.</p>
+
+  <h3 style='color:#10b981'>🧭 Why Use Zabbix for Alerting?</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>Full control:</strong> Self-hosted with customizable notification rules.</li>
+    <li><strong>Agent-based and agentless:</strong> Monitor virtually anything with SNMP, IPMI, SSH, or Zabbix agents.</li>
+    <li><strong>Powerful templating:</strong> Reusable alert logic and macros simplify setup.</li>
+    <li><strong>High scalability:</strong> Supports thousands of nodes in large networks.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>⚙️ Key Alerting Features</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>Trigger expressions:</strong> Create complex conditions (e.g., CPU > 90% for 5 min).</li>
+    <li><strong>Event correlation:</strong> Prevent alert floods by recognizing related events.</li>
+    <li><strong>Escalations:</strong> Define response workflows based on severity or duration.</li>
+    <li><strong>Media types:</strong> Integrate email, SMS, webhook, Slack, Telegram, and more.</li>
+    <li><strong>Maintenance mode:</strong> Suppress alerts during planned outages.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>🚀 Use Cases</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li>Monitor Linux/Windows servers and services</li>
+    <li>Alert when disk space drops below thresholds</li>
+    <li>Notify on network downtime or link degradation</li>
+    <li>Send escalations to different teams by priority</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li><strong>Use templates:</strong> Apply standard alert logic across hosts for consistency.</li>
+    <li><strong>Fine-tune triggers:</strong> Avoid noisy or false-positive alerts.</li>
+    <li><strong>Test notifications:</strong> Verify email/SMS channels regularly.</li>
+    <li><strong>Document escalation policies:</strong> Ensure teams understand alert workflows.</li>
+    <li><strong>Keep Zabbix updated:</strong> Apply security and feature patches proactively.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://www.zabbix.com/documentation/current/manual/config/triggers' target='_blank' style='color:#3b82f6'>Zabbix Triggers Documentation</a></li>
+    <li><a href='https://www.zabbix.com/documentation/current/manual/notifications/media/email' target='_blank' style='color:#3b82f6'>Email Alerting in Zabbix</a></li>
+    <li><a href='https://www.zabbix.com/integrations' target='_blank' style='color:#3b82f6'>Zabbix Integrations (Telegram, Slack, etc.)</a></li>
+    <li><a href='https://bestmonitoringtools.com/zabbix-alerting/' target='_blank' style='color:#3b82f6'>Best Practices for Zabbix Alerting</a></li>
+  </ul>
+</div>
+` },
+                { id: "alertmanager", title: "Alertmanager", type: "optional", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>📢 Alerting – On-Premises – Alertmanager</h2>
+  <p><strong>Alertmanager</strong> is an essential part of the Prometheus monitoring stack, designed to manage alerts from Prometheus servers. It handles deduplication, grouping, routing, and notification of alerts for on-premises environments.</p>
+
+  <h3 style='color:#10b981'>🔧 Why Use Alertmanager?</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>Integrates natively:</strong> Works seamlessly with Prometheus alerts.</li>
+    <li><strong>Noise reduction:</strong> Group and silence alerts to prevent overload.</li>
+    <li><strong>Highly configurable:</strong> Route alerts by severity, source, or labels.</li>
+    <li><strong>On-prem friendly:</strong> Fully self-hosted and lightweight.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>⚙️ Key Features</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>Alert grouping:</strong> Combine similar alerts to reduce noise.</li>
+    <li><strong>Silencing:</strong> Temporarily mute known issues or during maintenance.</li>
+    <li><strong>Routing tree:</strong> Define alert flows based on label matchers.</li>
+    <li><strong>Multi-receiver support:</strong> Email, Slack, PagerDuty, Opsgenie, Webhooks.</li>
+    <li><strong>Templates:</strong> Custom notification messages with Go templating.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>🚀 Use Cases</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li>Send critical CPU/memory alerts via Slack</li>
+    <li>Route different service alerts to different teams</li>
+    <li>Silence alerts during planned downtime automatically</li>
+    <li>Use webhook receiver to trigger custom scripts or integrations</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li><strong>Use labels wisely:</strong> Structure your Prometheus alerts to support flexible routing.</li>
+    <li><strong>Manage silences:</strong> Use time-bound silences to avoid ignoring real issues.</li>
+    <li><strong>Version control configs:</strong> Store alertmanager.yml in Git.</li>
+    <li><strong>Integrate with dashboards:</strong> Display active alerts in Grafana or similar tools.</li>
+    <li><strong>Secure endpoints:</strong> Enable authentication for public-facing APIs.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://prometheus.io/docs/alerting/latest/alertmanager/' target='_blank' style='color:#3b82f6'>Official Alertmanager Docs</a></li>
+    <li><a href='https://grafana.com/docs/grafana/latest/alerting/contacts/alertmanager/' target='_blank' style='color:#3b82f6'>Grafana Alertmanager Integration</a></li>
+    <li><a href='https://awesome-prometheus-alerts.grep.to/' target='_blank' style='color:#3b82f6'>Awesome Prometheus Alerts (GitHub)</a></li>
+    <li><a href='https://www.robustperception.io/alerting-on-your-terms' target='_blank' style='color:#3b82f6'>Blog: Alerting on Your Terms (Prometheus)</a></li>
+  </ul>
+</div>
+` },
 
               ]
             },
             {
               id: "cloud-alerting",
               title: "Cloud",
+              description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>🌐 Alerting – Cloud</h2>
+  <p><strong>Cloud alerting</strong> enables real-time notifications and incident detection across distributed systems, applications, and infrastructure hosted on cloud platforms. It is scalable, flexible, and integrates tightly with modern DevOps and SRE workflows.</p>
+
+  <h3 style='color:#10b981'>☁️ Why Use Cloud Alerting?</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>No infrastructure management:</strong> Fully hosted and maintained by providers.</li>
+    <li><strong>Global scale:</strong> Alert on resources across multiple regions and zones.</li>
+    <li><strong>Fast setup:</strong> Out-of-the-box integrations with cloud-native services.</li>
+    <li><strong>Seamless DevOps integration:</strong> Supports CI/CD, incident response, and automation.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>⚙️ Key Features</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>Multi-signal alerting:</strong> Alerts from metrics, logs, traces, and uptime checks.</li>
+    <li><strong>AI/ML enhancements:</strong> Anomaly detection, predictive alerts, root cause hints.</li>
+    <li><strong>SLO & SLA monitoring:</strong> Alert based on service objectives and thresholds.</li>
+    <li><strong>Event correlation:</strong> Link related incidents across multiple layers.</li>
+    <li><strong>Notification routing:</strong> Escalate alerts based on time, severity, team, or region.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>📌 Common Providers</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li><strong>Datadog:</strong> Integrated with logs, traces, synthetics.</li>
+    <li><strong>Google Cloud Monitoring (Opsgenie/Cloud Alerting):</strong> GCP-native alerting tools.</li>
+    <li><strong>AWS CloudWatch Alarms:</strong> Deep integration with AWS services.</li>
+    <li><strong>Azure Monitor Alerts:</strong> Supports infrastructure, app, and security alerts.</li>
+    <li><strong>Sentry.io:</strong> Focused on error and performance monitoring with alerting.</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li><strong>Define meaningful thresholds:</strong> Avoid over-alerting and false positives.</li>
+    <li><strong>Group alerts by service:</strong> Improve readability and triage.</li>
+    <li><strong>Use tags and labels:</strong> Organize alerts by team, environment, and region.</li>
+    <li><strong>Escalation policies:</strong> Ensure alerts reach the right responders at the right time.</li>
+    <li><strong>Link dashboards:</strong> Provide visual context with each alert.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://cloud.google.com/monitoring/alerts' target='_blank' style='color:#3b82f6'>Google Cloud Alerting Docs</a></li>
+    <li><a href='https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html' target='_blank' style='color:#3b82f6'>AWS CloudWatch Alarms</a></li>
+    <li><a href='https://learn.microsoft.com/en-us/azure/azure-monitor/alerts/alerts-overview' target='_blank' style='color:#3b82f6'>Azure Monitor Alerts</a></li>
+    <li><a href='https://docs.datadoghq.com/monitors/' target='_blank' style='color:#3b82f6'>Datadog Monitors</a></li>
+  </ul>
+</div>
+`,
               children: [
-                { id: "datadog-alert", title: "Datadog", type: "must-know" },
+                { id: "datadog-alert", title: "Datadog", type: "must-know", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>☁️ Alerting – Cloud – Datadog</h2>
+  <p><strong>Datadog</strong> is a modern monitoring and observability platform that provides robust alerting capabilities across cloud-native, hybrid, and microservices architectures. It allows teams to create, manage, and escalate alerts based on logs, metrics, traces, and more.</p>
+
+  <h3 style='color:#10b981'>🚀 Why Use Datadog for Alerting?</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>Unified alerting:</strong> Metrics, logs, traces, synthetics, and more in one place.</li>
+    <li><strong>AI-based detection:</strong> Outlier detection, anomaly alerts, forecasting.</li>
+    <li><strong>Multi-cloud native:</strong> Works seamlessly across AWS, Azure, GCP, and hybrid setups.</li>
+    <li><strong>Built-in integrations:</strong> Slack, PagerDuty, Opsgenie, ServiceNow, and custom webhooks.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>⚙️ Core Alerting Features</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>Monitors:</strong> Define alert conditions using thresholds, trends, or formulas.</li>
+    <li><strong>Composite monitors:</strong> Combine multiple conditions in one alert.</li>
+    <li><strong>Outlier & anomaly detection:</strong> Identify unusual behaviors automatically.</li>
+    <li><strong>SLO-based alerting:</strong> Set alerts around SLAs and error budgets.</li>
+    <li><strong>Alert correlation:</strong> Reduce noise by grouping related incidents.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>📌 Use Cases</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li>Notify when service latency exceeds 500ms</li>
+    <li>Alert on high error rates in production logs</li>
+    <li>Detect and report anomalies in user traffic patterns</li>
+    <li>Escalate outages across global teams via incident workflows</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li><strong>Tag everything:</strong> Use tags to filter, route, and group alerts logically.</li>
+    <li><strong>Use alert severity levels:</strong> Critical, Warning, Info – for better triage.</li>
+    <li><strong>Document monitors:</strong> Include alert rationale and runbooks in messages.</li>
+    <li><strong>Test alert noise:</strong> Simulate conditions to optimize thresholds.</li>
+    <li><strong>Link dashboards:</strong> Embed charts and logs directly in alert messages.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://docs.datadoghq.com/monitors/' target='_blank' style='color:#3b82f6'>Datadog Monitors Overview</a></li>
+    <li><a href='https://docs.datadoghq.com/monitors/monitor_types/' target='_blank' style='color:#3b82f6'>Monitor Types in Datadog</a></li>
+    <li><a href='https://www.datadoghq.com/blog/monitoring-at-scale/' target='_blank' style='color:#3b82f6'>Monitoring at Scale with Datadog</a></li>
+    <li><a href='https://www.datadoghq.com/blog/tagging-best-practices/' target='_blank' style='color:#3b82f6'>Tagging Best Practices in Datadog</a></li>
+  </ul>
+</div>
+` },
               ]
             },
 
@@ -11085,24 +12132,216 @@ builder.Host.UseSerilog();
       id: "client-side-dotnet",
       title: "Client-Side .NET",
       direction: "left",
+      description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>🖥️ Client-Side .NET</h2>
+  <p><strong>Client-side .NET</strong> enables developers to build interactive applications that run directly in the user's environment — whether that's the browser, desktop, or mobile device — using .NET technologies.</p>
+
+  <h3 style='color:#10b981'>🌐 Blazor WebAssembly</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>Runs .NET in the browser:</strong> Uses WebAssembly to run C# instead of JavaScript.</li>
+    <li><strong>Single-page app (SPA):</strong> Works like React/Vue but written in C#.</li>
+    <li><strong>Reusability:</strong> Share code and components between client and server.</li>
+    <li><strong>Offline support:</strong> Can run without internet once loaded.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>🖥️ .NET MAUI (Multi-platform App UI)</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>Cross-platform client apps:</strong> Build for Windows, macOS, Android, iOS with one codebase.</li>
+    <li><strong>XAML-based UI:</strong> Declarative UI layout using XAML and C#.</li>
+    <li><strong>Native performance:</strong> Compiled to native code with full access to platform APIs.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>🪟 WPF & Windows Forms</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li><strong>Classic desktop technologies:</strong> Still widely used in enterprise apps.</li>
+    <li><strong>WPF:</strong> Uses XAML and MVVM for modern UI binding.</li>
+    <li><strong>WinForms:</strong> Simpler event-driven model, great for rapid development.</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ Considerations</h3>
+  <ul>
+    <li><strong>Blazor WebAssembly:</strong> Initial load size can affect performance; best with trimming and lazy loading.</li>
+    <li><strong>MAUI:</strong> Still maturing; not all 3rd-party libraries fully support it yet.</li>
+    <li><strong>WPF/WinForms:</strong> Windows-only; not suitable for modern cross-platform UI needs.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://learn.microsoft.com/en-us/aspnet/core/blazor/' target='_blank' style='color:#3b82f6'>Blazor WebAssembly Docs</a></li>
+    <li><a href='https://learn.microsoft.com/en-us/dotnet/maui/' target='_blank' style='color:#3b82f6'>.NET MAUI Documentation</a></li>
+    <li><a href='https://learn.microsoft.com/en-us/dotnet/desktop/wpf/' target='_blank' style='color:#3b82f6'>WPF Guide</a></li>
+    <li><a href='https://learn.microsoft.com/en-us/dotnet/desktop/winforms/' target='_blank' style='color:#3b82f6'>Windows Forms Guide</a></li>
+  </ul>
+</div>
+`,
       children: [
         {
           id: "template-engines",
           title: "Template Engines",
           type: "good-to-know",
+          description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>📄 Template Engines</h2>
+  <p><strong>Template engines</strong> are tools that allow developers to generate dynamic content by combining static templates with runtime data. They are commonly used in web development for rendering HTML views on the server or client side.</p>
+
+  <h3 style='color:#10b981'>🔧 How Template Engines Work</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li>Use placeholders or expressions in a template file (e.g., <code>{{ name }}</code>).</li>
+    <li>At runtime, inject data to render a final HTML/text output.</li>
+    <li>Support logic like loops, conditionals, includes, and filters.</li>
+    <li>Useful for email templates, reports, SSR, or static site generation.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>💻 Popular Template Engines</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>Handlebars (JS):</strong> Logic-less templates, great for web apps and emails.</li>
+    <li><strong>EJS (JS):</strong> Embedded JavaScript templating, used in Express.js.</li>
+    <li><strong>Pug (JS):</strong> Indentation-based and clean syntax.</li>
+    <li><strong>Thymeleaf (Java):</strong> Natural templating engine for Spring applications.</li>
+    <li><strong>Razor (C#):</strong> Server-side HTML generation in ASP.NET.</li>
+    <li><strong>Jinja2 (Python):</strong> Used in Flask and Django (via Django Templates).</li>
+    <li><strong>Mustache:</strong> Minimal and logic-less, cross-language compatible.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>📦 Use Cases</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li>Render HTML from server-side (SSR apps)</li>
+    <li>Create dynamic e-mails with variable content</li>
+    <li>Generate PDFs or reports based on templates</li>
+    <li>Build static websites with templated pages</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li><strong>Keep templates clean:</strong> Avoid business logic in templates.</li>
+    <li><strong>Escape output:</strong> Prevent XSS by escaping user input.</li>
+    <li><strong>Use partials:</strong> Reuse layout sections like headers and footers.</li>
+    <li><strong>Separate concerns:</strong> Keep templates separate from controllers or models.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://handlebarsjs.com/' target='_blank' style='color:#3b82f6'>Handlebars Documentation</a></li>
+    <li><a href='https://ejs.co/' target='_blank' style='color:#3b82f6'>EJS Documentation</a></li>
+    <li><a href='https://pugjs.org/api/getting-started.html' target='_blank' style='color:#3b82f6'>Pug Guide</a></li>
+    <li><a href='https://jinja.palletsprojects.com/' target='_blank' style='color:#3b82f6'>Jinja2 Docs</a></li>
+    <li><a href='https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor' target='_blank' style='color:#3b82f6'>Razor View Engine</a></li>
+  </ul>
+</div>
+`,
           children: [
-            { id: "razor", title: "Razor", type: "must-know"         },
-            { id: "scriban", title: "Scriban", type: "optional" },
-            { id: "fluid", title: "Fluid", type: "optional",
+            { id: "razor", title: "Razor", type: "must-know", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>🧩 Template Engines – Razor</h2>
+  <p><strong>Razor</strong> is a markup syntax used in ASP.NET for embedding C# logic into HTML templates. It enables clean and efficient server-side rendering of dynamic web pages.</p>
+
+  <h3 style='color:#10b981'>🧬 Key Features</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>Clean syntax:</strong> Uses <code>@</code> to embed C# within HTML.</li>
+    <li><strong>IntelliSense support:</strong> Works natively with Visual Studio and VS Code.</li>
+    <li><strong>Server-side rendering (SSR):</strong> Great for SEO and first-page load performance.</li>
+    <li><strong>View components & partials:</strong> Modularize templates for reuse.</li>
+    <li><strong>Model binding:</strong> Strongly-typed views with compile-time checking.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>📦 Where It's Used</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>ASP.NET MVC:</strong> Traditional server-rendered web apps.</li>
+    <li><strong>ASP.NET Razor Pages:</strong> Page-based programming model.</li>
+    <li><strong>Blazor Server:</strong> Razor syntax used with SignalR for real-time UI.</li>
+    <li><strong>Email templates:</strong> Generate dynamic server-side HTML emails.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>📌 Razor Syntax Examples</h3>
+  <pre style="background:#f3f4f6;padding:1rem;border-radius:0.5rem">
+@model MyApp.Models.Product
+
+&lt;h1&gt;@Model.Name&lt;/h1&gt;
+&lt;p&gt;Price: @Model.Price.ToString("C")&lt;/p&gt;
+
+@if(Model.IsAvailable) {
+  &lt;span class="text-success"&gt;In Stock&lt;/span&gt;
+} else {
+  &lt;span class="text-danger"&gt;Out of Stock&lt;/span&gt;
+}
+  </pre>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li><strong>Use layout pages:</strong> For consistent headers/footers/navigation.</li>
+    <li><strong>Avoid business logic:</strong> Keep Razor views clean and presentation-focused.</li>
+    <li><strong>Use partial views:</strong> Break large views into maintainable components.</li>
+    <li><strong>Validate models:</strong> Use data annotations for UI-level validation.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://learn.microsoft.com/en-us/aspnet/core/mvc/views/razor' target='_blank' style='color:#3b82f6'>Razor Syntax Documentation</a></li>
+    <li><a href='https://learn.microsoft.com/en-us/aspnet/core/mvc/views/overview' target='_blank' style='color:#3b82f6'>ASP.NET MVC Views Overview</a></li>
+    <li><a href='https://learn.microsoft.com/en-us/aspnet/core/razor-pages/' target='_blank' style='color:#3b82f6'>Razor Pages Guide</a></li>
+    <li><a href='https://learn.microsoft.com/en-us/aspnet/core/blazor/components/' target='_blank' style='color:#3b82f6'>Blazor and Razor Components</a></li>
+  </ul>
+</div>
+` },
+            { id: "scriban", title: "Scriban", type: "optional", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>🧾 Template Engines – Scriban</h2>
+  <p><strong>Scriban</strong> is a fast, powerful, and lightweight text templating engine for .NET. It's ideal for generating structured documents like emails, reports, configuration files, and source code.</p>
+
+  <h3 style='color:#10b981'>🚀 Why Use Scriban?</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>Lightweight:</strong> No external dependencies, pure .NET library.</li>
+    <li><strong>Safe and sandboxed:</strong> Executes templates in an isolated environment.</li>
+    <li><strong>Portable:</strong> Works with .NET Core, .NET Framework, and .NET Standard.</li>
+    <li><strong>Script-style syntax:</strong> Similar to Liquid or Jinja, but faster and safer.</li>
+    <li><strong>High performance:</strong> Optimized for runtime template generation.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>📦 Key Features</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li><strong>Built-in functions:</strong> Math, string, array, date, JSON helpers.</li>
+    <li><strong>Custom functions:</strong> Extend the engine with your own logic.</li>
+    <li><strong>Template inheritance:</strong> Include/extend base templates.</li>
+    <li><strong>Looping and conditions:</strong> Supports if/else, for/while, filters.</li>
+    <li><strong>Precompiled templates:</strong> For optimal performance in production.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>🧪 Sample Template</h3>
+  <pre style="background:#f3f4f6;padding:1rem;border-radius:0.5rem">
+Hello {{ user.name }},
+
+You have {{ user.notifications.size }} new notifications.
+
+{% for item in user.notifications %}
+- {{ item.title }} at {{ item.time | date.format "yyyy-MM-dd HH:mm" }}
+{% end %}
+  </pre>
+
+  <h3 style='color:#ef4444'>⚠️ Best Practices</h3>
+  <ul>
+    <li><strong>Keep templates logic-light:</strong> Use Scriban for presentation, not heavy logic.</li>
+    <li><strong>Escape user input:</strong> Protect output when generating HTML or scripts.</li>
+    <li><strong>Pre-validate context:</strong> Ensure required variables are set before rendering.</li>
+    <li><strong>Use includes:</strong> Separate large templates into maintainable partials.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://github.com/scriban/scriban' target='_blank' style='color:#3b82f6'>Scriban on GitHub</a></li>
+    <li><a href='https://github.com/scriban/scriban/blob/master/doc/language.md' target='_blank' style='color:#3b82f6'>Scriban Language Reference</a></li>
+    <li><a href='https://www.nuget.org/packages/Scriban/' target='_blank' style='color:#3b82f6'>Scriban NuGet Package</a></li>
+    <li><a href='https://davidwengier.com/posts/scriban.html' target='_blank' style='color:#3b82f6'>Blog: Using Scriban in .NET Projects</a></li>
+  </ul>
+</div>
+` },
+            {
+              id: "fluid", title: "Fluid", type: "optional",
               description: "<div style='font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #4ade80; box-shadow:0 6px 20px rgba(74,222,128,0.2)'>\n  <h2 style='color:#22c55e;'>💧 Fluid Framework</h2>\n  <p>\n    <strong>Fluid Framework</strong> is an open-source library developed by Microsoft that enables <em>real-time collaborative experiences</em> in web applications. It allows multiple users to simultaneously interact with shared data structures — like documents, forms, or diagrams — with seamless sync across clients.\n  </p>\n\n  <h3 style='color:#15803d;'>🚀 Key Capabilities</h3>\n  <ul>\n    <li>⚡ Real-time synchronization of shared data (e.g., text, lists, objects)</li>\n    <li>🧠 Conflict-free, distributed data structures (CRDTs) built-in</li>\n    <li>📦 Support for both client and server-side hosting models</li>\n    <li>🔄 Offline support with eventual consistency</li>\n    <li>🌐 Integration with Microsoft 365, Azure Fluid Relay, or custom servers</li>\n  </ul>\n\n  <h3 style='color:#15803d;'>🧪 Real-World Use Cases</h3>\n  <ul>\n    <li>✍️ Collaborative document editing (e.g., Word-like apps)</li>\n    <li>📊 Live dashboards with shared filters or state</li>\n    <li>📁 Shared whiteboards or design tools</li>\n    <li>🗳️ Multi-user form or survey inputs in real time</li>\n  </ul>\n\n  <h3 style='color:#15803d;'>🔧 Example (Shared Counter)</h3>\n  <pre style='background:#dcfce7; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;'>import { SharedMap } from \"fluid-framework\";\n\n// Create a shared object\nconst sharedMap = new SharedMap(dataStoreRuntime, id);\n\n// Set data\nsharedMap.set(\"counter\", 1);\n\n// Listen for changes\nsharedMap.on(\"valueChanged\", (changed) => {\n  const newValue = sharedMap.get(\"counter\");\n  console.log(\"Updated count:\", newValue);\n});</pre>\n\n  <h3 style='color:#15803d;'>✅ Best Practices</h3>\n  <ul>\n    <li>💡 Use Fluid for apps that need low-latency shared state</li>\n    <li>🧩 Build modular components using Fluid’s shared objects</li>\n    <li>🌍 Host Fluid services on Azure Relay or a custom server</li>\n    <li>🔐 Ensure access control and session handling in multi-user environments</li>\n    <li>🧪 Test sync scenarios with multiple clients to ensure consistency</li>\n  </ul>\n\n  <h3 style='color:#22c55e;'>📚 Learn More</h3>\n  <ul>\n    <li><a href='https://fluidframework.com' target='_blank' style='color:#4ade80;'>Official Fluid Framework Website</a></li>\n    <li><a href='https://github.com/microsoft/FluidFramework' target='_blank' style='color:#4ade80;'>GitHub Repository</a></li>\n  </ul>\n</div>"
-     },
+            },
           ]
         },
         {
           id: "frameworks-client",
           title: "Frameworks",
           description: "<div style='font-family:sans-serif; line-height:1.6; background:#fef9c3; padding:2rem; border-radius:1rem; border:2px solid #facc15; box-shadow:0 6px 20px rgba(234,179,8,0.2)'>\n  <h2 style='color:#ca8a04;'>🖥️ Client-side Frameworks in .NET Ecosystem</h2>\n  <p>\n    In the .NET ecosystem, client-side frameworks enable developers to build rich, interactive, and performant user interfaces for web, desktop, and mobile platforms using C#, Razor, and .NET runtime capabilities. These frameworks allow developers to avoid JavaScript for most front-end needs, while still building modern UIs.\n  </p>\n\n  <h3 style='color:#92400e;'>Key Frameworks:</h3>\n  <ul>\n    <li><strong>Blazor WebAssembly:</strong> Run .NET code directly in the browser using WebAssembly. Great for SPA apps with offline support.</li>\n    <li><strong>Blazor Server:</strong> UI events are handled on the server via SignalR. Suitable for enterprise intranet apps with constant connectivity.</li>\n    <li><strong>.NET MAUI (Blazor Hybrid):</strong> Enables building native apps for iOS, Android, macOS, and Windows using Blazor UI components.</li>\n    <li><strong>Uno Platform:</strong> A cross-platform framework that brings UWP and WinUI apps to WebAssembly, Android, iOS, macOS, and Linux.</li>\n    <li><strong>Avalonia UI:</strong> XAML-based UI framework for cross-platform desktop apps in .NET. Supports Linux, Windows, macOS.</li>\n  </ul>\n\n  <h3 style='color:#92400e;'>Benefits</h3>\n  <ul>\n    <li>🧠 Full-stack development with C#</li>\n    <li>🔄 Code sharing between client and server</li>\n    <li>📦 Built-in support for DI, routing, state, and component model</li>\n    <li>🛠️ Access to modern dev tools and .NET ecosystem</li>\n  </ul>\n\n  <h3 style='color:#92400e;'>When to Use Client-side Frameworks</h3>\n  <ul>\n    <li>✅ Building SPA-style apps without relying heavily on JavaScript</li>\n    <li>✅ Need for a shared codebase between desktop, mobile, and web</li>\n    <li>✅ Targeting modern platforms and maximizing developer productivity in C#</li>\n  </ul>\n\n  <p>Client-side frameworks like Blazor and MAUI are central to the future of cross-platform .NET development. They empower teams to ship UIs faster and more reliably using a consistent tech stack.</p>\n</div>"
-,
+          ,
           type: "must-know",
           children: [
             {
@@ -11111,7 +12350,8 @@ builder.Host.UseSerilog();
               description: `<div style=\"font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)\">\n  <h2 style=\"color:#2563eb;\">⚡ Blazor: Modern Web UI Framework with .NET</h2>\n  <p>\n    <strong>Blazor</strong> is a Microsoft framework for building interactive client-side web UIs using C# instead of JavaScript. It runs either on the server or directly in the browser via WebAssembly.\n  </p>\n\n  <h3 style=\"color:#1e40af;\">Hosting Models</h3>\n  <ul>\n    <li><strong>Blazor Server:</strong> UI logic executes on the server. The UI updates are sent over a SignalR connection, making the app lightweight but requiring a persistent connection.</li>\n    <li><strong>Blazor WebAssembly (WASM):</strong> The app runs fully in the browser via WebAssembly. This allows offline support and reduces server load but increases initial load size.</li>\n  </ul>\n\n  <h3 style=\"color:#2563eb;\">Why Choose Blazor?</h3>\n  <ul>\n    <li>✅ Write full-stack applications in C# with reusable components</li>\n    <li>✅ Share code and libraries between client and server</li>\n    <li>✅ Use Razor syntax for clean UI definitions</li>\n    <li>✅ Leverage .NET ecosystem and tooling, including dependency injection</li>\n    <li>✅ Supports progressive web apps (PWAs) and native integration via .NET MAUI</li>\n  </ul>\n\n  <h3 style=\"color:#1e40af;\">Simple Counter Component Example</h3>\n  <pre style=\"background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;\">\n@page \"/counter\"\n\n&lt;h3&gt;Counter Example&lt;/h3&gt;\n\n&lt;p&gt;Current count: @count&lt;/p&gt;\n\n&lt;button class=\\\"btn btn-primary\\\" @onclick=\\\"IncrementCount\\\"&gt;Click me&lt;/button&gt;\n\n@code {\n    private int count = 0;\n\n    private void IncrementCount()\n    {\n        count++;\n    }\n}\n  </pre>\n\n  <h3 style=\"color:#2563eb;\">Data Binding and Events</h3>\n  <p>Blazor supports two-way data binding and event handling seamlessly:</p>\n  <pre style=\"background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;\">\n@page \"/input-example\"\n\n&lt;h3&gt;Input Binding Example&lt;/h3&gt;\n\n&lt;input @bind=\\\"name\\\" placeholder=\\\"Enter your name\\\" /&gt;\n\n&lt;p&gt;Hello, @name!&lt;/p&gt;\n\n@code {\n    private string name = string.Empty;\n}\n  </pre>\n\n  <h3 style=\"color:#1e40af;\">Dependency Injection (DI) Example</h3>\n  <p>Inject services easily into components:</p>\n  <pre style=\"background:#dbeafe; padding:1rem; border-radius:0.75rem; overflow-x:auto; font-family:monospace;\">\n@inject WeatherService WeatherService\n\n&lt;h3&gt;Weather Forecast&lt;/h3&gt;\n\n@if (forecasts == null)\n{\n    &lt;p&gt;Loading...&lt;/p&gt;\n}\nelse\n{\n    &lt;ul&gt;\n    @foreach (var forecast in forecasts)\n    {\n        &lt;li&gt;@forecast.Date.ToShortDateString(): @forecast.TemperatureC °C&lt;/li&gt;\n    }\n    &lt;/ul&gt;\n}\n\n@code {\n    private WeatherForecast[] forecasts;\n\n    protected override async Task OnInitializedAsync()\n    {\n        forecasts = await WeatherService.GetForecastAsync(DateTime.Now);\n    }\n}\n  </pre>\n\n  <h3 style=\"color:#2563eb;\">Real-World Use Cases</h3>\n  <ul>\n    <li>Enterprise dashboards with complex UI logic in C#</li>\n    <li>Internal apps where sharing code between client/server saves effort</li>\n    <li>Building PWAs for offline-first user experiences</li>\n    <li>Integrating with existing .NET backends seamlessly</li>\n  </ul>\n\n  <h3 style=\"color:#1e40af;\">Best Practices</h3>\n  <ul>\n    <li>📝 Organize components to maximize reuse and maintainability</li>\n    <li>⚡ Use asynchronous programming patterns to keep UI responsive</li>\n    <li>🔐 Secure data and API calls carefully, especially for Blazor WASM</li>\n    <li>📦 Lazy-load assemblies to improve initial app load times</li>\n    <li>🔄 Take advantage of state management patterns (e.g. Fluxor, Redux)</li>\n  </ul>\n\n  <h3 style=\"color:#2563eb;\">Learn More</h3>\n  <ul>\n    <li><a href=\"https://learn.microsoft.com/en-us/aspnet/core/blazor\" target=\"_blank\" style=\"color:#3b82f6;\">Official Microsoft Blazor Documentation</a></li>\n    <li><a href=\"https://blazor-university.com/\" target=\"_blank\" style=\"color:#3b82f6;\">Blazor University - Comprehensive Tutorials</a></li>\n  </ul>\n</div>`,
               type: "must-know",
               children: [
-                { id: "blazor-wasm", title: "Blazor WASM", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
+                {
+                  id: "blazor-wasm", title: "Blazor WASM", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0ea5e9; box-shadow:0 6px 20px rgba(14,165,233,0.2)">
   <h2 style="color:#0284c7;">🚀 Blazor WebAssembly (WASM): Full Client-Side .NET Apps in the Browser</h2>
 
   <p>
@@ -11180,7 +12420,8 @@ await builder.Build().RunAsync();
   </ul>
 </div>
 ` },
-                { id: "blazor-server-side", title: "Blazor Server-Side", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+                {
+                  id: "blazor-server-side", title: "Blazor Server-Side", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
   <h2 style="color:#1e40af;">⚡ Blazor Server-Side: Interactive Web UI with Real-Time Server Rendering</h2>
 
   <p>
@@ -11262,7 +12503,8 @@ app.Run();
   </ul>
 </div>
 ` },
-                { id: "blazor-hybrid", title: "Blazor Hybrid", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#e8f0fe; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+                {
+                  id: "blazor-hybrid", title: "Blazor Hybrid", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#e8f0fe; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
   <h2 style="color:#1e40af;">🌐 Blazor Hybrid: Combining Web UI with Native Apps</h2>
 
   <p>
@@ -11341,7 +12583,8 @@ public partial class MainPage : ContentPage
               ]
             },
 
-            { id: "net-maui", title: ".NET MAUI", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f7fa; padding:2rem; border-radius:1rem; border:2px solid #00796b; box-shadow:0 6px 20px rgba(0,121,107,0.2)">
+            {
+              id: "net-maui", title: ".NET MAUI", type: "good-to-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f7fa; padding:2rem; border-radius:1rem; border:2px solid #00796b; box-shadow:0 6px 20px rgba(0,121,107,0.2)">
   <h2 style="color:#004d40;">📱 .NET MAUI (Multi-platform App UI): Cross-Platform App Development Simplified</h2>
   
   <p>
@@ -11434,7 +12677,8 @@ public class CounterPage : ContentPage
       title: "Good to Know Libraries",
       direction: "left",
       children: [
-        { id: "scalar", title: "Scalar", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#eef6ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+        {
+          id: "scalar", title: "Scalar", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#eef6ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
   <h2 style="color:#2563eb;">🤖 OpenAI Integration with <code>openai-net</code></h2>
   <p>
     <strong>openai-net</strong> is a powerful .NET client library for integrating OpenAI services like GPT models into your .NET applications easily.
@@ -11483,7 +12727,8 @@ Console.WriteLine(response.Choices[0].Message.Content);
   </ul>
 </div>
 ` },
-        { id: "mediatr", title: "MediatR", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:2rem; border-radius:1rem; border:2px solid #0284c7; box-shadow:0 6px 20px rgba(2,132,199,0.2)">
+        {
+          id: "mediatr", title: "MediatR", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#e0f2fe; padding:2rem; border-radius:1rem; border:2px solid #0284c7; box-shadow:0 6px 20px rgba(2,132,199,0.2)">
   <h2 style="color:#0369a1;">📦 MediatR - Simplifying In-Process Messaging in .NET</h2>
   <p>
     <strong>MediatR</strong> is a popular, lightweight library for .NET that implements the Mediator design pattern. It helps decouple application components by enabling in-process messaging — sending requests and publishing notifications — without explicit dependencies between sender and receiver.
@@ -11565,7 +12810,8 @@ public class SendConfirmationEmailHandler : INotificationHandler&lt;OrderCreated
   </ul>
 </div>
 ` },
-        { id: "fluentvalidation", title: "FluentValidation", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
+        {
+          id: "fluentvalidation", title: "FluentValidation", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #3b82f6; box-shadow:0 6px 20px rgba(59,130,246,0.2)">
   <h2 style="color:#1e40af;">🔍 FluentValidation - Elegant Validation Library for .NET</h2>
   <p>
     <strong>FluentValidation</strong> is a popular .NET library designed to help you define strongly-typed validation rules for your objects using a fluent interface. It promotes separation of concerns by moving validation logic outside your models or controllers, making code cleaner and more maintainable.
@@ -11643,7 +12889,8 @@ public IActionResult Register(UserRegistration model)
   </ul>
 </div>
 ` },
-        { id: "polly", title: "Polly", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #2563eb; box-shadow:0 6px 20px rgba(37,99,235,0.2)">
+        {
+          id: "polly", title: "Polly", type: "good-to-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #2563eb; box-shadow:0 6px 20px rgba(37,99,235,0.2)">
   <h2 style="color:#1e40af;">🛡️ Polly - Resilience and Transient-Fault Handling Library for .NET</h2>
   <p>
     <strong>Polly</strong> is a powerful .NET library that helps you build resilient applications by providing sophisticated policies to handle transient faults such as network failures, timeouts, and exceptions. Polly enables you to express retry, circuit breaker, timeout, bulkhead isolation, and fallback policies in a fluent, thread-safe way.
@@ -11715,7 +12962,8 @@ await combinedPolicy.ExecuteAsync(async () =&gt;
   </ul>
 </div>
 ` },
-        { id: "benchmark-net", title: "Benchmark.NET", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f9fafb; padding:2rem; border-radius:1rem; border:2px solid #2563eb; box-shadow:0 6px 20px rgba(37,99,235,0.2)">
+        {
+          id: "benchmark-net", title: "Benchmark.NET", type: "good-to-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f9fafb; padding:2rem; border-radius:1rem; border:2px solid #2563eb; box-shadow:0 6px 20px rgba(37,99,235,0.2)">
   <h2 style="color:#1e40af;">⚡ BenchmarkDotNet - Powerful Benchmarking Library for .NET</h2>
   <p>
     <strong>BenchmarkDotNet</strong> is a popular, open-source .NET library designed to help developers measure and analyze the performance of their code with precision and ease. It automates benchmarking tasks like running tests multiple times, warming up, and providing detailed reports with statistics.
@@ -11789,7 +13037,8 @@ class Program
   </ul>
 </div>
 ` },
-        { id: "distributedlock", title: "DistributedLock", type: "good-to-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f9fafb; padding:2rem; border-radius:1rem; border:2px solid #2563eb; box-shadow:0 6px 20px rgba(37,99,235,0.2)">
+        {
+          id: "distributedlock", title: "DistributedLock", type: "good-to-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f9fafb; padding:2rem; border-radius:1rem; border:2px solid #2563eb; box-shadow:0 6px 20px rgba(37,99,235,0.2)">
   <h2 style="color:#1e40af;">🔒 Distributed Locking in .NET</h2>
   <p>
     Distributed locks help coordinate access to shared resources in distributed systems, preventing race conditions and ensuring consistency when multiple processes or services try to access or modify the same resource concurrently.
@@ -11854,7 +13103,8 @@ using (var redLock = redlockFactory.CreateLock("my-resource-key", expiry))
   </ul>
 </div>
 ` },
-        { id: "nuke-build", title: "Nuke.Build", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0284c7; box-shadow:0 6px 20px rgba(2,132,199,0.2)">
+        {
+          id: "nuke-build", title: "Nuke.Build", type: "optional", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #0284c7; box-shadow:0 6px 20px rgba(2,132,199,0.2)">
   <h2 style="color:#0369a1;">🛠️ Nuke Build: Modern Build Automation for .NET</h2>
   <p>
     <strong>NUKE</strong> is a cross-platform build automation system for .NET projects that lets you write build scripts in C# instead of traditional XML or DSLs. It integrates seamlessly with the .NET ecosystem, enabling powerful, type-safe, and maintainable build pipelines.
@@ -11923,7 +13173,8 @@ class Build : NukeBuild
   </ul>
 </div>
 ` },
-        { id: "marten", title: "Marten", type: "optional",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #2563eb; box-shadow:0 6px 20px rgba(37,99,235,0.2)">
+        {
+          id: "marten", title: "Marten", type: "optional", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:2rem; border-radius:1rem; border:2px solid #2563eb; box-shadow:0 6px 20px rgba(37,99,235,0.2)">
   <h2 style="color:#1e40af;">📦 Marten: Modern .NET Document Database & Event Store on PostgreSQL</h2>
   <p>
     <strong>Marten</strong> is a powerful .NET library that turns PostgreSQL into a document database and event store, providing a flexible, scalable, and developer-friendly way to work with JSON documents and event sourcing in your .NET applications.
@@ -12000,8 +13251,58 @@ using (var session = store.LightweightSession())
       id: "ai-llms",
       title: "AI / LLMs",
       direction: "right",
+      description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+  <h2 style='color:#3b82f6'>🧠 AI / LLMs (Large Language Models)</h2>
+  <p><strong>Large Language Models (LLMs)</strong> are advanced AI systems trained on massive datasets of text to understand, generate, and reason with human language. They power tools like ChatGPT, GitHub Copilot, and other AI assistants.</p>
+
+  <h3 style='color:#10b981'>🔍 Core Capabilities</h3>
+  <ul style='list-style:disc;padding-left:1.2rem'>
+    <li><strong>Text generation:</strong> Compose human-like responses, summaries, or stories.</li>
+    <li><strong>Question answering:</strong> Respond intelligently to user queries.</li>
+    <li><strong>Translation:</strong> Translate between languages accurately.</li>
+    <li><strong>Code generation:</strong> Generate and explain code in multiple languages.</li>
+    <li><strong>Conversation:</strong> Maintain context-aware, interactive dialogue.</li>
+  </ul>
+
+  <h3 style='color:#f59e0b'>⚙️ How LLMs Work</h3>
+  <ul style='list-style:circle;padding-left:1.2rem'>
+    <li>Based on transformer architecture (e.g., GPT, BERT, T5).</li>
+    <li>Trained on public and licensed internet data at scale.</li>
+    <li>Use attention mechanisms to model context and semantics.</li>
+    <li>Predict the next token in a sequence to generate language.</li>
+  </ul>
+
+  <h3 style='color:#8b5cf6'>📌 Popular LLMs</h3>
+  <ul style='list-style:square;padding-left:1.2rem'>
+    <li><strong>GPT-4 / GPT-3.5 (OpenAI):</strong> ChatGPT, coding, content generation.</li>
+    <li><strong>Claude (Anthropic):</strong> AI assistant with safety alignment.</li>
+    <li><strong>Gemini (Google):</strong> Multimodal model for text and image.</li>
+    <li><strong>Mistral / Mixtral:</strong> Open-source performant LLMs.</li>
+    <li><strong>LLaMA 3 (Meta):</strong> Foundation models for research and commercial use.</li>
+    <li><strong>Command R / Cohere / Falcon:</strong> Open alternatives for developers.</li>
+  </ul>
+
+  <h3 style='color:#ef4444'>⚠️ Challenges & Considerations</h3>
+  <ul>
+    <li><strong>Hallucinations:</strong> May produce incorrect or made-up information.</li>
+    <li><strong>Bias:</strong> Reflect societal or training data biases.</li>
+    <li><strong>Cost:</strong> Large models require significant compute resources.</li>
+    <li><strong>Data privacy:</strong> Need careful handling in sensitive environments.</li>
+  </ul>
+
+  <h3 style='color:#0ea5e9'>📚 Learn More</h3>
+  <ul>
+    <li><a href='https://platform.openai.com/docs' target='_blank' style='color:#3b82f6'>OpenAI Platform Documentation</a></li>
+    <li><a href='https://huggingface.co/models' target='_blank' style='color:#3b82f6'>HuggingFace Model Hub</a></li>
+    <li><a href='https://anthropic.com/index/claude' target='_blank' style='color:#3b82f6'>Anthropic Claude</a></li>
+    <li><a href='https://ai.meta.com/llama/' target='_blank' style='color:#3b82f6'>Meta’s LLaMA</a></li>
+    <li><a href='https://github.com/mistralai' target='_blank' style='color:#3b82f6'>Mistral AI GitHub</a></li>
+  </ul>
+</div>
+`,
       children: [
-        { id: "semantic-kernel", title: "Semantic Kernel", type: "must-know",
+        {
+          id: "semantic-kernel", title: "Semantic Kernel", type: "must-know",
           description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
   <h2 style="color:#15803d;">🧠 Semantic Kernel: Building Intelligent AI Workflows in .NET</h2>
 
@@ -12073,8 +13374,9 @@ await kernel.Memory.SaveReferenceAsync("chat", "user1", input);
     <li><a href="https://aka.ms/sk-samples" target="_blank" style="color:#22c55e;">Sample Scenarios</a></li>
   </ul>
 </div>`
-         },
-        { id: "openai-net", title: "OpenAI .NET", type: "must-know",description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
+        },
+        {
+          id: "openai-net", title: "OpenAI .NET", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
   <h2 style="color:#15803d;">🤖 OpenAI Integration with .NET using openai-net</h2>
   <p>
     <strong>openai-net</strong> is a popular .NET SDK that provides seamless access to OpenAI’s APIs (ChatGPT, DALL·E, Whisper, Embeddings, etc.). It helps developers build AI-powered apps in C# with minimal effort and strong type support.
