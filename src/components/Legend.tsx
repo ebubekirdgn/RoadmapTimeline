@@ -3,7 +3,7 @@ import React from 'react';
 const legendItems = [
   { text: 'Must know', color: 'bg-red-500' },
   { text: 'Good to know', color: 'bg-yellow-500' },
-  { text: 'Optional', color: 'bg-gray-400' },
+  { text: 'Optional', color: 'bg-blue-500' },
 ];
 
 const Legend = () => {
@@ -15,7 +15,7 @@ const Legend = () => {
         {legendItems.map((item, index) => (
           <li key={index} className="flex items-center gap-3">
             <div className={`w-4 h-4 rounded-full ${item.color}`} />
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{item.text}</span>
+            <span className="text-sm font-medium text-gray-800 dark:text-gray-200">{item.text}</span>
           </li>
         ))}
       </ul>

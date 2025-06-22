@@ -96,7 +96,7 @@ const MindMapNode = ({ data }: MindMapNodeProps) => {
             {displayTitle}
           </div>
            {childCount > 0 && 
-            <div className="text-xs font-bold text-gray-500 dark:text-gray-400 bg-gray-200/30 dark:bg-gray-700/50 rounded-full px-2 py-0.5 flex-shrink-0">
+            <div className="text-xs font-bold text-gray-700 dark:text-gray-300 bg-gray-200/30 dark:bg-gray-700/50 rounded-full px-2 py-0.5 flex-shrink-0">
               {childCount}
             </div>
            }
@@ -121,7 +121,7 @@ const MindMapNode = ({ data }: MindMapNodeProps) => {
 
       {isClickable && (
         <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} title={title}>
-          <div className="prose prose-lg max-w-none text-gray-800 dark:text-gray-200" dangerouslySetInnerHTML={{ __html: description || "" }} />
+          <div className="prose prose-lg max-w-none text-gray-900 dark:text-gray-100" dangerouslySetInnerHTML={{ __html: description || "" }} />
           {link && (
               <p className="mt-6">
                 <a
