@@ -161,7 +161,7 @@ const convertToReactFlowData = (
       id: branchId,
       type: "mindMapNode",
       position: { x: branchX, y: branchY },
-      data: { ...branch, direction },
+      data: { ...branch, direction, isMainBranch: true },
     });
 
     edges.push({

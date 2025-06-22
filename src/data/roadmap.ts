@@ -4,7 +4,55 @@ export const roadmapData = {
     {
       id: "general-skills",
       title: "General Development Skills",
-      direction: "right", // Indicates it branches to the right
+      direction: "right",
+      description: `<div style="font-family: 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; border-radius: 1rem; padding: 2rem; box-shadow: 0 6px 20px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; max-width: 960px; margin: auto;">
+
+  <div style="background: linear-gradient(to right, #0f172a, #334155); padding: 1.2rem 1.5rem; border-radius: 0.75rem; color: #f8fafc; margin-bottom: 2rem;">
+    <h2 style="margin: 0; font-size: 1.8rem;">🧠 General Development Skills</h2>
+  </div>
+
+  <section style="margin-bottom: 1.75rem;">
+    <h3 style="color: #3b82f6;">📁 GIT - Version Control</h3>
+    <p>Master <strong>Git</strong> for tracking code changes, branching, merging, and collaborating on shared codebases. Platforms like <strong>GitHub</strong>, <strong>GitLab</strong>, and <strong>Azure DevOps (VSTS)</strong> support issue tracking, CI/CD, and team collaboration.</p>
+    <ul style="padding-left: 1.25rem; list-style: disc;">
+      <li><code>git clone / commit / push / pull</code></li>
+      <li>Branching strategies (feature, main, release)</li>
+      <li>PRs, merge conflicts, and code reviews</li>
+    </ul>
+  </section>
+
+  <section style="margin-bottom: 1.75rem;">
+    <h3 style="color: #0ea5e9;">🌐 HTTP/HTTPS + TLS/SSL</h3>
+    <p>Understand how data travels over the web. Learn <strong>HTTP methods</strong> (GET, POST, etc.), status codes, headers, and cookies. Grasp the importance of <strong>HTTPS</strong> and how <strong>TLS/SSL</strong> secures web communication via encryption and certificates.</p>
+    <ul>
+      <li>Difference between HTTP and HTTPS</li>
+      <li>Status codes like 200, 404, 500</li>
+      <li>SSL handshake & digital certificates</li>
+    </ul>
+  </section>
+
+  <section style="margin-bottom: 1.75rem;">
+    <h3 style="color: #10b981;">🔍 Effective Search Skills</h3>
+    <p>Being able to research solutions efficiently is a superpower. Learn to use Google with precision operators, and master AI coding assistants like <strong>ChatGPT</strong>, <strong>Claude</strong>, and <strong>GitHub Copilot</strong> to enhance productivity.</p>
+    <ul>
+      <li>Use search modifiers: <code>site:</code>, <code>filetype:</code>, <code>intitle:</code></li>
+      <li>Prompt AI tools with context-rich queries</li>
+      <li>Cross-verify answers with official docs or GitHub issues</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3 style="color: #f59e0b;">📦 Data Structures and Algorithms</h3>
+    <p>Learn the building blocks of efficient code. Master core structures like arrays, hash maps, trees, and graphs. Practice solving algorithmic problems to boost problem-solving, logic, and coding interview readiness.</p>
+    <ul>
+      <li>Sorting, searching, recursion, and dynamic programming</li>
+      <li>Time & space complexity (Big O Notation)</li>
+      <li>Use platforms like LeetCode, HackerRank, VisualAlgo</li>
+    </ul>
+  </section>
+
+</div>
+`,
       children: [
         {
           id: "git",
@@ -52,7 +100,101 @@ git merge main # Merge changes</code></pre><h3 style='color:#8b5cf6'>🧰 Platfo
     {
       id: "csharp",
       title: "C#",
-      direction: "left", // Indicates it branches to the left
+      direction: "left",
+      description: `<div style="font-family: 'Segoe UI', sans-serif; background: #f9fafb; color: #1f2937; border-radius: 1rem; padding: 2rem; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; max-width: 960px; margin: auto;">
+
+  <!-- Header -->
+  <div style="background: linear-gradient(to right, #4f46e5, #6366f1); padding: 1.2rem 1.5rem; border-radius: 0.75rem; color: white; margin-bottom: 2rem;">
+    <h2 style="margin: 0; font-size: 1.8rem;">💻 C# Programming Language</h2>
+  </div>
+
+  <!-- Section: Why Learn C# -->
+  <section style="margin-bottom: 1.75rem;">
+    <h3 style="color: #3b82f6;">🚀 Why Learn C#?</h3>
+    <ul style="padding-left: 1.25rem; list-style: disc;">
+      <li>Primary language for .NET (cross-platform framework by Microsoft)</li>
+      <li>Used for web, desktop, mobile, cloud, game, and IoT development</li>
+      <li>Strong typing, garbage collection, async support, rich tooling</li>
+      <li>Popular in enterprise-grade software development</li>
+    </ul>
+  </section>
+
+  <!-- Section: Core Concepts -->
+  <section style="margin-bottom: 1.75rem;">
+    <h3 style="color: #10b981;">📦 Core Language Concepts</h3>
+    <ul>
+      <li><strong>Syntax:</strong> Variables, types, expressions, control structures</li>
+      <li><strong>OOP:</strong> Classes, inheritance, polymorphism, interfaces</li>
+      <li><strong>Collections:</strong> Lists, dictionaries, sets, queues</li>
+      <li><strong>Exception Handling:</strong> try/catch/finally, custom exceptions</li>
+    </ul>
+  </section>
+
+  <!-- Section: Modern Features -->
+  <section style="margin-bottom: 1.75rem;">
+    <h3 style="color: #f59e0b;">✨ Modern Language Features</h3>
+    <ul>
+      <li><code>async/await</code> for asynchronous operations</li>
+      <li>LINQ for querying data collections</li>
+      <li>Pattern matching & switch expressions</li>
+      <li>Record types, top-level programs, null safety</li>
+    </ul>
+  </section>
+
+  <!-- Section: Code Example -->
+  <section style="margin-bottom: 1.75rem;">
+    <h3 style="color: #8b5cf6;">🔧 Example Code</h3>
+    <pre style="background: #1f2937; color: #e2e8f0; padding: 1rem; border-radius: 0.5rem; overflow-x: auto;">
+public class Person {
+  public string Name { get; set; }
+  public int Age { get; set; }
+
+  public void Greet() {
+    Console.WriteLine($"Hi, I'm {Name} and I'm {Age} years old.");
+  }
+}
+
+var person = new Person { Name = "Alice", Age = 30 };
+person.Greet();
+    </pre>
+  </section>
+
+  <!-- Section: Use Cases -->
+  <section style="margin-bottom: 1.75rem;">
+    <h3 style="color: #ec4899;">🧠 Common Use Cases</h3>
+    <ul style="list-style: circle; padding-left: 1.25rem;">
+      <li>Web development with ASP.NET Core</li>
+      <li>Cross-platform apps with .NET MAUI / Xamarin</li>
+      <li>Game development with Unity Engine</li>
+      <li>Desktop apps with WinForms / WPF</li>
+      <li>Cloud services on Azure</li>
+    </ul>
+  </section>
+
+  <!-- Section: Best Practices -->
+  <section style="margin-bottom: 1.75rem;">
+    <h3 style="color: #ef4444;">⚠️ Best Practices</h3>
+    <ul>
+      <li>Follow SOLID and DRY principles</li>
+      <li>Use dependency injection and interface abstraction</li>
+      <li>Write unit tests and leverage mocking frameworks</li>
+      <li>Organize code with clear namespaces and layering</li>
+    </ul>
+  </section>
+
+  <!-- Section: Resources -->
+  <section>
+    <h3 style="color: #0ea5e9;">📚 Learn More</h3>
+    <ul>
+      <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank" style="color:#6366f1;">C# Official Documentation</a></li>
+      <li><a href="https://dotnet.microsoft.com/en-us/learn" target="_blank" style="color:#6366f1;">.NET Learning Hub</a></li>
+      <li><a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank" style="color:#6366f1;">C# Fundamentals</a></li>
+      <li><a href="https://www.udemy.com/course/csharp-tutorial-for-beginners/" target="_blank" style="color:#6366f1;">C# Beginner Courses (Udemy)</a></li>
+    </ul>
+  </section>
+
+</div>
+`,// Indicates it branches to the left
       children: [
         {
           id: "csharp-basics", title: "Learn the basics of C# 13", type: "must-know", description: `
@@ -239,6 +381,92 @@ if (isValid)
     {
       id: "sql-fundamentals",
       title: "SQL Fundamentals",
+      description: `<div style="font-family: 'Segoe UI', sans-serif; background: #fdfdfd; color: #1f2937; border-radius: 1rem; padding: 2rem; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; max-width: 960px; margin: auto;">
+
+  <!-- Header -->
+  <div style="background: linear-gradient(to right, #4f46e5, #6366f1); padding: 1.5rem; border-radius: 0.75rem; color: white; margin-bottom: 2rem;">
+    <h2 style="margin: 0; font-size: 1.9rem;">🗄️ SQL Fundamentals</h2>
+  </div>
+
+  <!-- Section: Overview -->
+  <section style="margin-bottom: 1.8rem;">
+    <h3 style="color: #4f46e5;">📌 What is SQL?</h3>
+    <p><strong>SQL (Structured Query Language)</strong> is a declarative language used to manage and manipulate data in relational databases. It’s the standard for communicating with databases such as PostgreSQL, MySQL, SQL Server, SQLite, and Oracle.</p>
+  </section>
+
+  <!-- Section: Core SQL Skills -->
+  <section style="margin-bottom: 1.8rem;">
+    <h3 style="color: #10b981;">🧠 Core Skills to Learn</h3>
+    <ul style="padding-left: 1.25rem; list-style: disc;">
+      <li><strong>SELECT queries:</strong> Retrieve specific columns and rows from tables.</li>
+      <li><strong>WHERE conditions:</strong> Filter data using logical comparisons.</li>
+      <li><strong>JOINs:</strong> Combine rows from multiple tables based on related columns.</li>
+      <li><strong>GROUP BY & Aggregations:</strong> Summarize data using functions like <code>SUM()</code>, <code>COUNT()</code>, <code>AVG()</code>.</li>
+      <li><strong>INSERT, UPDATE, DELETE:</strong> Modify data within tables safely and efficiently.</li>
+      <li><strong>Constraints & Keys:</strong> Use <code>PRIMARY KEY</code>, <code>FOREIGN KEY</code>, <code>UNIQUE</code>, and <code>CHECK</code> for data integrity.</li>
+    </ul>
+  </section>
+
+  <!-- Section: Data Types -->
+  <section style="margin-bottom: 1.8rem;">
+    <h3 style="color: #f59e0b;">🧬 Common Data Types</h3>
+    <ul style="padding-left: 1.25rem; list-style: square;">
+      <li><code>INT</code>, <code>FLOAT</code>, <code>DECIMAL</code> – numeric types</li>
+      <li><code>VARCHAR</code>, <code>TEXT</code> – string types</li>
+      <li><code>DATE</code>, <code>TIME</code>, <code>TIMESTAMP</code> – date/time types</li>
+      <li><code>BOOLEAN</code> – true/false logic</li>
+    </ul>
+  </section>
+
+  <!-- Section: Sample Query -->
+  <section style="margin-bottom: 1.8rem;">
+    <h3 style="color: #8b5cf6;">🧾 Example Query</h3>
+    <pre style="background: #1e293b; color: #e2e8f0; padding: 1rem; border-radius: 0.5rem; overflow-x: auto;">
+-- Top 5 customers by number of completed orders
+SELECT c.name, COUNT(o.id) AS order_count
+FROM customers c
+JOIN orders o ON c.id = o.customer_id
+WHERE o.status = 'completed'
+GROUP BY c.name
+ORDER BY order_count DESC
+LIMIT 5;
+    </pre>
+  </section>
+
+  <!-- Section: Practice Tools -->
+  <section style="margin-bottom: 1.8rem;">
+    <h3 style="color: #ec4899;">🔧 Practice Tools</h3>
+    <ul>
+      <li><a href="https://sqlzoo.net/" target="_blank" style="color:#6366f1;">SQLZOO</a> – Beginner-friendly SQL exercises</li>
+      <li><a href="https://mode.com/sql-tutorial/" target="_blank" style="color:#6366f1;">Mode SQL Tutorial</a> – Interactive real-world queries</li>
+      <li><a href="https://www.sql-practice.com/" target="_blank" style="color:#6366f1;">SQL Practice</a> – Challenges with answers</li>
+    </ul>
+  </section>
+
+  <!-- Section: Best Practices -->
+  <section style="margin-bottom: 1.8rem;">
+    <h3 style="color: #ef4444;">⚠️ Best Practices</h3>
+    <ul>
+      <li>Use <code>LIMIT</code> in development to avoid returning too many rows.</li>
+      <li>Comment complex queries for clarity and collaboration.</li>
+      <li>Use parameterized queries to prevent SQL injection.</li>
+      <li>Test JOINs and filters incrementally to avoid logic bugs.</li>
+    </ul>
+  </section>
+
+  <!-- Section: Continue Learning -->
+  <section>
+    <h3 style="color: #0ea5e9;">📚 Learn More</h3>
+    <ul>
+      <li><a href="https://www.w3schools.com/sql/" target="_blank" style="color:#6366f1;">W3Schools SQL</a></li>
+      <li><a href="https://sqlbolt.com/" target="_blank" style="color:#6366f1;">SQLBolt (Interactive Lessons)</a></li>
+      <li><a href="https://learn.microsoft.com/en-us/sql/" target="_blank" style="color:#6366f1;">Microsoft SQL Server Docs</a></li>
+      <li><a href="https://use-the-index-luke.com/" target="_blank" style="color:#6366f1;">Use the Index, Luke!</a></li>
+    </ul>
+  </section>
+
+</div>
+`,
       direction: "right",
       children: [
         {
@@ -474,6 +702,88 @@ END;
     {
       id: "aspnet-core-basics",
       title: "ASP.NET Core Basics",
+      description: `<div style="font-family: 'Segoe UI', sans-serif; background: #fdfdfd; color: #1f2937; border-radius: 1rem; padding: 2rem; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; max-width: 960px; margin: auto;">
+
+  <!-- Header -->
+  <div style="background: linear-gradient(to right, #2563eb, #3b82f6); padding: 1.2rem 1.5rem; border-radius: 0.75rem; color: white; margin-bottom: 2rem;">
+    <h2 style="margin: 0; font-size: 1.8rem;">🌐 ASP.NET Core Basics</h2>
+  </div>
+
+  <!-- Section: Overview -->
+  <section style="margin-bottom: 1.75rem;">
+    <h3 style="color: #3b82f6;">🧩 What is ASP.NET Core?</h3>
+    <p><strong>ASP.NET Core</strong> is a cross-platform, high-performance framework for building modern web applications, RESTful APIs, and microservices. It runs on .NET and supports dependency injection, middleware architecture, and Razor Pages.</p>
+  </section>
+
+  <!-- Section: Key Features -->
+  <section style="margin-bottom: 1.75rem;">
+    <h3 style="color: #10b981;">⚙️ Key Features</h3>
+    <ul style="padding-left: 1.25rem; list-style: disc;">
+      <li>Cross-platform (Windows, Linux, macOS)</li>
+      <li>Modular middleware pipeline (Startup.cs)</li>
+      <li>Built-in dependency injection</li>
+      <li>Support for RESTful APIs, Razor Pages, and MVC</li>
+      <li>Integrated configuration, logging, and authentication</li>
+    </ul>
+  </section>
+
+  <!-- Section: File Structure -->
+  <section style="margin-bottom: 1.75rem;">
+    <h3 style="color: #f59e0b;">🗂 Project Structure</h3>
+    <ul>
+      <li><code>Program.cs</code>: Entry point using top-level statements</li>
+      <li><code>Startup.cs</code>: Configure services and middleware pipeline</li>
+      <li><code>Controllers/</code>: Handle HTTP requests</li>
+      <li><code>appsettings.json</code>: App configuration (environment-based)</li>
+    </ul>
+  </section>
+
+  <!-- Section: Example Code -->
+  <section style="margin-bottom: 1.75rem;">
+    <h3 style="color: #8b5cf6;">🔧 Example: Minimal API</h3>
+    <pre style="background: #1f2937; color: #e2e8f0; padding: 1rem; border-radius: 0.5rem; overflow-x: auto;">
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+app.MapGet("/hello", () => "Hello World!");
+app.Run();
+    </pre>
+  </section>
+
+  <!-- Section: Use Cases -->
+  <section style="margin-bottom: 1.75rem;">
+    <h3 style="color: #ec4899;">💼 Use Cases</h3>
+    <ul>
+      <li>Public RESTful APIs for web/mobile clients</li>
+      <li>Enterprise intranet portals with MVC or Razor Pages</li>
+      <li>Authentication/Authorization systems (JWT, Identity)</li>
+      <li>Real-time apps via SignalR (chat, notifications)</li>
+    </ul>
+  </section>
+
+  <!-- Section: Best Practices -->
+  <section style="margin-bottom: 1.75rem;">
+    <h3 style="color: #ef4444;">✅ Best Practices</h3>
+    <ul>
+      <li>Use dependency injection for services and repositories</li>
+      <li>Keep configuration environment-specific (e.g., appsettings.Production.json)</li>
+      <li>Separate concerns using layered architecture (Controllers, Services, Repos)</li>
+      <li>Use FluentValidation or DataAnnotations for model validation</li>
+    </ul>
+  </section>
+
+  <!-- Section: Learning Resources -->
+  <section>
+    <h3 style="color: #0ea5e9;">📚 Learn More</h3>
+    <ul>
+      <li><a href="https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-9.0" target="_blank" style="color:#3b82f6;">ASP.NET Core Official Docs</a></li>
+      <li><a href="https://github.com/dotnet/aspnetcore" target="_blank" style="color:#3b82f6;">ASP.NET Core GitHub Repo</a></li>
+      <li><a href="https://www.udemy.com/course/aspnet-core-web-api/" target="_blank" style="color:#3b82f6;">Udemy ASP.NET Core Courses</a></li>
+    </ul>
+  </section>
+
+</div>
+`,
       direction: "left",
       children: [
         {
@@ -1062,6 +1372,106 @@ public class ContactForm
       id: "solid",
       title: "SOLID",
       direction: "right",
+      description: `<div style="font-family:'Segoe UI',sans-serif;background:#fdfdfd;color:#1f2937;border-radius:1rem;padding:2rem;box-shadow:0 8px 30px rgba(0,0,0,0.08);border:1px solid #e5e7eb;max-width:960px;margin:auto;">
+
+  <!-- Header -->
+  <div style="background:linear-gradient(to right,#0f172a,#334155);padding:1.5rem;border-radius:0.75rem;color:#f8fafc;margin-bottom:2rem;">
+    <h2 style="margin:0;font-size:1.8rem;">🧱 SOLID Principles</h2>
+  </div>
+
+  <!-- S: Single Responsibility -->
+  <section style="margin-bottom:1.75rem;">
+    <h3 style="color:#3b82f6;">🔹 S - Single Responsibility Principle (SRP)</h3>
+    <p>A class should have one and only one reason to change — it should only do one thing.</p>
+    <pre style="background:#1e293b;color:#e2e8f0;padding:1rem;border-radius:0.5rem;overflow-x:auto;">
+// ❌ Violates SRP
+class Report {
+  public void Generate() { ... }
+  public void SaveToFile() { ... }
+}
+
+// ✅ SRP applied
+class ReportGenerator { public void Generate() { ... } }
+class ReportSaver { public void SaveToFile() { ... } }
+    </pre>
+  </section>
+
+  <!-- O: Open/Closed -->
+  <section style="margin-bottom:1.75rem;">
+    <h3 style="color:#10b981;">🔹 O - Open/Closed Principle (OCP)</h3>
+    <p>Software entities should be open for extension but closed for modification.</p>
+    <pre style="background:#1e293b;color:#e2e8f0;padding:1rem;border-radius:0.5rem;overflow-x:auto;">
+interface IDiscount {
+  decimal Apply(decimal price);
+}
+
+class PercentageDiscount : IDiscount {
+  public decimal Apply(decimal price) => price * 0.9m;
+}
+
+class Checkout {
+  public decimal FinalPrice(IDiscount discount, decimal price) => discount.Apply(price);
+}
+    </pre>
+  </section>
+
+  <!-- L: Liskov Substitution -->
+  <section style="margin-bottom:1.75rem;">
+    <h3 style="color:#f59e0b;">🔹 L - Liskov Substitution Principle (LSP)</h3>
+    <p>Derived classes must be substitutable for their base classes without altering behavior.</p>
+    <pre style="background:#1e293b;color:#e2e8f0;padding:1rem;border-radius:0.5rem;overflow-x:auto;">
+class Bird { public virtual void Fly() { } }
+class Duck : Bird { public override void Fly() { ... } }
+class Ostrich : Bird { public override void Fly() { throw new Exception(); } } // ❌ violates LSP
+    </pre>
+  </section>
+
+  <!-- I: Interface Segregation -->
+  <section style="margin-bottom:1.75rem;">
+    <h3 style="color:#8b5cf6;">🔹 I - Interface Segregation Principle (ISP)</h3>
+    <p>Clients should not be forced to depend on interfaces they do not use.</p>
+    <pre style="background:#1e293b;color:#e2e8f0;padding:1rem;border-radius:0.5rem;overflow-x:auto;">
+// ❌ Bad
+interface IMachine { void Print(); void Fax(); void Scan(); }
+
+// ✅ Good
+interface IPrinter { void Print(); }
+interface IScanner { void Scan(); }
+    </pre>
+  </section>
+
+  <!-- D: Dependency Inversion -->
+  <section style="margin-bottom:1.75rem;">
+    <h3 style="color:#ef4444;">🔹 D - Dependency Inversion Principle (DIP)</h3>
+    <p>Depend on abstractions, not on concrete implementations.</p>
+    <pre style="background:#1e293b;color:#e2e8f0;padding:1rem;border-radius:0.5rem;overflow-x:auto;">
+// High-level module
+class OrderProcessor {
+  private readonly IPaymentService _payment;
+  public OrderProcessor(IPaymentService payment) => _payment = payment;
+  public void Process() => _payment.Pay();
+}
+
+// Abstraction
+interface IPaymentService { void Pay(); }
+
+// Low-level module
+class StripePayment : IPaymentService {
+  public void Pay() { ... }
+}
+    </pre>
+  </section>
+
+  <!-- Learn More -->
+  <section>
+    <h3 style="color:#0ea5e9;">📚 Learn More</h3>
+    <ul>
+      <li><a href="https://solidprinciples.com/" target="_blank" style="color:#3b82f6;">solidprinciples.com</a></li>
+      <li><a href="https://refactoring.guru/design-patterns" target="_blank" style="color:#3b82f6;">Refactoring Guru (Design Patterns)</a></li>
+      <li><a href="https://learn.microsoft.com/en-us/dotnet/standard/modern-web-apps-azure-architecture/architectural-principles" target="_blank" style="color:#3b82f6;">Microsoft - Architecture Guidelines</a></li>
+    </ul>
+  </section>
+</div> `,
       children: [
         {
           id: "single-responsibility", title: "Single Responsibility Principle (SRP)", type: "must-know",
@@ -1446,12 +1856,56 @@ public class UserService
       "id": "orm",
       "title": "ORM",
       "direction": "left",
+      "description": `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:1.5rem; border-radius:1rem; border:1px solid #eab308; box-shadow:0 4px 15px rgba(234, 179, 8, 0.2)">
+  <h2 style="color:#ca8a04">🔄 What is ORM (Object-Relational Mapping)?</h2>
+  <p><strong>Object-Relational Mapping (ORM)</strong> is a programming technique that allows developers to interact with a relational database using the programming language’s native objects, rather than writing raw SQL queries manually.</p>
+
+  <h3 style="color:#eab308">🎯 Purpose of ORM</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>Bridge the gap between object-oriented code and relational data.</li>
+    <li>Encapsulate SQL behind familiar object-based syntax.</li>
+    <li>Reduce boilerplate code required for CRUD operations.</li>
+    <li>Enable automatic mapping between classes and database tables.</li>
+  </ul>
+
+  <h3 style="color:#ca8a04">🔍 How It Works</h3>
+  <ul style="list-style:circle; padding-left:1.2rem; color:#78350f">
+    <li>Classes in code represent tables in the database.</li>
+    <li>Object properties map to table columns.</li>
+    <li>ORM tracks object changes and generates SQL accordingly.</li>
+    <li>Developers call methods like <code>Save()</code>, <code>Update()</code>, or <code>Find()</code> instead of writing SQL manually.</li>
+  </ul>
+
+  <h3 style="color:#eab308">💼 Benefits of Using ORM</h3>
+  <ul>
+    <li>Faster development – reduces repetitive database code</li>
+    <li>Improves readability and maintainability</li>
+    <li>Database abstraction – easier to switch backends</li>
+    <li>Automatic handling of relationships and constraints</li>
+    <li>Helps prevent SQL injection when properly used</li>
+  </ul>
+
+  <h3 style="color:#ca8a04">⚠️ Considerations</h3>
+  <ul>
+    <li>ORMs may introduce performance overhead in complex queries</li>
+    <li>Understanding underlying SQL is still important</li>
+    <li>Not always suitable for extremely high-performance or analytical systems</li>
+  </ul>
+
+  <h3 style="color:#eab308">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping" target="_blank" style="color:#ca8a04">Wikipedia - ORM</a></li>
+    <li><a href="https://www.geeksforgeeks.org/object-relational-mapping-orm-frameworks/" target="_blank" style="color:#ca8a04">GFG – ORM Frameworks Overview</a></li>
+    <li><a href="https://martinfowler.com/eaaCatalog/dataMapper.html" target="_blank" style="color:#ca8a04">Martin Fowler - Data Mapper Pattern</a></li>
+  </ul>
+</div>
+`,
       "children": [
         {
           "id": "ef-core",
           "title": "Entity Framework Core",
           "type": "must-know",
-          "description": `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #60a5fa; box-shadow:0 4px 15px rgba(96, 165, 250, 0.3)">
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #60a5fa; box-shadow:0 4px 15px rgba(96, 165, 250, 0.3)">
   <h2 style="color:#2563eb">📦 Entity Framework Core (EF Core)</h2>
   <p><strong>EF Core</strong> is a modern, lightweight, extensible, and cross-platform Object-Relational Mapper (ORM) for .NET. It enables developers to work with a database using .NET objects, eliminating most of the data-access code.</p>
 
@@ -1973,6 +2427,45 @@ optionsBuilder.AddInterceptors(new CommandInterceptor());
       id: "databases",
       title: "Databases",
       direction: "right",
+      description: `<div style="font-family:sans-serif; line-height:1.6; background:#fdf4ff; padding:1.5rem; border-radius:1rem; border:1px solid #d946ef; box-shadow:0 4px 15px rgba(217, 70, 239, 0.2)">
+  <h2 style="color:#a21caf">🗄️ What is a Database?</h2>
+  <p><strong>A database</strong> is an organized collection of data that can be stored, accessed, and managed electronically. Databases are essential for building scalable, data-driven applications — from small apps to enterprise systems.</p>
+
+  <h3 style="color:#d946ef">🧠 Why Databases Matter</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>Store and organize structured or unstructured data</li>
+    <li>Enable fast and efficient querying</li>
+    <li>Support concurrent access by multiple users</li>
+    <li>Ensure data integrity, security, and recovery</li>
+  </ul>
+
+  <h3 style="color:#a21caf">🧱 Common Database Types</h3>
+  <ul style="list-style:circle; padding-left:1.2rem; color:#701a75">
+    <li><strong>Relational (SQL):</strong> Use tables with rows/columns and fixed schema (e.g., PostgreSQL, MySQL, SQL Server)</li>
+    <li><strong>Non-relational (NoSQL):</strong> Flexible schemas for specific use cases (e.g., MongoDB, Redis, Cassandra)</li>
+    <li><strong>NewSQL:</strong> Combine SQL consistency with NoSQL scalability</li>
+    <li><strong>In-memory:</strong> Ultra-fast data access using RAM (e.g., Redis, Memcached)</li>
+  </ul>
+
+  <h3 style="color:#d946ef">⚙️ Core Concepts to Learn</h3>
+  <ul>
+    <li>SQL vs NoSQL fundamentals</li>
+    <li>Indexing and Query Optimization</li>
+    <li>Transactions, ACID & CAP Theorem</li>
+    <li>Joins, Aggregations, Views</li>
+    <li>Replication, Sharding, Scaling</li>
+    <li>Backup, Restore & Security</li>
+  </ul>
+
+  <h3 style="color:#a21caf">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://www.w3schools.com/sql/" target="_blank" style="color:#a21caf">W3Schools – SQL Tutorial</a></li>
+    <li><a href="https://www.mongodb.com/nosql-explained" target="_blank" style="color:#a21caf">MongoDB – What is NoSQL?</a></li>
+    <li><a href="https://www.postgresql.org/docs/" target="_blank" style="color:#a21caf">PostgreSQL Docs</a></li>
+    <li><a href="https://youtu.be/ztHopE5Wnpc" target="_blank" style="color:#a21caf">Fireship: SQL vs NoSQL (YouTube)</a></li>
+  </ul>
+</div>
+`,
       children: [
         {
           id: "relational",
@@ -3202,6 +3695,43 @@ await context.SaveAsync(user);
       id: "caching",
       title: "Caching",
       direction: "right",
+      description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #38bdf8; box-shadow:0 4px 15px rgba(56, 189, 248, 0.3)">
+  <h2 style="color:#0ea5e9">🚀 What is Caching?</h2>
+  <p><strong>Caching</strong> is the process of storing a copy of frequently accessed data in a fast-access layer (like memory), so future requests can be served faster without hitting the original source (like a database or external API).</p>
+
+  <h3 style="color:#38bdf8">⚡ Why Caching is Important</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>Reduces load on databases and services</li>
+    <li>Speeds up response time for users</li>
+    <li>Minimizes network or computation overhead</li>
+    <li>Improves scalability and performance under high traffic</li>
+  </ul>
+
+  <h3 style="color:#0ea5e9">🧠 Common Cache Types</h3>
+  <ul style="list-style:circle; padding-left:1.2rem; color:#0369a1">
+    <li><strong>In-Memory Cache:</strong> Fast, temporary storage in RAM (e.g., <code>MemoryCache</code> in .NET)</li>
+    <li><strong>Distributed Cache:</strong> Shared cache across servers (e.g., Redis, Memcached)</li>
+    <li><strong>HTTP Cache:</strong> Caching responses in browsers, CDNs, proxies</li>
+    <li><strong>Data Caching:</strong> Frequently queried database rows/tables</li>
+    <li><strong>Output Caching:</strong> Storing full responses or rendered HTML</li>
+  </ul>
+
+  <h3 style="color:#38bdf8">🧩 Cache Strategies</h3>
+  <ul>
+    <li><strong>Cache Aside (Lazy Loading):</strong> Data loaded into cache on first request</li>
+    <li><strong>Write Through:</strong> Cache is updated at the same time as the DB</li>
+    <li><strong>Write Behind:</strong> Data is first written to cache, then to DB later</li>
+    <li><strong>Time-To-Live (TTL):</strong> Cache entries expire after a duration</li>
+    <li><strong>Eviction Policies:</strong> LRU, LFU, FIFO when cache is full</li>
+  </ul>
+
+  <h3 style="color:#0ea5e9">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Caching" target="_blank" style="color:#0ea5e9">MDN – HTTP Caching</a></li>
+    <li><a href="https://redis.io/docs/latest/" target="_blank" style="color:#0ea5e9">Redis Documentation</a></li>
+  </ul>
+</div>
+`,
       children: [
         {
           id: "memory-cache",
@@ -4286,6 +4816,43 @@ public class HomeController : Controller
       id: "real-time-communication",
       title: "Real Time Communication",
       direction: "left",
+      description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:1.5rem; border-radius:1rem; border:1px solid #34d399; box-shadow:0 4px 15px rgba(52, 211, 153, 0.3)">
+  <h2 style="color:#10b981">📡 What is Real-Time Communication?</h2>
+  <p><strong>Real-Time Communication (RTC)</strong> refers to technologies and systems that enable data exchange between clients and servers instantly — without waiting for the user to refresh the page or send a request explicitly.</p>
+
+  <h3 style="color:#34d399">⚡ Why It Matters</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>Enables dynamic, interactive user experiences (e.g., chats, dashboards)</li>
+    <li>Reduces latency by pushing data from server to client</li>
+    <li>Improves responsiveness in collaborative and event-driven apps</li>
+    <li>Used in messaging, gaming, finance, telemetry, monitoring, and more</li>
+  </ul>
+
+  <h3 style="color:#10b981">🔌 How Real-Time Works</h3>
+  <ul style="list-style:circle; padding-left:1.2rem; color:#064e3b">
+    <li>Client and server maintain a persistent connection</li>
+    <li>Updates can be pushed from the server without polling</li>
+    <li>Technologies like <code>WebSocket</code>, <code>SignalR</code>, <code>WebRTC</code> enable real-time flows</li>
+    <li>Messages often sent in small payloads, sometimes using Pub/Sub architecture</li>
+  </ul>
+
+  <h3 style="color:#34d399">🧩 Real-Time Technologies</h3>
+  <ul>
+    <li><strong>WebSockets:</strong> Low-level bi-directional communication over a single TCP connection</li>
+    <li><strong>SignalR:</strong> Abstraction over WebSockets (used in ASP.NET Core apps)</li>
+    <li><strong>WebRTC:</strong> Peer-to-peer audio, video, and data (used in Zoom, Meet, etc.)</li>
+    <li><strong>gRPC Streaming:</strong> Efficient server-client streaming over HTTP/2</li>
+    <li><strong>Firebase Realtime DB / PubNub:</strong> Serverless real-time messaging</li>
+  </ul>
+
+  <h3 style="color:#10b981">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API" target="_blank" style="color:#10b981">MDN – WebSockets API</a></li>
+    <li><a href="https://learn.microsoft.com/en-us/aspnet/core/signalr/introduction" target="_blank" style="color:#10b981">Microsoft – SignalR Intro</a></li>
+    <li><a href="https://webrtc.org/" target="_blank" style="color:#10b981">WebRTC.org – Real-Time Peer Communication</a></li>
+  </ul>
+</div>
+`,
       children: [
         {
           id: "signalr-core", title: "SignalR Core", type: "must-know",
@@ -4608,24 +5175,25 @@ DELETE  /api/products/42
           children: [
             {
               id: "gridify", title: "Gridify", type: "good-to-know",
-              description: `<h2>🔍 REST + Gridify (Smart Filtering, Paging, Sorting)</h2>
-<p><strong>Gridify</strong> is a lightweight .NET library that simplifies advanced filtering, sorting, and pagination over REST endpoints. It helps you avoid writing repetitive LINQ code and improves API usability.</p>
+              description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #38bdf8; box-shadow:0 4px 15px rgba(56, 189, 248, 0.25)">
+  <h2 style="color:#0ea5e9">🔍 REST + Gridify (Smart Filtering, Paging, Sorting)</h2>
+  <p><strong>Gridify</strong> is a lightweight and elegant .NET library for filtering, sorting, and pagination over REST APIs. It parses query parameters automatically and eliminates repetitive LINQ logic.</p>
 
-<h3>📌 Why Gridify?</h3>
-<ul>
-  <li>✅ Clean & DRY filtering logic</li>
-  <li>✅ Automatically parses query parameters</li>
-  <li>✅ Works with IQueryable, supports EF Core</li>
-  <li>✅ Easy to integrate with .NET 6/7/8/9 Web APIs</li>
-</ul>
+  <h3 style="color:#38bdf8">📌 Why Gridify?</h3>
+  <ul style="padding-left:1.2rem; list-style:disc">
+    <li>✅ Clean, DRY filtering logic</li>
+    <li>✅ Parses filter, sort, paging from querystring</li>
+    <li>✅ Built-in support for EF Core / IQueryable</li>
+    <li>✅ Works seamlessly with .NET 6/7/8+</li>
+  </ul>
 
-<h3>⚙️ How to Use Gridify</h3>
+  <h3 style="color:#0ea5e9">⚙️ How to Use Gridify</h3>
 
-<h4>1. Install NuGet Package</h4>
-<pre><code>dotnet add package Gridify</code></pre>
+  <h4 style="margin-top:1rem">1️⃣ Install NuGet Package</h4>
+  <pre style="background:#e0f2fe; padding:1rem; border-radius:0.75rem"><code>dotnet add package Gridify</code></pre>
 
-<h4>2. Sample Controller</h4>
-<pre><code>public class ProductsController : ControllerBase
+  <h4 style="margin-top:1rem">2️⃣ Sample Controller</h4>
+  <pre style="background:#e0f2fe; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>public class ProductsController : ControllerBase
 {
     private readonly AppDbContext _db;
 
@@ -4642,68 +5210,69 @@ DELETE  /api/products/42
     }
 }</code></pre>
 
-<h4>3. Sample Request</h4>
-<pre><code>GET /api/products?filter=price>100;name@mouse&orderBy=price&page=1&pageSize=10</code></pre>
+  <h4 style="margin-top:1rem">3️⃣ Sample Request</h4>
+  <pre style="background:#e0f2fe; padding:1rem; border-radius:0.75rem"><code>GET /api/products?filter=price&gt;100;name@mouse&amp;orderBy=price&amp;page=1&amp;pageSize=10</code></pre>
 
-<h4>4. GridifyQuery Features</h4>
-<ul>
-  <li><strong>Filtering:</strong> <code>filter=name@keyboard;price>50</code></li>
-  <li><strong>Sorting:</strong> <code>orderBy=price,-name</code></li>
-  <li><strong>Paging:</strong> <code>page=2&pageSize=20</code></li>
-</ul>
+  <h4 style="margin-top:1rem">4️⃣ GridifyQuery Capabilities</h4>
+  <ul style="padding-left:1.2rem; list-style:circle; color:#0369a1">
+    <li><strong>Filtering:</strong> <code>filter=name@keyboard;price&gt;50</code></li>
+    <li><strong>Sorting:</strong> <code>orderBy=price,-name</code></li>
+    <li><strong>Paging:</strong> <code>page=2&amp;pageSize=20</code></li>
+  </ul>
 
-<h3>📈 Output Format (Auto-Paged)</h3>
-<pre><code>{
-  "data": [ { "id": 1, "name": "Mouse", "price": 45.0 } ],
+  <h3 style="color:#38bdf8">📈 Output Format (Auto-Paged)</h3>
+  <pre style="background:#f0f9ff; border:1px solid #bae6fd; padding:1rem; border-radius:0.75rem"><code>{
+  "data": [
+    { "id": 1, "name": "Mouse", "price": 45.0 }
+  ],
   "totalItems": 1,
   "currentPage": 1,
   "totalPages": 1
 }</code></pre>
 
-<h3>🛡️ Best Practices</h3>
-<ul>
-  <li>Use <code>GridifyQuery</code> with validation attributes</li>
-  <li>Combine with <strong>Mapster</strong> or <strong>AutoMapper</strong> for DTO mapping</li>
-  <li>Use <code>.AsNoTracking()</code> in EF Core for read-only endpoints</li>
-  <li>Expose filtering fields only when needed (security)</li>
-</ul>
+  <h3 style="color:#0ea5e9">🛡️ Best Practices</h3>
+  <ul style="padding-left:1.2rem">
+    <li>✔️ Use <code>GridifyQuery</code> with validation attributes</li>
+    <li>✔️ Combine with <strong>Mapster</strong> or <strong>AutoMapper</strong> for DTO mapping</li>
+    <li>✔️ Apply <code>.AsNoTracking()</code> for read-only queries</li>
+    <li>✔️ Only expose filterable fields to protect data structure</li>
+  </ul>
 
-<h3>📚 Docs</h3>
-<p>More info: <a href="https://github.com/alirezanet/Gridify" target="_blank">GitHub - Gridify</a></p>
+  <h3 style="color:#38bdf8">📚 Documentation</h3>
+  <p>More: <a href="https://github.com/alirezanet/Gridify" target="_blank" style="color:#0ea5e9">GitHub – Gridify</a></p>
+</div>
+
 ` },
             {
-              id: "odata", title: "OData", type: "optional", description: `<h2>🌐 OData (Open Data Protocol) – Advanced Querying for REST APIs</h2>
+              id: "odata", title: "OData", type: "optional", description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:1.5rem; border-radius:1rem; border:1px solid #facc15; box-shadow:0 4px 15px rgba(234, 179, 8, 0.25)">
+  <h2 style="color:#ca8a04">🌐 OData (Open Data Protocol) – Advanced Querying for REST APIs</h2>
+  <p><strong>OData</strong> is a standardized protocol for building RESTful APIs with rich query capabilities like filtering, sorting, pagination, and shaping — all via URL parameters. Supported extensively in the .NET ecosystem, OData is ideal for creating flexible, queryable APIs.</p>
 
-<p><strong>OData</strong> is a standardized protocol built on top of REST, enabling clients to query and manipulate data using rich query capabilities such as filtering, sorting, pagination, and data shaping directly through URL parameters. It is widely supported in .NET ecosystem and ideal for building flexible, scalable APIs.</p>
+  <h3 style="color:#facc15">🔑 Key Features</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li><strong>$filter:</strong> Return only matching records using logical/comparison expressions</li>
+    <li><strong>$orderby:</strong> Sort by one or more fields</li>
+    <li><strong>$top & $skip:</strong> Implement pagination</li>
+    <li><strong>$select:</strong> Select specific fields only</li>
+    <li><strong>$expand:</strong> Include navigation/related entities</li>
+    <li><strong>$count:</strong> Get total entity count without full fetch</li>
+  </ul>
 
-<h3>🔑 Key Concepts & Features</h3>
-<ul>
-  <li><strong>Filtering (<code>$filter</code>)</strong>: Apply complex conditions (e.g., logical, comparison, string functions) to return only relevant data.</li>
-  <li><strong>Sorting (<code>$orderby</code>)</strong>: Sort the result set by one or more fields ascending/descending.</li>
-  <li><strong>Pagination (<code>$top</code>, <code>$skip</code>)</strong>: Retrieve data page by page, controlling size and offset to optimize network usage and performance.</li>
-  <li><strong>Projection (<code>$select</code>)</strong>: Return only required fields to reduce payload size.</li>
-  <li><strong>Expansion (<code>$expand</code>)</strong>: Include related entities (navigation properties) in the response.</li>
-  <li><strong>Counting (<code>$count</code>)</strong>: Get the total number of matching entities without fetching them all.</li>
-</ul>
-
-<h3>⚙️ Enabling OData in ASP.NET Core</h3>
-<p>Setup is straightforward via <code>Microsoft.AspNetCore.OData</code> package.</p>
-<pre><code>public void ConfigureServices(IServiceCollection services)
+  <h3 style="color:#ca8a04">⚙️ Enabling OData in ASP.NET Core</h3>
+  <pre style="background:#fef9c3; padding:1rem; border-radius:0.75rem"><code>public void ConfigureServices(IServiceCollection services)
 {
     services.AddControllers()
         .AddOData(opt => opt
-            .Select()    // Enable $select
-            .Filter()    // Enable $filter
-            .OrderBy()   // Enable $orderby
-            .Expand()    // Enable $expand
-            .Count()     // Enable $count
-            .SetMaxTop(100)); // Limit maximum page size for $top
+            .Select()
+            .Filter()
+            .OrderBy()
+            .Expand()
+            .Count()
+            .SetMaxTop(100));
 }</code></pre>
 
-<h3>🚀 Sample Controller Implementation</h3>
-<pre><code>using Microsoft.AspNetCore.OData.Query;
-
-[ApiController]
+  <h3 style="color:#facc15">🚀 Sample Controller</h3>
+  <pre style="background:#fef9c3; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>[ApiController]
 [Route("api/[controller]")]
 public class ProductsController : ControllerBase
 {
@@ -4716,36 +5285,38 @@ public class ProductsController : ControllerBase
 
     [HttpGet]
     [EnableQuery(MaxExpansionDepth = 3, MaxNodeCount = 1000, AllowedQueryOptions = AllowedQueryOptions.All)]
-    public IQueryable<Product> Get() => _context.Products;
+    public IQueryable&lt;Product&gt; Get() =&gt; _context.Products;
 }</code></pre>
 
-<h3>📌 Example OData Queries</h3>
-<ul>
-  <li><code>GET /api/products?$filter=price gt 100 and contains(name, 'Pro')</code> — Filter products with price > 100 and name contains "Pro".</li>
-  <li><code>GET /api/products?$orderby=price desc,name asc</code> — Sort by price descending, then name ascending.</li>
-  <li><code>GET /api/products?$top=10&$skip=20</code> — Get 10 products after skipping first 20 (pagination).</li>
-  <li><code>GET /api/products?$select=name,price</code> — Return only name and price fields.</li>
-  <li><code>GET /api/products?$expand=category</code> — Include related category details.</li>
-  <li><code>GET /api/products?$count=true</code> — Return total count of filtered products.</li>
-</ul>
+  <h3 style="color:#ca8a04">🔎 Example OData Queries</h3>
+  <ul style="list-style:circle; padding-left:1.2rem; color:#78350f">
+    <li><code>GET /api/products?$filter=price gt 100 and contains(name, 'Pro')</code></li>
+    <li><code>GET /api/products?$orderby=price desc,name asc</code></li>
+    <li><code>GET /api/products?$top=10&$skip=20</code></li>
+    <li><code>GET /api/products?$select=name,price</code></li>
+    <li><code>GET /api/products?$expand=category</code></li>
+    <li><code>GET /api/products?$count=true</code></li>
+  </ul>
 
-<h3>🛡️ Best Practices for OData APIs</h3>
-<ul>
-  <li><strong>Limit query complexity</strong>: Use <code>MaxExpansionDepth</code> and <code>MaxNodeCount</code> to prevent expensive or malicious queries.</li>
-  <li><strong>Restrict allowed query options</strong>: Specify exactly which query options you support via <code>AllowedQueryOptions</code> to reduce attack surface.</li>
-  <li><strong>Use server-side paging</strong>: Always enable <code>$top</code> and <code>$skip</code> with max limits to prevent huge payloads.</li>
-  <li><strong>Validate inputs</strong>: Sanitize query parameters and validate user input to avoid injection or DoS.</li>
-  <li><strong>Cache responses</strong>: Combine with caching strategies (e.g. response caching, ETag) to improve performance.</li>
-  <li><strong>Document your API</strong>: Clearly document which OData features are supported and how to use them.</li>
-  <li><strong>Consider security</strong>: Implement authentication and authorization to control data exposure via OData.</li>
-</ul>
+  <h3 style="color:#facc15">🛡️ Best Practices</h3>
+  <ul style="padding-left:1.2rem">
+    <li>✅ Use <code>MaxExpansionDepth</code> and <code>MaxNodeCount</code> to control complexity</li>
+    <li>✅ Restrict <code>AllowedQueryOptions</code> to limit attack surface</li>
+    <li>✅ Always enforce server-side pagination via <code>$top</code> & <code>$skip</code></li>
+    <li>✅ Sanitize and validate query input</li>
+    <li>✅ Use caching (ETag, response cache) for performance</li>
+    <li>✅ Clearly document supported OData features</li>
+    <li>✅ Secure endpoints with auth & access control</li>
+  </ul>
 
-<h3>🔗 Additional Resources</h3>
-<ul>
-  <li><a href="https://docs.microsoft.com/en-us/odata/" target="_blank">Official OData Documentation</a></li>
-  <li><a href="https://github.com/OData/AspNetCoreOData" target="_blank">AspNetCoreOData GitHub Repo</a></li>
-  <li><a href="https://docs.microsoft.com/en-us/aspnet/core/web-api/advanced/odata" target="_blank">Microsoft ASP.NET Core OData Docs</a></li>
-</ul>
+  <h3 style="color:#ca8a04">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://docs.microsoft.com/en-us/odata/" target="_blank" style="color:#ca8a04">Official OData Docs</a></li>
+    <li><a href="https://github.com/OData/AspNetCoreOData" target="_blank" style="color:#ca8a04">AspNetCoreOData GitHub</a></li>
+    <li><a href="https://docs.microsoft.com/en-us/aspnet/core/web-api/advanced/odata" target="_blank" style="color:#ca8a04">ASP.NET Core + OData Guide</a></li>
+  </ul>
+</div>
+
 ` },
             {
               id: "repr",
@@ -5625,6 +6196,67 @@ app.Run();
       id: "object-mapping",
       title: "Object Mapping",
       direction: "right",
+      description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:1.5rem; border-radius:1rem; border:1px solid #34d399; box-shadow:0 4px 15px rgba(52, 211, 153, 0.25)">
+  <h2 style="color:#10b981">🔁 Object Mapping – Transforming Models with Ease</h2>
+  <p><strong>Object Mapping</strong> is the process of converting one type of object to another. It’s especially common when working with layers like DTOs (Data Transfer Objects), ViewModels, and domain entities in modern applications.</p>
+
+  <h3 style="color:#34d399">📌 Why Object Mapping?</h3>
+  <ul style="padding-left:1.2rem; list-style:disc">
+    <li>✅ Keeps application layers clean and separated (e.g., API vs Business logic)</li>
+    <li>✅ Helps avoid over-posting and leaking internal structure</li>
+    <li>✅ Simplifies transformation logic for nested or complex objects</li>
+    <li>✅ Makes code more maintainable and testable</li>
+  </ul>
+
+  <h3 style="color:#10b981">🎯 Common Use Cases</h3>
+  <ul style="list-style:circle; padding-left:1.2rem; color:#065f46">
+    <li>Mapping domain models to DTOs (and vice versa)</li>
+    <li>Adapting external API models to internal application models</li>
+    <li>Converting between database entities and presentation models</li>
+  </ul>
+
+  <h3 style="color:#34d399">🧰 Popular Mapping Tools in .NET</h3>
+  <ul>
+    <li><strong>AutoMapper:</strong> Convention-based, powerful object mapper</li>
+    <li><strong>Mapster:</strong> High-performance, attribute-based or fluent mapping</li>
+    <li><strong>Manual Mapping:</strong> Explicit and readable, but verbose</li>
+  </ul>
+
+  <h3 style="color:#10b981">🛠️ Sample Manual Mapping</h3>
+  <pre style="background:#dcfce7; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>// Domain model
+public class Product {
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public decimal Price { get; set; }
+}
+
+// DTO
+public class ProductDto {
+    public string Name { get; set; }
+    public decimal Price { get; set; }
+}
+
+// Mapping
+var dto = new ProductDto {
+    Name = product.Name,
+    Price = product.Price
+};</code></pre>
+
+  <h3 style="color:#34d399">🧩 When to Use What?</h3>
+  <ul>
+    <li>🔹 Use <strong>AutoMapper</strong> for convention-based quick mappings</li>
+    <li>🔹 Use <strong>Mapster</strong> for performance-sensitive and customizable mappings</li>
+    <li>🔹 Use <strong>manual mapping</strong> when you need full control and explicitness</li>
+  </ul>
+
+  <h3 style="color:#10b981">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://automapper.org/" target="_blank" style="color:#10b981">AutoMapper – Official Docs</a></li>
+    <li><a href="https://github.com/MapsterMapper/Mapster" target="_blank" style="color:#10b981">Mapster on GitHub</a></li>
+    <li><a href="https://learn.microsoft.com/en-us/dotnet/architecture/modern-web-apps-azure/common-web-application-architectures#entity-models-vs-viewmodels" target="_blank" style="color:#10b981">MS Docs: Models vs DTOs</a></li>
+  </ul>
+</div>
+`,
       children: [
         {
           id: "manual-mapping", title: "Manual mapping", type: "must-know",
@@ -5707,62 +6339,54 @@ private int CalculateAge(DateTime birthDate)
 </div>
 ` },
         {
-          id: "mappery", title: "Mapperly", type: "good-to-know",
-          description: `<div style="background:#e3f2fd; border-left:6px solid #2196f3; padding:25px 30px; margin-bottom:30px; border-radius:10px; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#0d47a1;">
-  <h2 style="color:#1976d2; margin-bottom:15px;">🛠️ Mapperly: High-Performance Source-Generated Object Mapping for .NET</h2>
+          id: "mappery", title: "Mapster", type: "good-to-know",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#ecfdf5; padding:1.5rem; border-radius:1rem; border:1px solid #34d399; box-shadow:0 4px 15px rgba(52, 211, 153, 0.25)">
+  <h2 style="color:#10b981">⚡ Mapster – High-Performance Object Mapping for .NET</h2>
+  <p><strong>Mapster</strong> is a lightweight and extremely fast object mapping library for .NET. It supports both convention-based and attribute-based mappings and is designed for performance-critical applications.</p>
 
-  <p>
-    <strong>Mapperly</strong> is a modern, source generator-based object mapping library for .NET that offers blazing-fast, compile-time safe mappings with zero runtime reflection. It helps you avoid the overhead and pitfalls of runtime mappers by generating mapping code during compilation.
-  </p>
-
-  <h3 style="color:#1976d2; margin-top:25px;">🔍 Why Use Mapperly?</h3>
-  <ul style="background:#bbdefb; border-radius:8px; padding:15px 20px; color:#0d47a1; font-weight:600;">
-    <li style="margin-bottom:10px;">⚡ Ultra-fast performance with no runtime reflection overhead.</li>
-    <li style="margin-bottom:10px;">🔒 Compile-time safety - mapping errors are caught early.</li>
-    <li style="margin-bottom:10px;">🛠️ Simple attribute-based configuration for flexible mapping.</li>
-    <li style="margin-bottom:10px;">📦 Lightweight - minimal dependencies and easy to integrate.</li>
-    <li style="margin-bottom:10px;">🧩 Supports complex scenarios including custom converters and nested mappings.</li>
+  <h3 style="color:#34d399">🚀 Key Features</h3>
+  <ul style="padding-left:1.2rem; list-style:disc">
+    <li>⚡ Blazing fast performance (compiles mapping to expressions)</li>
+    <li>🔧 Flexible configuration (fluent or attribute-based)</li>
+    <li>🎯 Supports projection directly from IQueryable (EF Core optimized)</li>
+    <li>🧩 Easily handles nested and complex object mapping</li>
   </ul>
 
-  <h3 style="color:#1976d2; margin-top:25px;">⚙️ Basic Example</h3>
-  <pre style="background:#0d47a1; color:#e3f2fd; padding:20px; border-radius:10px; overflow-x:auto;">
-<code>using Riok.Mapperly.Abstractions;
+  <h3 style="color:#10b981">📦 Installation</h3>
+  <pre style="background:#d1fae5; padding:1rem; border-radius:0.75rem"><code>dotnet add package Mapster
+dotnet add package Mapster.DependencyInjection</code></pre>
 
-public class UserEntity
-{
-    public string FirstName { get; set; }
-    public string LastName { get; set; }
-}
+  <h3 style="color:#34d399">💡 Basic Usage</h3>
+  <pre style="background:#d1fae5; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>// Source object
+var product = new Product { Name = "Laptop", Price = 1200 };
 
-public class UserDto
-{
-    public string FullName { get; set; }
-}
+// Simple mapping
+var dto = product.Adapt&lt;ProductDto&gt;();</code></pre>
 
-[Mapper]
-public partial class UserMapper
-{
-    public partial UserDto Map(UserEntity user);
-}</code>
-  </pre>
+  <h3 style="color:#10b981">🛠️ Advanced Configuration</h3>
+  <pre style="background:#d1fae5; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>TypeAdapterConfig&lt;Product, ProductDto&gt;.NewConfig()
+    .Map(dest =&gt; dest.Price, src =&gt; Math.Round(src.Price, 2))
+    .Ignore(dest =&gt; dest.InternalCode);</code></pre>
 
-  <p>
-    Mapperly will generate the implementation of <code>UserMapper.Map</code> at compile time, combining <code>FirstName</code> and <code>LastName</code> into <code>FullName</code> if configured properly.
-  </p>
+  <h3 style="color:#34d399">📈 EF Core Projection</h3>
+  <p>Mapster can project directly from your database queries to DTOs:</p>
+  <pre style="background:#d1fae5; padding:1rem; border-radius:0.75rem; overflow-x:auto"><code>var products = await dbContext.Products
+    .ProjectToType&lt;ProductDto&gt;()
+    .ToListAsync();</code></pre>
 
-  <h3 style="color:#1976d2; margin-top:25px;">💡 Best Practices</h3>
-  <ul style="color:#0d47a1;">
-    <li style="margin-bottom:12px;">Use Mapperly for high-performance scenarios where runtime mappers introduce bottlenecks.</li>
-    <li style="margin-bottom:12px;">Keep your mapper classes small and focused per domain or feature.</li>
-    <li style="margin-bottom:12px;">Leverage custom mapping methods for special transformations.</li>
-    <li style="margin-bottom:12px;">Include unit tests for your mapping logic even if it's generated to ensure expected behavior.</li>
-    <li style="margin-bottom:12px;">Regularly update Mapperly package to benefit from latest improvements and bug fixes.</li>
+  <h3 style="color:#10b981">🧪 Best Practices</h3>
+  <ul>
+    <li>✅ Use <code>TypeAdapterConfig</code> for reusable mappings</li>
+    <li>✅ Use <code>ProjectToType</code> for IQueryable EF performance</li>
+    <li>✅ Consider attribute-based mapping for quick setups</li>
+    <li>✅ Avoid overusing Mapster inside tight loops — precompile if needed</li>
   </ul>
 
-  <h3 style="color:#1976d2; margin-top:25px;">🔗 Learn More</h3>
-  <ul style="color:#0d47a1;">
-    <li><a href="https://github.com/riok/mapperly" target="_blank" style="color:#1976d2; text-decoration:none;">Mapperly GitHub Repository</a></li>
-    <li><a href="https://github.com/riok/mapperly#readme" target="_blank" style="color:#1976d2; text-decoration:none;">Official Documentation & Examples</a></li>
+  <h3 style="color:#34d399">📚 Resources</h3>
+  <ul>
+    <li><a href="https://github.com/MapsterMapper/Mapster" target="_blank" style="color:#10b981">GitHub – Mapster</a></li>
+    <li><a href="https://mapster.io/" target="_blank" style="color:#10b981">Official Docs – mapster.io</a></li>
+    <li><a href="https://www.youtube.com/watch?v=DNGeZ8fJjH4" target="_blank" style="color:#10b981">Mapster vs AutoMapper (YouTube)</a></li>
   </ul>
 </div>
 ` },
@@ -5837,6 +6461,62 @@ services.AddAutoMapper(typeof(UserProfile));</code>
       id: "microservices",
       title: "Microservices",
       direction: "left",
+      description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #38bdf8; box-shadow:0 4px 15px rgba(56, 189, 248, 0.25)">
+  <h2 style="color:#0ea5e9">🧱 Microservices – Scalable & Modular Software Architecture</h2>
+
+  <p><strong>Microservices</strong> is an architectural style that structures an application as a collection of loosely coupled, independently deployable services. Each service is responsible for a single piece of business functionality and communicates with others through APIs or messaging systems.</p>
+
+  <h3 style="color:#38bdf8">🌟 Core Principles</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>🔹 <strong>Single Responsibility:</strong> Each service solves one specific business problem</li>
+    <li>🔹 <strong>Autonomous Deployment:</strong> Services can be developed and deployed independently</li>
+    <li>🔹 <strong>Decentralized Data:</strong> Each service manages its own database or storage</li>
+    <li>🔹 <strong>Inter-Service Communication:</strong> Via REST APIs, gRPC, or message queues</li>
+    <li>🔹 <strong>Fault Isolation:</strong> Failures are contained and don’t bring down the entire system</li>
+  </ul>
+
+  <h3 style="color:#0ea5e9">🧩 Key Benefits</h3>
+  <ul style="list-style:circle; padding-left:1.2rem; color:#0369a1">
+    <li>⚙️ Enables continuous delivery and independent scaling</li>
+    <li>🚀 Increases development speed across teams</li>
+    <li>🔐 Improves fault tolerance and resiliency</li>
+    <li>🌍 Allows polyglot programming (each service can use its own tech stack)</li>
+  </ul>
+
+  <h3 style="color:#38bdf8">🏗️ Typical Microservice Components</h3>
+  <ul>
+    <li>🔗 <strong>API Gateway:</strong> Entry point for all client requests</li>
+    <li>📦 <strong>Service Registry & Discovery:</strong> Keeps track of service locations</li>
+    <li>📨 <strong>Message Broker:</strong> Enables async communication (RabbitMQ, Kafka, etc.)</li>
+    <li>🛡️ <strong>Resilience Tools:</strong> Circuit Breakers, Retries, Timeouts (e.g., Polly)</li>
+    <li>🔍 <strong>Observability Stack:</strong> Logging, Tracing, Metrics (e.g., ELK, Jaeger, Prometheus)</li>
+    <li>🔒 <strong>Security:</strong> Authentication & Authorization (JWT, OAuth, API Keys)</li>
+  </ul>
+
+  <h3 style="color:#0ea5e9">🔄 Communication Patterns</h3>
+  <ul>
+    <li>🧾 <strong>HTTP/REST</strong>: Simple and widely supported</li>
+    <li>⚡ <strong>gRPC</strong>: Efficient binary protocol with strong typing</li>
+    <li>📨 <strong>Asynchronous Messaging</strong>: Decouples producers and consumers</li>
+  </ul>
+
+  <h3 style="color:#38bdf8">🛡️ Best Practices</h3>
+  <ul>
+    <li>✅ Keep services small, focused, and testable</li>
+    <li>✅ Handle inter-service failure gracefully</li>
+    <li>✅ Use versioning for service contracts</li>
+    <li>✅ Embrace eventual consistency</li>
+    <li>✅ Automate deployments and monitoring</li>
+  </ul>
+
+  <h3 style="color:#0ea5e9">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://martinfowler.com/microservices/" target="_blank" style="color:#0ea5e9">Martin Fowler – Microservices Guide</a></li>
+    <li><a href="https://docs.microsoft.com/en-us/dotnet/architecture/microservices/" target="_blank" style="color:#0ea5e9">Microsoft eBook on Microservices</a></li>
+    <li><a href="https://microservices.io/" target="_blank" style="color:#0ea5e9">Microservices.io – Pattern Catalog</a></li>
+  </ul>
+</div>
+`,
       children: [
         {
           id: "message-broker",
@@ -7291,6 +7971,35 @@ kubectl scale deployment &lt;deployment-name&gt; --replicas=5
         {
           id: "other",
           title: "Other",
+          description: `<div style="font-family:sans-serif; line-height:1.6; background:#fefce8; padding:1.5rem; border-radius:1rem; border:1px solid #facc15; box-shadow:0 4px 12px rgba(250, 204, 21, 0.25)">
+  <h2 style="color:#ca8a04">🧠 Advanced Distributed Application Frameworks</h2>
+  <p>This group includes powerful frameworks and runtimes tailored for building distributed, event-driven, and actor-based systems in .NET. These tools offer advanced primitives for scalability, fault tolerance, state management, and messaging patterns in modern cloud-native or on-premise environments.</p>
+
+  <h3 style="color:#f59e0b">🚀 Why These Tools?</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>📦 Encapsulate distributed system complexities like state, messaging, and concurrency</li>
+    <li>⚙️ Enable advanced orchestration, event sourcing, actor-based design, and pub-sub models</li>
+    <li>🌍 Ideal for microservices, cloud-native apps, and real-time processing</li>
+    <li>🔧 Compatible with ASP.NET Core, Kubernetes, and cloud providers</li>
+  </ul>
+
+  <h3 style="color:#ca8a04">📌 Frameworks Included</h3>
+  <ul>
+    <li><strong>.NET Aspire:</strong> Opinionated stack for cloud-native development with built-in observability, configuration, and service discovery</li>
+    <li><strong>Orleans:</strong> Virtual Actor Model for building distributed, scalable applications with ease</li>
+    <li><strong>Proto.Actor:</strong> Fast, lightweight actor model library for building distributed apps</li>
+    <li><strong>Dapr:</strong> Platform-agnostic runtime that provides building blocks for microservices (state, pub-sub, secret store)</li>
+    <li><strong>Akka.NET:</strong> Port of the JVM Akka library for event-driven, actor-based applications in .NET</li>
+  </ul>
+
+  <h3 style="color:#f59e0b">📚 When Should You Learn This?</h3>
+  <ul>
+    <li>✔️ After mastering ASP.NET Core, messaging, and microservices basics</li>
+    <li>✔️ When building highly scalable or real-time distributed systems</li>
+    <li>✔️ If you need abstractions for stateful actors or resilient communication</li>
+  </ul>
+</div>
+`,
           children: [
             {
               id: "net-aspire", title: ".NET Aspire", type: "good-to-know",
@@ -7634,7 +8343,53 @@ greeter.Tell("Akka.NET");</code></pre>
       id: "testing",
       title: "Testing",
       direction: "right",
+      description: `<div style="font-family:sans-serif; line-height:1.6; background:#f9fafb; padding:1.5rem; border-radius:1rem; border:1px solid #d1d5db; box-shadow:0 4px 15px rgba(0,0,0,0.05)">
+  <h2 style="color:#2563eb">🧪 Software Testing – Ensure Quality, Confidence & Maintainability</h2>
 
+  <p><strong>Testing</strong> is the foundation of building reliable and maintainable applications. It enables developers to verify correctness, prevent regressions, and evolve systems safely. A well-structured testing strategy includes different layers, each targeting specific risks and scopes.</p>
+
+  <h3 style="color:#1d4ed8">📚 Testing Types (What You Should Know)</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li><strong>✅ Unit Testing:</strong> Test isolated functions/methods. Fast, deterministic, and forms the base of the testing pyramid.</li>
+    <li><strong>✅ Integration Testing:</strong> Test interactions between components (e.g., API + DB, Service + Cache).</li>
+    <li><strong>🧠 Snapshot Testing:</strong> Automatically compare output with a saved snapshot (used in UI or serialization scenarios).</li>
+    <li><strong>🧾 Behavior Testing (BDD):</strong> Focus on business behavior. Describe expected outcomes using tools like SpecFlow.</li>
+    <li><strong>🚦 End-to-End (E2E) Testing:</strong> Simulate user flows across the whole system, often using browsers (Playwright, Selenium).</li>
+    <li><strong>📈 Performance Testing:</strong> Validate speed, scalability, and load-handling (e.g., BenchmarkDotNet, JMeter).</li>
+    <li><strong>🏗️ Architecture Testing:</strong> Ensure architectural rules (e.g., no dependency cycles, domain boundaries) using tools like NetArchTest.</li>
+  </ul>
+
+  <h3 style="color:#2563eb">🛠️ .NET Testing Toolset</h3>
+  <ul>
+    <li><strong>xUnit / NUnit / MSTest:</strong> Core unit testing frameworks</li>
+    <li><strong>Moq / NSubstitute / FakeItEasy:</strong> For mocking dependencies</li>
+    <li><strong>FluentAssertions:</strong> Expressive, human-readable assertions</li>
+    <li><strong>WebApplicationFactory:</strong> Easy integration testing for ASP.NET Core</li>
+    <li><strong>Playwright / Selenium:</strong> E2E browser automation</li>
+    <li><strong>BenchmarkDotNet:</strong> Performance benchmarking for .NET code</li>
+    <li><strong>NetArchTest:</strong> Architecture rule enforcement</li>
+  </ul>
+
+  <h3 style="color:#1d4ed8">🧭 Testing Strategy Tips</h3>
+  <ul style="list-style:square; padding-left:1.2rem">
+    <li>🔺 Follow the Testing Pyramid: More unit tests, fewer E2E</li>
+    <li>♻️ Automate all test types in CI/CD pipelines</li>
+    <li>💬 Write tests as documentation (clear, intention-revealing)</li>
+    <li>⚡ Keep tests fast and isolated whenever possible</li>
+    <li>🔐 Include security and performance in your testing strategy</li>
+  </ul>
+
+  <h3 style="color:#2563eb">📚 Resources</h3>
+  <ul>
+    <li><a href="https://xunit.net/" target="_blank" style="color:#2563eb">xUnit Documentation</a></li>
+    <li><a href="https://fluentassertions.com/" target="_blank" style="color:#2563eb">Fluent Assertions</a></li>
+    <li><a href="https://benchmarkdotnet.org/" target="_blank" style="color:#2563eb">BenchmarkDotNet</a></li>
+    <li><a href="https://specflow.org/" target="_blank" style="color:#2563eb">SpecFlow - BDD for .NET</a></li>
+    <li><a href="https://playwright.dev/dotnet/" target="_blank" style="color:#2563eb">Playwright for .NET</a></li>
+    <li><a href="https://github.com/BenMorris/NetArchTest" target="_blank" style="color:#2563eb">NetArchTest on GitHub</a></li>
+  </ul>
+</div>
+`,
       children: [
         {
           id: "unit-testing",
@@ -10136,6 +10891,34 @@ public void ServicesShouldNotDependOnControllers()
       id: "design-patterns",
       title: "Design Patterns",
       direction: "left",
+      description: `<div style="font-family:sans-serif; line-height:1.6; background:#fdf4ff; padding:1.5rem; border-radius:1rem; border:1px solid #e879f9; box-shadow:0 4px 12px rgba(232, 121, 249, 0.15)">
+  <h2 style="color:#c026d3">🎨 Design Patterns – Proven Solutions to Common Problems</h2>
+
+  <p><strong>Design Patterns</strong> are time-tested, reusable solutions to common problems that arise in software design. They improve code readability, flexibility, and maintainability by offering best practices for structuring relationships between classes and objects.</p>
+
+  <h3 style="color:#d946ef">🔧 Pattern Categories</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li><strong>Creational Patterns:</strong> Handle object creation mechanisms to increase flexibility and reuse (e.g., Singleton, Factory Method, Builder).</li>
+    <li><strong>Structural Patterns:</strong> Deal with object composition and structure to simplify complex relationships (e.g., Adapter, Composite, Facade).</li>
+    <li><strong>Behavioral Patterns:</strong> Focus on communication between objects and responsibilities (e.g., Strategy, Observer, Command).</li>
+  </ul>
+
+  <h3 style="color:#c026d3">📦 Why Learn Design Patterns?</h3>
+  <ul>
+    <li>📚 Improve architectural thinking and design flexibility</li>
+    <li>🤝 Communicate more effectively with other developers (shared vocabulary)</li>
+    <li>🧱 Encourage code reuse and prevent reinventing the wheel</li>
+    <li>💡 Discover better solutions through well-established patterns</li>
+  </ul>
+
+  <h3 style="color:#d946ef">📚 Resources</h3>
+  <ul>
+    <li><a href="https://refactoring.guru/design-patterns" target="_blank" style="color:#c026d3">Refactoring.Guru – Design Patterns</a></li>
+    <li><a href="https://dotnet.microsoft.com/en-us/learn/dotnet/architecture-guides" target="_blank" style="color:#c026d3">Microsoft .NET Architecture Guides</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/Design_Patterns" target="_blank" style="color:#c026d3">GoF Patterns (Gang of Four)</a></li>
+  </ul>
+</div>
+`,
       children: [
         {
           id: "creational", title: "Creational", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
@@ -10375,6 +11158,52 @@ public class PayPalPayment : IPaymentStrategy
       id: "continuous-integration-delivery",
       title: "Continuous Integration & Delivery (Automation)",
       direction: "right",
+      description:`<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:1.5rem; border-radius:1rem; border:1px solid #34d399; box-shadow:0 4px 12px rgba(52, 211, 153, 0.15)">
+  <h2 style="color:#10b981">🚀 Continuous Integration & Delivery (Automation)</h2>
+
+  <p><strong>CI/CD</strong> stands for <em>Continuous Integration</em> and <em>Continuous Delivery/Deployment</em>. It is a set of practices and tools that allow teams to deliver code changes more frequently and reliably through automation pipelines. CI/CD is fundamental to DevOps and modern software engineering.</p>
+
+  <h3 style="color:#34d399">⚙️ Key Concepts</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li><strong>Continuous Integration (CI):</strong> Developers frequently merge code into a shared repository, triggering automated builds and tests.</li>
+    <li><strong>Continuous Delivery (CD):</strong> Automatically prepares and verifies new code for release to staging or production environments.</li>
+    <li><strong>Continuous Deployment:</strong> An extension of CD where code changes are automatically pushed to production once verified.</li>
+  </ul>
+
+  <h3 style="color:#10b981">🔧 Benefits of CI/CD</h3>
+  <ul>
+    <li>✅ Fast feedback loop for developers</li>
+    <li>✅ Early bug detection through automated testing</li>
+    <li>✅ Reduced manual effort in build, test, and deployment</li>
+    <li>✅ Enables smaller, safer, and more frequent releases</li>
+  </ul>
+
+  <h3 style="color:#34d399">🛠️ Popular CI/CD Tools</h3>
+  <ul>
+    <li><strong>GitHub Actions:</strong> Native CI/CD for GitHub repositories. Easy to set up workflows with YAML.</li>
+    <li><strong>Azure Pipelines:</strong> Part of Azure DevOps. Supports complex, multi-stage pipelines and hybrid deployments.</li>
+    <li><strong>GitLab CI/CD:</strong> Fully integrated with GitLab. Offers built-in runners and advanced pipeline configuration.</li>
+    <li><strong>TeamCity:</strong> Powerful CI server by JetBrains. Offers parallel builds, custom runners, and great IDE integration.</li>
+  </ul>
+
+  <h3 style="color:#10b981">📚 Best Practices</h3>
+  <ul>
+    <li>🧪 Always run tests and static analysis in your CI pipeline</li>
+    <li>🚧 Use feature flags for safe rollouts</li>
+    <li>🔒 Secure your pipeline credentials (secrets management)</li>
+    <li>📦 Use artifact versioning and deployment approvals</li>
+    <li>📈 Monitor build durations and failure rates continuously</li>
+  </ul>
+
+  <h3 style="color:#34d399">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://docs.github.com/en/actions" target="_blank" style="color:#10b981">GitHub Actions Docs</a></li>
+    <li><a href="https://learn.microsoft.com/en-us/azure/devops/pipelines/" target="_blank" style="color:#10b981">Azure Pipelines Docs</a></li>
+    <li><a href="https://docs.gitlab.com/ee/ci/" target="_blank" style="color:#10b981">GitLab CI/CD Docs</a></li>
+    <li><a href="https://www.jetbrains.com/teamcity/documentation/" target="_blank" style="color:#10b981">TeamCity Documentation</a></li>
+  </ul>
+</div>
+`,
       children: [
         {
           id: "github-actions", title: "GitHub Actions", type: "must-know", description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:2rem; border-radius:1rem; border:2px solid #22c55e; box-shadow:0 6px 20px rgba(34,197,94,0.2)">
@@ -10653,6 +11482,65 @@ steps:
       id: "monitoring-logging-tracing-alerting",
       title: "Monitoring/Logging/Tracing/Alerting",
       direction: "right",
+      description: `<div style="font-family:sans-serif; line-height:1.6; background:#f9fafb; padding:2rem; border-radius:1rem; border:1px solid #d1d5db; box-shadow:0 4px 15px rgba(0,0,0,0.05)">
+  <h2 style="color:#0ea5e9">📡 Monitoring / Logging / Tracing / Alerting</h2>
+  <p>These four pillars form the foundation of <strong>observability</strong> in modern software systems. They help developers understand what’s happening inside their applications and respond quickly to issues.</p>
+
+  <hr style="margin:1.5rem 0">
+
+  <h3 style="color:#10b981">📊 Monitoring</h3>
+  <p>Tracks real-time metrics like CPU, memory, requests/sec, and error rates to understand application and infrastructure health.</p>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>📈 Visualize trends with dashboards (Grafana, Datadog)</li>
+    <li>🧠 Identify performance bottlenecks early</li>
+    <li>⚙️ Tools: Prometheus, Grafana, Datadog</li>
+  </ul>
+
+  <h3 style="color:#ca8a04">📝 Logging</h3>
+  <p>Captures structured information about application events to assist with debugging, auditing, and tracking system behavior.</p>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>🧩 Use structured formats (JSON logs)</li>
+    <li>🔗 Correlate logs using request/trace IDs</li>
+    <li>⚙️ Tools: Serilog, NLog, log4net, ELK Stack, Sentry.io</li>
+  </ul>
+
+  <h3 style="color:#3b82f6">🔍 Tracing</h3>
+  <p>Follows a request’s path across microservices and components, identifying where time is spent and where failures happen.</p>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>🧭 Essential for debugging distributed systems</li>
+    <li>🕵️ Links logs + metrics via spans and trace IDs</li>
+    <li>⚙️ Tools: OpenTelemetry (OTel), Jaeger, Zipkin, Datadog, Sentry.io</li>
+  </ul>
+
+  <h3 style="color:#ef4444">🚨 Alerting</h3>
+  <p>Sends notifications when thresholds or anomalies occur, enabling proactive response to production issues.</p>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li>🔔 Trigger alerts from metrics, logs, or traces</li>
+    <li>📬 Send to Slack, email, pager, or webhook</li>
+    <li>⚙️ Tools: Alertmanager, Zabbix, Datadog, Sentry.io</li>
+  </ul>
+
+  <hr style="margin:1.5rem 0">
+
+  <h3 style="color:#0ea5e9">💡 Best Practices</h3>
+  <ul>
+    <li>✅ Use all 4 together for full observability</li>
+    <li>📦 Centralize logs and traces for unified debugging</li>
+    <li>📈 Create SLOs/SLIs to define and track expectations</li>
+    <li>🔐 Secure access to sensitive logs and dashboards</li>
+    <li>🔁 Continuously tune alerts to reduce noise</li>
+  </ul>
+
+  <h3 style="color:#0ea5e9">📚 Learn More</h3>
+  <ul>
+    <li><a href="https://opentelemetry.io/" target="_blank" style="color:#0ea5e9">OpenTelemetry (official site)</a></li>
+    <li><a href="https://grafana.com/oss/prometheus/" target="_blank" style="color:#0ea5e9">Prometheus + Grafana</a></li>
+    <li><a href="https://www.elastic.co/elastic-stack/" target="_blank" style="color:#0ea5e9">ELK Stack</a></li>
+    <li><a href="https://sentry.io/" target="_blank" style="color:#0ea5e9">Sentry.io</a></li>
+    <li><a href="https://www.datadoghq.com/" target="_blank" style="color:#0ea5e9">Datadog Monitoring</a></li>
+  </ul>
+</div>
+`,
       children: [
         {
           id: "monitoring",
@@ -11818,7 +12706,8 @@ builder.Host.UseSerilog();
   </ul>
 </div>
 ` },
-                { id: "sentry-io-trace", title: "Sentry.io", type: "optional", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+                {
+                  id: "sentry-io-trace", title: "Sentry.io", type: "optional", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
   <h2 style='color:#3b82f6'>🐞 Cloud Tracing with Sentry Performance</h2>
   <p><strong>Sentry</strong>, hata izleme aracı olarak bilinse de Cloud ortamlarında güçlü bir <strong>Performance Monitoring & Tracing</strong> yeteneğine sahiptir. Uygulama performansını izler, hataların etkisini ölçer ve dağıtık sistemlerdeki gecikmeleri (latency) net bir şekilde görselleştirir :contentReference[oaicite:1]{index=1}.</p>
 
@@ -11972,7 +12861,8 @@ builder.Host.UseSerilog();
 </div>
 `,
               children: [
-                { id: "zabbix", title: "Zabbix", type: "must-know", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+                {
+                  id: "zabbix", title: "Zabbix", type: "must-know", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
   <h2 style='color:#3b82f6'>📟 Alerting – On-Premises – Zabbix</h2>
   <p><strong>Zabbix</strong> is a powerful open-source monitoring and alerting solution for on-premises environments. It provides real-time monitoring, flexible alert rules, and detailed notifications for hosts, services, and infrastructure components.</p>
 
@@ -12019,7 +12909,8 @@ builder.Host.UseSerilog();
   </ul>
 </div>
 ` },
-                { id: "alertmanager", title: "Alertmanager", type: "optional", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+                {
+                  id: "alertmanager", title: "Alertmanager", type: "optional", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
   <h2 style='color:#3b82f6'>📢 Alerting – On-Premises – Alertmanager</h2>
   <p><strong>Alertmanager</strong> is an essential part of the Prometheus monitoring stack, designed to manage alerts from Prometheus servers. It handles deduplication, grouping, routing, and notification of alerts for on-premises environments.</p>
 
@@ -12121,7 +13012,8 @@ builder.Host.UseSerilog();
 </div>
 `,
               children: [
-                { id: "datadog-alert", title: "Datadog", type: "must-know", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+                {
+                  id: "datadog-alert", title: "Datadog", type: "must-know", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
   <h2 style='color:#3b82f6'>☁️ Alerting – Cloud – Datadog</h2>
   <p><strong>Datadog</strong> is a modern monitoring and observability platform that provides robust alerting capabilities across cloud-native, hybrid, and microservices architectures. It allows teams to create, manage, and escalate alerts based on logs, metrics, traces, and more.</p>
 
@@ -12276,7 +13168,8 @@ builder.Host.UseSerilog();
 </div>
 `,
           children: [
-            { id: "razor", title: "Razor", type: "must-know", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+            {
+              id: "razor", title: "Razor", type: "must-know", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
   <h2 style='color:#3b82f6'>🧩 Template Engines – Razor</h2>
   <p><strong>Razor</strong> is a markup syntax used in ASP.NET for embedding C# logic into HTML templates. It enables clean and efficient server-side rendering of dynamic web pages.</p>
 
@@ -12328,7 +13221,8 @@ builder.Host.UseSerilog();
   </ul>
 </div>
 ` },
-            { id: "scriban", title: "Scriban", type: "optional", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
+            {
+              id: "scriban", title: "Scriban", type: "optional", description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
   <h2 style='color:#3b82f6'>🧾 Template Engines – Scriban</h2>
   <p><strong>Scriban</strong> is a fast, powerful, and lightweight text templating engine for .NET. It's ideal for generating structured documents like emails, reports, configuration files, and source code.</p>
 
@@ -12722,6 +13616,39 @@ public class CounterPage : ContentPage
     {
       id: "good-to-know-libraries",
       title: "Good to Know Libraries",
+      description: `<div style="font-family:sans-serif; background:#f0f9ff; padding:1.5rem; border-radius:1rem; border:1px solid #38bdf8; box-shadow:0 4px 12px rgba(56, 189, 248, 0.15)">
+  <h2 style="color:#0ea5e9">📚 Good to Know Libraries</h2>
+  <p>These are high-quality, battle-tested .NET libraries that aren't strictly required but can significantly improve your development workflow and application robustness.</p>
+  
+  <h3 style="color:#38bdf8">🛠 Included Libraries</h3>
+  <ul style="list-style:disc; padding-left:1.2rem">
+    <li><strong>Scalar:</strong> Value object encapsulation for domain-driven design.</li>
+    <li><strong>MediatR:</strong> Simple in-process messaging, great for CQRS and clean architecture.</li>
+    <li><strong>FluentValidation:</strong> Fluent API for expressive and testable model validations.</li>
+    <li><strong>Polly:</strong> Resilience and transient-fault handling library (retry, circuit breaker, etc).</li>
+    <li><strong>Benchmark.NET:</strong> Powerful benchmarking library to measure and compare .NET code performance.</li>
+    <li><strong>DistributedLock:</strong> Provides distributed locking primitives using Redis, SQL Server, etc.</li>
+    <li><strong>Nuke.Build:</strong> C#-based build automation tool (alternative to YAML CI/CD config).</li>
+    <li><strong>Marten:</strong> Event store and document database library for PostgreSQL in .NET.</li>
+  </ul>
+
+  <h3 style="color:#0ea5e9">📌 Why This Matters</h3>
+  <ul>
+    <li>🔧 Solve cross-cutting concerns cleanly</li>
+    <li>⚡ Reduce boilerplate and improve maintainability</li>
+    <li>📈 Make your application more resilient and performant</li>
+    <li>🚀 Empower advanced development workflows</li>
+  </ul>
+
+  <h3 style="color:#0ea5e9">🧠 When to Use</h3>
+  <ul>
+    <li>✅ You need expressive validation without bloating your models</li>
+    <li>✅ Your domain logic demands separation of concerns (CQRS/MediatR)</li>
+    <li>✅ You want production-grade error recovery (Polly)</li>
+    <li>✅ You’re building complex or large systems needing automation (Nuke, Marten, etc)</li>
+  </ul>
+</div>
+`,
       direction: "left",
       children: [
         {
@@ -13487,6 +14414,57 @@ Console.WriteLine(chat.FirstChoice.Message.Content);
     {
       id: "keep-learning",
       title: "Keep Learning :)",
+      description: `<div style="
+  font-family: 'Segoe UI', sans-serif;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 1rem;
+  padding: 2rem;
+  color: #f8fafc;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  margin-top: 3rem;
+">
+
+  <h2 style="font-size: 1.75rem; margin-bottom: 1rem; color: #7dd3fc;">
+    📖 Timeless Developer Quotes
+  </h2>
+
+  <ul style="list-style-type: none; padding-left: 0; line-height: 1.8; font-size: 1.05rem;">
+    <li style="margin-bottom: 1rem;">
+      <em style="color:#e0f2fe">"Clean code always looks like it was written by someone who cares."</em><br />
+      — <strong style="color:#bae6fd;">Robert C. Martin</strong>, <span style="color:#94a3b8;">Clean Code</span>
+    </li>
+    <li style="margin-bottom: 1rem;">
+      <em style="color:#e0f2fe">"Programs must be written for people to read, and only incidentally for machines to execute."</em><br />
+      — <strong style="color:#bae6fd;">Harold Abelson</strong>, <span style="color:#94a3b8;">SICP</span>
+    </li>
+    <li style="margin-bottom: 1rem;">
+      <em style="color:#e0f2fe">"The only way to go fast is to go well."</em><br />
+      — <strong style="color:#bae6fd;">Robert C. Martin</strong>
+    </li>
+    <li style="margin-bottom: 1rem;">
+      <em style="color:#e0f2fe">"Any fool can write code that a computer can understand. Good programmers write code that humans can understand."</em><br />
+      — <strong style="color:#bae6fd;">Martin Fowler</strong>
+    </li>
+    <li style="margin-bottom: 1rem;">
+      <em style="color:#e0f2fe">"Simplicity is prerequisite for reliability."</em><br />
+      — <strong style="color:#bae6fd;">Edsger W. Dijkstra</strong>
+    </li>
+    <li style="margin-bottom: 1rem;">
+      <em style="color:#e0f2fe">"Before software can be reusable, it first has to be usable."</em><br />
+      — <strong style="color:#bae6fd;">Ralph Johnson</strong>
+    </li>
+  </ul>
+
+  <p style="font-style: italic; color: #94a3b8; margin-top: 1.5rem;">
+    💬 *Read code like poetry. Write it like you're leaving a legacy.*
+  </p>
+</div>
+
+
+`,
       direction: "right",
     }
   ]
