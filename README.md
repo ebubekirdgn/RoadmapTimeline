@@ -59,8 +59,3 @@ Follow the steps below to run the project on your local machine:
 
 ---
 
-## ☁️ Deploy with Vercel
-
-You can deploy your project to Vercel with a single click using the button below:
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-username%2FRoadmapTimeline)
