@@ -30,7 +30,7 @@ export default function CustomEdge({
 }: CustomEdgeProps) {
   const nodes = useNodes();
   const sourceNode = nodes.find((node) => node.id === source);
-  const type = sourceNode?.data?.type;
+  const type: string = (sourceNode?.data?.type as string) || "";
 
   const colorMap: Record<string, string> = {
     "must-know": "#ef4444", // red-500
