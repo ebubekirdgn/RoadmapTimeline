@@ -41,7 +41,7 @@ Follow the steps below to run the project on your local machine:
 
 1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/your-username/RoadmapTimeline.git
+   git clone https://github.com/ebubekirdgn/RoadmapTimeline.git
    cd RoadmapTimeline
    ```
 
