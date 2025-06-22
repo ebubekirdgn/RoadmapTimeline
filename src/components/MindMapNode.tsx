@@ -13,18 +13,19 @@ interface MindMapNodeProps {
     direction?: string;
     description?: string;
     link?: string;
+    isMainBranch: boolean;
   };
 }
 
 const badgeColor: Record<string, string> = {
   "must-know": "bg-red-500",
   "good-to-know": "bg-yellow-500",
-  "optional": "bg-blue-500",
+  "optional": "bg-gray-400",
   "spine": "bg-transparent",
 };
 
 const MindMapNode = ({ data }: MindMapNodeProps) => {
-  const { title, type, children, direction, description, link } = data;
+  const { title, type, children, direction, description, link, isMainBranch } = data;
   const [modalOpen, setModalOpen] = useState(false);
   
   const childCount = children?.length || 0;
@@ -90,7 +91,7 @@ const MindMapNode = ({ data }: MindMapNodeProps) => {
         title={showTooltip ? title : undefined} // Show tooltip if title is truncated
       >
         <div className="flex items-center justify-center gap-3">
-          <div className={`status-dot w-3 h-3 rounded-full ${badgeColor[type as keyof typeof badgeColor] || badgeColor.optional} transition-colors duration-300 flex-shrink-0`}></div>
+          <div className={`status-dot w-3 h-3 rounded-full ${badgeColor[type as keyof typeof badgeColor] || (isMainBranch ? 'bg-red-500' : 'bg-gray-400')} transition-colors duration-300 flex-shrink-0`}></div>
           <div className="font-semibold text-xl text-gray-800 dark:text-gray-100 text-left flex-1 line-clamp-2 leading-tight">
             {displayTitle}
           </div>

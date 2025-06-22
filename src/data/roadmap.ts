@@ -5,6 +5,7 @@ export const roadmapData = {
       id: "general-skills",
       title: "General Development Skills",
       direction: "right",
+      type: "must-know",
       description: `<div style="font-family: 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; border-radius: 1rem; padding: 2rem; box-shadow: 0 6px 20px rgba(0,0,0,0.06); border: 1px solid #e2e8f0; max-width: 960px; margin: auto;">
 
   <div style="background: linear-gradient(to right, #0f172a, #334155); padding: 1.2rem 1.5rem; border-radius: 0.75rem; color: #f8fafc; margin-bottom: 2rem;">
@@ -100,6 +101,7 @@ git merge main # Merge changes</code></pre><h3 style='color:#8b5cf6'>🧰 Platfo
     {
       id: "csharp",
       title: "C#",
+      type: "must-know",
       direction: "left",
       description: `<div style="font-family: 'Segoe UI', sans-serif; background: #f9fafb; color: #1f2937; border-radius: 1rem; padding: 2rem; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; max-width: 960px; margin: auto;">
 
@@ -381,6 +383,7 @@ if (isValid)
     {
       id: "sql-fundamentals",
       title: "SQL Fundamentals",
+      type: "must-know",
       description: `<div style="font-family: 'Segoe UI', sans-serif; background: #fdfdfd; color: #1f2937; border-radius: 1rem; padding: 2rem; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; max-width: 960px; margin: auto;">
 
   <!-- Header -->
@@ -702,6 +705,7 @@ END;
     {
       id: "aspnet-core-basics",
       title: "ASP.NET Core Basics",
+      type: "must-know",
       description: `<div style="font-family: 'Segoe UI', sans-serif; background: #fdfdfd; color: #1f2937; border-radius: 1rem; padding: 2rem; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 1px solid #e5e7eb; max-width: 960px; margin: auto;">
 
   <!-- Header -->
@@ -1372,6 +1376,7 @@ public class ContactForm
       id: "solid",
       title: "SOLID",
       direction: "right",
+      type: "must-know",
       description: `<div style="font-family:'Segoe UI',sans-serif;background:#fdfdfd;color:#1f2937;border-radius:1rem;padding:2rem;box-shadow:0 8px 30px rgba(0,0,0,0.08);border:1px solid #e5e7eb;max-width:960px;margin:auto;">
 
   <!-- Header -->
@@ -4815,6 +4820,7 @@ public class HomeController : Controller
     {
       id: "real-time-communication",
       title: "Real Time Communication",
+      "type": "good-to-know",
       direction: "left",
       description: `<div style="font-family:sans-serif; line-height:1.6; background:#f0fdf4; padding:1.5rem; border-radius:1rem; border:1px solid #34d399; box-shadow:0 4px 15px rgba(52, 211, 153, 0.3)">
   <h2 style="color:#10b981">📡 What is Real-Time Communication?</h2>
@@ -5887,6 +5893,7 @@ services.AddGraphQL(options => {
     {
       id: "background-task-scheduler",
       title: "Background Task Scheduler",
+      "type": "good-to-know",
       direction: "left",
       description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
   <h2 style='color:#3b82f6'>⏳ Background Task Scheduler</h2>
@@ -13070,6 +13077,7 @@ builder.Host.UseSerilog();
     {
       id: "client-side-dotnet",
       title: "Client-Side .NET",
+      "type": "optional",
       direction: "left",
       description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
   <h2 style='color:#3b82f6'>🖥️ Client-Side .NET</h2>
@@ -14224,6 +14232,7 @@ using (var session = store.LightweightSession())
     {
       id: "ai-llms",
       title: "AI / LLMs",
+      "type": "good-to-know",
       direction: "right",
       description: `<div style='font-family:sans-serif;line-height:1.6;background:#fdfdfd;padding:1.5rem;border-radius:1rem;border:1px solid #e5e7eb;box-shadow:0 4px 12px rgba(0,0,0,0.05)'>
   <h2 style='color:#3b82f6'>🧠 AI / LLMs (Large Language Models)</h2>
