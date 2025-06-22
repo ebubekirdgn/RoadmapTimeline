@@ -248,11 +248,10 @@ export default function MindMap({
           onInit={onInit}
           attributionPosition="bottom-left"
           zoomOnScroll
+          zoomOnPinch
           panOnDrag
-          preventScrolling={false}
-          nodesDraggable
-          nodesConnectable={false}
-          className="bg-transparent"
+          nodesDraggable={!isMobile}
+          className="animate-fade-in"
         >
           <Background color="#94a3b8" gap={16} />
           <Controls showZoom showFitView />
