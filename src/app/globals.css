@@ -3,14 +3,27 @@
 :root {
   --background-color-light: #ffffff;
   --grid-color-light: #e5e7eb; /* gray-200 */
-  --color-background: var(--background-color-light);
-  --color-foreground: #111827; /* gray-900 */
+  --background-color-dark: #030712; /* gray-950 */
+  --grid-color-dark: #1f2937;  /* gray-800 */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 15, 23, 42; /* slate-900 */
+    --background-end-rgb: 15, 23, 42; /* slate-900 */
+  }
+}
+
 body {
-  color: var(--color-foreground);
+  color: #111827; /* gray-900 */
   background-color: var(--background-color-light);
 }
 
@@ -36,9 +49,18 @@ body {
       linear-gradient(var(--grid-color-light) 1px, transparent 1px),
       linear-gradient(to right, var(--grid-color-light) 1px, transparent 1px);
     background-size: 40px 40px;
-    animation: pulse-grid 10s ease-in-out infinite;
   }
 
+  @media (prefers-color-scheme: dark) {
+    .modern-grid-background {
+      background-color: var(--background-color-dark);
+      background-image:
+        linear-gradient(var(--grid-color-dark) 1px, transparent 1px),
+        linear-gradient(to right, var(--grid-color-dark) 1px, transparent 1px);
+    }
+  }
+
+  /* Add a subtle pulse animation to the grid background */
   @keyframes pulse-grid {
     0%, 100% {
       background-size: 40px 40px;
@@ -46,6 +68,10 @@ body {
     50% {
       background-size: 42px 42px;
     }
+  }
+
+  .modern-grid-background {
+    animation: pulse-grid 10s ease-in-out infinite;
   }
 
   .pulse-glow {
@@ -59,27 +85,5 @@ body {
     50% {
       box-shadow: 0 0 24px 8px rgba(59, 130, 246, 0.2);
     }
-  }
-}
-
-/* Zorla light tema - sistem teması ne olursa olsun */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background-color-light: #ffffff !important;
-    --grid-color-light: #e5e7eb !important;
-    --color-foreground: #111827 !important;
-    --color-background: #ffffff !important;
-  }
-
-  body {
-    background-color: #ffffff !important;
-    color: #111827 !important;
-  }
-
-  .modern-grid-background {
-    background-color: #ffffff !important;
-    background-image:
-      linear-gradient(#e5e7eb 1px, transparent 1px),
-      linear-gradient(to right, #e5e7eb 1px, transparent 1px);
   }
 }
