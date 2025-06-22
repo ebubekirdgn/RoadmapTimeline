@@ -1,30 +1,30 @@
 # 🗺️ Roadmap-Timeline
 
-**Yol haritalarınızı interaktif ve görsel bir şölene dönüştürün.**
+**Transform your roadmaps into an interactive and visual feast.**
 
-Bu proje, karmaşık öğrenme ve geliştirme yol haritalarını, anlaşılması kolay, etkileşimli ve estetik bir zihin haritası (mind map) arayüzüyle görselleştirmek için oluşturulmuştur.
+This project was created to visualize complex learning and development roadmaps with an easy-to-understand, interactive, and aesthetic mind map interface.
 
-![Roadmap-Timeline Demo](https://via.placeholder.com/800x400.png?text=Projenizin+Ekran+Görüntüsünü+Buraya+Ekleyin)
-*<p align="center">Uygulamanın canlı halinin ekran görüntüsünü buraya ekleyebilirsiniz.</p>*
-
----
-
-## ✨ Özellikler
-
-- **İnteraktif Arayüz:** Yakınlaştırılabilir ve sürüklenebilir harita üzerinde konuları rahatça keşfedin.
-- **Anlamsal Renk Kodlaması:**
-  - <span style="color:#ef4444">**Kırmızı:**</span> Bilinmesi gereken (Must-Know) konular.
-  - <span style="color:#f59e0b">**Sarı:**</span> Bilinmesinde fayda olan (Good-to-Know) konular.
-  - <span style="color:#3b82f6">**Mavi:**</span> Opsiyonel konular.
-- **Akıcı Animasyonlar:** Konular arası geçişler ve bağlantılar, akıcı animasyonlarla daha anlaşılır hale getirildi.
-- **Modern Teknoloji:** Hızlı, duyarlı ve modern bir kullanıcı deneyimi sunar.
-- **Kolayca Özelleştirilebilir:** `src/data/roadmap.ts` dosyasını düzenleyerek kendi yol haritanızı kolayca oluşturabilirsiniz.
+![Roadmap-Timeline Demo](https://via.placeholder.com/800x400.png?text=Add+Your+Project+Screenshot+Here)
+*<p align="center">You can add a screenshot of the live application here.</p>*
 
 ---
 
-## 🚀 Teknoloji Yığını
+## ✨ Features
 
-Bu proje, aşağıdaki modern web teknolojileri kullanılarak geliştirilmiştir:
+- **Interactive Interface:** Easily explore topics on a zoomable and draggable map.
+- **Semantic Color-Coding:**
+  - <span style="color:#ef4444">**Red:**</span> Must-Know topics.
+  - <span style="color:#f59e0b">**Amber:**</span> Good-to-Know topics.
+  - <span style="color:#3b82f6">**Blue:**</span> Optional topics.
+- **Fluid Animations:** Transitions and connections between topics are made clearer with smooth animations.
+- **Modern Technology:** Delivers a fast, responsive, and modern user experience.
+- **Easily Customizable:** You can easily create your own roadmap by editing the `src/data/roadmap.ts` file.
+
+---
+
+## 🚀 Tech Stack
+
+This project was developed using the following modern web technologies:
 
 ![Next.js](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
@@ -35,32 +35,32 @@ Bu proje, aşağıdaki modern web teknolojileri kullanılarak geliştirilmiştir
 
 ---
 
-## 🛠️ Kurulum ve Başlatma
+## 🛠️ Setup and Launch
 
-Projeyi yerel makinenizde çalıştırmak için aşağıdaki adımları izleyin:
+Follow the steps below to run the project on your local machine:
 
-1. **Depoyu Klonlayın:**
+1. **Clone the Repository:**
    ```bash
-   git clone https://github.com/kullanici-adiniz/RoadmapTimeline.git
+   git clone https://github.com/your-username/RoadmapTimeline.git
    cd RoadmapTimeline
    ```
 
-2. **Bağımlılıkları Yükleyin:**
+2. **Install Dependencies:**
    ```bash
    npm install
    ```
 
-3. **Geliştirme Sunucusunu Başlatın:**
+3. **Start the Development Server:**
    ```bash
    npm run dev
    ```
 
-   Tarayıcınızda `http://localhost:3000` adresini açarak uygulamayı görüntüleyebilirsiniz.
+   Open `http://localhost:3000` in your browser to view the application.
 
 ---
 
-## ☁️ Vercel ile Dağıtım
+## ☁️ Deploy with Vercel
 
-Projenizi tek bir tıklama ile Vercel üzerinde canlıya almak için aşağıdaki butonu kullanabilirsiniz:
+You can deploy your project to Vercel with a single click using the button below:
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fkullanici-adiniz%2FRoadmapTimeline)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fyour-username%2FRoadmapTimeline)
