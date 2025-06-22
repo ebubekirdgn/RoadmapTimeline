@@ -5,7 +5,7 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-  darkMode: 'class', // <-- burayı ekle
+  darkMode: 'false', // <-- burayı ekle
   theme: {
     extend: {},
   },
