@@ -2,7 +2,6 @@
 
 import { ReactNode, useEffect } from "react";
 import ReactDOM from "react-dom";
-import { motion, AnimatePresence } from "framer-motion";
 import React from "react";
 
 interface ModalProps {

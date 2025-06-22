@@ -91,7 +91,7 @@ const MindMapNode = ({ data }: MindMapNodeProps) => {
       >
         <div className="flex items-center justify-center gap-3">
           <div className={`status-dot w-3 h-3 rounded-full ${badgeColor[type as keyof typeof badgeColor] || badgeColor.optional} transition-colors duration-300 flex-shrink-0`}></div>
-          <div className="font-semibold text-lg text-gray-800 dark:text-gray-100 text-left flex-1 line-clamp-2 leading-tight">
+          <div className="font-semibold text-xl text-gray-800 dark:text-gray-100 text-left flex-1 line-clamp-2 leading-tight">
             {displayTitle}
           </div>
            {childCount > 0 && 

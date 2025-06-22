@@ -32,7 +32,7 @@ const convertToReactFlowData = (
   const nodes: Node[] = [];
   const edges: Edge[] = [];
 
-  const nodeVerticalGap = 110;
+  const nodeVerticalGap = 80;
   const nodeHorizontalGapRight = 380; // Shorter gap for the right side
   const nodeHorizontalGapLeft = 450;  // Longer gap for the left side
   const canvasWidth = isMobile ? 1500 : 3000;
@@ -92,7 +92,7 @@ const convertToReactFlowData = (
   };
 
   const rootId = "root";
-  const rootNodeY = 0;
+  const rootNodeY = -50;
   const gapBelowRoot = 150; // Reverted from 15800
 
   nodes.push({
@@ -223,7 +223,7 @@ export default function MindMap({
       reactFlowInstance.setCenter(initialXMobile, 150, { zoom: 0.9, duration: 0 });
     } else {
       // On desktop, show a wider, zoomed-out view.
-      reactFlowInstance.setCenter(initialXDesktop, 450, { zoom: 0.7, duration: 0 });
+      reactFlowInstance.setCenter(initialXDesktop, 580, { zoom: 0.7, duration: 0 });
     }
   }, [isMobile, canvasWidth]);
 
