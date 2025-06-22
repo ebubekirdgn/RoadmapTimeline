@@ -17,6 +17,7 @@ import {
 import "@xyflow/react/dist/style.css";
 import MindMapNode from "./MindMapNode";
 import CustomEdge from "./CustomEdge";
+import Legend from "./Legend";
 
 type RoadmapNode = {
   id: string;
@@ -256,6 +257,7 @@ export default function MindMap({
           <Background color="#94a3b8" gap={16} />
           <Controls showZoom showFitView />
         </ReactFlow>
+        <Legend />
       </div>
     </div>
   );
