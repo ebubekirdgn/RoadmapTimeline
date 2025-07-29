@@ -13,7 +13,7 @@ interface MindMapNodeProps {
     direction?: string;
     description?: string;
     link?: string;
-    isMainBranch: boolean;
+    isMainBranch?: boolean;
   };
 }
 
@@ -48,7 +48,7 @@ const MindMapNode = ({ data }: MindMapNodeProps) => {
   if (isSpine) {
     return (
       <div className="animate-fade-in-scale">
-        <h1 className="text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-500 to-purple-500 dark:from-sky-300 dark:via-blue-400 dark:to-purple-400 tracking-tighter text-center drop-shadow-lg animate-gradient-text">
+        <h1 className="text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-400 via-blue-500 to-purple-500 tracking-tighter text-center drop-shadow-lg animate-gradient-text">
           {title}
         </h1>
         <style>
@@ -75,9 +75,9 @@ const MindMapNode = ({ data }: MindMapNodeProps) => {
   return (
     <>
       <div
-        className={`mindmap-node group rounded-xl shadow-lg bg-white/50 dark:bg-gray-800/50 backdrop-blur-lg border border-white/20 dark:border-gray-700/30 transition-all duration-300 ease-in-out animate-fade-in-scale
+        className={`mindmap-node group rounded-xl shadow-lg bg-white/50 backdrop-blur-lg border border-white/20 transition-all duration-300 ease-in-out animate-fade-in-scale
         ${isClickable 
-          ? 'cursor-pointer hover:shadow-2xl hover:scale-105 hover:border-sky-400/50 dark:hover:border-sky-500/50 hover:shadow-sky-500/10' 
+          ? 'cursor-pointer hover:shadow-2xl hover:scale-105 hover:border-sky-400/50 hover:shadow-sky-500/10' 
           : 'shadow-md'
         }
         `}
@@ -92,11 +92,11 @@ const MindMapNode = ({ data }: MindMapNodeProps) => {
       >
         <div className="flex items-center justify-center gap-3">
           <div className={`status-dot w-3 h-3 rounded-full ${badgeColor[type as keyof typeof badgeColor] || (isMainBranch ? 'bg-red-500' : 'bg-gray-400')} transition-colors duration-300 flex-shrink-0`}></div>
-          <div className="font-semibold text-xl text-gray-800 dark:text-gray-100 text-left flex-1 line-clamp-2 leading-tight">
+          <div className="font-semibold text-xl text-gray-800 text-left flex-1 line-clamp-2 leading-tight">
             {displayTitle}
           </div>
            {childCount > 0 && 
-            <div className="text-xs font-bold text-gray-700 dark:text-gray-300 bg-gray-200/30 dark:bg-gray-700/50 rounded-full px-2 py-0.5 flex-shrink-0">
+            <div className="text-xs font-bold text-gray-700 bg-gray-200/30 rounded-full px-2 py-0.5 flex-shrink-0">
               {childCount}
             </div>
            }
@@ -106,7 +106,7 @@ const MindMapNode = ({ data }: MindMapNodeProps) => {
             type="target"
             position={isLeft ? Position.Right : Position.Left}
             id="target"
-            className="!w-2 !h-2 !bg-gray-400 dark:!bg-gray-600 !border-0 group-hover:!bg-sky-500 transition-colors duration-300"
+            className="!w-2 !h-2 !bg-gray-400 !border-0 group-hover:!bg-sky-500 transition-colors duration-300"
           />
         )}
         {childCount > 0 && (
@@ -114,21 +114,21 @@ const MindMapNode = ({ data }: MindMapNodeProps) => {
             type="source"
             position={isLeft ? Position.Left : Position.Right}
             id="source"
-            className="!w-2 !h-2 !bg-gray-400 dark:!bg-gray-600 !border-0 group-hover:!bg-sky-500 transition-colors duration-300"
+            className="!w-2 !h-2 !bg-gray-400 !border-0 group-hover:!bg-sky-500 transition-colors duration-300"
           />
         )}
       </div>
 
       {isClickable && (
         <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} title={title}>
-          <div className="prose prose-lg max-w-none text-gray-900 dark:text-gray-100" dangerouslySetInnerHTML={{ __html: description || "" }} />
+          <div className="prose prose-lg max-w-none text-gray-900" dangerouslySetInnerHTML={{ __html: description || "" }} />
           {link && (
               <p className="mt-6">
                 <a
                   href={link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`text-sky-500 hover:text-sky-600 dark:text-sky-400 dark:hover:text-sky-300 font-bold underline underline-offset-4 transition-colors duration-200 inline-flex items-center gap-1`}
+                  className={`text-sky-500 hover:text-sky-600 font-bold underline underline-offset-4 transition-colors duration-200 inline-flex items-center gap-1`}
                 >
                   Learn more <span>→</span>
                 </a>

@@ -3,8 +3,6 @@
 :root {
   --background-color-light: #ffffff;
   --grid-color-light: #e5e7eb; /* gray-200 */
-  --background-color-dark: #030712; /* gray-950 */
-  --grid-color-dark: #1f2937;  /* gray-800 */
 }
 
 @theme inline {
@@ -12,14 +10,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 15, 23, 42; /* slate-900 */
-    --background-end-rgb: 15, 23, 42; /* slate-900 */
-  }
 }
 
 body {
@@ -49,15 +39,6 @@ body {
       linear-gradient(var(--grid-color-light) 1px, transparent 1px),
       linear-gradient(to right, var(--grid-color-light) 1px, transparent 1px);
     background-size: 40px 40px;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    .modern-grid-background {
-      background-color: var(--background-color-dark);
-      background-image:
-        linear-gradient(var(--grid-color-dark) 1px, transparent 1px),
-        linear-gradient(to right, var(--grid-color-dark) 1px, transparent 1px);
-    }
   }
 
   /* Add a subtle pulse animation to the grid background */
